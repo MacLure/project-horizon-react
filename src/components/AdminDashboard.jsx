@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import CohortCard from './CohortCard';
 import CohortDetails from './CohortDetails';
+import NewCohortForm from './NewCohortForm';
 
 
 class AdminDashboard extends Component {
@@ -21,6 +22,22 @@ class AdminDashboard extends Component {
       });
     })
     }
+    //POST REQUEST FOR NEW COHORTS
+    // handleSubmit(event){ 
+    //   event.preventDefault();
+    //   IS THIS THE RIGHT ADDRESS??
+    //   fetch('https://project-horizon-rails.herokuapp.com/admin', {
+    //    method: 'post',
+    //    headers: {'Content-Type':'application/json'},
+    //    body: {
+    //    THESE ARE UNDEFINED
+    //     "start_date": this.startDate.value,
+    //     "end_date": this.endDate.value,
+    //     "name": this.name.value,
+    //     "course_type": this.courseType.value
+    //    }
+    //   });
+    //  };
 
   render() { 
     const admins = this.state.admins
@@ -31,6 +48,8 @@ class AdminDashboard extends Component {
         {this.state.cohorts.map(cohort => (
           <CohortCard key={cohort.id} data={cohort} />
         ))}
+
+        <NewCohortForm />
 
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
 
