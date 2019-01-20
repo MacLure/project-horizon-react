@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import CohortCard from './CohortCard';
 import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
+import NewStudentForm from './NewStudentForm';
 
 
 class AdminDashboard extends Component {
@@ -50,6 +51,7 @@ class AdminDashboard extends Component {
         ))}
 
         <NewCohortForm />
+        <NewStudentForm />
 
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
 
