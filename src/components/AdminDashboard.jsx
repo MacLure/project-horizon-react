@@ -4,6 +4,11 @@ import {Link} from "react-router-dom";
 class AdminDashboard extends Component {
   state = {  }
   render() { 
+
+    fetch('https://project-horizon-rails.herokuapp.com/admin')
+      .then(e=>e.json())
+      .then(e=>console.log(e))
+
     return (
       <div>
         <p>Admin Dashboard</p>
