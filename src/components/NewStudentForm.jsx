@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class NewStudentForm extends Component {
-  state = { 
+  state = {
     first_name: '',
     last_name: '',
     phone: '',
@@ -10,14 +10,14 @@ class NewStudentForm extends Component {
     image_url: ''
    }
 
-  render() { 
-    return ( 
-      <div>
+  render() {
+    return (
+      <div className="hello"> 
       New Student
         <form>
           <label for="first_name">First Name</label>
           <input type="text" name="first_name"></input>
-        
+
           <label for="last_name">Last Name</label>
           <input type="text" name="last_name"></input>
 
@@ -32,14 +32,10 @@ class NewStudentForm extends Component {
 
           <label for="image_url">Image URL</label>
           <input type="text" name="image_url"></input>
-
-
-
-
         </form>
       </div>
      );
   }
 }
- 
+
 export default NewStudentForm;

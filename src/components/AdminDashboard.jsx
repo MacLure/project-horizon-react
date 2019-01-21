@@ -7,7 +7,7 @@ import NewStudentForm from './NewStudentForm';
 
 
 class AdminDashboard extends Component {
-  state = { 
+  state = {
     admins: [],
     cohorts: [],
     students: []
@@ -24,7 +24,7 @@ class AdminDashboard extends Component {
     })
     }
     //POST REQUEST FOR NEW COHORTS
-    // handleSubmit(event){ 
+    // handleSubmit(event){
     //   event.preventDefault();
     //   IS THIS THE RIGHT ADDRESS??
     //   fetch('https://project-horizon-rails.herokuapp.com/admin', {
@@ -40,7 +40,7 @@ class AdminDashboard extends Component {
     //   });
     //  };
 
-  render() { 
+  render() {
     const admins = this.state.admins
     return (
       <div>
@@ -62,5 +62,5 @@ class AdminDashboard extends Component {
     );
   }
 }
- 
+
 export default AdminDashboard;
