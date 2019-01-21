@@ -3,16 +3,22 @@
   background-color: #0D1118;
   color: white;
   letter-spacing: 2px;
+  text-decoration: none;
+}
+
+ li {
+  list-style: none;
+  text-align: left;
 }
 
 .container_large {
   background-color: #232F41;
   margin: auto;
-  margin-top: 250px;
+  margin-top: 50px;
   width: 35%;
   border-radius: 2px;
+  /* padding: 20px; */
 }
-
 
 /* FORM STYLING */
 
@@ -32,7 +38,7 @@ input {
 }
 
 .submit {
-  margin: 20px 0;
+  margin: 20px 5px;
   cursor: pointer;
   padding: 7px 12px;
   background-color: #DD3D0F;
@@ -66,3 +72,17 @@ p > a:hover {
 }
 
 /* FORM END */
+
+
+.cohort_card {
+  background-color: #232F41;
+  margin: auto;
+  margin-top: 20px;
+  width: 35%;
+  border-radius: 2px;
+  padding: 10px 0px;
+}
+
+.cohort_card > p, ul, li{
+  background-color: inherit;
+}
