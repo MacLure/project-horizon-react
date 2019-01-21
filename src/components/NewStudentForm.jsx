@@ -12,9 +12,9 @@ class NewStudentForm extends Component {
 
   render() {
     return (
-      <div className="container_large">
+      <div>
       New Student
-        <form method="post" className="container_large">
+        <form method="post">
           <label for="first_name">First Name</label>
           <input type="text" name="first_name"></input>
 

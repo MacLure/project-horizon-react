@@ -6,9 +6,10 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <div class="container_large">
-          <h2>Create an Account</h2>
-          <form method="post">
+        <div className="container_large">
+
+          <form method="post" className="container_large">
+            <h2>Create an Account</h2>
 
             <label for="first_name">First Name</label>
             <input type="text" name="first_name"></input>
@@ -31,7 +32,8 @@ class Signup extends Component {
             <label for="confirm_password">Confrim Password</label>
             <input type="password" name="confirm_password"></input>
 
-            <br/><button type="submit" class="submit">Submit</button>
+            <br/><button type="submit" class="submit">Submit</button><br/>
+            <p>Already have an account? Log back in <Link to="/login">here</Link></p>
           </form>
         </div>
 
@@ -40,7 +42,7 @@ class Signup extends Component {
 
         <Link to="/student">Student Dashboard</Link><br />
         <Link to="/admin">Admin Dashboard</Link><br />
-        <Link to="/login">Login</Link><br/>
+
 
       </div>
       );

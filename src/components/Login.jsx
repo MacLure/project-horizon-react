@@ -6,9 +6,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div class="container_large">
+        <div className="container_large">
+          <form method="post" className="container_large">
           <h2>Welcome Back</h2>
-          <form method="post">
             <label for="email">Email</label>
             <input type="text" name="email"></input>
             <label for="password">Password</label>
@@ -17,12 +17,6 @@ class Login extends Component {
             <br/><button type="submit" class="submit">Submit</button>
           </form>
         </div>
-
-
-
-
-
-
 
         <Link to="/student">Student Dashboard</Link><br />
         <Link to="/admin">Admin Dashboard</Link><br />
