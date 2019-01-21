@@ -70,6 +70,14 @@ input, select {
   border: 1px solid black;
   border-radius: 2px;
   padding: 5px 10px;
+  transition: border 0.5s;
+  cursor: pointer;
+}
+
+input:hover, select:hover {
+  border: 1px solid #DD3D0F;
+  transition: border 0.5s;
+  background-color: rgba(221,61,15,0.5);
 }
 
 .submit {
