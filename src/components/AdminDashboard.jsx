@@ -5,6 +5,7 @@ import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
 import NewStudentForm from './NewStudentForm';
 import Footer from './Footer';
+import NavBar from './NavBar'
 
 
 class AdminDashboard extends Component {
@@ -45,19 +46,17 @@ class AdminDashboard extends Component {
     const admins = this.state.admins
     return (
       <div>
+        <NavBar/>
         <h1>Dashboard</h1>
-
-          <NewCohortForm />
-          <NewStudentForm />
-
+        <NewCohortForm />
+        <NewStudentForm />
         <div>
           {this.state.cohorts.map(cohort => (
             <CohortCard key={cohort.id} data={cohort} />
            ))}
         </div>
-
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
-
+        <br/>
         <Footer/>
       </div>
     );
