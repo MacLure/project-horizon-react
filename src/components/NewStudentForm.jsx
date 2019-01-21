@@ -13,8 +13,8 @@ class NewStudentForm extends Component {
   render() {
     return (
       <div>
-      New Student
-        <form method="post">
+        <form method="post" className="container_large">
+        <h2>New Student</h2>
           <label for="first_name">First Name</label>
           <input type="text" name="first_name"></input>
 
@@ -27,10 +27,7 @@ class NewStudentForm extends Component {
           <label for="email">Email</label>
           <input type="text" name="email"></input>
 
-          <label for="cohort_id">Cohort</label>
-          <input type="text" name="cohort_id"></input>
-
-          <button type="submit">Submit</button>
+          <br/><button type="submit" className="submit">Submit</button>
         </form>
       </div>
      );

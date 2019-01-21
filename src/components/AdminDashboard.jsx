@@ -44,20 +44,28 @@ class AdminDashboard extends Component {
     const admins = this.state.admins
     return (
       <div>
-        <p>Admin Dashboard</p>
+        <h1>Dashboard</h1>
+        <div>
 
-        {this.state.cohorts.map(cohort => (
-          <CohortCard key={cohort.id} data={cohort} />
-        ))}
+          <NewCohortForm />
+          <NewStudentForm />
 
-        <NewCohortForm />
-        <NewStudentForm />
+
+
+
+        <div>
+          {this.state.cohorts.map(cohort => (
+            <CohortCard key={cohort.id} data={cohort} />
+          ))}
+        </div>
 
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
+        </div>
 
         <Link to="/student">Student Dashboard</Link><br/>
         <Link to="/signup">Sign up</Link><br/>
         <Link to="/login">Log in</Link><br/>
+
       </div>
     );
   }
