@@ -12,9 +12,9 @@ class NewStudentForm extends Component {
 
   render() {
     return (
-      <div className="hello"> 
+      <div className="container_large">
       New Student
-        <form>
+        <form method="post" className="container_large">
           <label for="first_name">First Name</label>
           <input type="text" name="first_name"></input>
 
@@ -22,7 +22,7 @@ class NewStudentForm extends Component {
           <input type="text" name="last_name"></input>
 
           <label for="phone">Phone Number</label>
-          <input type="text" name="phone"></input>
+          <input type="tel" name="phone"></input>
 
           <label for="email">Email</label>
           <input type="text" name="email"></input>
@@ -30,8 +30,7 @@ class NewStudentForm extends Component {
           <label for="cohort_id">Cohort</label>
           <input type="text" name="cohort_id"></input>
 
-          <label for="image_url">Image URL</label>
-          <input type="text" name="image_url"></input>
+          <button type="submit">Submit</button>
         </form>
       </div>
      );
