@@ -5,10 +5,17 @@ class NavBar extends Component {
   render() {
     return (
       <div className="nav">
-        <h2>LOGO</h2>
-        <h3>Dashboard</h3>
 
-      </div>
+
+          <ul>
+      
+            <li>Dashboard</li>
+            <li>Articles</li>
+            <li>Job Board</li>
+            <li>Events</li>
+            <li>Settings</li>
+          </ul>
+    </div>
      );
   }
 }
