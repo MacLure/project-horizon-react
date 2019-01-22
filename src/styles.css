@@ -21,8 +21,6 @@ h1 {
   padding: 20px 0;
 }
 
-
-
 li {
   list-style: none;
   text-align: left;
@@ -60,10 +58,12 @@ form > h2 {
   padding-top: 20px;
   background-color: inherit;
 }
+
 label {
   display: block;
   padding: 5px 0;
   background-color: inherit;
+  color: white;
 }
 
 input, select {
@@ -74,11 +74,12 @@ input, select {
   cursor: pointer;
 }
 
-input:hover, select:hover {
+input:focus, select:focus {
   border: 1px solid #DD3D0F;
   transition: border 0.5s;
-  background-color: rgba(221,61,15,0.5);
 }
+
+
 
 .submit {
   margin: 20px 5px;
@@ -126,6 +127,8 @@ p > a:hover {
   padding: 10px 0px;
 }
 
+
+
 .cohort_card > p, ul, li{
   background-color: inherit;
 }
@@ -162,7 +165,36 @@ footer > a {
   transition: color 0.4s;
 }
 
-footer > a:hover {
+footer > a:hover, .not_found > a:hover {
   transition: color 0.4s;
   color: #DD3D0F;
+}
+
+.not_found > a {
+  display: inline-block;
+  color: white;
+  padding: 0 10px;
+  background-color: inherit;
+  transition: color 0.4s;
+}
+
+.not_found {
+  background-color: #232F41;
+  margin: auto;
+  margin-top: 20px;
+  width: 35%;
+  border-radius: 2px;
+  padding: 10px 0px;
+}
+
+.not_found > p {
+  padding: 20px;
+}
+
+.not_found > .submit {
+  display: inline-block;
+}
+
+.not_found > .submit > a {
+  background-color: inherit;
 }
