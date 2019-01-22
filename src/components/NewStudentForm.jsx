@@ -15,16 +15,16 @@ class NewStudentForm extends Component {
       <div>
         <form method="post" className="container_large">
         <h2>New Student</h2>
-          <label for="first_name">First Name</label>
+          <label htmlfor="first_name">First Name</label>
           <input type="text" name="first_name"></input>
 
-          <label for="last_name">Last Name</label>
+          <label htmlfor="last_name">Last Name</label>
           <input type="text" name="last_name"></input>
 
-          <label for="phone">Phone Number</label>
+          <label htmlfor="phone">Phone Number</label>
           <input type="tel" name="phone"></input>
 
-          <label for="email">Email</label>
+          <label htmlfor="email">Email</label>
           <input type="text" name="email"></input>
 
           <br/><button type="submit" className="submit">Submit</button>
