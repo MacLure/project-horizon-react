@@ -4,20 +4,52 @@
   color: white;
   letter-spacing: 2px;
   text-decoration: none;
+  margin: 0;
 }
 
- li {
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+h1 {
+  padding: 20px 0;
+}
+
+li {
   list-style: none;
   text-align: left;
+}
+
+p {
+  background-color: inherit;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  width: 100%;
+  height: 80px;
+  background-color: #263145;
+}
+
+.nav > p {
+  padding-top: 30px;
 }
 
 .container_large {
   background-color: #232F41;
   margin: auto;
-  margin-top: 50px;
   width: 35%;
   border-radius: 2px;
-  /* padding: 20px; */
 }
 
 /* FORM STYLING */
@@ -26,16 +58,28 @@ form > h2 {
   padding-top: 20px;
   background-color: inherit;
 }
+
 label {
   display: block;
   padding: 5px 0;
   background-color: inherit;
+  color: white;
 }
 
-input {
+input, select {
   border: 1px solid black;
   border-radius: 2px;
+  padding: 5px 10px;
+  transition: border 0.5s;
+  cursor: pointer;
 }
+
+input:focus, select:focus {
+  border: 1px solid #DD3D0F;
+  transition: border 0.5s;
+}
+
+
 
 .submit {
   margin: 20px 5px;
@@ -46,6 +90,7 @@ input {
   opacity: 1;
   transition: opacity 0.4s;
   border-radius: 2px;
+  font-size: 1.1em;
 }
 
 .submit:hover {
@@ -73,7 +118,6 @@ p > a:hover {
 
 /* FORM END */
 
-
 .cohort_card {
   background-color: #232F41;
   margin: auto;
@@ -83,6 +127,74 @@ p > a:hover {
   padding: 10px 0px;
 }
 
+
+
 .cohort_card > p, ul, li{
+  background-color: inherit;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.right {
+  grid-column-start: 2;
+  background-color: inherit;
+}
+
+.left {
+  grid-column-start: 1;
+  background-color: inherit;
+}
+
+footer {
+  position: absolute;
+  left: 0 ; right: 0; bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #263145;
+}
+
+footer > a {
+  display: inline-block;
+  color: white;
+  padding: 0 10px;
+  background-color: inherit;
+  margin-top: 30px;
+  transition: color 0.4s;
+}
+
+footer > a:hover, .not_found > a:hover {
+  transition: color 0.4s;
+  color: #DD3D0F;
+}
+
+.not_found > a {
+  display: inline-block;
+  color: white;
+  padding: 0 10px;
+  background-color: inherit;
+  transition: color 0.4s;
+}
+
+.not_found {
+  background-color: #232F41;
+  margin: auto;
+  margin-top: 20px;
+  width: 35%;
+  border-radius: 2px;
+  padding: 10px 0px;
+}
+
+.not_found > p {
+  padding: 20px;
+}
+
+.not_found > .submit {
+  display: inline-block;
+}
+
+.not_found > .submit > a {
   background-color: inherit;
 }

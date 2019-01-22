@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
+import Footer from './Footer';
 
 class Signup extends Component {
   state = {  }
@@ -37,13 +38,7 @@ class Signup extends Component {
           </form>
         </div>
 
-
-
-
-        <Link to="/student">Student Dashboard</Link><br />
-        <Link to="/admin">Admin Dashboard</Link><br />
-
-
+        <Footer/>
       </div>
       );
   }

@@ -13,11 +13,15 @@ class NewCohortForm extends Component {
       <div>
         <form className="container_large">
           <h2>New Cohort</h2>
-          <label for="name">Name</label>
+          <label for="name" placeholder="bb8">Name</label>
           <input type="text" name="name"></input>
 
           <label for="course_type">Course Type</label>
-          <input type="text" name="course_type"></input>
+          <select name="course_type">
+            <option value="1">Web Development </option>
+            <option value="2">User Expierence</option>
+            <option value="3">Data Science</option>
+          </select>
 
           <label for="start_date">Start Date</label>
           <input type="date" name="start_date"></input>
