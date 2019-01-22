@@ -12,25 +12,25 @@ class Signup extends Component {
           <form method="post" className="container_large">
             <h2>Create an Account</h2>
 
-            <label for="first_name">First Name</label>
+            <label htmlfor="first_name">First Name</label>
             <input type="text" name="first_name"></input>
 
-            <label for="last_name">Last Name</label>
+            <label htmlfor="last_name">Last Name</label>
             <input type="text" name="last_name"></input>
 
-            <label for="email">Email</label>
+            <label htmlfor="email">Email</label>
             <input type="text" name="email"></input>
 
-            <label for="phone">Phone Number</label>
+            <label htmlfor="phone">Phone Number</label>
             <input type="text" name="phone"></input>
 
-            <label for="title">Title</label>
+            <label htmlfor="title">Title</label>
             <input type="text" name="title"></input>
 
-            <label for="password">Password</label>
+            <label htmlfor="password">Password</label>
             <input type="password" name="password"></input>
 
-            <label for="confirm_password">Confrim Password</label>
+            <label htmlfor="confirm_password">Confrim Password</label>
             <input type="password" name="confirm_password"></input>
 
             <br/><button type="submit" class="submit">Submit</button><br/>

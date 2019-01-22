@@ -31,6 +31,7 @@ class NewStudentForm extends Component {
       <div>
         <form method="post" className="container_large" onSubmit={this.handleSubmit}>
         <h2>New Student</h2>
+<<<<<<< HEAD
           <label htmlFor="first_name">First Name</label>
           <input type="text" name="first_name"  value={this.state.first_name} onChange={this.handleChange}></input>
 
@@ -42,6 +43,19 @@ class NewStudentForm extends Component {
 
           <label htmlFor="email">Email</label>
           <input type="text" name="email"  value={this.state.email} onChange={this.handleChange}></input>
+=======
+          <label htmlfor="first_name">First Name</label>
+          <input type="text" name="first_name"></input>
+
+          <label htmlfor="last_name">Last Name</label>
+          <input type="text" name="last_name"></input>
+
+          <label htmlfor="phone">Phone Number</label>
+          <input type="tel" name="phone"></input>
+
+          <label htmlfor="email">Email</label>
+          <input type="text" name="email"></input>
+>>>>>>> react_styles
 
           <br/><button type="submit" className="submit">Submit</button>
         </form>
