@@ -8,7 +8,7 @@ const CohortDetails = (props) => {
 
   return (
     <div className="cohort_card grid">
-      <div class="left">
+      <div className="left">
         <p>Staff:</p>
         <ul>
           {admins.map(admin => (
@@ -18,7 +18,7 @@ const CohortDetails = (props) => {
         <button className="submit">add staff member</button> <br />
       </div>
 
-      <div class="right">
+      <div className="right">
       <p>Students:</p>
       <ul>
         {students.map(student => (
