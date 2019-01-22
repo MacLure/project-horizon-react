@@ -31,12 +31,15 @@ class NewCohortForm extends Component {
         <form className="container_large" onSubmit={this.handleSubmit}>
           <h2>New Cohort</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <label htmlFor="name" placeholder="bb8">Name</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></input>
 
           <label htmlFor="course_type">Course Type</label>
           <select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
 =======
+=======
+>>>>>>> react_styles
           <label htmlfor="name" placeholder="bb8">Name</label>
           <input type="text" name="name"></input>
 
@@ -49,12 +52,15 @@ class NewCohortForm extends Component {
           </select>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
           <label htmlFor="start_date">Start Date</label>
           <input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></input>
 
           <label htmlFor="end_date">End Date</label>
           <input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></input>
 =======
+=======
+>>>>>>> react_styles
           <label htmlfor="start_date">Start Date</label>
           <input type="date" name="start_date"></input>
 

@@ -10,9 +10,15 @@ class Login extends Component {
         <div className="container_large">
           <form method="post" className="container_large">
           <h2>Welcome Back</h2>
+<<<<<<< HEAD
             <label htmlFor="email">Email</label>
             <input type="text" name="email"></input>
             <label htmlFor="password">Password</label>
+=======
+            <label htmlfor="email">Email</label>
+            <input type="text" name="email"></input>
+            <label htmlfor="password">Password</label>
+>>>>>>> react_styles
             <input type="password" name="password"></input>
 
             <br/><button type="submit" className="submit">Submit</button>
