@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class NewStudentForm extends Component {
-<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {    first_name: '',
@@ -61,17 +60,6 @@ class NewStudentForm extends Component {
         </form>
       </div>
      );
-=======
- constructor(props) {
-   super(props);
-   this.state = {
-   first_name: '',
-   last_name: '',
-   phone: '',
-   email: '',
-   cohort_id: '',
-   image_url: ''
->>>>>>> react_styles
   }
 
   this.handleChange = this.handleChange.bind(this);
