@@ -18,9 +18,9 @@ class NewCohortForm extends Component {
 
           <label for="course_type">Course Type</label>
           <select name="course_type">
-            <option value="1">Web Development </option>
-            <option value="2">User Expierence</option>
-            <option value="3">Data Science</option>
+            <option value="wdi">Web Development </option>
+            <option value="uxdi">User Expierence</option>
+            <option value="dsi">Data Science</option>
           </select>
 
           <label for="start_date">Start Date</label>
