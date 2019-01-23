@@ -22,10 +22,11 @@ class NewCohortForm extends Component {
    handleSubmit(event) {
     event.preventDefault();
       // fetch('http://localhost:3000/api/admin/cohorts', {
-      fetch('https://project-horizon-rails.herokuapp.com/api/admin/cohorts', {
+      let data = this.state
+      console.log(data);
+        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/cohorts?cohort=${JSON.stringify(data)}`, {
         method: 'post',
-        body: this.state,
-         mode: "cors"
+        mode: "cors"
       })    .then(response => {console.log(this.state)})
 
   }
