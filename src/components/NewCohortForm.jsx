@@ -21,13 +21,13 @@ class NewCohortForm extends Component {
 
    handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
       // fetch('http://localhost:3000/api/admin/cohorts', {
       fetch('https://project-horizon-rails.herokuapp.com/api/admin/cohorts', {
         method: 'post',
-        body: JSON.stringify(this.state),
+        body: this.state,
         headers: {'Content-Type':'application/json'},
-      })
+      })    .then(response => {console.log(this.state)})
+
   }
   
   render() {

@@ -16,7 +16,7 @@ class AdminDashboard extends Component {
   }
 
     componentDidMount() {
-    fetch('https://project-horizon-rails.herokuapp.com/api/admin/dashboard')
+    fetch('https://project-horizon-rails.herokuapp.com/api/admin')
       .then(response=>response.json())
       .then(response=> { this.setState({
         admins: response.admins,
