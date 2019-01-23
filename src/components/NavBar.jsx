@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+
+const NavItem = styled.li`
+  background: blue;
+`
 
 class NavBar extends Component {
   state = {  }
@@ -9,11 +14,11 @@ class NavBar extends Component {
 
           <ul>
       
-            <li>Dashboard</li>
-            <li>Articles</li>
-            <li>Job Board</li>
-            <li>Events</li>
-            <li>Settings</li>
+            <NavItem>Dashboard</NavItem>
+            <NavItem>Articles</NavItem>
+            <NavItem>Job Board</NavItem>
+            <NavItem>Events</NavItem>
+            <NavItem>Settings</NavItem>
           </ul>
     </div>
      );
