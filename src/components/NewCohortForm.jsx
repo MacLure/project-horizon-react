@@ -25,8 +25,7 @@ class NewCohortForm extends Component {
       fetch('https://project-horizon-rails.herokuapp.com/api/admin/cohorts', {
         method: 'post',
         body: this.state,
-        headers: {'Content-Type':'application/json',},
-        mode: "cors"
+         mode: "cors"
       })    .then(response => {console.log(this.state)})
 
   }
