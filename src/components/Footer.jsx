@@ -11,8 +11,7 @@ const Footers = styled.footer`
   background-color: #2b2e34;
   text-align: center;
 `
-
-const Links = styled.a`
+const Text = styled.p`
   display: inline-block;
   color: white;
   padding: 0px 10px;
@@ -23,18 +22,17 @@ const Links = styled.a`
   :hover {
     transition: color 0.5s;
     color: #DD3D0F;
-  }
-`
+}`
 
 const Footer = (props) => {
 
   return (
     <React.Fragment>
     <Footers>
-      <Link to="./admin"><Links>Admin Dashboard</Links></Link>
-      <Link to="./student"><Links>Student Dashboard</Links></Link>
-      <Link to="./signup"><Links>Sign up</Links></Link>
-      <Link to="./login"><Links>Log in</Links></Link>
+      <Link to="./admin"><Text>Admin Dashboard</Text></Link>
+      <Link to="./student"><Text>Student Dashboard</Text></Link>
+      <Link to="./signup"><Text>Sign up</Text></Link>
+      <Link to="./login"><Text>Log in</Text></Link>
     </Footers>
     </React.Fragment>
    );
