@@ -87,43 +87,6 @@ class NewStudentForm extends Component {
     event.preventDefault();
   }
 
-<<<<<<< HEAD
-  render() {
-    return (
-      <div>
-        <form method="post" className="container_large" onSubmit={this.handleSubmit}>
-        <h2>New Student</h2>
-
-          <label htmlFor="first_name">First Name</label>
-          <input type="text" name="first_name"  value={this.state.first_name} onChange={this.handleChange}></input>
-
-          <label htmlFor="last_name">Last Name</label>
-          <input type="text" name="last_name"  value={this.state.last_name} onChange={this.handleChange}></input>
-
-          <label htmlFor="phone">Phone Number</label>
-          <input type="tel" name="phone" value={this.state.phone} onChange={this.handleChange}></input>
-
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email"  value={this.state.email} onChange={this.handleChange}></input>
-
-          <label htmlFor="first_name">First Name</label>
-          <input type="text" name="first_name"></input>
-
-          <label htmlFor="last_name">Last Name</label>
-          <input type="text" name="last_name"></input>
-
-          <label htmlFor="phone">Phone Number</label>
-          <input type="tel" name="phone"></input>
-
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email"></input>
-
-          <br/><button type="submit" className="submit">Submit</button>
-        </form>
-      </div>
-     );
-  }
-=======
  render() {
    return (
      <React.Fragment>
@@ -161,7 +124,6 @@ class NewStudentForm extends Component {
      </React.Fragment>
     );
  }
->>>>>>> react_styles
 }
 
 export default NewStudentForm;

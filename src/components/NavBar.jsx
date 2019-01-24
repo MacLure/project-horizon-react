@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import styled from 'styled-components'
-
-const NavItem = styled.li`
-  background: blue;
-`
-=======
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
 
@@ -43,26 +36,11 @@ const MenuBar = styled.nav`
   justify-content: space-around;
 `
 
->>>>>>> react_styles
 
 class NavBar extends Component {
   state = {  }
   render() {
     return (
-<<<<<<< HEAD
-      <div className="nav">
-
-
-          <ul>
-      
-            <NavItem>Dashboard</NavItem>
-            <NavItem>Articles</NavItem>
-            <NavItem>Job Board</NavItem>
-            <NavItem>Events</NavItem>
-            <NavItem>Settings</NavItem>
-          </ul>
-    </div>
-=======
       <React.Fragment>
         <MenuBar>
           <NavList>
@@ -75,7 +53,6 @@ class NavBar extends Component {
           </NavList>
         </MenuBar>
       </React.Fragment>
->>>>>>> react_styles
      );
   }
 }
