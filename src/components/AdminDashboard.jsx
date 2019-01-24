@@ -5,7 +5,15 @@ import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
 import NewStudentForm from './NewStudentForm';
 import Footer from './Footer';
-import NavBar from './NavBar'
+import NavBar from './NavBar';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: row-wrap;
+  justify-content: space-around;
+`
+
 
 
 class AdminDashboard extends Component {
@@ -48,8 +56,10 @@ class AdminDashboard extends Component {
       <div>
         <NavBar/>
         <h1>Dashboard</h1>
-        <NewCohortForm />
-        <NewStudentForm />
+        <Container>
+          <NewCohortForm />
+          <NewStudentForm />
+        </Container>
         <div>
           {this.state.cohorts.map(cohort => (
             <CohortCard key={cohort.id} data={cohort} />
