@@ -107,35 +107,31 @@ class NewCohortForm extends Component {
   
   render() {
     return (
-      <React.Fragment>
-      <Container>
-      <Form onSubmit={this.handleSubmit}>
-        <Title>New Cohort</Title>
-        <Label htmlFor="name">Name</Label>
- 
-        <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></Input>
- 
-        <Label htmlFor="course_type">Course Type</Label>
- 
-        <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
+      <div>
+      <form className="container_large" onSubmit={this.handleSubmit}>
+        <h2>New Cohort</h2>
+        <label htmlFor="name" placeholder="bb8">Name</label>
+        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></input>
+
+        <label htmlFor="course_type">Course Type</label>
+        <select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
           <option value="wdi">Web Development </option>
           <option value="uxdi">User Expierence</option>
           <option value="dsi">Data Science</option>
-        </Select>
- 
-        <Label htmlFor="start_date">Start Date</Label>
-        <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
- 
-        <Label htmlFor="end_date">End Date</Label>
-        <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
- 
-        <br/><Button type="submit">Submit</Button>
- 
-      </Form>
-      </Container>
-    </React.Fragment>
+        </select>
+
+        <label htmlFor="start_date">Start Date</label>
+        <input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></input>
+
+        <label htmlFor="end_date">End Date</label>
+        <input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></input>
+
+        <br/><button type="submit" className="submit">Submit</button>
+
+      </form>
+    </div>
    );
-  }
+}
 }
 
 export default NewCohortForm;
