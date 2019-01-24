@@ -64,16 +64,17 @@ const Button = styled.button`
 class NewStudentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {    first_name: '',
-    last_name: '',
-    phone: '',
-    email: '',
-    cohort_id: '',
-    image_url: ''
-   }
+    this.state = {
+      first_name: '',
+      last_name: '',
+      phone: '',
+      email: '',
+      cohort_id: 2,
+      image_url: ''
+    }
 
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -83,8 +84,14 @@ class NewStudentForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('new student submitted: ' + this.state);
-    event.preventDefault();
+      // fetch('http://localhost:3000/api/admin/cohorts', {
+      let data = this.state
+      console.log(data);
+        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
+        method: 'post',
+        mode: "cors"
+      })    .then(response => {console.log(this.state)})
+
   }
 
  render() {
@@ -105,18 +112,6 @@ class NewStudentForm extends Component {
 
          <Label htmlFor="email">Email</Label>
          <Input type="text" name="email"  value={this.state.email} onChange={this.handleChange}></Input>
-
-         <Label htmlFor="first_name">First Name</Label>
-         <Input type="text" name="first_name"></Input>
-
-         <Label htmlFor="last_name">Last Name</Label>
-         <Input type="text" name="last_name"></Input>
-
-         <Label htmlFor="phone">Phone Number</Label>
-         <Input type="tel" name="phone"></Input>
-
-         <Label htmlFor="email">Email</Label>
-         <Input type="text" name="email"></Input>
 
          <br/><Button type="submit">Submit</Button>
        </Form>
