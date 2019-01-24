@@ -45,7 +45,8 @@ class NavBar extends Component {
         <MenuBar>
           <NavList>
             <NavItem>Logo</NavItem>
-            <Link to="./admin"><NavItem>Dashboard</NavItem></Link>
+            <Link to='./student'><NavItem>Student</NavItem></Link>
+            <Link to="./admin"><NavItem>Admin</NavItem></Link>
             <Link to="./articles"><NavItem>Articles</NavItem></Link>
             <Link to="./jobs"><NavItem>Job Board</NavItem></Link>
             <Link to="./Events"><NavItem>Events</NavItem></Link>
