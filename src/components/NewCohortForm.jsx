@@ -1,4 +1,78 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  background-color: #2A2C33;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35vw;
+  height: 25vh;
+  border-radius: 2px;
+  margin-left: 240px;
+`
+
+const Title = styled.h2 `
+  padding-top: 20px;
+  background-color: inherit;
+  text-align: left;
+`
+
+const Form = styled.form`
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 80px;
+  background-color: inherit;
+`
+
+const Label = styled.label`
+  display: block;
+  padding: 15px 0;
+  background-color: inherit;
+  color: white;
+  text-align: left;
+  padding-left: 0;
+`
+
+const Input = styled.input`
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+
+  :focus {
+    border: 1px solid #DD3D0F;
+    transition: border 0.5s;
+  }
+`
+
+const Select = styled.select`
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+
+  :focus {
+    border: 1px solid #DD3D0F;
+    transition: border 0.5s;
+  }
+`
+const Button = styled.button`
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #DD3D0F;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+
+  :hover {
+    opacity: 0.5;
+    transition: opacity 0.45;
+  }`
 
 class NewCohortForm extends Component {
  constructor(props) {
@@ -27,29 +101,33 @@ class NewCohortForm extends Component {
 
  render() {
    return (
-     <div>
-     <form className="container_large" onSubmit={this.handleSubmit}>
-       <h2>New Cohort</h2>
-       <label htmlFor="name" placeholder="bb8">Name</label>
-       <input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></input>
+     <React.Fragment>
+     <Container>
+     <Form onSubmit={this.handleSubmit}>
+       <Title>New Cohort</Title>
+       <Label htmlFor="name">Name</Label>
 
-       <label htmlFor="course_type">Course Type</label>
-       <select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
+       <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></Input>
+
+       <Label htmlFor="course_type">Course Type</Label>
+
+       <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
          <option value="wdi">Web Development </option>
          <option value="uxdi">User Expierence</option>
          <option value="dsi">Data Science</option>
-       </select>
+       </Select>
 
-       <label htmlFor="start_date">Start Date</label>
-       <input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></input>
+       <Label htmlFor="start_date">Start Date</Label>
+       <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
 
-       <label htmlFor="end_date">End Date</label>
-       <input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></input>
+       <Label htmlFor="end_date">End Date</Label>
+       <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
 
-       <br/><button type="submit" className="submit">Submit</button>
+       <br/><Button type="submit">Submit</Button>
 
-     </form>
-   </div>
+     </Form>
+     </Container>
+   </React.Fragment>
   );
 }
 }
