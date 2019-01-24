@@ -1,5 +1,12 @@
+/*-------------------------*/
+/* GLOBAL STYLES START */
+/*-------------------------*/
+
+/* old card background color */
+/* background-color: #232F41; */
+
 * {
-  background-color: #0D1118;
+  background-color: #212229;
   color: white;
   letter-spacing: 2px;
   text-decoration: none;
@@ -33,98 +40,14 @@ p {
 
 a {
   text-decoration: none;
-}
-
-.container_large {
-  background-color: #232F41;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30vw;
-
-  border-radius: 2px;
-}
-
-/* FORM STYLING */
-
- .container_large > h2 {
-  padding-top: 20px;
-  background-color: inherit;
-  text-align: center;
-}
-
-form {
-  text-align: left;
-  margin: 0 auto;
-  padding-left: 40px;
-}
-
-.login  > label {
-  text-align: center;
-  padding-left: 0;
-}
-
-label {
-  display: block;
-  padding: 15px 0;
-  background-color: inherit;
-  color: white;
-  left: 30px;
-}
-
-input, select {
-  border: 1px solid black;
-  border-radius: 2px;
-  padding: 5px 5px;
-  transition: border 0.5s;
-}
-
-input:focus, select:focus {
-  border: 1px solid #DD3D0F;
-  transition: border 0.5s;
-}
-
-button {
-
-}
-
-.submit {
-  margin: 20px auto;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #DD3D0F;
-  border: none;
-  opacity: 1;
-  transition: opacity 0.4s;
-  border-radius: 2px;
-  font-size: 1.1em;
-  text-align: center;
-}
-
-.submit:hover {
-  opacity: 0.5;
-  transition: opacity 0.4s;
-}
-
-form > p {
-  padding-bottom: 20px;
   background-color: inherit;
 }
 
-p > a {
-  text-decoration: none;
-  background-color: inherit;
-  color: #DD3D0F;
-  opacity: 1;
-  transition: opacity 0.4s;
-}
+/*-------------------------*/
+/* GLOBAL STYLES END */
+/*-------------------------*/
 
-p > a:hover {
-  opacity: 0.5;
-  transition: opacity 0.4s;
-}
 
-/* FORM END */
 
 .cohort_card {
   background-color: #232F41;
@@ -135,116 +58,6 @@ p > a:hover {
   padding: 10px 0px;
 }
 
-
-
 .cohort_card > p, ul, li{
   background-color: inherit;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.right {
-  grid-column-start: 2;
-  background-color: inherit;
-}
-
-.left {
-  grid-column-start: 1;
-  background-color: inherit;
-}
-
-footer {
-  position: absolute;
-  left: 0 ; right: 0; bottom: 0;
-  width: 100%;
-  height: 80px;
-  background-color: #263145;
-  text-align: center;
-}
-
-footer > a {
-  display: inline-block;
-  color: white;
-  padding: 0 10px;
-  background-color: inherit;
-  margin-top: 30px;
-  transition: color 0.4s;
-}
-
-footer > a:hover, .not_found > a:hover {
-  transition: color 0.4s;
-  color: #DD3D0F;
-}
-
-.not_found > a {
-  display: inline-block;
-  color: white;
-  padding: 0 10px;
-  background-color: inherit;
-  transition: color 0.4s;
-}
-
-.not_found {
-  background-color: #232F41;
-  margin: auto;
-  margin-top: 20px;
-  width: 35%;
-  border-radius: 2px;
-  padding: 10px 0px;
-}
-
-.not_found > p {
-  padding: 20px;
-}
-
-.not_found > .submit {
-  display: inline-block;
-}
-
-.not_found > .submit > a {
-  background-color: inherit;
-}
-
-
-
-.nav {
-  width: 160px;
-  height: 100%;
-  text-align: left;
-  position: fixed;
-  background-color: gray;
-}
-
-
-
-ul
-{
-padding:0px;
-margin:0px;
-border-bottom:1px solid #1c1f21;
-background-color: silver;
-transform: translateY(20vh);
-}
-
-ul li
-{
-list-style-type: none;
-color: white;
-border-bottom: 1px solid #272a2c;
-border-top: 1px solid #1c1f21;
-overflow: auto;
-cursor: pointer;
-}
-
-li {
-  padding: 20px 0px 20px 20px;
-  font-size: 20px;
-}
-
-
-ul li:hover {
-color: orange;
 }
