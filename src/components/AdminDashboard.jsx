@@ -7,6 +7,7 @@ import NewStudentForm from './NewStudentForm';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
+import APIs from './APIs'
 
 const Container = styled.div`
   display: flex;
@@ -65,6 +66,7 @@ class AdminDashboard extends Component {
             <CohortCard key={cohort.id} data={cohort} />
            ))}
         </div>
+        <APIs />
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
         <br/>
         <Footer/>
