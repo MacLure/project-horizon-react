@@ -7,9 +7,10 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 35vw;
-  height: 25vh;
   border-radius: 2px;
   margin-left: 240px;
+  grid-column-start: 2;
+  justify-self: end;
 `
 
 const Title = styled.h2 `
@@ -104,7 +105,7 @@ class NewCohortForm extends Component {
       })    .then(response => {console.log(this.state)})
 
   }
-  
+
   render() {
     return (
       <React.Fragment>
@@ -112,25 +113,25 @@ class NewCohortForm extends Component {
       <Form onSubmit={this.handleSubmit}>
         <Title>New Cohort</Title>
         <Label htmlFor="name">Name</Label>
- 
+
         <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></Input>
- 
+
         <Label htmlFor="course_type">Course Type</Label>
- 
+
         <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
           <option value="wdi">Web Development </option>
           <option value="uxdi">User Expierence</option>
           <option value="dsi">Data Science</option>
         </Select>
- 
+
         <Label htmlFor="start_date">Start Date</Label>
         <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
- 
+
         <Label htmlFor="end_date">End Date</Label>
         <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
- 
+
         <br/><Button type="submit">Submit</Button>
- 
+
       </Form>
       </Container>
     </React.Fragment>

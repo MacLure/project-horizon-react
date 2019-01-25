@@ -8,6 +8,9 @@ const Container = styled.div`
   margin-right: auto;
   width: 35vw;
   border-radius: 2px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  display: grid;
 `
 
 const Title = styled.h2 `
@@ -58,7 +61,7 @@ const Button = styled.button`
 
   :hover {
     opacity: 0.5;
-    transition: opacity 0.45;
+    transition: opacity 0.5;
   }`
 
 class NewStudentForm extends Component {
@@ -105,18 +108,6 @@ class NewStudentForm extends Component {
 
          <Label htmlFor="email">Email</Label>
          <Input type="text" name="email"  value={this.state.email} onChange={this.handleChange}></Input>
-
-         <Label htmlFor="first_name">First Name</Label>
-         <Input type="text" name="first_name"></Input>
-
-         <Label htmlFor="last_name">Last Name</Label>
-         <Input type="text" name="last_name"></Input>
-
-         <Label htmlFor="phone">Phone Number</Label>
-         <Input type="tel" name="phone"></Input>
-
-         <Label htmlFor="email">Email</Label>
-         <Input type="text" name="email"></Input>
 
          <br/><Button type="submit">Submit</Button>
        </Form>

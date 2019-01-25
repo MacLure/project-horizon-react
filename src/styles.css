@@ -43,6 +43,10 @@ a {
   background-color: inherit;
 }
 
+ul {
+  padding: 0;
+}
+
 /*-------------------------*/
 /* GLOBAL STYLES END */
 /*-------------------------*/
