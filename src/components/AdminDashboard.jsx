@@ -15,11 +15,8 @@ const Title = styled.h1`
 `
 const Container = styled.div`
   display: grid;
-  grid-column-template: 1fr 1fr;
-  grid-row-gap: 15px;
-  grid-colmn-gap: 30px;
+  grid-template-columns: 1fr 1fr;
   margin-left: 140px;
-
 `
 
 class AdminDashboard extends Component {
@@ -66,13 +63,13 @@ class AdminDashboard extends Component {
           <NewCohortForm />
           <NewStudentForm />
           <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
+          <div>
+            {this.state.cohorts.map(cohort => (
+              <CohortCard key={cohort.id} data={cohort} />
+            ))}
+          </div>
+          <br/>
         </Container>
-        <div>
-          {this.state.cohorts.map(cohort => (
-            <CohortCard key={cohort.id} data={cohort} />
-           ))}
-        </div>
-        <br/>
         <Footer/>
       </React.Fragment>
     );

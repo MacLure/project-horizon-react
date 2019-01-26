@@ -19,6 +19,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   padding: 20px 0px 20px 20px;
+  background-color: #2A2C32;
   font-size: 15px;
   list-style-type: none;
   color: white;
