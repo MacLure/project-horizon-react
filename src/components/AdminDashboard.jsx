@@ -7,6 +7,7 @@ import NewStudentForm from './NewStudentForm';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
+import APIs from './APIs'
 
 
 const Title = styled.h1`
@@ -70,6 +71,14 @@ class AdminDashboard extends Component {
           </div>
           <br/>
         </Container>
+        <div>
+          {this.state.cohorts.map(cohort => (
+            <CohortCard key={cohort.id} data={cohort} />
+           ))}
+        </div>
+        <APIs />
+        <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
+        <br/>
         <Footer/>
       </React.Fragment>
     );

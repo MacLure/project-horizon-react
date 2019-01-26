@@ -97,16 +97,17 @@ const Button = styled.button`
 class NewStudentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {    first_name: '',
-    last_name: '',
-    phone: '',
-    email: '',
-    cohort_id: '',
-    image_url: ''
-   }
+    this.state = {
+      first_name: '',
+      last_name: '',
+      phone: '',
+      email: '',
+      cohort_id: 2,
+      image_url: ''
+    }
 
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -116,15 +117,20 @@ class NewStudentForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('new student submitted: ' + this.state);
-    event.preventDefault();
+      // fetch('http://localhost:3000/api/admin/cohorts', {
+      let data = this.state
+      console.log(data);
+        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
+        method: 'post',
+        mode: "cors"
+      })    .then(response => {console.log(this.state)})
+
   }
 
  render() {
    return (
      <React.Fragment>
       <Container>
-        <Title>New Student</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
           <FirstName>
             <Label htmlFor="first_name">First Name</Label>
