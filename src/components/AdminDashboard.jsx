@@ -8,6 +8,7 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
 import APIs from './APIs'
+import ArticlesFeed from './ArticlesFeed';
 
 
 const Title = styled.h1`
@@ -28,7 +29,7 @@ class AdminDashboard extends Component {
   }
 
     componentDidMount() {
-    fetch('https://project-horizon-rails.herokuapp.com/api/admin')
+    fetch('https://project-horizon-rails.herokuapp.com/admin/cohorts')
       .then(response=>response.json())
       .then(response=> { this.setState({
         admins: response.admins,
@@ -60,7 +61,6 @@ class AdminDashboard extends Component {
       <React.Fragment>
         <NavBar/>
         <Title>Admin Dashboard</Title>
-        <Title>Works</Title>
         <Container>
           <NewCohortForm />
           <NewStudentForm />
