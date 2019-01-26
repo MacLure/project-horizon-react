@@ -9,7 +9,7 @@ import Articles from './Articles';
 import Events from './Events';
 import JobBoard from './JobBoard';
 import Settings from './Settings';
-
+import {Provider} from 'react-redux'
 
 const Router = () => {
   return (

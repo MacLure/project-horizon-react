@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import Footer from './Footer';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
+import  {onLogin} from './../service'
 
 const Container = styled.div`
   background-color: #38383f;
@@ -63,19 +65,42 @@ const Button = styled.button`
   }`
 
 class Login extends Component {
- state = {  }
+  constructor(props) {
+    super(props) 
+      this.state = {
+        email: '',
+        password: ''
+       }
+  }
+
+  onSubmit = () => {
+    if (this.state.email != '' && this.state.password != '') {
+      onLogin(this.state.email, this.state.password)
+      .then(e => e.json())
+      .then(e => {console.log(e)
+      //this.props.onTokenReceive(e.token)
+    })
+      // link token to redux token, then redirect to the page we want the user to be taken to(props.history.push(dashbard.route)).
+    }
+  }
+
  render() {
+
    return (
      <React.Fragment>
        <Container>
         <Title>Welcome Back</Title>
         <Form method="post">
            <Label htmlfor="email">Email</Label>
-           <Input type="text" name="email"></Input>
+           <Input type="text" name="email" onChange={e=>{
+             this.setState({email: e.target.value})
+           }}></Input>
            <Label htmlfor="password">Password</Label>
-           <Input type="password" name="password"></Input>
+           <Input type="password" name="password" onChange={e=>{
+            this.setState({password: e.target.value})
+          }}></Input>
            <br/>
-           <Button type="submit">Submit</Button>
+           <Button type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</Button>
          </Form>
        </Container>
 
@@ -86,4 +111,28 @@ class Login extends Component {
  }
 }
 
-export default Login;
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)
+
+(Login)
+
+
+

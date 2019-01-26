@@ -8,5 +8,7 @@ export const onLogin = (email,password) => {
       mode: 'cors'
     })
     .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+
   })
 }
