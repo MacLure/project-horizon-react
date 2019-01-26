@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  text-align: center;
+  margin-left: 140px;
+`
 
 class Events extends Component {
 
   render() {
     return (
-      <div>
-      <NavBar/>
-      <h1>Events</h1>
-      <Footer/>
-      </div>
+      <React.Fragment>
+        <NavBar/>
+        <Title>Events</Title>
+        <Footer/>
+      </React.Fragment>
     );
   }
 

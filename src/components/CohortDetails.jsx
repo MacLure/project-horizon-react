@@ -1,4 +1,73 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CohortCard = styled.div`
+  background-color: #2A2C33;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+  border-radius: 2px;
+  padding: 10px 0px;
+  grid-column-start: 1;
+`
+const InnerDiv = styled.div`
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 80px;
+  background-color: inherit;
+  grid-column-start: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`
+
+const Staff = styled.div`
+  grid-column-start: 1;
+  background-color: inherit;
+`
+
+const Students = styled.div`
+  grid-column-start: 2;
+  background-color: inherit;
+`
+
+const Text = styled.p`
+  background-color: inherit;
+  text-align: left;
+  margin: 20px auto;
+  font-weight: bold;
+`
+
+const List = styled.ul`
+  background-color: inherit;
+  text-align: left;
+  margin: 20px auto;
+`
+
+const ListItem = styled.li`
+  background-color: inherit;
+  margin: 20px auto;
+  text-align: left;
+`
+
+const Button = styled.button`
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #DD3D0F;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+
+
+  :hover {
+    opacity: 0.5;
+    transition: opacity 0.5;
+
+`
 
 const CohortDetails = (props) => {
 
@@ -7,27 +76,30 @@ const CohortDetails = (props) => {
  const students = props.students
 
  return (
-   <div className="cohort_card grid">
-     <div className="left">
-       <p>Staff:</p>
-       <ul>
-         {admins.map(admin => (
-           <li key={admin.id}>{admin.first_name} {admin.last_name}</li>
-         ))}
-       </ul>
-       <button className="submit">add staff member</button> <br />
-     </div>
-
-     <div className="right">
-     <p>Students:</p>
-     <ul>
-       {students.map(student => (
-         <li key={student.id}>{student.first_name} {student.last_name}</li>
-       ))}
-     </ul>
-     <button className="submit">add student</button>
-   </div>
- </div>
+   <React.Fragment>
+    <CohortCard>
+      <InnerDiv>
+        <Staff>
+          <Text>Staff:</Text>
+          <List>
+            {admins.map(admin => (
+            <ListItem key={admin.id}>{admin.first_name} {admin.last_name}</ListItem>
+            ))}
+          </List>
+          <Button>add staff</Button> <br />
+        </Staff>
+        <Students>
+          <Text>Students:</Text>
+            <List>
+              {students.map(student => (
+              <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
+            ))}
+          </List>
+          <Button>add student</Button>
+        </Students>
+      </InnerDiv>
+    </CohortCard>
+ </React.Fragment>
  );
 }
 

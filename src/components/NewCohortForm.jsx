@@ -1,27 +1,55 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Arrow from '../assets/Icons/DoubleDown.png';
 
 const Container = styled.div`
   background-color: #2A2C33;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 35vw;
-  height: 25vh;
+  width: 40vw;
   border-radius: 2px;
-  margin-left: 240px;
+  grid-column-start: 1;
+  justify-self: center;
 `
 
 const Title = styled.h2 `
   padding-top: 20px;
+  padding-left: 80px;
+  padding-bottom: 15px;
   background-color: inherit;
   text-align: left;
 `
 
 const Form = styled.form`
   text-align: left;
-  margin: 0 auto;
   padding-left: 80px;
+  background-color: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+`
+
+const Name = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 1;
+  background-color: inherit;
+`
+
+const Course = styled.div`
+  grid-column-start: 2;
+  grid-row-start: 1;
+  background-color: inherit;
+`
+const StartDate = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 2;
+  background-color: inherit;
+`
+
+const EndDate = styled.div`
+  grid-column-start: 2;
+  grid-row-start: 2;
   background-color: inherit;
 `
 
@@ -51,6 +79,10 @@ const Select = styled.select`
   border-radius: 2px;
   padding: 5px 5px;
   transition: border 0.5s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;       /* remove default arrow */
+  background-image: src={Arrow};   /* add custom arrow */
 
   :focus {
     border: 1px solid #DD3D0F;
@@ -58,7 +90,9 @@ const Select = styled.select`
   }
 `
 const Button = styled.button`
-  margin: 20px auto;
+  margin: 30px auto;
+  margin-left: 0;
+  padding-left: 0;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #DD3D0F;
@@ -68,6 +102,8 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
+  grid-column-start: 1;
+  grid-row-start: 3;
 
   :hover {
     opacity: 0.5;
@@ -104,33 +140,34 @@ class NewCohortForm extends Component {
       })    .then(response => {console.log(this.state)})
 
   }
-  
+
   render() {
     return (
       <React.Fragment>
       <Container>
+      <Title>New Cohort</Title>
       <Form onSubmit={this.handleSubmit}>
-        <Title>New Cohort</Title>
-        <Label htmlFor="name">Name</Label>
- 
-        <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} ></Input>
- 
-        <Label htmlFor="course_type">Course Type</Label>
- 
-        <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
+        <Name>
+          <Label htmlFor="name">Name</Label>
+          <Input type="text" placeholder="BB8" name="name" value={this.state.name} onChange={this.handleChange} ></Input>
+        </Name>
+        <Course>
+          <Label htmlFor="course_type">Course Type</Label>
+          <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
           <option value="wdi">Web Development </option>
           <option value="uxdi">User Expierence</option>
           <option value="dsi">Data Science</option>
-        </Select>
- 
-        <Label htmlFor="start_date">Start Date</Label>
-        <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
- 
-        <Label htmlFor="end_date">End Date</Label>
-        <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
- 
+          </Select>
+        </Course>
+        <StartDate>
+          <Label htmlFor="start_date">Start Date</Label>
+          <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
+        </StartDate>
+        <EndDate>
+          <Label htmlFor="end_date" placeholder="yyyy-mm-dd">End Date</Label>
+          <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
+        </EndDate>
         <br/><Button type="submit">Submit</Button>
- 
       </Form>
       </Container>
     </React.Fragment>

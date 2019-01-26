@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
+import Logo from '../assets/img/logo.svg';
 
+const Icon = styled.img`
+  width: 120px;
+  margin: 0 auto;
+  background-color: inherit;
+`
 
 const NavList = styled.ul`
   padding: 0px;
   margin: 0px;
-  border-bottom:1px solid #1c1f21;
   background-color: #363A42;
+  border-top: 1px solid #1c1f21;
+  border-bottom: 1px solid #1c1f21;
 `
 
 const NavItem = styled.li`
   padding: 20px 0px 20px 20px;
+  background-color: #2A2C32;
   font-size: 15px;
   list-style-type: none;
   color: white;
-  border-bottom: 1px solid #272a2c;
-  border-top: 1px solid #1c1f21;
   overflow: auto;
   cursor: pointer;
+  border-top: 1px solid #1c1f21;
+  border-bottom: 1px solid #272a2c;
+  transition: background-color 0.5s;
 
   :hover {
     background-color: #F6744E;
-  }
-`
+    transition: background-color 0.5s;
+  }`
 
 const MenuBar = styled.nav`
   width: 140px;
@@ -36,15 +45,14 @@ const MenuBar = styled.nav`
   justify-content: space-around;
 `
 
-
 class NavBar extends Component {
   state = {  }
   render() {
     return (
       <React.Fragment>
         <MenuBar>
+          <Icon src={Logo} />
           <NavList>
-            <NavItem>Logo</NavItem>
             <Link to='./student'><NavItem>Student</NavItem></Link>
             <Link to="./admin"><NavItem>Admin</NavItem></Link>
             <Link to="./articles"><NavItem>Articles</NavItem></Link>

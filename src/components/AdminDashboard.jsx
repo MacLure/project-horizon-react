@@ -9,13 +9,16 @@ import NavBar from './NavBar';
 import styled from 'styled-components';
 import APIs from './APIs'
 
-const Container = styled.div`
-  display: flex;
-  flex-flow: row-wrap;
-  justify-content: space-around;
+
+const Title = styled.h1`
+  text-align: center;
+  margin-left: 140px;
 `
-
-
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 140px;
+`
 
 class AdminDashboard extends Component {
   state = {
@@ -54,12 +57,19 @@ class AdminDashboard extends Component {
   render() {
     const admins = this.state.admins
     return (
-      <div>
+      <React.Fragment>
         <NavBar/>
-        <h1>Admin Dashboard</h1>
+        <Title>Admin Dashboard</Title>
         <Container>
           <NewCohortForm />
           <NewStudentForm />
+          <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
+          <div>
+            {this.state.cohorts.map(cohort => (
+              <CohortCard key={cohort.id} data={cohort} />
+            ))}
+          </div>
+          <br/>
         </Container>
         <div>
           {this.state.cohorts.map(cohort => (
@@ -70,7 +80,7 @@ class AdminDashboard extends Component {
         <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
         <br/>
         <Footer/>
-      </div>
+      </React.Fragment>
     );
   }
 }

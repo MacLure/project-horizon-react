@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: #2A2C33;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35vw;
-  border-radius: 2px;
+background-color: #2A2C33;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+width: 40vw;
+border-radius: 2px;
+grid-column-start: 1;
+justify-self: center;
 `
 
 const Title = styled.h2 `
   padding-top: 20px;
+  padding-left: 80px;
+  padding-bottom: 15px;
   background-color: inherit;
   text-align: left;
 `
@@ -21,8 +25,33 @@ const Form = styled.form`
   margin: 0 auto;
   padding-left: 80px;
   background-color: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+`
+const FirstName = styled.div`
+grid-column-start: 1;
+grid-row-start: 1;
+background-color: inherit;
 `
 
+const LastName = styled.div`
+grid-column-start: 2;
+grid-row-start: 1;
+background-color: inherit;
+`
+
+const Phone = styled.div`
+grid-column-start: 1;
+grid-row-start: 2;
+background-color: inherit;
+`
+
+const Email = styled.div`
+grid-column-start: 2;
+grid-row-start: 2;
+background-color: inherit;
+`
 const Label = styled.label`
   display: block;
   padding: 15px 0;
@@ -45,7 +74,9 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  margin: 20px auto;
+  margin: 30px auto;
+  margin-left: 0;
+  padding-left: 0;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #DD3D0F;
@@ -55,10 +86,12 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
+  grid-column-start: 1;
+  grid-row-start: 3;
 
   :hover {
     opacity: 0.5;
-    transition: opacity 0.45;
+    transition: opacity 0.5;
   }`
 
 class NewStudentForm extends Component {
@@ -98,24 +131,26 @@ class NewStudentForm extends Component {
    return (
      <React.Fragment>
       <Container>
-       <Form method="post" onSubmit={this.handleSubmit}>
-       <Title>New Student</Title>
-
-         <Label htmlFor="first_name">First Name</Label>
-         <Input type="text" name="first_name"  value={this.state.first_name} onChange={this.handleChange}></Input>
-
-         <Label htmlFor="last_name">Last Name</Label>
-         <Input type="text" name="last_name"  value={this.state.last_name} onChange={this.handleChange}></Input>
-
-         <Label htmlFor="phone">Phone Number</Label>
-         <Input type="tel" name="phone" value={this.state.phone} onChange={this.handleChange}></Input>
-
-         <Label htmlFor="email">Email</Label>
-         <Input type="text" name="email"  value={this.state.email} onChange={this.handleChange}></Input>
-
+        <Form method="post" onSubmit={this.handleSubmit}>
+          <FirstName>
+            <Label htmlFor="first_name">First Name</Label>
+            <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
+          </FirstName>
+          <LastName>
+            <Label htmlFor="last_name">Last Name</Label>
+            <Input type="text" name="last_name" placeholder="Smith"  value={this.state.last_name} onChange={this.handleChange}></Input>
+          </LastName>
+          <Phone>
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input type="tel" name="phone" placeholder="555-555-5555"  value={this.state.phone} onChange={this.handleChange}></Input>
+          </Phone>
+          <Email>
+            <Label htmlFor="email">Email</Label>
+            <Input type="text" name="email" placeholder="hello@mail.com" value={this.state.email} onChange={this.handleChange}></Input>
+          </Email>
          <br/><Button type="submit">Submit</Button>
        </Form>
-       </Container>
+      </Container>
      </React.Fragment>
     );
  }

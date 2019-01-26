@@ -43,21 +43,10 @@ a {
   background-color: inherit;
 }
 
+ul {
+  padding: 0;
+}
+
 /*-------------------------*/
 /* GLOBAL STYLES END */
 /*-------------------------*/
-
-
-
-.cohort_card {
-  background-color: #232F41;
-  margin: auto;
-  margin-top: 20px;
-  width: 35%;
-  border-radius: 2px;
-  padding: 10px 0px;
-}
-
-.cohort_card > p, ul, li{
-  background-color: inherit;
-}

@@ -24,6 +24,7 @@ const Text = styled.p`
     color: #DD3D0F;
 }`
 
+
 const Footer = (props) => {
 
   return (
