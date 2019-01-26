@@ -60,6 +60,7 @@ class AdminDashboard extends Component {
       <React.Fragment>
         <NavBar/>
         <Title>Admin Dashboard</Title>
+        <Title>Works</Title>
         <Container>
           <NewCohortForm />
           <NewStudentForm />
