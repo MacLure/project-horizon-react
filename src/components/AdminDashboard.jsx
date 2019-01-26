@@ -23,18 +23,14 @@ const Container = styled.div`
 
 class AdminDashboard extends Component {
   state = {
-    admins: [],
     cohorts: [],
-    students: []
   }
 
     componentDidMount() {
     fetch('https://project-horizon-rails.herokuapp.com/admin/cohorts')
       .then(response=>response.json())
       .then(response=> { this.setState({
-        admins: response.admins,
         cohorts: response.cohorts,
-        students: response.students,
       });
     })
     }
