@@ -15,7 +15,6 @@ class JobBoard extends Component {
       <React.Fragment>
       <NavBar/>
       <Title>Job Board</Title>
-      <Title>Jobs!</Title>
       <Footer/>
       </React.Fragment>
     );

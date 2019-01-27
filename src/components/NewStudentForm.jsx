@@ -92,7 +92,7 @@ const Button = styled.button`
 
   :hover {
     opacity: 0.5;
-    transition: opacity 0.5;
+    transition: opacity 0.5s;
   }`
 
 class NewStudentForm extends Component {

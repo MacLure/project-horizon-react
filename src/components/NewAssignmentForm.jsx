@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 
 class NewAssignmentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       name: '',
       due_date: '',
       cohort: '',
@@ -21,12 +22,12 @@ class NewAssignmentForm extends Component {
     console.log('On Submit')
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <React.Fragment>
       <div>
         <h1>Create Assignment</h1>
-       
+
           <div>
             <label htmlFor="name">Assignment Name</label>
             <input type="text" name="name" placeholder="Personal Branding"  value={this.state.name} onChange={this.handleChange}></input>
@@ -43,11 +44,11 @@ class NewAssignmentForm extends Component {
            e.preventDefault();
            this.handleSubmit()
          }}>Submit</button>
-       
+
       </div>
      </React.Fragment>
      );
   }
 }
- 
+
 export default NewAssignmentForm;
