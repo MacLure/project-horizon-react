@@ -9,8 +9,11 @@ const Container = styled.div`
   margin-right: auto;
   width: 40vw;
   border-radius: 2px;
-  grid-column-start: 1;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: auto;
   justify-self: center;
+  /* height: 355px; */
 `
 
 const Title = styled.h2 `

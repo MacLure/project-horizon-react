@@ -8,7 +8,7 @@ margin-left: auto;
 margin-right: auto;
 width: 40vw;
 border-radius: 2px;
-grid-column-start: 1;
+grid-column-start: 2;
 justify-self: center;
 `
 
@@ -30,27 +30,27 @@ const Form = styled.form`
   grid-template-rows: 3;
 `
 const FirstName = styled.div`
-grid-column-start: 1;
-grid-row-start: 1;
-background-color: inherit;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  background-color: inherit;
 `
 
 const LastName = styled.div`
-grid-column-start: 2;
-grid-row-start: 1;
-background-color: inherit;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  background-color: inherit;
 `
 
 const Phone = styled.div`
-grid-column-start: 1;
-grid-row-start: 2;
-background-color: inherit;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  background-color: inherit;
 `
 
 const Email = styled.div`
-grid-column-start: 2;
-grid-row-start: 2;
-background-color: inherit;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  background-color: inherit;
 `
 const Label = styled.label`
   display: block;
@@ -131,6 +131,7 @@ class NewStudentForm extends Component {
    return (
      <React.Fragment>
       <Container>
+        <Title>Add Student</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
           <FirstName>
             <Label htmlFor="first_name">First Name</Label>
