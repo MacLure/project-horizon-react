@@ -83,12 +83,32 @@ const CohortCard = (props) => {
 
   return (
     <React.Fragment>
+<<<<<<< HEAD
         <Card>
           <CohortName>{name}</CohortName><br/>
           <Text>{start_date} - {end_date}</Text>
           <Text>{daysLeftDisplay()}</Text>
           {progressBar()}
         </Card>
+=======
+      <Card onClick={e=>{
+        console.log('Hello:::::')
+        props.onCohortClick(props.data)
+      }}>
+        <CohortName>{name}</CohortName><br/>
+        <Course>{course_type}</Course><br/>
+        <br/>
+        <Dates>{start_date} - {end_date}</Dates><br/>
+        <p>{daysLeftDisplay()}</p>
+        {progressBar()}
+        <ButtonGrid>
+          <Button>add student</Button>
+          <Button>edit</Button>
+          <Button>More Details</Button>
+          <br/>
+        </ButtonGrid>
+      </Card>
+>>>>>>> master
     </React.Fragment>
    );
 
