@@ -4,12 +4,14 @@ import styled from 'styled-components';
 const CohortCard = styled.div`
   background-color: #2A2C33;
   margin-top: 20px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 40vw;
   border-radius: 2px;
   padding: 10px 0px;
   grid-column-start: 1;
+  grid-row-start: 6;
 `
 const InnerDiv = styled.div`
   text-align: left;
@@ -19,6 +21,13 @@ const InnerDiv = styled.div`
   grid-column-start: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
+`
+
+const Title = styled.h2 `
+  padding-top: 20px;
+  padding-bottom: 15px;
+  background-color: inherit;
+  text-align: left;
 `
 
 const Staff = styled.div`
@@ -79,6 +88,8 @@ const CohortDetails = (props) => {
    <React.Fragment>
     <CohortCard>
       <InnerDiv>
+        <Title>Cohort Details</Title>
+        <Text>NOT COHORT CARD</Text>
         <Staff>
           <Text>Staff:</Text>
           <List>

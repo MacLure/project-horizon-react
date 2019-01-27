@@ -10,20 +10,35 @@ const Card = styled.div`
   width: 40vw;
   border-radius: 2px;
   grid-column-start: 2;
+  grid-row-end: 5;
   justify-self: center;
 `
+const CohortName = styled.h3`
+  padding-top: 20px;
+  padding-left: 80px;
+  background-color: inherit;
+  text-align: left;
+`
 
-// const Title = styled.p`
-//
-//
-// `
-
-
-
+const Course = styled.h3`
+  padding-left: 80px;
+  background-color: inherit;
+  text-align: left;
+`
+const Date = styled.p`
+  padding-left: 80px;
+  background-color: inherit;
+  text-align: left;
+`
+const ButtonGrid = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: inherit;
+  margin-left: 80px;
+`
 const Button = styled.button`
-  margin: 30px auto;
-  margin-left: 0;
-  padding-left: 0;
+  margin: 30px 10px;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #DD3D0F;
@@ -33,8 +48,6 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
-  grid-column-start: 1;
-  grid-row-start: 3;
 
   :hover {
     opacity: 0.5;
@@ -47,13 +60,16 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <Card>
-        {name}<br/>
-        {course_type}<br/>
+        <CohortName>{name}</CohortName><br/>
+        <Course>{course_type}</Course><br/>
         <br/>
-        {start_date} - {end_date}<br/>
-        <Button>add student</Button>
-        <Button>edit</Button>
-        <br/>
+        <Date>{start_date} - {end_date}</Date><br/>
+        <ButtonGrid>
+          <Button>add student</Button>
+          <Button>edit</Button>
+          <Button>More Details</Button>
+          <br/>
+        </ButtonGrid>
       </Card>
     </React.Fragment>
    );
