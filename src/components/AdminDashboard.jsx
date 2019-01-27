@@ -33,7 +33,8 @@ class AdminDashboard extends Component {
   state = {
     admins: [],
     cohorts: [],
-    students: []
+    students: [],
+    onFocusData: null
   }
 
     componentDidMount() {
@@ -43,8 +44,14 @@ class AdminDashboard extends Component {
         admins: response.admins,
         cohorts: response.cohorts,
         students: response.students,
+        onFocusData: response.cohorts[0]
       });
     })
+    }
+
+    onCohortClick = (data) => {
+      console.log('Cohort Data',data)
+      this.setState({onFocusData:data})
     }
     //POST REQUEST FOR NEW COHORTS
     // handleSubmit(event){
@@ -74,11 +81,11 @@ class AdminDashboard extends Component {
         <Container>
           <NewCohortForm />
           <NewStudentForm />
-          <CohortDetails cohort={this.state.cohorts} students={this.state.students} admins={this.state.admins} />
+          <CohortDetails onFocusData={this.state.onFocusData} students={this.state.students} admins={this.state.admins} />
           <br/>
           <CohortCards>
             {this.state.cohorts.map(cohort => (
-              <CohortCard key={cohort.id} data={cohort} />
+              <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick} />
              ))}
           </CohortCards>
           <NewAssignmentForm />

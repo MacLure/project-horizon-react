@@ -79,17 +79,25 @@ const Button = styled.button`
 `
 
 const CohortDetails = (props) => {
+  console.log(props)
 
- const {start_date, end_date, name, course_type} = props.cohort
+ 
+//  if(props.onFocusData != null){
+//   const {start_date, end_date, name, course_type} = props.onFocusData;
+//  }
+
  const admins = props.admins
  const students = props.students
-
  return (
    <React.Fragment>
     <CohortCard>
       <InnerDiv>
         <Title>Cohort Details</Title>
         <Text>NOT COHORT CARD</Text>
+        <p>{props.onFocusData!=null?props.onFocusData.name:null}</p><br/>
+        <p>{props.onFocusData!=null?props.onFocusData.course_type:null}</p><br/>
+        <p>{props.onFocusData!=null?props.onFocusData.start_date:null}</p><br/>
+        <p>{props.onFocusData!=null?props.onFocusData.end_date:null}</p><br/>
         <Staff>
           <Text>Staff:</Text>
           <List>

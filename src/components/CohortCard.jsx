@@ -98,7 +98,10 @@ const CohortCard = (props) => {
 
   return (
     <React.Fragment>
-      <Card>
+      <Card onClick={e=>{
+        console.log('Hello:::::')
+        props.onCohortClick(props.data)
+      }}>
         <CohortName>{name}</CohortName><br/>
         <Course>{course_type}</Course><br/>
         <br/>
