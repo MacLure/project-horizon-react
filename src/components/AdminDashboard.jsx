@@ -9,6 +9,7 @@ import NavBar from './NavBar';
 import styled from 'styled-components';
 import APIs from './APIs'
 import ArticlesFeed from './ArticlesFeed';
+import NewAssignmentForm from './NewAssignmentForm'
 
 
 const Title = styled.h1`
@@ -80,6 +81,7 @@ class AdminDashboard extends Component {
               <CohortCard key={cohort.id} data={cohort} />
              ))}
           </CohortCards>
+          <NewAssignmentForm />
         </Container>
         <Footer/>
       </React.Fragment>
