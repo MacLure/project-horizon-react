@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NewStudentForm from './NewStudentForm';
 
 
 const Card = styled.div`
@@ -30,10 +31,18 @@ const Dates = styled.p`
   background-color: inherit;
   text-align: left;
 `
+
+const Text = styled.p`
+  padding-left: 80px;
+  padding-bottom: 20px;
+  text-align: left;
+`
+
 const ProgressBarTotal = styled.div`
   background-color: white;
-  width: 100%;
+  width: 80%;
   height: 3px;
+  margin-left: 80px;
 `
 const ProgressBarFilling = styled.div`
   background-color: #DD3D0F;
@@ -59,11 +68,23 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
+  display: flex;
+	flex-direction: column-reverse;
 
   :hover {
     opacity: 0.5;
     transition: opacity 0.45;
   }`
+
+  // const CollapseButton = styled.buton`
+  //
+  // `
+
+  const Toggle = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: inherit;
+  `
 
 const CohortCard = (props) => {
   const {start_date, end_date, name, course_type} = props.data
@@ -75,10 +96,10 @@ const CohortCard = (props) => {
     if (daysLeft > courseDays){
       return "This cohort hasn't started yet"
     } else if (daysLeft <= 0 ) {
-      return 'This cohort has ended.'
+      return 'This cohort ended on END DATE.'
     } else if (daysLeft > 0){
       return `${daysLeft} days left (${courseProgress()}%)`
-    } 
+    }
   }
 
   const courseProgress = () => {
@@ -103,10 +124,12 @@ const CohortCard = (props) => {
         <Course>{course_type}</Course><br/>
         <br/>
         <Dates>{start_date} - {end_date}</Dates><br/>
-        <p>{daysLeftDisplay()}</p>
+        <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
         <ButtonGrid>
-          <Button>add student</Button>
+          <Toggle>
+            <Button type="checkbox" value="selected">add student</Button>
+          </Toggle>
           <Button>edit</Button>
           <Button>More Details</Button>
           <br/>

@@ -10,10 +10,8 @@ const Container = styled.div`
   width: 40vw;
   border-radius: 2px;
   grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: auto;
   justify-self: center;
-  /* height: 355px; */
+  height: 350px;
 `
 
 const Title = styled.h2 `

@@ -9,6 +9,7 @@ margin-right: auto;
 width: 40vw;
 border-radius: 2px;
 grid-column-start: 2;
+grid-row-start: 2;
 justify-self: center;
 `
 

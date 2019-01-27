@@ -11,7 +11,7 @@ const CohortCard = styled.div`
   border-radius: 2px;
   padding: 10px 0px;
   grid-column-start: 1;
-  grid-row-start: 6;
+  grid-row-start: 5;
 `
 const InnerDiv = styled.div`
   text-align: left;
