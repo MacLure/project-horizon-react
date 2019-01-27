@@ -9,7 +9,21 @@ const Title = styled.h1`
 `
 
 class StudentDashboard extends Component {
-  state = {  }
+
+  state = { 
+    articleIDs: []
+   }
+
+
+  componentDidMount() {
+    fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
+    .then(response=>response.json())
+    .then(response=> { this.setState({
+      articleIDs: response
+    });
+  })
+  }
+
   render() {
     return (
       <React.Fragment>
