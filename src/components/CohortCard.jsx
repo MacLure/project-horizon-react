@@ -44,6 +44,21 @@ const Button = styled.button`
 const CohortCard = (props) => {
   const {start_date, end_date, name, course_type} = props.data
 
+  function parseDate(str) {
+    var mdy = str.split('/');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+}
+
+function datediff(first, second) {
+    // Take the difference between the dates and divide by milliseconds per day.
+    // Round to nearest whole number to deal with DST.
+    return Math.round((second-first)/(1000*60*60*24));
+}
+
+let startDate = parseDate(start_date)
+let endDate = parseDate(end_date)
+let daysLeft = datediff(startDate, endDate)
+
   return (
     <React.Fragment>
       <Card>
@@ -53,6 +68,7 @@ const CohortCard = (props) => {
         {start_date} - {end_date}<br/>
         <Button>add student</Button>
         <Button>edit</Button>
+        <p>{daysLeft}</p>
         <br/>
       </Card>
     </React.Fragment>
