@@ -37,7 +37,7 @@ const ProgressBarTotal = styled.div`
 `
 const ProgressBarFilling = styled.div`
   background-color: #DD3D0F;
-  width: 50%;
+  width: 0%;
   height: 100%;
 `
 
@@ -67,12 +67,32 @@ const Button = styled.button`
 
 const CohortCard = (props) => {
   const {start_date, end_date, name, course_type} = props.data
+
   const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
   const daysLeft = Math.trunc((Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24))
-  const daysLeftDisplay = () => ( (daysLeft > 0) ? daysLeft + ' days left.': 'This cohort has ended.' )
+
+  const daysLeftDisplay = () => {
+    if (daysLeft > courseDays){
+      return "This cohort hasn't started yet"
+    } else if (daysLeft <= 0 ) {
+      return 'This cohort has ended.'
+    } else if (daysLeft > 0){
+      return `${daysLeft} days left (${courseProgress()}%)`
+    } 
+  }
+
   const courseProgress = () => {
     if (daysLeft > 0) {
       return Math.round( 100 - daysLeft / courseDays * 100)
+    }
+  }
+  function progressBar() {
+    if (daysLeft > 0 && daysLeft <= courseDays) {
+      return (
+        <ProgressBarTotal>
+          <ProgressBarFilling style={{width: `${courseProgress()}%`}} />
+        </ProgressBarTotal>
+      );
     }
   }
 
@@ -83,8 +103,8 @@ const CohortCard = (props) => {
         <Course>{course_type}</Course><br/>
         <br/>
         <Dates>{start_date} - {end_date}</Dates><br/>
-        <p>{daysLeftDisplay()} {courseProgress()}%</p>
-        <ProgressBarTotal><ProgressBarFilling style={{width: `${courseProgress()}%`}} ></ProgressBarFilling></ProgressBarTotal>
+        <p>{daysLeftDisplay()}</p>
+        {progressBar()}
         <ButtonGrid>
           <Button>add student</Button>
           <Button>edit</Button>

@@ -123,7 +123,7 @@ class NewStudentForm extends Component {
         fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
         method: 'post',
         mode: "cors"
-      })    .then(response => {console.log(this.state)})
+      }).then(response => {console.log(this.state)})
 
   }
 
