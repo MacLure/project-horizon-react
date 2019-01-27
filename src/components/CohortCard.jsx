@@ -25,11 +25,22 @@ const Course = styled.h3`
   background-color: inherit;
   text-align: left;
 `
-const Date = styled.p`
+const Dates = styled.p`
   padding-left: 80px;
   background-color: inherit;
   text-align: left;
 `
+const ProgressBarTotal = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 3px;
+`
+const ProgressBarFilling = styled.div`
+  background-color: #DD3D0F;
+  width: 50%;
+  height: 100%;
+`
+
 const ButtonGrid = styled.div`
   display: flex;
   flex-direction: row;
@@ -56,21 +67,14 @@ const Button = styled.button`
 
 const CohortCard = (props) => {
   const {start_date, end_date, name, course_type} = props.data
-
-  function parseDate(str) {
-    var mdy = str.split('/');
-    return new Date(mdy[2], mdy[0]-1, mdy[1]);
-}
-
-function datediff(first, second) {
-    // Take the difference between the dates and divide by milliseconds per day.
-    // Round to nearest whole number to deal with DST.
-    return Math.round((second-first)/(1000*60*60*24));
-}
-
-let startDate = parseDate(start_date)
-let endDate = parseDate(end_date)
-let daysLeft = datediff(startDate, endDate)
+  const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
+  const daysLeft = Math.trunc((Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24))
+  const daysLeftDisplay = () => ( (daysLeft > 0) ? daysLeft + ' days left.': 'This cohort has ended.' )
+  const courseProgress = () => {
+    if (daysLeft > 0) {
+      return Math.round( 100 - daysLeft / courseDays * 100)
+    }
+  }
 
   return (
     <React.Fragment>
@@ -78,7 +82,9 @@ let daysLeft = datediff(startDate, endDate)
         <CohortName>{name}</CohortName><br/>
         <Course>{course_type}</Course><br/>
         <br/>
-        <Date>{start_date} - {end_date}</Date><br/>
+        <Dates>{start_date} - {end_date}</Dates><br/>
+        <p>{daysLeftDisplay()} {courseProgress()}%</p>
+        <ProgressBarTotal><ProgressBarFilling style={{width: `${courseProgress()}%`}} ></ProgressBarFilling></ProgressBarTotal>
         <ButtonGrid>
           <Button>add student</Button>
           <Button>edit</Button>
@@ -88,6 +94,7 @@ let daysLeft = datediff(startDate, endDate)
       </Card>
     </React.Fragment>
    );
-}
+
+  }
 
 export default CohortCard;

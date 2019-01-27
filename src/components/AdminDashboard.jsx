@@ -64,10 +64,12 @@ class AdminDashboard extends Component {
 
   render() {
     const admins = this.state.admins
+
     return (
       <React.Fragment>
         <NavBar/>
         <Title>Admin Dashboard</Title>
+
         <Container>
           <NewCohortForm />
           <NewStudentForm />
@@ -79,7 +81,6 @@ class AdminDashboard extends Component {
              ))}
           </CohortCards>
         </Container>
-
         <Footer/>
       </React.Fragment>
     );
