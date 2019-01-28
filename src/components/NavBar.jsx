@@ -56,9 +56,7 @@ class NavBar extends Component {
           <NavList>
             <Link to='./student'><NavItem>Student</NavItem></Link>
 
-            <NavLink to="./admin" activeStyle={{
-              backgroundColor: "#F6744E"
-            }}><NavItem>Admin</NavItem></NavLink>
+          <NavLink to="./admin" activeClassName="active"> <NavItem>Admin</NavItem></NavLink>
 
             <Link to="./articles"><NavItem >Articles</NavItem></Link>
             <Link to="./jobs"><NavItem>Job Board</NavItem></Link>
