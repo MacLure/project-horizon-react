@@ -68,9 +68,19 @@ class Login extends Component {
   constructor(props) {
     super(props) 
       this.state = {
+        user: null,
         email: '',
         password: ''
        }
+  }
+
+
+  onStudent = () => {
+    this.setState({user:'student'})
+  }
+  
+  onAdmin = () => {
+    this.setState({user:'admin'})
   }
 
   onSubmit = () => {
@@ -78,9 +88,9 @@ class Login extends Component {
       onLogin(this.state.email, this.state.password)
       .then(e => e.json())
       .then(e => {console.log(e)
-      //this.props.onTokenReceive(e.token)
+      this.props.onTokenReceive(e.token)
+      this.props.history.push('/admin')
     })
-      // link token to redux token, then redirect to the page we want the user to be taken to(props.history.push(dashbard.route)).
     }
   }
 
@@ -90,6 +100,11 @@ class Login extends Component {
      <React.Fragment>
        <Container>
         <Title>Welcome Back</Title>
+        <p style={{textAlign: 'center'}}>I am a:</p>
+        <div style={{textAlign: 'center'}}>
+          <button onClick={this.onStudent}>Student</button>
+          <button onClick={this.onAdmin}>Administrator</button>
+        </div>
         <Form method="post">
            <Label htmlfor="email">Email</Label>
            <Input type="text" name="email" onChange={e=>{

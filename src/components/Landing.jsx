@@ -11,7 +11,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        studentOrAdmin: null,
+        user: null,
         email: '',
         password: ''
        }
@@ -30,17 +30,17 @@ class Login extends Component {
 
 
   onStudent = () => {
-    this.setState({studentOrAdmin:'student'})
+    this.setState({user:'student'})
   }
   
   onAdmin = () => {
-    this.setState({studentOrAdmin:'admin'})
+    this.setState({user:'admin'})
   }
 
  render() {
 
   const studentAdminLogin = () => {
-    if (this.state.studentOrAdmin === 'student') {
+    if (this.state.user === 'student') {
       return (
         <div>
           <h2>Student Login</h2>
@@ -66,7 +66,7 @@ class Login extends Component {
           </form>
         </div>
       )
-    } else if (this.state.studentOrAdmin === 'admin') {
+    } else if (this.state.user === 'admin') {
       return (
         <div>
           <h2>Admin Login</h2>
