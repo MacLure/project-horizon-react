@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import NewStudentForm from './NewStudentForm'
+import NewAdminForm from './NewAdminForm'
+import NewEventForm from './NewEventForm'
+import NewAssignmentForm from './NewAssignmentForm'
+
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
@@ -138,7 +142,7 @@ class CohortDetails extends Component {
     const handleshowNewAdminForm = () => {
       if (this.state.showNewAdminForm ) {
         return (
-          <NewStudentForm />
+          <NewAdminForm />
         )
       }
     }
@@ -146,7 +150,7 @@ class CohortDetails extends Component {
     const handleshowNewEventForm = () => {
       if (this.state.showNewEventForm ) {
         return (
-          <NewStudentForm />
+          <NewEventForm />
         )
       }
     }
@@ -154,7 +158,7 @@ class CohortDetails extends Component {
     const handleshowNewAssignmentForm = () => {
       if (this.state.showNewAssignmentForm ) {
         return (
-          <NewStudentForm />
+          <NewAssignmentForm />
         )
       }
     }
@@ -195,6 +199,9 @@ class CohortDetails extends Component {
           </Staff>
         </Grid>
         {showNewStudentForm()}
+        {handleshowNewAdminForm()}
+        {handleshowNewEventForm()}
+        {handleshowNewAssignmentForm()}
       </CohortCard>
   </React.Fragment>
   );
