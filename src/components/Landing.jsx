@@ -8,7 +8,7 @@ import Logo from '../assets/img/logo.svg';
 
 class Login extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
       this.state = {
         email: '',
         password: ''
@@ -68,6 +68,3 @@ export default connect(
 )
 
 (Login)
-
-
-
