@@ -105,6 +105,7 @@ class Login extends Component {
           <button onClick={this.onStudent}>Student</button>
           <button onClick={this.onAdmin}>Administrator</button>
         </div>
+        <h2>{this.state.user ? `${this.state.user} login` : ''}</h2>
         <Form method="post">
            <Label htmlfor="email">Email</Label>
            <Input type="text" name="email" onChange={e=>{

@@ -102,7 +102,7 @@ class NewStudentForm extends Component {
       last_name: '',
       phone: '',
       email: '',
-      cohort_id: 2,
+      cohort_id: '',
       image_url: ''
     }
 
