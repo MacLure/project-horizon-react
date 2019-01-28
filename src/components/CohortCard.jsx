@@ -51,8 +51,14 @@ const ProgressBarFilling = styled.div`
 `
 
 const CohortCard = (props) => {
+
   const {start_date, end_date, name, course_type} = props.data
 
+  const formattedStartDate = new Date(Date.parse(start_date))
+  const options = {year: 'numeric', month: 'short', day: 'numeric' };
+    
+  const formattedEndDate = new Date(Date.parse(end_date))
+    
   const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
   const daysLeft = Math.trunc((Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24))
 
@@ -89,7 +95,7 @@ const CohortCard = (props) => {
       }}>
         <CohortName>{name}</CohortName><br/>
         <br/>
-        <Text>{start_date} - {end_date}</Text><br/>
+        <Text>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Text><br/>
         <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
       </Card>
