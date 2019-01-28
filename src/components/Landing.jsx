@@ -9,7 +9,7 @@ import horizon_text from '../assets/img/horizon_text.svg';
 
 class Login extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
       this.state = {
         studentOrAdmin: null,
         email: '',
@@ -140,6 +140,3 @@ export default connect(
 )
 
 (Login)
-
-
-

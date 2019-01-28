@@ -11,7 +11,6 @@ const Container = styled.div`
   grid-column-start: 2;
   grid-row-start: 2;
   justify-self: center;
-  height: 350px;
 `
 
 const Title = styled.h2 `
@@ -43,9 +42,8 @@ const DueDate = styled.div`
   background-color: inherit;
 `
 const AssignmentBody = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 2;
   background-color: inherit;
+  padding-left: 80px;
 `
 
 const Label = styled.label`
@@ -82,9 +80,7 @@ const Textarea = styled.textarea`
 `
 
 const Button = styled.button`
-  margin: 30px auto;
-  margin-left: 0;
-  padding-left: 0;
+  margin: 10px auto 30px 80px;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #DD3D0F;
@@ -94,8 +90,6 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
-  grid-column-start: 1;
-  grid-row-start: 3;
 
   :hover {
     opacity: 0.5;
@@ -138,16 +132,16 @@ class NewAssignmentForm extends Component {
               <Label htmlFor="due_date">Due Date</Label>
               <Input type="date" name="due_date" value={this.state.due_date} onChange={this.handleChange} ></Input>
             </DueDate>
-            <AssignmentBody>
-              <Label htmlFor="body">Assignment Body</Label>
-              <Textarea row="100" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></Textarea>
-            </AssignmentBody>
-            <br/>
-            <Button type="submit" onClick={e=>{
-              e.preventDefault();
-              this.handleSubmit()
-              }}>Submit</Button>
           </Form>
+          <AssignmentBody>
+            <Label htmlFor="body">Assignment Body</Label>
+              <Textarea rows="10" cols="38" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></Textarea>
+          </AssignmentBody>
+          <br/>
+          <Button type="submit" onClick={e=>{
+            e.preventDefault();
+            this.handleSubmit()
+            }}>Submit</Button>
         </Container>
      </React.Fragment>
      );
