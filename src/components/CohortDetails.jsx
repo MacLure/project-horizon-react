@@ -90,10 +90,15 @@ class CohortDetails extends Component {
 
   this.state ={
     showNewStudentForm: false,
-    
+    showNewAdminForm: false,
+    showNewEventForm: false,
+    showNewAssignmentForm: false,
   }
   
   this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
+  this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
+  this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
+  this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
 
 }
 
@@ -108,12 +113,46 @@ class CohortDetails extends Component {
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
 
+  handleshowNewAdminForm = () =>{
+    this.setState({showNewAdminForm: !this.state.showNewAdminForm})
+  }
 
+  handleshowNewEventForm = () =>{
+    this.setState({showNewEventForm: !this.state.showNewEventForm})
+  }
+
+  handleshowNewAssignmentForm = () =>{
+    this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
+  }
 
   render() {
 
-    const studentAdminLogin = () => {
+    const showNewStudentForm = () => {
       if (this.state.showNewStudentForm ) {
+        return (
+          <NewStudentForm />
+        )
+      }
+    }
+
+    const handleshowNewAdminForm = () => {
+      if (this.state.showNewAdminForm ) {
+        return (
+          <NewStudentForm />
+        )
+      }
+    }
+
+    const handleshowNewEventForm = () => {
+      if (this.state.showNewEventForm ) {
+        return (
+          <NewStudentForm />
+        )
+      }
+    }
+
+    const handleshowNewAssignmentForm = () => {
+      if (this.state.showNewAssignmentForm ) {
         return (
           <NewStudentForm />
         )
@@ -140,6 +179,10 @@ class CohortDetails extends Component {
               {this.cStudents}
             </List>
             <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
+            <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
+            <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
+            <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
+
           </Students>
           <Staff>
             <Text>Staff:</Text>
@@ -151,7 +194,7 @@ class CohortDetails extends Component {
             <Button>add staff</Button>
           </Staff>
         </Grid>
-        {studentAdminLogin()}
+        {showNewStudentForm()}
       </CohortCard>
   </React.Fragment>
   );
