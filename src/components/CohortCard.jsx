@@ -91,14 +91,9 @@ const CohortCard = (props) => {
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
-<<<<<<< HEAD
         <CohortName>{name}</CohortName><br/>
         <br/>
         <Text>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Text><br/>
-=======
-        <CohortName>{name}</CohortName>
-        <Text>{start_date} - {end_date}</Text>
->>>>>>> 7d3973a9508087fe0001a5d5bbabb4c08124d165
         <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
       </Card>
