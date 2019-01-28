@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import NewStudentForm from './NewStudentForm';
 
 
 const Card = styled.div`
@@ -51,7 +50,7 @@ const ProgressBarFilling = styled.div`
 
 const CohortCard = (props) => {
 
-  const {start_date, end_date, name, course_type} = props.data
+  const {start_date, end_date, name} = props.data
 
   const formattedStartDate = new Date(Date.parse(start_date))
   const formattedEndDate = new Date(Date.parse(end_date))

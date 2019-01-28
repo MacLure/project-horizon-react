@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import Footer from './Footer';
 import styled from 'styled-components';
 import { connect } from 'react-redux'

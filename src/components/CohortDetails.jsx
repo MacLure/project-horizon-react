@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import NewStudentForm from './NewStudentForm'
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
@@ -83,51 +84,78 @@ const Button = styled.button`
     transition: opacity 0.5;
 
 `
+class CohortDetails extends Component {
+  constructor(props) {
+    super(props)
 
-const CohortDetails = (props) => {
-  console.log(props)
+  this.state ={
+    showNewStudentForm: false,
+    
+  }
+  
+  this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
 
-  const cohortStudents = cohortStudents
+}
 
 //  if(props.onFocusData != null){
 //   const {start_date, end_date, name, course_type} = props.onFocusData;
 //  }
 
- const students = props.students
- let cStudents = 'Loading...';
- if(props.cohortStudents){
-   cStudents = props.cohortStudents.map(student => (
-    <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
-  ))
- }
+  students = this.props.students
+  cStudents = 'Loading...';
+  
+  handleShowNewStudentForm = () =>{
+    this.setState({showNewStudentForm: !this.state.showNewStudentForm})
+  }
 
- return (
-   <React.Fragment>
-    <CohortCard>
-      <Title>{props.onFocusData!=null?props.onFocusData.name:null}</Title>
-      <Hr></Hr>
-      <Dates>{props.onFocusData!=null?props.onFocusData.start_date:null} - {props.onFocusData!=null?props.onFocusData.end_date:null}</Dates><br/>
-      <Grid>
-        <Students>
-          <Text>Students:</Text>
-          <List>
-            {cStudents}
-          </List>
-          <Button>add student</Button>
-        </Students>
-        <Staff>
-          <Text>Staff:</Text>
-          <List>
-            <ListItem>Hello</ListItem>
-            <ListItem>World</ListItem>
-            <ListItem>Bruh</ListItem>
-          </List>
-          <Button>add staff</Button>
-        </Staff>
-      </Grid>
-    </CohortCard>
- </React.Fragment>
- );
+
+
+  render() {
+
+    const studentAdminLogin = () => {
+      if (this.state.showNewStudentForm ) {
+        return (
+          <NewStudentForm />
+        )
+      }
+    }
+
+  if(this.props.cohortStudents){
+    this.cStudents = this.props.cohortStudents.map(student => (
+      <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
+    ))
+  }
+
+
+  return (
+    <React.Fragment>
+      <CohortCard>
+        <Title>{this.props.onFocusData!=null?this.props.onFocusData.name:null}</Title>
+        <Hr></Hr>
+        <Dates>{this.props.onFocusData!=null?this.props.onFocusData.start_date:null} - {this.props.onFocusData!=null?this.props.onFocusData.end_date:null}</Dates><br/>
+        <Grid>
+          <Students>
+            <Text>Students:</Text>
+            <List>
+              {this.cStudents}
+            </List>
+            <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
+          </Students>
+          <Staff>
+            <Text>Staff:</Text>
+            <List>
+              <ListItem>Hello</ListItem>
+              <ListItem>World</ListItem>
+              <ListItem>Bruh</ListItem>
+            </List>
+            <Button>add staff</Button>
+          </Staff>
+        </Grid>
+        {studentAdminLogin()}
+      </CohortCard>
+  </React.Fragment>
+  );
+  }
 }
 
 export default CohortDetails;

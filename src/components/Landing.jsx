@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-import styled from 'styled-components';
 import { connect } from 'react-redux'
 import  {onLogin} from './../service'
-import Logo from '../assets/img/logo.svg';
 import horizon_text from '../assets/img/horizon_text.svg';
 
 
@@ -18,7 +16,7 @@ class Login extends Component {
   }
 
   onSubmit = () => {
-    if (this.state.email != '' && this.state.password != '') {
+    if (this.state.email !== '' && this.state.password !== '') {
       onLogin(this.state.email, this.state.password)
       .then(e => e.json())
       .then(e => {console.log(e)

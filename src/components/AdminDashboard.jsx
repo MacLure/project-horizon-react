@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import CohortCard from './CohortCard';
 import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
-import NewStudentForm from './NewStudentForm';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
-import APIs from './APIs'
-import ArticlesFeed from './ArticlesFeed';
-import NewAssignmentForm from './NewAssignmentForm'
 
 const Container = styled.div`
   display: grid;
@@ -37,7 +32,8 @@ class AdminDashboard extends Component {
     company_notes: [],
     contact_notes: [],
     events: [],
-    onFocusData: null
+    onFocusData: null,
+    showNewStudentForm: false
   }
 
     componentDidMount() {
@@ -88,7 +84,6 @@ class AdminDashboard extends Component {
         <NavBar/>
         <Container>
           <NewCohortForm />
-          <NewStudentForm />
           {CohortDetail}
           <br/>
           <CohortCards>
@@ -96,7 +91,6 @@ class AdminDashboard extends Component {
               <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick} />
              ))}
           </CohortCards>
-          <NewAssignmentForm />
         </Container>
         <Footer/>
       </React.Fragment>
