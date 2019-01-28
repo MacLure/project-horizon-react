@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import Footer from './Footer';
-import { connect } from 'react-redux'
-import  {onLogin} from './../service'
+import { connect } from 'react-redux';
+import  {onLogin} from './../service';
+import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: #38383f;
