@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom';
 import Logo from '../assets/img/logo.svg';
 
 const Icon = styled.img`
@@ -35,7 +35,6 @@ const NavItem = styled.li`
   }
   `
 
-
 const MenuBar = styled.nav`
   width: 140px;
   height: 100%;
@@ -56,7 +55,11 @@ class NavBar extends Component {
           <Icon src={Logo} />
           <NavList>
             <Link to='./student'><NavItem>Student</NavItem></Link>
-            <Link to="./admin"><NavItem>Admin</NavItem></Link>
+
+            <NavLink to="./admin" activeStyle={{
+              backgroundColor: "#F6744E"
+            }}><NavItem>Admin</NavItem></NavLink>
+
             <Link to="./articles"><NavItem >Articles</NavItem></Link>
             <Link to="./jobs"><NavItem>Job Board</NavItem></Link>
             <Link to="./Events"><NavItem>Events</NavItem></Link>

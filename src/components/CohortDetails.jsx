@@ -71,7 +71,7 @@ const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #DD3D0F;
+  background-color: #17B57E;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
