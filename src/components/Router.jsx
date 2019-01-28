@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Landing from './Landing';
+
 import AdminDashboard from './AdminDashboard';
 import StudentDashboard from './StudentDashboard';
 import Login from './Login';
@@ -14,6 +16,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
+      <Route path='/' exact component={ Landing } />
         <Route path='/signup' exact component={ Signup } />
         <Route path='/login' exact component={ Login } />
         <Route path='/admin' component={ AdminDashboard } />

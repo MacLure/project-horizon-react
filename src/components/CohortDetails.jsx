@@ -81,39 +81,38 @@ const Button = styled.button`
 const CohortDetails = (props) => {
   console.log(props)
 
+  const cohortStudents = cohortStudents
  
 //  if(props.onFocusData != null){
 //   const {start_date, end_date, name, course_type} = props.onFocusData;
 //  }
 
- const admins = props.admins
  const students = props.students
+ let cStudents = 'Loading...';
+ if(props.cohortStudents){
+   cStudents = props.cohortStudents.map(student => (
+    <li key={student.id}>{student.first_name} {student.last_name}</li>
+  ))
+ }
+ 
  return (
    <React.Fragment>
     <CohortCard>
       <InnerDiv>
-        <Title>Cohort Details</Title>
-        <Text>NOT COHORT CARD</Text>
         <p>{props.onFocusData!=null?props.onFocusData.name:null}</p><br/>
         <p>{props.onFocusData!=null?props.onFocusData.course_type:null}</p><br/>
-        <p>{props.onFocusData!=null?props.onFocusData.start_date:null}</p><br/>
-        <p>{props.onFocusData!=null?props.onFocusData.end_date:null}</p><br/>
+        <p>{props.onFocusData!=null?props.onFocusData.start_date:null} - {props.onFocusData!=null?props.onFocusData.end_date:null}</p><br/>
+        <ul>
+          {cStudents}
+        </ul>
         <Staff>
           <Text>Staff:</Text>
-          <List>
-            {admins.map(admin => (
-            <ListItem key={admin.id}>{admin.first_name} {admin.last_name}</ListItem>
-            ))}
-          </List>
+
           <Button>add staff</Button> <br />
         </Staff>
         <Students>
           <Text>Students:</Text>
-            <List>
-              {students.map(student => (
-              <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
-            ))}
-          </List>
+
           <Button>add student</Button>
         </Students>
       </InnerDiv>

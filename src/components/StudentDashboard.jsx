@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
+import JobFeed from './JobFeed'
 
 const Title = styled.h1`
   text-align: center;
@@ -15,20 +16,16 @@ class StudentDashboard extends Component {
    }
 
 
-  componentDidMount() {
-    fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
-    .then(response=>response.json())
-    .then(response=> { this.setState({
-      articleIDs: response
-    });
-  })
-  }
-
   render() {
     return (
       <React.Fragment>
           <NavBar/>
           <Title>Student Dashboard</Title>
+          <div style={{textAlign: 'center'}}>ASSIGNMENTS LIST</div>
+          <div style={{textAlign: 'center'}}>EVENTS LIST</div>
+          <div style={{textAlign: 'center'}}>(stretch: job feed)</div>
+          <div style={{textAlign: 'center'}}>(stretch: article feed)</div>
+          <JobFeed />
           <Footer/>
       </React.Fragment>
     );

@@ -34,6 +34,13 @@ class AdminDashboard extends Component {
     admins: [],
     cohorts: [],
     students: [],
+    student_notes: [],
+    assignments: [],
+    submissions: [],
+    submission_comments: [],
+    company_notes: [],
+    contact_notes: [],
+    events: [],
     onFocusData: null
   }
 
@@ -44,35 +51,42 @@ class AdminDashboard extends Component {
         admins: response.admins,
         cohorts: response.cohorts,
         students: response.students,
+        student_notes: response.student_notes,
+        assignments: response.assignments,
+        submissions: response.submissions,
+        submission_comments: response.submission_comments,
+        company_notes: response.company_notes,
+        contact_notes: response.contact_notes,
+        events: response.events,
         onFocusData: response.cohorts[0]
       });
     })
     }
 
+    getCohortStudents = (studentArr, cohortId) => {
+      let arr = studentArr.filter(student => student.cohort_id === cohortId)
+      return arr;
+    }
+
+
     onCohortClick = (data) => {
       console.log('Cohort Data',data)
       this.setState({onFocusData:data})
     }
-    //POST REQUEST FOR NEW COHORTS
-    // handleSubmit(event){
-    //   event.preventDefault();
-    //   IS THIS THE RIGHT ADDRESS??
-    //   fetch('https://project-horizon-rails.herokuapp.com/admin', {
-    //    method: 'post',
-    //    headers: {'Content-Type':'application/json'},
-    //    body: {
-    //    THESE ARE UNDEFINED
-    //     "start_date": this.startDate.value,
-    //     "end_date": this.endDate.value,
-    //     "name": this.name.value,
-    //     "course_type": this.courseType.value
-    //    }
-    //   });
-    //  };
+
 
   render() {
     const admins = this.state.admins
 
+    let CohortDetail = null;
+    if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
+      CohortDetail = <CohortDetails 
+        onFocusData={this.state.onFocusData} 
+        students={this.state.students} 
+        admins={this.state.admins} 
+        cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)} 
+      />
+    }
     return (
       <React.Fragment>
         <NavBar/>
@@ -81,7 +95,7 @@ class AdminDashboard extends Component {
         <Container>
           <NewCohortForm />
           <NewStudentForm />
-          <CohortDetails onFocusData={this.state.onFocusData} students={this.state.students} admins={this.state.admins} />
+          {CohortDetail}
           <br/>
           <CohortCards>
             {this.state.cohorts.map(cohort => (
