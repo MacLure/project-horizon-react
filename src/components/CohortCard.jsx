@@ -13,32 +13,42 @@ const Card = styled.div`
   border-radius: 2px;
   grid-column-start: 1;
   justify-self: center;
-  transition: 0.5s;
+  transition: 0.3s;
   opacity: 1;
   cursor: pointer;
 
   :hover {
-    background-color: rgba(42, 44, 51, 0.15);
-    transition: 0.5s;
+    opacity: 0.5;
+    transition: 0.3s;
   }
 `
 const CohortName = styled.h3`
   padding-top: 20px;
   padding-left: 80px;
+  padding-bottom: 7px;
   background-color: inherit;
   text-align: left;
 `
+const Dates = styled.p`
+  padding-left: 80px;
+  background-color: inherit;
+  color: gray;
+  font-size: 15px;
+  text-align: left;
+  padding-bottom: 7px;
+`
+
 const Text = styled.p`
   padding-left: 80px;
   background-color: inherit;
   text-align: left;
-  padding-bottom: 10px;
+  padding-bottom: 7px;
 `
 
 const ProgressBarTotal = styled.div`
   background-color: white;
   width: 80%;
-  height: 3px;
+  height: 5px;
   margin-left: 80px;
   border-radius: 20px;
 `
@@ -91,9 +101,8 @@ const CohortCard = (props) => {
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
-        <CohortName>{name}</CohortName><br/>
-        <br/>
-        <Text>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Text><br/>
+        <CohortName>{name}</CohortName>
+        <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
       </Card>

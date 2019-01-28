@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import Footer from './Footer';
 import styled from 'styled-components';
 import { connect } from 'react-redux'
 import  {onLogin} from './../service'
 
 const Container = styled.div`
   background-color: #38383f;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 30vw;
   border-radius: 2px;
+  min-width: 250px;
+  margin-top: 200px;
 `
 
 const Title = styled.h2 `
@@ -66,7 +65,7 @@ const Button = styled.button`
 
 class Login extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
       this.state = {
         user: null,
         email: '',
@@ -74,11 +73,15 @@ class Login extends Component {
        }
   }
 
-
+  componentDidMount(){
+    let body = document.getElementsByTagName('body')[0];
+    body.style.paddingBottom = 0;
+    console.log(body)
+  }
   onStudent = () => {
     this.setState({user:'student'})
   }
-  
+
   onAdmin = () => {
     this.setState({user:'admin'})
   }
@@ -91,13 +94,13 @@ class Login extends Component {
       this.props.onTokenReceive(e.token)
       this.props.history.push('/admin')
     })
-    }
   }
+}
 
  render() {
 
    return (
-     <React.Fragment>
+     <div className="landing">
        <Container>
         <Title>Welcome Back</Title>
         <p style={{textAlign: 'center'}}>I am a:</p>
@@ -119,10 +122,7 @@ class Login extends Component {
            <Button type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</Button>
          </Form>
        </Container>
-
-       <Footer/>
-
-     </React.Fragment>
+      </div>
      );
  }
 }
@@ -149,6 +149,3 @@ export default connect(
 )
 
 (Login)
-
-
-
