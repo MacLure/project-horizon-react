@@ -11,16 +11,12 @@ import APIs from './APIs'
 import ArticlesFeed from './ArticlesFeed';
 import NewAssignmentForm from './NewAssignmentForm'
 
-
-const Title = styled.h1`
-  text-align: center;
-  margin-left: 140px;
-`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-left: 140px;
   margin-bottom: 80px;
+  padding-top: 40px;
 `
 
 const CohortCards = styled.div`
@@ -90,8 +86,6 @@ class AdminDashboard extends Component {
     return (
       <React.Fragment>
         <NavBar/>
-        <Title>Admin Dashboard</Title>
-
         <Container>
           <NewCohortForm />
           <NewStudentForm />
