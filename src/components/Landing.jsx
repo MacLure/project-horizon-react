@@ -73,7 +73,6 @@ class Login extends Component {
        }
   }
 
-<<<<<<< HEAD
   onSubmit = () => {
     if (this.state.email !== '' && this.state.password !== '') {
       onLogin(this.state.email, this.state.password)
@@ -85,8 +84,6 @@ class Login extends Component {
     }
   }
 
-=======
->>>>>>> ben
 
   onStudent = () => {
     this.setState({user:'student'})
