@@ -11,8 +11,7 @@ const Card = styled.div`
   padding-bottom: 20px;
   width: 40vw;
   border-radius: 2px;
-  grid-column-start: 2;
-  grid-row-end: 5;
+  grid-column-start: 1;
   justify-self: center;
   transition: 0.5s;
   opacity: 1;
@@ -33,7 +32,7 @@ const Text = styled.p`
   padding-left: 80px;
   background-color: inherit;
   text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 `
 
 const ProgressBarTotal = styled.div`
@@ -87,9 +86,8 @@ const CohortCard = (props) => {
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
-        <CohortName>{name}</CohortName><br/>
-        <br/>
-        <Text>{start_date} - {end_date}</Text><br/>
+        <CohortName>{name}</CohortName>
+        <Text>{start_date} - {end_date}</Text>
         <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
       </Card>

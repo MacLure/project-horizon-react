@@ -19,8 +19,8 @@ const Title = styled.h1`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 6;
   margin-left: 140px;
+  margin-bottom: 80px;
 `
 
 const CohortCards = styled.div`
@@ -80,11 +80,11 @@ class AdminDashboard extends Component {
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
-      CohortDetail = <CohortDetails 
-        onFocusData={this.state.onFocusData} 
-        students={this.state.students} 
-        admins={this.state.admins} 
-        cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)} 
+      CohortDetail = <CohortDetails
+        onFocusData={this.state.onFocusData}
+        students={this.state.students}
+        admins={this.state.admins}
+        cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
       />
     }
     return (

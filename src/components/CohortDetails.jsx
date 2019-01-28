@@ -10,10 +10,10 @@ const CohortCard = styled.div`
   width: 40vw;
   border-radius: 2px;
   padding: 10px 0px;
-  grid-column-start: 1;
-  grid-row-start: 5;
+  grid-column-start: 2;
+  grid-row-start: 1;
 `
-const InnerDiv = styled.div`
+const Grid = styled.div`
   text-align: left;
   margin: 0 auto;
   padding-left: 80px;
@@ -25,18 +25,26 @@ const InnerDiv = styled.div`
 
 const Title = styled.h2 `
   padding-top: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   background-color: inherit;
-  text-align: left;
+  text-align: center;
 `
-
+const Hr = styled.div`
+  border-bottom: 2px solid #DD3D0F;
+  border-radius: 5px;
+`
+const Dates = styled.p`
+  padding-top: 20px;
+  text-align: center;
+`
 const Staff = styled.div`
-  grid-column-start: 1;
+  text-align: left;
   background-color: inherit;
+  grid-column-start: 2;
 `
 
 const Students = styled.div`
-  grid-column-start: 2;
+  grid-column-start: 1;
   background-color: inherit;
 `
 
@@ -50,7 +58,6 @@ const Text = styled.p`
 const List = styled.ul`
   background-color: inherit;
   text-align: left;
-  margin: 20px auto;
 `
 
 const ListItem = styled.li`
@@ -71,7 +78,6 @@ const Button = styled.button`
   font-size: 1.1em;
   text-align: center;
 
-
   :hover {
     opacity: 0.5;
     transition: opacity 0.5;
@@ -82,7 +88,7 @@ const CohortDetails = (props) => {
   console.log(props)
 
   const cohortStudents = cohortStudents
- 
+
 //  if(props.onFocusData != null){
 //   const {start_date, end_date, name, course_type} = props.onFocusData;
 //  }
@@ -91,31 +97,34 @@ const CohortDetails = (props) => {
  let cStudents = 'Loading...';
  if(props.cohortStudents){
    cStudents = props.cohortStudents.map(student => (
-    <li key={student.id}>{student.first_name} {student.last_name}</li>
+    <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
   ))
  }
- 
+
  return (
    <React.Fragment>
     <CohortCard>
-      <InnerDiv>
-        <p>{props.onFocusData!=null?props.onFocusData.name:null}</p><br/>
-        <p>{props.onFocusData!=null?props.onFocusData.course_type:null}</p><br/>
-        <p>{props.onFocusData!=null?props.onFocusData.start_date:null} - {props.onFocusData!=null?props.onFocusData.end_date:null}</p><br/>
-        <ul>
-          {cStudents}
-        </ul>
-        <Staff>
-          <Text>Staff:</Text>
-
-          <Button>add staff</Button> <br />
-        </Staff>
+      <Title>{props.onFocusData!=null?props.onFocusData.name:null}</Title>
+      <Hr></Hr>
+      <Dates>{props.onFocusData!=null?props.onFocusData.start_date:null} - {props.onFocusData!=null?props.onFocusData.end_date:null}</Dates><br/>
+      <Grid>
         <Students>
           <Text>Students:</Text>
-
+          <List>
+            {cStudents}
+          </List>
           <Button>add student</Button>
         </Students>
-      </InnerDiv>
+        <Staff>
+          <Text>Staff:</Text>
+          <List>
+            <ListItem>Hello</ListItem>
+            <ListItem>World</ListItem>
+            <ListItem>Bruh</ListItem>
+          </List>
+          <Button>add staff</Button>
+        </Staff>
+      </Grid>
     </CohortCard>
  </React.Fragment>
  );
