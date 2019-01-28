@@ -11,16 +11,12 @@ import APIs from './APIs'
 import ArticlesFeed from './ArticlesFeed';
 import NewAssignmentForm from './NewAssignmentForm'
 
-
-const Title = styled.h1`
-  text-align: center;
-  margin-left: 140px;
-`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 6;
   margin-left: 140px;
+  margin-bottom: 80px;
+  padding-top: 40px;
 `
 
 const CohortCards = styled.div`
@@ -80,18 +76,16 @@ class AdminDashboard extends Component {
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
-      CohortDetail = <CohortDetails 
-        onFocusData={this.state.onFocusData} 
-        students={this.state.students} 
-        admins={this.state.admins} 
-        cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)} 
+      CohortDetail = <CohortDetails
+        onFocusData={this.state.onFocusData}
+        students={this.state.students}
+        admins={this.state.admins}
+        cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
       />
     }
     return (
       <React.Fragment>
         <NavBar/>
-        <Title>Admin Dashboard</Title>
-
         <Container>
           <NewCohortForm />
           <NewStudentForm />

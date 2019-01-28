@@ -1,6 +1,108 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  background-color: #2A2C33;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+  border-radius: 2px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  justify-self: center;
+  height: 350px;
+`
+
+const Title = styled.h2 `
+  padding-top: 20px;
+  padding-left: 80px;
+  padding-bottom: 15px;
+  background-color: inherit;
+  text-align: left;
+`
+
+const Form = styled.form`
+  text-align: left;
+  padding-left: 80px;
+  background-color: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+`
+
+const AssignmentName = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 1;
+  background-color: inherit;
+`
+
+const DueDate = styled.div`
+  grid-column-start: 2;
+  grid-row-start: 1;
+  background-color: inherit;
+`
+const AssignmentBody = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 2;
+  background-color: inherit;
+`
+
+const Label = styled.label`
+  display: block;
+  padding: 15px 0;
+  background-color: inherit;
+  color: white;
+  text-align: left;
+  padding-left: 0;
+`
+
+const Input = styled.input`
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+
+  :focus {
+    border: 1px solid #DD3D0F;
+    transition: border 0.5s;
+  }
+`
+
+const Textarea = styled.textarea`
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+
+  :focus {
+    border: 1px solid #DD3D0F;
+    transition: border 0.5s;
+}
+`
+
+const Button = styled.button`
+  margin: 30px auto;
+  margin-left: 0;
+  padding-left: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #DD3D0F;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+  grid-column-start: 1;
+  grid-row-start: 3;
+
+  :hover {
+    opacity: 0.5;
+    transition: opacity 0.45;
+  }`
+
+
 
 class NewAssignmentForm extends Component {
   constructor(props) {
@@ -25,27 +127,28 @@ class NewAssignmentForm extends Component {
   render() {
     return (
       <React.Fragment>
-      <div>
-        <h1>Create Assignment</h1>
-
-          <div>
-            <label htmlFor="name">Assignment Name</label>
-            <input type="text" name="name" placeholder="Personal Branding"  value={this.state.name} onChange={this.handleChange}></input>
-          </div>
-          <div>
-          <label htmlFor="due_date">Due Date</label>
-          <input type="date" name="due_date" value={this.state.due_date} onChange={this.handleChange} ></input>
-        </div>
-          <div>
-            <label htmlFor="body">Assignment Body</label>
-            <textarea row="100" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></textarea>
-          </div>
-         <br/><button type="submit" onClick={e=>{
-           e.preventDefault();
-           this.handleSubmit()
-         }}>Submit</button>
-
-      </div>
+        <Container>
+          <Title>Create Assignment</Title>
+          <Form>
+            <AssignmentName>
+              <Label htmlFor="name">Assignment Name</Label>
+              <Input type="text" name="name" placeholder="Personal Branding"  value={this.state.name} onChange={this.handleChange}></Input>
+            </AssignmentName>
+            <DueDate>
+              <Label htmlFor="due_date">Due Date</Label>
+              <Input type="date" name="due_date" value={this.state.due_date} onChange={this.handleChange} ></Input>
+            </DueDate>
+            <AssignmentBody>
+              <Label htmlFor="body">Assignment Body</Label>
+              <Textarea row="100" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></Textarea>
+            </AssignmentBody>
+            <br/>
+            <Button type="submit" onClick={e=>{
+              e.preventDefault();
+              this.handleSubmit()
+              }}>Submit</Button>
+          </Form>
+        </Container>
      </React.Fragment>
      );
   }

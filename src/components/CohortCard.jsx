@@ -11,8 +11,7 @@ const Card = styled.div`
   padding-bottom: 20px;
   width: 40vw;
   border-radius: 2px;
-  grid-column-start: 2;
-  grid-row-end: 5;
+  grid-column-start: 1;
   justify-self: center;
   transition: 0.5s;
   opacity: 1;
@@ -33,7 +32,7 @@ const Text = styled.p`
   padding-left: 80px;
   background-color: inherit;
   text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 `
 
 const ProgressBarTotal = styled.div`
@@ -54,11 +53,10 @@ const CohortCard = (props) => {
 
   const {start_date, end_date, name, course_type} = props.data
 
-  const formattedStartDate = new Date(Date.parse(start_date))
-  const options = {year: 'numeric', month: 'short', day: 'numeric' };
-    
+  const formattedStartDate = new Date(Date.parse(start_date))    
   const formattedEndDate = new Date(Date.parse(end_date))
-    
+  const options = {year: 'numeric', month: 'short', day: 'numeric' };
+
   const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
   const daysLeft = Math.trunc((Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24))
 
@@ -93,9 +91,14 @@ const CohortCard = (props) => {
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
+<<<<<<< HEAD
         <CohortName>{name}</CohortName><br/>
         <br/>
         <Text>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Text><br/>
+=======
+        <CohortName>{name}</CohortName>
+        <Text>{start_date} - {end_date}</Text>
+>>>>>>> 7d3973a9508087fe0001a5d5bbabb4c08124d165
         <Text>{daysLeftDisplay()}</Text>
         {progressBar()}
       </Card>

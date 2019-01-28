@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom'
 import Logo from '../assets/img/logo.svg';
 
 const Icon = styled.img`
@@ -30,9 +30,11 @@ const NavItem = styled.li`
   transition: background-color 0.5s;
 
   :hover {
-    background-color: #F6744E;
-    transition: background-color 0.5s;
-  }`
+  background-color: #F6744E;
+  transition: background-color 0.5s;
+  }
+  `
+
 
 const MenuBar = styled.nav`
   width: 140px;
@@ -55,7 +57,7 @@ class NavBar extends Component {
           <NavList>
             <Link to='./student'><NavItem>Student</NavItem></Link>
             <Link to="./admin"><NavItem>Admin</NavItem></Link>
-            <Link to="./articles"><NavItem>Articles</NavItem></Link>
+            <Link to="./articles"><NavItem >Articles</NavItem></Link>
             <Link to="./jobs"><NavItem>Job Board</NavItem></Link>
             <Link to="./Events"><NavItem>Events</NavItem></Link>
             <Link to="./Settings"><NavItem>Settings</NavItem></Link>

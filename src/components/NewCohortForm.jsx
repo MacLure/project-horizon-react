@@ -9,7 +9,7 @@ const Container = styled.div`
   margin-right: auto;
   width: 40vw;
   border-radius: 2px;
-  grid-column-start: 2;
+  grid-column-start: 1;
   justify-self: center;
   height: 350px;
 `
