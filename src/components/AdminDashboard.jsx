@@ -22,11 +22,13 @@ const CohortCards = styled.div`
   grid-column-start: 2;
 `
 
-const Grid = styled.div`
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   grid-column-start: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 20px 10px;
+  padding-left: 36px;
 `
 
 class AdminDashboard extends Component {
@@ -94,9 +96,9 @@ class AdminDashboard extends Component {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
-    
+
     displayLogOutButton = () => {
-      return (this.props.token != null) ? 
+      return (this.props.token != null) ?
       <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
       ''
 
@@ -134,13 +136,12 @@ class AdminDashboard extends Component {
             )
           )}
           </CohortCards>
-          <Grid>
-            <NewCohortForm />
+
+          <ContentContainer>
             {CohortDetail}
-            <br/>
-          </Grid>
+            <NewCohortForm />
+          </ContentContainer>
         </Container>
-        
         <Footer/>
       </React.Fragment>
     );

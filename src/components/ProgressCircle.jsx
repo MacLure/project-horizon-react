@@ -15,7 +15,7 @@ const ProgressCircle = (props) => {
           stroke-dasharray="565.48"
           stroke-dashoffset="0"
           stroke="#404040"
-          strokeWidth="5px"
+          strokeWidth="10px"
         ></circle>
 
         <circle
@@ -25,7 +25,7 @@ const ProgressCircle = (props) => {
           stroke-dasharray={2*Math.PI*25}
           stroke-dashoffset={2*Math.PI*25 - (2*Math.PI*25 * (props.progress() / 100))}
           stroke= '#17B57E'
-          strokeWidth="5px"
+          strokeWidth="10px"
           ></circle>
     </svg>
   </div>
