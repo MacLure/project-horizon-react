@@ -131,7 +131,7 @@ class Login extends Component {
       onLogin(this.state.email, this.state.password)
       .then(e => e.json())
       .then(e => {console.log(e)
-      this.props.onTokenReceive(e.token)
+      this.props.onTokenReceive(e.jwt)
       this.props.history.push('/admin')
     })
   }

@@ -14,6 +14,7 @@ const reducer = (state=initialState, action) => {
     return obj
     
     case "SET_USER_TOKEN":
+    console.log(action.payload)
     return {...state, token: action.payload }
 
     case "FETCH_USERS_ERROR": return {...state, fetching: false, error: action.payload}

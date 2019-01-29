@@ -5,6 +5,8 @@ import NewCohortForm from './NewCohortForm';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
+
 
 const Container = styled.div`
   display: grid;
@@ -54,6 +56,8 @@ class AdminDashboard extends Component {
         onFocusData: response.cohorts[0]
       });
     })
+
+    console.log('Token:::::',this.props.token)
     }
 
     getCohortStudents = (studentArr, cohortId) => {
@@ -77,6 +81,18 @@ class AdminDashboard extends Component {
         onFocusData:data,
         selectedCohort:this.state.cohorts.indexOf(data)
       })
+    }
+
+    destroyToken = () => {
+      this.props.onTokenReceive(null)
+      this.props.history.push('/')
+    }
+    
+    displayLogOutButton = () => {
+      return (this.props.token != null) ? 
+      <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
+      ''
+
     }
 
 
@@ -104,16 +120,39 @@ class AdminDashboard extends Component {
           {CohortDetail}
           <br/>
           <CohortCards>
+          {this.displayLogOutButton()}
             {this.state.cohorts.map((cohort, index) => (
               <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick}
               isActive={this.state.selectedCohort === index}/>
              ))}
           </CohortCards>
         </Container>
+        
         <Footer/>
       </React.Fragment>
     );
   }
 }
 
-export default AdminDashboard;
+
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(AdminDashboard);
