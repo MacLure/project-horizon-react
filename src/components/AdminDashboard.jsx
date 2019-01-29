@@ -9,9 +9,9 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left: 140px;
+  margin-left: 100px;
   margin-bottom: 80px;
-  padding-top: 40px;
+  padding-top: 20px;
 `
 
 const CohortCards = styled.div`

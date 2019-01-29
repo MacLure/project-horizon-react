@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/logo.svg';
+import Logo from '../assets/img/horizon_text2.svg';
 
 const Icon = styled.img`
   width: 120px;
