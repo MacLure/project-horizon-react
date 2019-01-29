@@ -3,27 +3,29 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: #2A2C33;
-  margin: 20px 40px;
-  width: 30vw;
+  margin: 20px auto;
+  width: 40vw;
+  height: 300px;
   border-radius: 2px;
-  grid-column-start: 2;
-  justify-self: center;
 `
 
 const Title = styled.h2 `
-  padding-top: 20px;
-  padding-bottom: 15px;
+  padding: 20px 0px 15px 0px;
   background-color: inherit;
-  text-align: left;
+  text-align: center;
+`
+const Hr = styled.div`
+  border-bottom: 2px solid #DD3D0F;
+  border-radius: 5px;
 `
 
 const Form = styled.form`
   text-align: left;
-  padding-left: 80px;
   background-color: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
+  padding-left: 100px;
 `
 
 const Name = styled.div`
@@ -54,8 +56,6 @@ const Label = styled.label`
   padding: 15px 0;
   background-color: inherit;
   color: white;
-  text-align: left;
-  padding-left: 0;
 `
 
 const Input = styled.input`
@@ -142,6 +142,7 @@ class NewCohortForm extends Component {
       <React.Fragment>
       <Container>
       <Title>New Cohort</Title>
+      <Hr></Hr>
       <Form onSubmit={this.handleSubmit}>
         <Name>
           <Label htmlFor="name">Name</Label>
