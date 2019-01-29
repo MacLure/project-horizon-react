@@ -130,7 +130,7 @@ class Login extends Component {
 
   onSubmit = () => {
     if (this.state.user === 'admin') {
-      if (this.state.email != '' && this.state.password != '') {
+      if (this.state.email !== '' && this.state.password !== '') {
         onAdminLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
@@ -139,7 +139,7 @@ class Login extends Component {
         })
       }
     } else if (this.state.user === 'student') {
-      if (this.state.email != '' && this.state.password != '') {
+      if (this.state.email !== '' && this.state.password !== '') {
         onStudentLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
@@ -199,7 +199,4 @@ const mapDispatchtoProps = dispatch => {
 
 export default connect(
   mapStatetoProps,
-  mapDispatchtoProps
-)
-
-(Login)
+  mapDispatchtoProps)(Login)

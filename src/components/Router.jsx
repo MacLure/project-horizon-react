@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Landing from './Landing';
-
 import AdminDashboard from './AdminDashboard';
 import StudentDashboard from './StudentDashboard';
 import Login from './Login';

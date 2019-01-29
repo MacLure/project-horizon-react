@@ -133,7 +133,7 @@ class NewCohortForm extends Component {
         fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data)}`, {
         method: 'post',
         mode: "cors"
-      })    .then(response => {console.log(this.state)})
+      }).then(response => {console.log(this.state)})
 
   }
 

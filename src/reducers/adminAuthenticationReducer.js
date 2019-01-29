@@ -19,7 +19,7 @@ const reducer = (state=initialState, action) => {
 
     case "FETCH_USERS_ERROR": return {...state, fetching: false, error: action.payload}
     
-    case "RECEIVE_USERS": return {...state, fetching: false, fetching: true, users: action.payload}
+    case "RECEIVE_USERS": return {...state, fetching: true, users: action.payload}
     
     default: return state
 

@@ -32,24 +32,45 @@ const Grid = styled.div`
 `
 
 class AdminDashboard extends Component {
-  state = {
-    admins: [],
-    cohorts: [],
-    students: [],
-    student_notes: [],
-    assignments: [],
-    submissions: [],
-    submission_comments: [],
-    company_notes: [],
-    contact_notes: [],
-    events: [],
-    onFocusData: null,
-    showNewStudentForm: false,
-    selectedCohort: -1
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      admins: [],
+      cohorts: [],
+      students: [],
+      student_notes: [],
+      assignments: [],
+      submissions: [],
+      submission_comments: [],
+      company_notes: [],
+      contact_notes: [],
+      events: [],
+      onFocusData: null,
+      showNewStudentForm: false,
+      selectedCohort: -1
+    }
+
   }
+  
 
     componentDidMount() {
       getAdminDashboardData()
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+          admins: response.admins,
+          cohorts: response.cohorts,
+          students: response.students,
+          student_notes: response.student_notes,
+          assignments: response.assignments,
+          submissions: response.submissions,
+          submission_comments: response.submission_comments,
+          company_notes: response.company_notes,
+          contact_notes: response.contact_notes,
+          events: response.events,
+          onFocusData: response.cohorts[0]
+        });
+      })
     }
 
     getCohortStudents = (studentArr, cohortId) => {
