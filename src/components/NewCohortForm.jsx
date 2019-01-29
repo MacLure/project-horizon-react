@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Arrow from '../assets/Icons/DoubleDown.png';
 
 const Container = styled.div`
   background-color: #2A2C33;

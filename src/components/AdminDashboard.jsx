@@ -5,7 +5,9 @@ import NewCohortForm from './NewCohortForm';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import  {getAdminDashboardData} from './../service';
+
 
 
 const Container = styled.div`
@@ -47,24 +49,7 @@ class AdminDashboard extends Component {
   }
 
     componentDidMount() {
-    fetch('https://project-horizon-rails.herokuapp.com/admin',{mode:'cors'})
-      .then(response=>response.json())
-      .then(response=> { this.setState({
-        admins: response.admins,
-        cohorts: response.cohorts,
-        students: response.students,
-        student_notes: response.student_notes,
-        assignments: response.assignments,
-        submissions: response.submissions,
-        submission_comments: response.submission_comments,
-        company_notes: response.company_notes,
-        contact_notes: response.contact_notes,
-        events: response.events,
-        onFocusData: response.cohorts[0]
-      });
-    })
-
-    console.log('Token:::::',this.props.token)
+      getAdminDashboardData()
     }
 
     getCohortStudents = (studentArr, cohortId) => {

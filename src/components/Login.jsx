@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import { connect } from 'react-redux'
-import  {onLogin} from './../service'
+import  {onAdminLogin} from './../service'
+import  {onStudentLogin} from './../service'
+
 
 const Container = styled.div`
   background-color: #38383f;
@@ -118,6 +119,7 @@ class Login extends Component {
     body.style.paddingBottom = 0;
     console.log(body)
   }
+  
   onStudent = () => {
     this.setState({user:'student'})
   }
@@ -127,15 +129,26 @@ class Login extends Component {
   }
 
   onSubmit = () => {
-    if (this.state.email != '' && this.state.password != '') {
-      onLogin(this.state.email, this.state.password)
-      .then(e => e.json())
-      .then(e => {console.log(e)
-      this.props.onTokenReceive(e.jwt)
-      this.props.history.push('/admin')
-    })
+    if (this.state.user === 'admin') {
+      if (this.state.email != '' && this.state.password != '') {
+        onAdminLogin(this.state.email, this.state.password)
+        .then(e => e.json())
+        .then(e => {console.log(e)
+          this.props.onTokenReceive(e.jwt)
+          this.props.history.push('/admin')
+        })
+      }
+    } else if (this.state.user === 'student') {
+      if (this.state.email != '' && this.state.password != '') {
+        onStudentLogin(this.state.email, this.state.password)
+        .then(e => e.json())
+        .then(e => {console.log(e)
+          this.props.onTokenReceive(e.jwt)
+          this.props.history.push('/admin')
+        })
+      }
+    }
   }
-}
 
  render() {
 
