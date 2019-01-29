@@ -14,8 +14,6 @@ const CohortCard = styled.div`
   width: 40vw;
   border-radius: 2px;
   padding: 10px 0px;
-  grid-column-start: 1;
-  grid-row-start: 1;
 `
 const Grid = styled.div`
   text-align: left;
@@ -212,12 +210,12 @@ class CohortDetails extends Component {
           </Staff>
           <Staff>
           <Text>Events:</Text>
-          <ul>
+          <List>
           {this.cEvents}
-          </ul>
-          <ul>
+          </List>
+          <List>
           {this.cAssignments}
-          </ul>
+          </List>
         </Staff>
         </Grid>
         {showNewStudentForm()}

@@ -22,11 +22,13 @@ const CohortCards = styled.div`
   grid-column-start: 2;
 `
 
-const Grid = styled.div`
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   grid-column-start: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 20px 10px;
+  padding-left: 36px;
 `
 
 class AdminDashboard extends Component {
@@ -50,7 +52,7 @@ class AdminDashboard extends Component {
     }
 
   }
-  
+
 
     componentDidMount() {
       getAdminDashboardData()
@@ -138,13 +140,12 @@ class AdminDashboard extends Component {
             )
           )}
           </CohortCards>
-          <Grid>
-            <NewCohortForm />
-            {CohortDetail}
-            <br/>
-          </Grid>
-        </Container>
 
+          <ContentContainer>
+            {CohortDetail}
+            <NewCohortForm />
+          </ContentContainer>
+        </Container>
         <Footer/>
       </React.Fragment>
     );
