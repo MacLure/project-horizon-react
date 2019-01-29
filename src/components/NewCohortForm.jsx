@@ -4,19 +4,15 @@ import Arrow from '../assets/Icons/DoubleDown.png';
 
 const Container = styled.div`
   background-color: #2A2C33;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40vw;
+  margin: 20px 40px;
+  width: 30vw;
   border-radius: 2px;
-  grid-column-start: 1;
+  grid-column-start: 2;
   justify-self: center;
-  height: 350px;
 `
 
 const Title = styled.h2 `
   padding-top: 20px;
-  padding-left: 80px;
   padding-bottom: 15px;
   background-color: inherit;
   text-align: left;

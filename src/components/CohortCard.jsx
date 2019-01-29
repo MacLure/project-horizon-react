@@ -4,8 +4,8 @@ import ProgressCircle from './ProgressCircle'
 
 const Card = styled.div`
   background-color: rgba(42, 44, 51, 1);
-  margin: 20px auto;
-  width: 30vw;
+  margin: 20px 10px;
+  width: 25vw;
   border-radius: 2px;
   grid-column-start: 1;
   justify-self: center;
@@ -13,7 +13,7 @@ const Card = styled.div`
   opacity: 1;
   cursor: pointer;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   :hover {
     opacity: 0.5;
@@ -25,11 +25,11 @@ const Grid = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 3;
   background-color: inherit;
+  padding-left: 20px;
 `
 
 const CohortName = styled.h3`
   padding-top: 20px;
-  padding-left: 40px;
   padding-bottom: 7px;
   background-color: inherit;
   text-align: left;
@@ -37,7 +37,6 @@ const CohortName = styled.h3`
   grid-row-start: 1;
 `
 const Dates = styled.p`
-  padding-left: 40px;
   background-color: inherit;
   color: gray;
   font-size: 14px;
@@ -48,7 +47,6 @@ const Dates = styled.p`
 `
 
 const Text = styled.p`
-  padding-left: 40px;
   background-color: inherit;
   text-align: left;
   padding-bottom: 14px;

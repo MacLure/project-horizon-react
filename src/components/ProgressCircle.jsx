@@ -27,6 +27,7 @@ const ProgressCircle = (props) => {
           stroke= '#17B57E'
           strokeWidth="5px"
         ></circle>
+
     </svg>
   </div>
    );
