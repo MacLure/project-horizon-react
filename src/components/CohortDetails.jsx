@@ -102,6 +102,7 @@ class CohortDetails extends Component {
   this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
   this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
   this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
+  this.handleDelete = this.handleDelete.bind(this);
 
 }
 
@@ -128,6 +129,10 @@ class CohortDetails extends Component {
 
   handleshowNewAssignmentForm = () =>{
     this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
+  }
+
+  handleDelete = () => {
+    console.log("OK")
   }
 
   render() {
@@ -199,6 +204,8 @@ class CohortDetails extends Component {
             <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
             <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
+            <Button onClick={e=>{this.handleDelete(e)}} >DELETE COHORT</Button>
+
           </Students>
           <Staff>
             <Text>Staff:</Text>

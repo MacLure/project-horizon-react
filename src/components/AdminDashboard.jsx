@@ -55,26 +55,7 @@ class AdminDashboard extends Component {
 
 
     componentDidMount() {
-    if(this.props.token != null){
-      getAdminDashboardData(this.props.token)
-      .then(response=>response.json())
-      .then(response=> {this.setState({
-          admins: response.admins,
-          cohorts: response.cohorts,
-          students: response.students,
-          student_notes: response.student_notes,
-          assignments: response.assignments,
-          submissions: response.submissions,
-          submission_comments: response.submission_comments,
-          company_notes: response.company_notes,
-          contact_notes: response.contact_notes,
-          events: response.events,
-          onFocusData: response.cohorts[0]
-        });
-      })
-    }else{
-      this.props.history.push('/')
-    }
+
       
     }
 
@@ -115,6 +96,27 @@ class AdminDashboard extends Component {
 
 
   render() {
+
+    if(this.props.token != null){
+      getAdminDashboardData(this.props.token)
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+          admins: response.admins,
+          cohorts: response.cohorts,
+          students: response.students,
+          student_notes: response.student_notes,
+          assignments: response.assignments,
+          submissions: response.submissions,
+          submission_comments: response.submission_comments,
+          company_notes: response.company_notes,
+          contact_notes: response.contact_notes,
+          events: response.events,
+          onFocusData: response.cohorts[0]
+        });
+      })
+    }else{
+      this.props.history.push('/')
+    }
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
