@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/logo.svg';
+import Logo from '../assets/img/horizon_text2.svg';
 
-const Icon = styled.img`
-  width: 120px;
-  margin: 0 auto;
-  background-color: inherit;
+const MenuBar = styled.nav`
+  grid-coulmn-start: 1;
+  width: 140px;
+  height: 100%;
+  text-align: left;
+  position: fixed;
+  background-color: #363A42;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `
-
 const NavList = styled.ul`
   padding: 0px;
   margin: 0px;
   background-color: #363A42;
   border-top: 1px solid #1c1f21;
   border-bottom: 1px solid #1c1f21;
+`
+
+const Icon = styled.img`
+  width: 120px;
+  margin: 0 auto;
+  background-color: inherit;
 `
 
 const NavItem = styled.li`
@@ -32,19 +43,7 @@ const NavItem = styled.li`
   :hover {
   background-color: #F6744E;
   transition: background-color 0.5s;
-  }
-  `
-
-const MenuBar = styled.nav`
-  width: 140px;
-  height: 100%;
-  text-align: left;
-  position: fixed;
-  background-color: #363A42;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`
+  }`
 
 class NavBar extends Component {
   state = {  }

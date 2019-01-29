@@ -10,16 +10,23 @@ import { connect } from 'react-redux'
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-left: 140px;
-  margin-bottom: 80px;
-  padding-top: 40px;
+  grid-template-columns: 140px auto;
+  padding-top: 20px;
+
+`
+const CohortCards = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-column-start: 2;
 `
 
-const CohortCards = styled.div`
-grid-column-start: 1;
-grid-row-start: 1;
-justify-self: center;
+const Grid = styled.div`
+  grid-column-start: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px 10px;
 `
 
 class AdminDashboard extends Component {
@@ -87,9 +94,9 @@ class AdminDashboard extends Component {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
-    
+
     displayLogOutButton = () => {
-      return (this.props.token != null) ? 
+      return (this.props.token != null) ?
       <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
       ''
 
@@ -116,18 +123,24 @@ class AdminDashboard extends Component {
       <React.Fragment>
         <NavBar/>
         <Container>
-          <NewCohortForm />
-          {CohortDetail}
-          <br/>
           <CohortCards>
-          {this.displayLogOutButton()}
-            {this.state.cohorts.map((cohort, index) => (
-              <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick}
-              isActive={this.state.selectedCohort === index}/>
-             ))}
+          {this.state.cohorts
+            .filter(cohort => (Date.parse(cohort.end_date) > Date.now()))
+            .map((cohort, index) => (
+              <CohortCard
+              key={cohort.id} data={cohort}   onCohortClick={this.onCohortClick}
+                isActive={this.state.selectedCohort === index}
+              />
+            )
+          )}
           </CohortCards>
+          <Grid>
+            <NewCohortForm />
+            {CohortDetail}
+            <br/>
+          </Grid>
         </Container>
-        
+
         <Footer/>
       </React.Fragment>
     );
