@@ -53,3 +53,7 @@ ul {
   height: 100vh;
   overflow: hidden;
 }
+
+.active {
+  background-color: #DD3D0F;
+}
