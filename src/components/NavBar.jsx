@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/horizon_text2.svg';
+import Logo from '../assets/img/logo.svg';
 
 const MenuBar = styled.nav`
   grid-coulmn-start: 1;
@@ -10,21 +10,23 @@ const MenuBar = styled.nav`
   text-align: left;
   position: fixed;
   background-color: #363A42;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 `
+
 const NavList = styled.ul`
   padding: 0px;
-  margin: 0px;
+  margin: 50% 0px;
   background-color: #363A42;
   border-top: 1px solid #1c1f21;
   border-bottom: 1px solid #1c1f21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `
 
 const Icon = styled.img`
   width: 120px;
   margin: 0 auto;
+  padding: 10px;
   background-color: inherit;
 `
 

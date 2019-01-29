@@ -58,6 +58,10 @@ ul {
   background-color: #F6744E;
 }
 
+.selected {
+  opacity: 0.5;
+}
+
 svg {
   grid-column-start: 2;
   grid-row-start: 1;

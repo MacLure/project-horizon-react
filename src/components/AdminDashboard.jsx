@@ -157,8 +157,6 @@ class AdminDashboard extends Component {
   }
 }
 
-
-
 const mapStatetoProps = state => {
   return {
     token: state.token,
