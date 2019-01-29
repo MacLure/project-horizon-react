@@ -71,6 +71,10 @@ class AdminDashboard extends Component {
           onFocusData: response.cohorts[0]
         });
       })
+    }else{
+      this.props.history.push('/')
+    }
+
     }
 
     getCohortStudents = (studentArr, cohortId) => {
@@ -151,8 +155,6 @@ class AdminDashboard extends Component {
     );
   }
 }
-
-
 
 const mapStatetoProps = state => {
   return {

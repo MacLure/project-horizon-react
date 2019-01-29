@@ -54,7 +54,6 @@ const Text = styled.p`
   grid-row-start: 3;
 `
 
-
 const CohortCard = (props) => {
 
   const {start_date, end_date, name} = props.data
@@ -83,7 +82,7 @@ const CohortCard = (props) => {
 
   return (
     <React.Fragment>
-      <Card className={props.isActive ? "slected": ""} onClick={e=>{
+      <Card style={{opacity:props.isActive ? ".5": ""}} onClick={e=>{
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
@@ -91,7 +90,7 @@ const CohortCard = (props) => {
         <CohortName>{name}</CohortName>
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
-      
+
 
 
       </Grid>
