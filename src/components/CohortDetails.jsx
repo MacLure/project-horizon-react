@@ -10,12 +10,11 @@ const CohortCard = styled.div`
   background-color: #2A2C33;
   margin-top: 20px;
   margin-bottom: 50px;
-  margin-left: auto;
   margin-right: auto;
   width: 40vw;
   border-radius: 2px;
   padding: 10px 0px;
-  grid-column-start: 2;
+  grid-column-start: 1;
   grid-row-start: 1;
 `
 const Grid = styled.div`
@@ -77,7 +76,7 @@ const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #17B57E;
+  background-color: #0078F1;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
@@ -100,7 +99,7 @@ class CohortDetails extends Component {
     showNewEventForm: false,
     showNewAssignmentForm: false,
   }
-  
+
   this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
   this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
   this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
@@ -116,7 +115,7 @@ class CohortDetails extends Component {
   cStudents = 'Loading...';
   cEvents = 'Loading...';
 
-  
+
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }

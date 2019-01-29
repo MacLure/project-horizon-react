@@ -55,5 +55,11 @@ ul {
 }
 
 .active > li {
-  background-color: #DD3D0F;
+  background-color: #F6744E;
+}
+
+svg {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
