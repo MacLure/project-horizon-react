@@ -7,7 +7,7 @@ import  {onLogin} from './../service'
 const Container = styled.div`
   background-color: #38383f;
   margin: 0 auto;
-  width: 30vw;
+  width: 40vw;
   border-radius: 2px;
   min-width: 250px;
   margin-top: 200px;
@@ -17,6 +17,26 @@ const Title = styled.h2 `
   padding-top: 20px;
   background-color: inherit;
   text-align: center;
+  padding-botom: 40px;
+  font-size: 50px;
+`
+
+const Text = styled.p`
+  background-color: inherit;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 20px;
+`
+const ButtonFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: inherit;
+  text-align: center;
+`
+
+const Hr = styled.div`
+  border-bottom: 2px solid #DD3D0F;
+  border-radius: 5px;
 `
 
 const Form = styled.form`
@@ -49,18 +69,38 @@ const Input = styled.input`
 const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
-  padding: 5px 10px;
-  background-color: #DD3D0F;
-  border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
+  padding: 7px 15px;
+  background-color: rgba(56,56,63, 1);
+  border: 1px solid #DD3D0F;
+  color: rgba(255,255,255, 1);
+  transition: 0.3s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
+  background-color: inherit;
 
   :hover {
-    opacity: 0.5;
-    transition: opacity 0.45;
+    color: rgba(255,255,255, 0.5);
+    background-color: rgba(56,56,63, 0.5);
+    transition: 0.3;
+  }`
+
+  const SubmitButton = styled.button`
+    margin: 20px auto;
+    cursor: pointer;
+    padding: 7px 15px;
+    background-color: rgba(56,56,63, 1);
+    border: 1px solid #DD3D0F;
+    color: rgba(255,255,255, 1);
+    transition: 0.3s;
+    border-radius: 2px;
+    font-size: 1.1em;
+    text-align: center;
+    background-color: inherit;
+
+    :hover {
+      background-color: rgba(221,61,15);
+      transition: 0.3;
   }`
 
 class Login extends Component {
@@ -103,12 +143,13 @@ class Login extends Component {
      <div className="landing">
        <Container>
         <Title>Welcome Back</Title>
-        <p style={{textAlign: 'center'}}>I am a:</p>
-        <div style={{textAlign: 'center'}}>
-          <button onClick={this.onStudent}>Student</button>
-          <button onClick={this.onAdmin}>Administrator</button>
-        </div>
-        <h2>{this.state.user ? `${this.state.user} login` : ''}</h2>
+        <Text>I am a:</Text>
+        <ButtonFlex>
+          <Button onClick={this.onStudent}>Student</Button>
+          <Button onClick={this.onAdmin}>Administrator</Button>
+        </ButtonFlex>
+          <Hr></Hr>
+        <h3>{this.state.user ? `${this.state.user} login` : ''}</h3>
         <Form method="post">
            <Label htmlfor="email">Email</Label>
            <Input type="text" name="email" onChange={e=>{
@@ -119,7 +160,7 @@ class Login extends Component {
             this.setState({password: e.target.value})
           }}></Input>
            <br/>
-           <Button type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</Button>
+           <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
          </Form>
        </Container>
       </div>
