@@ -93,6 +93,7 @@ const CohortCard = (props) => {
         <Text>{daysLeftDisplay()}</Text>
       </Grid>
           {courseProgress() > 0 && courseProgress() < 100 ? <ProgressCircle progress={courseProgress}/> : ''}
+
       </Card>
     </React.Fragment>
    );

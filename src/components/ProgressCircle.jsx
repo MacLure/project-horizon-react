@@ -26,8 +26,7 @@ const ProgressCircle = (props) => {
           stroke-dashoffset={2*Math.PI*25 - (2*Math.PI*25 * (props.progress() / 100))}
           stroke= '#17B57E'
           strokeWidth="5px"
-        ></circle>
-
+          ></circle>
     </svg>
   </div>
    );

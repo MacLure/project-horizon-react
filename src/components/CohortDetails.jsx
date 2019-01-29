@@ -4,7 +4,7 @@ import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
-
+import EventDetails from './EventDetails'
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
@@ -224,6 +224,7 @@ class CohortDetails extends Component {
         {handleshowNewAdminForm()}
         {handleshowNewEventForm()}
         {handleshowNewAssignmentForm()}
+        <EventDetails />
       </CohortCard>
   </React.Fragment>
   );

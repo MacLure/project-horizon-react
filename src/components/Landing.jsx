@@ -64,7 +64,7 @@ const Button = styled.button`
     transition: opacity 0.45;
   }`
 
-class Login extends Component {
+class Landing extends Component {
   constructor(props) {
     super(props)
       this.state = {
@@ -157,6 +157,4 @@ const mapDispatchtoProps = dispatch => {
 export default connect(
   mapStatetoProps,
   mapDispatchtoProps
-)
-
-(Login)
+)(Landing)
