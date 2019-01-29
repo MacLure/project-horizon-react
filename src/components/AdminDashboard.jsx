@@ -87,8 +87,8 @@ class AdminDashboard extends Component {
         events={this.state.events}
         assignments={this.state.assignments}
         cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
-        cohortEvents={this.getCohortEvents(this.state.students, this.state.onFocusData.id)}
-        cohortAssignments={this.getCohortAssignments(this.state.students, this.state.onFocusData.id)}
+        cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
+        cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}
 
       />
     }

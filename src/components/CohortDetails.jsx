@@ -84,9 +84,11 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
+
   :hover {
     opacity: 0.5;
     transition: opacity 0.5;
+
 `
 class CohortDetails extends Component {
   constructor(props) {
@@ -98,7 +100,7 @@ class CohortDetails extends Component {
     showNewEventForm: false,
     showNewAssignmentForm: false,
   }
-
+  
   this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
   this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
   this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
@@ -112,7 +114,9 @@ class CohortDetails extends Component {
 
   students = this.props.students
   cStudents = 'Loading...';
+  cEvents = 'Loading...';
 
+  
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
@@ -169,6 +173,18 @@ class CohortDetails extends Component {
     ))
   }
 
+  if(this.props.cohortEvents){
+    this.cEvents = this.props.cohortEvents.map(event => (
+      <ListItem key={event.id}>{event.name}</ListItem>
+    ))
+  }
+
+  if(this.props.cohortAssignments){
+    this.cAssignments = this.props.cohortAssignments.map(assignment => (
+      <ListItem key={assignment.id}>{assignment.name}</ListItem>
+    ))
+  }
+
 // rename CohortCard here (but not the actual component)
   return (
     <React.Fragment>
@@ -199,7 +215,10 @@ class CohortDetails extends Component {
           <Staff>
           <Text>Events:</Text>
           <ul>
-          {this.cStudents}
+          {this.cEvents}
+          </ul>
+          <ul>
+          {this.cAssignments}
           </ul>
           <Button>add staff</Button>
         </Staff>
