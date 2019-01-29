@@ -32,7 +32,7 @@ const Dates = styled.p`
   padding-left: 80px;
   background-color: inherit;
   color: gray;
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
   padding-bottom: 7px;
 `
@@ -41,7 +41,7 @@ const Text = styled.p`
   padding-left: 80px;
   background-color: inherit;
   text-align: left;
-  padding-bottom: 7px;
+  padding-bottom: 14px;
 `
 
 const ProgressBarTotal = styled.div`
@@ -61,7 +61,6 @@ const ProgressBarFilling = styled.div`
 const CohortCard = (props) => {
 
   const {start_date, end_date, name} = props.data
-
   const formattedStartDate = new Date(Date.parse(start_date))
   const formattedEndDate = new Date(Date.parse(end_date))
   const options = {year: 'numeric', month: 'short', day: 'numeric' };

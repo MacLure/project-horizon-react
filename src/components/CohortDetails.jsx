@@ -30,7 +30,7 @@ const Grid = styled.div`
 
 const Title = styled.h2 `
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   background-color: inherit;
   text-align: center;
 `
@@ -39,8 +39,10 @@ const Hr = styled.div`
   border-radius: 5px;
 `
 const Dates = styled.p`
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
+  color: gray;
+  font-size: 14px;
 `
 const Staff = styled.div`
   text-align: left;
@@ -82,11 +84,9 @@ const Button = styled.button`
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
-
   :hover {
     opacity: 0.5;
     transition: opacity 0.5;
-
 `
 class CohortDetails extends Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class CohortDetails extends Component {
     showNewEventForm: false,
     showNewAssignmentForm: false,
   }
-  
+
   this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
   this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
   this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
@@ -112,7 +112,7 @@ class CohortDetails extends Component {
 
   students = this.props.students
   cStudents = 'Loading...';
-  
+
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
@@ -174,8 +174,8 @@ class CohortDetails extends Component {
     <React.Fragment>
       <CohortCard>
         <Title>{this.props.onFocusData!=null?this.props.onFocusData.name:null}</Title>
-        <Hr></Hr>
         <Dates>{this.props.onFocusData!=null?this.props.onFocusData.start_date:null} - {this.props.onFocusData!=null?this.props.onFocusData.end_date:null}</Dates><br/>
+        <Hr></Hr>
         <Grid>
           <Students>
             <Text>Students:</Text>
