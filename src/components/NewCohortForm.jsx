@@ -86,15 +86,14 @@ const Select = styled.select`
   }
 `
 const Button = styled.button`
-  margin: 30px auto;
-  margin-left: 0;
-  padding-left: 0;
+  margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #DD3D0F;
+  background-color: red;
+  border: 1px solid #DD3D0F;
   border: none;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: 0.5s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -103,7 +102,10 @@ const Button = styled.button`
 
   :hover {
     opacity: 0.5;
-    transition: opacity 0.45;
+    transition: 0.5s;
+    background-color: rgba(42,44,51, 0.5);
+    border: 1px solid #DD3D0F;
+
   }`
 
 class NewCohortForm extends Component {
