@@ -60,6 +60,15 @@ class AdminDashboard extends Component {
       return arr;
     }
 
+    getCohortEvents = (eventArr, cohortId) => {
+      let arr = eventArr.filter(event => event.cohort_id === cohortId)
+      return arr;
+    }
+
+    getCohortAssignments = (assignmentArr, cohortId) => {
+      let arr = assignmentArr.filter(assignment => assignment.cohort_id === cohortId)
+      return arr;
+    }
 
     onCohortClick = (data) => {
       console.log('Cohort Data',data)
@@ -68,7 +77,6 @@ class AdminDashboard extends Component {
 
 
   render() {
-    const admins = this.state.admins
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
@@ -76,7 +84,12 @@ class AdminDashboard extends Component {
         onFocusData={this.state.onFocusData}
         students={this.state.students}
         admins={this.state.admins}
+        events={this.state.events}
+        assignments={this.state.assignments}
         cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
+        cohortEvents={this.getCohortEvents(this.state.students, this.state.onFocusData.id)}
+        cohortAssignments={this.getCohortAssignments(this.state.students, this.state.onFocusData.id)}
+
       />
     }
     return (

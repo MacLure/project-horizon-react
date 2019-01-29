@@ -1,11 +1,12 @@
 export const onLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/admin_token`,
+    fetch(`http://localhost:3000/admin/admin_token`,
     {
       method:'POST',
       mode: 'cors', 
-      
-      
+      headers: {
+        "Content-Type": "application/json ",
+      },
       body:JSON.stringify({ "auth": {"email":email, "password":password} })
     })
     .then(e=>e.ok?resolve(e):reject(e))
