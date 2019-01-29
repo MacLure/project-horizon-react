@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProgressCircle from './ProgressCircle'
 
 
 const Card = styled.div`
@@ -70,9 +71,9 @@ const CohortCard = (props) => {
 
   const daysLeftDisplay = () => {
     if (daysLeft > courseDays){
-      return "This cohort hasn't started yet"
+      return `This cohort will start ${formattedStartDate.toLocaleString('en', options)}.`
     } else if (daysLeft <= 0 ) {
-      return 'This cohort ended on END DATE.'
+      return `This cohort ended on ${formattedEndDate.toLocaleString('en', options)}.`
     } else if (daysLeft > 0){
       return `${daysLeft} days left`
     }
@@ -83,6 +84,7 @@ const CohortCard = (props) => {
       return Math.round( 100 - daysLeft / courseDays * 100)
     }
   }
+
   function progressBar() {
     if (daysLeft > 0 && daysLeft <= courseDays) {
       return (
@@ -102,6 +104,8 @@ const CohortCard = (props) => {
         <CohortName>{name}</CohortName>
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
+        {courseProgress() > 0 && courseProgress() < 100 ?  <ProgressCircle progress={courseProgress}/> : ''}
+        
         {progressBar()}
       </Card>
     </React.Fragment>

@@ -210,7 +210,6 @@ class CohortDetails extends Component {
               <ListItem>World</ListItem>
               <ListItem>Bruh</ListItem>
             </List>
-            <Button>add staff</Button>
           </Staff>
           <Staff>
           <Text>Events:</Text>
@@ -220,7 +219,6 @@ class CohortDetails extends Component {
           <ul>
           {this.cAssignments}
           </ul>
-          <Button>add staff</Button>
         </Staff>
         </Grid>
         {showNewStudentForm()}
