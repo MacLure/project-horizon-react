@@ -1,3 +1,4 @@
+import {reducer} from './reducers/adminAuthenticationReducer'
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
     fetch(`https://project-horizon-rails.herokuapp.com/admin/admin_token`,
@@ -32,9 +33,9 @@ export const onStudentLogin = (email,password) => {
   })
 }
 
-export const getAdminDashboardData = () => {
+export const getAdminDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch('https://project-horizon-rails.herokuapp.com/admin',{mode:'cors'})
+  fetch(`https://project-horizon-rails.herokuapp.com/admin?${JSON.stringify({'is_admin':true, token})}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })

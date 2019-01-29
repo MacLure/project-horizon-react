@@ -55,7 +55,8 @@ class AdminDashboard extends Component {
 
 
     componentDidMount() {
-      getAdminDashboardData()
+    if(this.props.token != null){
+      getAdminDashboardData(this.props.token)
       .then(response=>response.json())
       .then(response=> {this.setState({
           admins: response.admins,
@@ -71,6 +72,10 @@ class AdminDashboard extends Component {
           onFocusData: response.cohorts[0]
         });
       })
+    }else{
+      this.props.history.push('/')
+    }
+      
     }
 
     getCohortStudents = (studentArr, cohortId) => {
