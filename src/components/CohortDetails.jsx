@@ -186,7 +186,6 @@ class CohortDetails extends Component {
             <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
             <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
-
           </Students>
           <Staff>
             <Text>Staff:</Text>
@@ -197,6 +196,13 @@ class CohortDetails extends Component {
             </List>
             <Button>add staff</Button>
           </Staff>
+          <Staff>
+          <Text>Events:</Text>
+          <ul>
+          {this.cStudents}
+          </ul>
+          <Button>add staff</Button>
+        </Staff>
         </Grid>
         {showNewStudentForm()}
         {handleshowNewAdminForm()}
