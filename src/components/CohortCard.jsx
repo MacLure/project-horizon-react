@@ -91,6 +91,9 @@ const CohortCard = (props) => {
         <CohortName>{name}</CohortName>
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
+      
+
+
       </Grid>
           {courseProgress() > 0 && courseProgress() < 100 ? <ProgressCircle progress={courseProgress}/> : ''}
 

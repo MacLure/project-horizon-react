@@ -79,9 +79,9 @@ class AdminDashboard extends Component {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
-    
+
     displayLogOutButton = () => {
-      return (this.props.token != null) ? 
+      return (this.props.token != null) ?
       <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
       ''
 
@@ -125,7 +125,7 @@ class AdminDashboard extends Component {
             <br/>
           </Grid>
         </Container>
-        
+
         <Footer/>
       </React.Fragment>
     );
