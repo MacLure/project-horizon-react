@@ -8,14 +8,12 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getAdminDashboardData} from './../service';
 
-
-
 const Container = styled.div`
   display: grid;
   grid-template-columns: 140px auto;
   padding-top: 20px;
-
 `
+
 const CohortCards = styled.div`
   display: flex;
   flex-direction: row;
