@@ -33,7 +33,8 @@ class AdminDashboard extends Component {
     contact_notes: [],
     events: [],
     onFocusData: null,
-    showNewStudentForm: false
+    showNewStudentForm: false,
+    selectedCohort: -1
   }
 
     componentDidMount() {
@@ -72,7 +73,10 @@ class AdminDashboard extends Component {
 
     onCohortClick = (data) => {
       console.log('Cohort Data',data)
-      this.setState({onFocusData:data})
+      this.setState({
+        onFocusData:data,
+        selectedCohort:this.state.cohorts.indexOf(data)
+      })
     }
 
 
@@ -100,8 +104,9 @@ class AdminDashboard extends Component {
           {CohortDetail}
           <br/>
           <CohortCards>
-            {this.state.cohorts.map(cohort => (
-              <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick} />
+            {this.state.cohorts.map((cohort, index) => (
+              <CohortCard key={cohort.id} data={cohort} onCohortClick={this.onCohortClick}
+              isActive={this.state.selectedCohort === index}/>
              ))}
           </CohortCards>
         </Container>

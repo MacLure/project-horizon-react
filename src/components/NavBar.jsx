@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../assets/img/logo.svg';
 
 const Icon = styled.img`
@@ -54,14 +54,14 @@ class NavBar extends Component {
         <MenuBar>
           <Icon src={Logo} />
           <NavList>
-            <Link to='./student'><NavItem>Student</NavItem></Link>
+            <NavLink to='/student'><NavItem>Student</NavItem></NavLink>
 
-          <NavLink to="./admin" activeClassName="active"> <NavItem>Admin</NavItem></NavLink>
+          <NavLink to="/admin" activeClassName="active"> <NavItem>Admin</NavItem></NavLink>
 
-            <Link to="./articles"><NavItem >Articles</NavItem></Link>
-            <Link to="./jobs"><NavItem>Job Board</NavItem></Link>
-            <Link to="./Events"><NavItem>Events</NavItem></Link>
-            <Link to="./Settings"><NavItem>Settings</NavItem></Link>
+            <NavLink to="/articles" activeClassName="active"><NavItem >Articles</NavItem></NavLink>
+            <NavLink to="/jobs" activeClassName="active"><NavItem>Job Board</NavItem></NavLink>
+            <NavLink to="/contacts" activeClassName="active"><NavItem>Contacts</NavItem></NavLink>
+            <NavLink to="/settings" activeClassName="active"><NavItem>Settings</NavItem></NavLink>
           </NavList>
         </MenuBar>
       </React.Fragment>

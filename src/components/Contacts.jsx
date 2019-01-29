@@ -8,13 +8,13 @@ const Title = styled.h1`
   margin-left: 140px;
 `
 
-class Events extends Component {
+class Contacts extends Component {
 
   render() {
     return (
       <React.Fragment>
         <NavBar/>
-        <Title>Events</Title>
+        <Title>Contacts</Title>
         <Footer/>
       </React.Fragment>
     );
@@ -22,4 +22,4 @@ class Events extends Component {
 
 }
 
-export default Events;
+export default Contacts;

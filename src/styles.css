@@ -54,6 +54,6 @@ ul {
   overflow: hidden;
 }
 
-.active {
+.active > li {
   background-color: #DD3D0F;
 }

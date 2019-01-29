@@ -92,10 +92,10 @@ const CohortCard = (props) => {
       );
     }
   }
-
+  console.log(props);
   return (
     <React.Fragment>
-      <Card onClick={e=>{
+      <Card className={props.isActive ? "slected": ""} onClick={e=>{
         console.log('Hello:::::')
         props.onCohortClick(props.data)
       }}>
