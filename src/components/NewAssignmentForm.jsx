@@ -62,7 +62,7 @@ const Input = styled.input`
   transition: border 0.5s;
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #F6744E;
     transition: border 0.5s;
   }
 `
@@ -74,7 +74,7 @@ const Textarea = styled.textarea`
   transition: border 0.5s;
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #F6744E;
     transition: border 0.5s;
 }
 `
@@ -83,7 +83,7 @@ const Button = styled.button`
   margin: 10px auto 30px 80px;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #DD3D0F;
+  background-color: #17B57E;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;

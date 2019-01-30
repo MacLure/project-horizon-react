@@ -9,9 +9,9 @@ import EventDetails from './EventDetails'
 const CohortCard = styled.div`
   background-color: #2A2C33;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-right: auto;
-  width: 40vw;
+  width: 55vw;
   border-radius: 2px;
   padding: 10px 0px;
 `
@@ -32,7 +32,7 @@ const Title = styled.h2 `
   text-align: center;
 `
 const Hr = styled.div`
-  border-bottom: 2px solid #DD3D0F;
+  border-bottom: 2px solid #FC6404;
   border-radius: 5px;
 `
 const Dates = styled.p`

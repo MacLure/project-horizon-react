@@ -11,7 +11,6 @@ import  {getAdminDashboardData} from './../service';
 const Container = styled.div`
   display: grid;
   grid-template-columns: 140px auto;
-  padding-top: 20px;
 `
 
 const CohortCards = styled.div`
@@ -24,11 +23,12 @@ const CohortCards = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   grid-column-start: 2;
   padding-left: 36px;
+  margin-bottom: 100px;
 `
 
 class AdminDashboard extends Component {

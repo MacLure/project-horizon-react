@@ -68,7 +68,7 @@ const Input = styled.input`
   transition: border 0.5s;
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #FC6404;
     transition: border 0.5s;
   }
 `
@@ -79,7 +79,7 @@ const Button = styled.button`
   padding-left: 0;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #DD3D0F;
+  background-color: #17B57E;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
