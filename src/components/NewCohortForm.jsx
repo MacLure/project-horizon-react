@@ -126,6 +126,8 @@ class NewCohortForm extends Component {
   event.preventDefault();
     let data = this.state
     createNewCohort(data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.cohortSuccess())
   }
 
 

@@ -5,6 +5,8 @@ import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import EventDetails from './EventDetails'
+import { connect } from 'react-redux';
+import  {deleteCohort} from './../service';
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
@@ -133,7 +135,6 @@ class CohortDetails extends Component {
   cStudents = 'Loading...';
   cEvents = 'Loading...';
 
-
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
@@ -150,10 +151,12 @@ class CohortDetails extends Component {
     this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
   }
 
-  handleDelete = () => {
-    console.log("https://project-horizon-rails.herokuapp.com/admin/cohorts")
+  handleDelete = (event) => {
+    event.preventDefault();
+    let cohortId = this.props.onFocusData.id
+    deleteCohort(cohortId, this.props.token)
   }
-
+  
   render() {
 
     const showNewStudentForm = () => {
@@ -255,4 +258,24 @@ class CohortDetails extends Component {
   }
 }
 
-export default CohortDetails;
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(CohortDetails);

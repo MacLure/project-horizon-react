@@ -36,6 +36,7 @@ class AdminDashboard extends Component {
     super(props)
 
     this.state = {
+      id: null,
       admins: [],
       cohorts: [],
       students: [],
@@ -48,13 +49,33 @@ class AdminDashboard extends Component {
       events: [],
       onFocusData: null,
       showNewStudentForm: false,
-      selectedCohort: -1
+      selectedCohort: null
     }
-
   }
 
-
-
+componentDidMount() {
+  if(this.props.token != null){
+    getAdminDashboardData(this.props.token)
+    .then(response=>response.json())
+    .then(response=> {this.setState({
+        id: response.id,
+        admins: response.admins,
+        cohorts: response.cohorts,
+        students: response.students,
+        student_notes: response.student_notes,
+        assignments: response.assignments,
+        submissions: response.submissions,
+        submission_comments: response.submission_comments,
+        company_notes: response.company_notes,
+        contact_notes: response.contact_notes,
+        events: response.events,
+        onFocusData: response.cohorts[0]
+      });
+    })
+  }else{
+    this.props.history.push('/')
+  }
+}
 
     getCohortStudents = (studentArr, cohortId) => {
       let arr = studentArr.filter(student => student.cohort_id === cohortId)
@@ -88,32 +109,24 @@ class AdminDashboard extends Component {
       return (this.props.token != null) ?
       <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
       ''
-
     }
 
+    reload = () =>{
+     
+      if(this.props.token != null){
+        getAdminDashboardData(this.props.token)
+        .then(response=>response.json())
+        .then(response=> {this.setState({
+            cohorts: response.cohorts,
+            onFocusData: response.cohorts[0]
+          });
+        })
+      }else{
+        this.props.history.push('/')
+      }
+    }
 
   render() {
-
-    if(this.props.token != null){
-      getAdminDashboardData(this.props.token)
-      .then(response=>response.json())
-      .then(response=> {this.setState({
-          admins: response.admins,
-          cohorts: response.cohorts,
-          students: response.students,
-          student_notes: response.student_notes,
-          assignments: response.assignments,
-          submissions: response.submissions,
-          submission_comments: response.submission_comments,
-          company_notes: response.company_notes,
-          contact_notes: response.contact_notes,
-          events: response.events,
-          onFocusData: response.cohorts[0]
-        });
-      })
-    }else{
-      this.props.history.push('/')
-    }
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){
@@ -126,7 +139,6 @@ class AdminDashboard extends Component {
         cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
         cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
         cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}
-
       />
     }
     return (
@@ -138,7 +150,9 @@ class AdminDashboard extends Component {
             .filter(cohort => (Date.parse(cohort.end_date) > Date.now()))
             .map((cohort, index) => (
               <CohortCard
-              key={cohort.id} data={cohort}   onCohortClick={this.onCohortClick}
+                key={cohort.id}
+                data={cohort}
+                onCohortClick={this.onCohortClick}
                 isActive={this.state.selectedCohort === index}
               />
             )
@@ -147,7 +161,7 @@ class AdminDashboard extends Component {
 
           <ContentContainer>
             {CohortDetail}
-            <NewCohortForm />
+            <NewCohortForm cohortSuccess={this.reload}/>
           </ContentContainer>
         </Container>
         <Footer/>
