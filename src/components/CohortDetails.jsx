@@ -85,8 +85,27 @@ const Button = styled.button`
   :hover {
     opacity: 0.5;
     transition: opacity 0.5;
-
 `
+
+const DeleteButton = styled.button`
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #D1142C;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+
+  :hover {
+    opacity: 0.5;
+    transition: opacity 0.5;
+`
+
+
+
 class CohortDetails extends Component {
   constructor(props) {
     super(props)
@@ -204,7 +223,7 @@ class CohortDetails extends Component {
             <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
             <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
-            <Button onClick={e=>{this.handleDelete(e)}} >DELETE COHORT</Button>
+            <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>
 
           </Students>
           <Staff>
