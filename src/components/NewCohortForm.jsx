@@ -65,7 +65,7 @@ const Input = styled.input`
   transition: border 0.5s;
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #F6744E;
     transition: border 0.5s;
   }
 `
@@ -81,7 +81,7 @@ const Select = styled.select`
   background-image: src={Arrow};   /* add custom arrow */
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #F6744E;
     transition: border 0.5s;
   }
 `
@@ -89,11 +89,10 @@ const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: red;
-  border: 1px solid #DD3D0F;
-  border: none;
+  background-color: #17B57E;
   opacity: 1;
-  transition: 0.5s;
+  border: none;
+  transition: opacity 0.5s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -102,10 +101,7 @@ const Button = styled.button`
 
   :hover {
     opacity: 0.5;
-    transition: 0.5s;
-    background-color: rgba(42,44,51, 0.5);
-    border: 1px solid #DD3D0F;
-
+    transition: opacoty 0.5s;
   }`
 
 class NewCohortForm extends Component {

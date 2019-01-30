@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux'
-import  {onAdminLogin} from './../service'
-import  {onStudentLogin} from './../service'
+import { connect } from 'react-redux';
+import  {onAdminLogin} from './../service';
+import  {onStudentLogin} from './../service';
+import Facebook from '../assets/img/facebook.png';
+import { Link } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -32,7 +34,12 @@ const ButtonFlex = styled.div`
   display: flex;
   flex-direction: row;
   background-color: inherit;
-  text-align: center;
+  justify-content: center;
+`
+const Image = styled.img`
+  width: 250px;
+  margin-left: 29%;
+  border-radius: 4px;
 `
 
 const Hr = styled.div`
@@ -68,7 +75,7 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  margin: 20px auto;
+  margin: 20px 20px;
   cursor: pointer;
   padding: 7px 15px;
   background-color: rgba(56,56,63, 1);
@@ -119,7 +126,7 @@ class Login extends Component {
     body.style.paddingBottom = 0;
     console.log(body)
   }
-  
+
   onStudent = () => {
     this.setState({user:'student'})
   }
@@ -156,12 +163,13 @@ class Login extends Component {
      <div className="landing">
        <Container>
         <Title>Welcome Back</Title>
+          <Hr></Hr>
         <Text>I am a:</Text>
         <ButtonFlex>
           <Button onClick={this.onStudent}>Student</Button>
           <Button onClick={this.onAdmin}>Administrator</Button>
         </ButtonFlex>
-          <Hr></Hr>
+        <Link to='https://deletefacebook.com/' target="_blank"><Image src={Facebook}/></Link>
         <h3>{this.state.user ? `${this.state.user} login` : ''}</h3>
         <Form method="post">
            <Label htmlfor="email">Email</Label>

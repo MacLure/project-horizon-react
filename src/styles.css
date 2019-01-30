@@ -55,7 +55,7 @@ ul {
 }
 
 .active > li {
-  background-color: #F6744E;
+    border-bottom: 3px solid #2C65F9;
 }
 
 .selected {
