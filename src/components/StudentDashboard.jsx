@@ -18,9 +18,7 @@ class StudentDashboard extends Component {
     super(props)
 
     this.state = {
-
     }
-
   }
 
 
@@ -53,7 +51,6 @@ class StudentDashboard extends Component {
     );
   }
 }
-
 
 const mapStatetoProps = state => {
   return {

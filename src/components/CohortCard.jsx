@@ -56,7 +56,7 @@ const Text = styled.p`
 
 const CohortCard = (props) => {
 
-  const {start_date, end_date, name} = props.data
+  const {start_date, end_date, name, id} = props.data
   const formattedStartDate = new Date(Date.parse(start_date))
   const formattedEndDate = new Date(Date.parse(end_date))
   const options = {year: 'numeric', month: 'short', day: 'numeric' };
@@ -82,16 +82,14 @@ const CohortCard = (props) => {
 
   return (
     <React.Fragment>
-      <Card style={{opacity:props.isActive ? ".5": ""}} onClick={e=>{
-        console.log('Hello:::::')
-        props.onCohortClick(props.data)
-      }}>
+      <Card
+        style={{opacity:props.isActive ? ".5": ""}}
+        onClick={e=>{props.onCohortClick(props.data)}}
+      >
       <Grid>
         <CohortName>{name}</CohortName>
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
-
-
 
       </Grid>
           {courseProgress() > 0 && courseProgress() < 100 ? <ProgressCircle progress={courseProgress}/> : ''}
@@ -99,7 +97,6 @@ const CohortCard = (props) => {
       </Card>
     </React.Fragment>
    );
-
   }
 
 export default CohortCard;

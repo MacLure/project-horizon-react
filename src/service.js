@@ -12,7 +12,6 @@ export const onAdminLogin = (email,password) => {
     })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
-
   })
 }
 
@@ -29,7 +28,6 @@ export const onStudentLogin = (email,password) => {
     })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
-
   })
 }
 
@@ -58,3 +56,15 @@ export const createNewCohort = (data, token) => {
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+
+export const deleteCohort = (cohort_id, token) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(cohort_id, token)}`, {
+      method: 'delete',
+      mode: "cors"})
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
+
