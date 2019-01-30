@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import  {createNewAssignment} from './../service';
 
 const Container = styled.div`
   background-color: #2A2C33;
@@ -96,8 +97,6 @@ const Button = styled.button`
     transition: opacity 0.45;
   }`
 
-
-
 class NewAssignmentForm extends Component {
   constructor(props) {
     super(props);
@@ -114,8 +113,10 @@ class NewAssignmentForm extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  handleSubmit = () =>{
-    console.log('On Submit')
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    let data = this.state
+    createNewAssignment(data, this.props.token)
   }
 
   render() {

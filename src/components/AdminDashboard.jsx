@@ -111,6 +111,21 @@ componentDidMount() {
       ''
     }
 
+    reload = () =>{
+     
+      if(this.props.token != null){
+        getAdminDashboardData(this.props.token)
+        .then(response=>response.json())
+        .then(response=> {this.setState({
+            cohorts: response.cohorts,
+            onFocusData: response.cohorts[0]
+          });
+        })
+      }else{
+        this.props.history.push('/')
+      }
+    }
+
   render() {
 
     let CohortDetail = null;
@@ -146,7 +161,7 @@ componentDidMount() {
 
           <ContentContainer>
             {CohortDetail}
-            <NewCohortForm />
+            <NewCohortForm cohortSuccess={this.reload}/>
           </ContentContainer>
         </Container>
         <Footer/>

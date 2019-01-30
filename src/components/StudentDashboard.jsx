@@ -18,9 +18,32 @@ class StudentDashboard extends Component {
     super(props)
 
     this.state = {
+      cohort: null,
+      students: [],
+      assignments: [],
+      submissions: [],
+      events: [],
+      onFocusData: ''
+
     }
   }
 
+  componentDidMount() {
+    if(this.props.token != null){
+      getStudentDashboardData(this.props.token)
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+          cohort: response.cohorts,
+          students: response.students,
+          assignments: response.assignments,
+          submissions: response.submissions,
+          events: response.events,
+        });
+      })
+    }else{
+      this.props.history.push('/')
+    }
+  }
 
   render() {
 
@@ -45,7 +68,6 @@ class StudentDashboard extends Component {
           <div style={{textAlign: 'center'}}>EVENTS LIST</div>
           <div style={{textAlign: 'center'}}>(stretch: job feed)</div>
           <div style={{textAlign: 'center'}}>(stretch: article feed)</div>
-          <JobFeed />
           <Footer/>
       </React.Fragment>
     );
