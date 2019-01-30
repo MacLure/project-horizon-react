@@ -40,11 +40,12 @@ const NavItem = styled.li`
   cursor: pointer;
   border-top: 1px solid #1c1f21;
   border-bottom: 1px solid #272a2c;
-  transition: background-color 0.5s;
+  opacity: 1;
+  transition: opacity 0.5s;
 
   :hover {
-  background-color: #F6744E;
-  transition: background-color 0.5s;
+  opacity: 0.5
+  transition: opacity 0.5s;
   }`
 
 class NavBar extends Component {
