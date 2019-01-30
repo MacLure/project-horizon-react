@@ -3,6 +3,10 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import styled from 'styled-components';
 import JobFeed from './JobFeed'
+import { connect } from 'react-redux';
+import  {getStudentDashboardData} from './../service';
+
+
 
 const Title = styled.h1`
   text-align: center;
@@ -10,13 +14,31 @@ const Title = styled.h1`
 `
 
 class StudentDashboard extends Component {
+  constructor (props) {
+    super(props)
 
-  state = { 
-    articleIDs: []
-   }
+    this.state = {
+
+    }
+
+  }
 
 
   render() {
+
+    if(this.props.token != null){
+      getStudentDashboardData(this.props.token)
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+          key: response.value,
+        });
+      })
+    }else{
+      this.props.history.push('/')
+    }
+
+
+
     return (
       <React.Fragment>
           <NavBar/>
@@ -32,4 +54,24 @@ class StudentDashboard extends Component {
   }
 }
 
-export default StudentDashboard;
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(StudentDashboard);

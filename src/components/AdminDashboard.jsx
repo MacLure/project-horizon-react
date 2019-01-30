@@ -54,10 +54,7 @@ class AdminDashboard extends Component {
   }
 
 
-    componentDidMount() {
 
-      
-    }
 
     getCohortStudents = (studentArr, cohortId) => {
       let arr = studentArr.filter(student => student.cohort_id === cohortId)

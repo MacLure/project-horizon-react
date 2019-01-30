@@ -132,7 +132,7 @@ class CohortDetails extends Component {
   }
 
   handleDelete = () => {
-    console.log("OK")
+    console.log("https://project-horizon-rails.herokuapp.com/admin/cohorts")
   }
 
   render() {

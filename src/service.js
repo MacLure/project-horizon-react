@@ -40,3 +40,21 @@ export const getAdminDashboardData = (token) => {
   .catch(e => console.log('ERR: ', e))
   })
 }
+
+export const getStudentDashboardData = (token) => {
+  return new Promise((resolve,reject)=>{
+  fetch(`https://project-horizon-rails.herokuapp.com/student?${JSON.stringify({'is_admin':false, token})}`,{mode:'cors'})
+  .then(e=>e.ok?resolve(e):reject(e))
+  .catch(e => console.log('ERR: ', e))
+  })
+}
+
+export const createNewCohort = (data, token) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
+      method: 'post',
+      mode: "cors"})
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}

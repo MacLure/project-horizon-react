@@ -144,7 +144,7 @@ class Login extends Component {
         .then(e => e.json())
         .then(e => {console.log(e)
           this.props.onTokenReceive(e.jwt)
-          this.props.history.push('/admin')
+          this.props.history.push('/student')
         })
       }
     }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import  {createNewCohort} from './../service';
+
 
 const Container = styled.div`
   background-color: #2A2C33;
@@ -125,17 +128,12 @@ class NewCohortForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-   handleSubmit(event) {
-    event.preventDefault();
-      // fetch('http://localhost:3000/api/admin/cohorts', {
-      let data = this.state
-      console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data)}`, {
-        method: 'post',
-        mode: "cors"
-      }).then(response => {console.log(this.state)})
-
+  handleSubmit(event) {
+  event.preventDefault();
+    let data = this.state
+    createNewCohort(data, this.props.token)
   }
+
 
   render() {
     return (
@@ -172,4 +170,24 @@ class NewCohortForm extends Component {
   }
 }
 
-export default NewCohortForm;
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(NewCohortForm);
