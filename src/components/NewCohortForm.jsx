@@ -89,18 +89,17 @@ const Button = styled.button`
   cursor: pointer;
   padding: 5px 10px;
   background-color: #17B57E;
-  opacity: 1;
   border: none;
-  transition: opacity 0.3s;
+  transition: 0.3s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
   grid-column-start: 1;
-  grid-row-start: 3;
+  grid-row-start: 3; 
 
   :hover {
-    opacity: 0.5;
-    transition: opacity 0.3s;
+    box-shadow: 4px 4px 4px black;
+    transition: box-shadow 0.3s;
   }`
 
 class NewCohortForm extends Component {
