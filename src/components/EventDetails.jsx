@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  background-color: inherit
+const EventsCard = styled.div`
+  background-color: red;
   margin: 20px 10px;
-  width: 25vw;
+  width: 40vw;
+  height: 15vh;
   border-radius: 2px;
-  grid-column-start: 1;
-  justify-self: center;
-  transition: 0.3s;
-  opacity: 1;
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
+  grid-column-start: 3;
+  gird-row-start: 1;
+`
 
-  :hover {
-    opacity: 0.5;
-    transition: 0.3s;
-}`
+
+// MAY NEED THIS
+// -------------------------------------------
+// const Container = styled.div`
+//   background-color: inherit
+//   margin: 20px 10px;
+//   width: 25vw;
+//   border-radius: 2px;
+//   grid-column-start: 1;
+//   justify-self: center;
+//   transition: 0.3s;
+//   opacity: 1;
+//   cursor: pointer;
+//   display: flex;
+//   justify-content: flex-start;
+//
+//   :hover {
+//     opacity: 0.5;
+//     transition: 0.3s;
+// }`
 
 class EventDetails extends Component {
   constructor(props) {
@@ -29,9 +42,9 @@ class EventDetails extends Component {
   render() {
 
   return (
-    <Container>
+    <EventsCard>
       <p>Events</p>
-    </Container>
+    </EventsCard>
     );
   }
 }

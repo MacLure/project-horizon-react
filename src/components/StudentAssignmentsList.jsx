@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import StudentAssignment from './StudentAssignment';
 import StudentProgressCircle from './StudentProgressCircle';
+import styled from 'styled-components';
 
 
 class StudentAssignmentsList extends Component {
   state = {  }
-  render() { 
+  render() {
 
     const assignments = this.props.assignments
     const submissions = this.props.submissions
@@ -14,14 +15,14 @@ class StudentAssignmentsList extends Component {
         return Math.round( submissions.length / assignments.length * 100)
     }
 
-    return ( 
+    return (
       <div>
       <p style={{textAlign:'center'}}>progress: {assignmentProgress()}%</p>
       <div style={{marginLeft:"500px"}}>
       <StudentProgressCircle progress={assignmentProgress}/>
       </div>
       {assignments.map(assignment => (
-        <StudentAssignment 
+        <StudentAssignment
           key={assignment.id}
           name={assignment.name}
           body={assignment.body}
@@ -32,5 +33,5 @@ class StudentAssignmentsList extends Component {
      );
   }
 }
- 
+
 export default StudentAssignmentsList;

@@ -5,6 +5,7 @@ const InfoCard = styled.div`
   background-color: red;
   margin: 20px 10px;
   width: 40vw;
+  height: 15vh;
   border-radius: 2px;
   grid-column-start: 2;
   gird-row-start: 1;

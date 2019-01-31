@@ -9,10 +9,12 @@ import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEvent from './StudentEvent';
 import StudentCohortDetails from './StudentCohortDetails';
 
+
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 140px auto;
+  grid-template-columns: 140px 1fr 1fr;
 `
+
 
 class StudentDashboard extends Component {
   constructor (props) {
@@ -61,16 +63,6 @@ class StudentDashboard extends Component {
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
-<<<<<<< HEAD
-
-            {this.state.assignments.map(assignment => (
-          <StudentAssignment
-            key={assignment.id}
-            name={assignment.name}
-            body={assignment.body}
-            dueDate={assignment.due_date}
-          />
-            ))}
             {this.state.events.map(event => (
           <StudentEvent
             key={event.id}
@@ -80,24 +72,12 @@ class StudentDashboard extends Component {
             time={event.time}
           />
             ))}
+            <StudentAssignmentsList
+              assignments={this.state.assignments}
+              submissions={this.state.submissions}
+            />
         </Container>
         <Footer/>
-=======
-      <StudentAssignmentsList
-        assignments={this.state.assignments}
-        submissions={this.state.submissions}
-      />
-          {this.state.events.map(event => (
-            <StudentEvent 
-              key={event.id}
-              name={event.name}
-              body={event.body}
-              date={event.date}
-              time={event.time}
-            />
-          ))}
-          <Footer/>
->>>>>>> master
       </React.Fragment>
     );
   }
