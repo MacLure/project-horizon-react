@@ -44,8 +44,7 @@ const Hr = styled.div`
 
 const Form = styled.form`
   text-align: left;
-  margin: 0 100px;
-  padding-left: 50px;
+  margin: 0 50px;
   background-color: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr;
