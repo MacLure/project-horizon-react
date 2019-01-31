@@ -51,7 +51,7 @@ export const onStudentLogin = (email,password) => {
 
 export const getAdminDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`https://project-horizon-rails.herokuapp.com/admin?${JSON.stringify({'is_admin':true, token})}`,{mode:'cors'})
+  fetch(`https://project-horizon-rails.herokuapp.com/admin?${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })

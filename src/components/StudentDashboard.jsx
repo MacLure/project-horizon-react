@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
 import StudentAssignment from './StudentAssignment';
 import StudentEvent from './StudentEvent';
-
-
+import StudentCohortDetails from './StudentCohortDetails';
 
 const Title = styled.h1`
   text-align: center;
@@ -20,11 +19,12 @@ class StudentDashboard extends Component {
     super(props)
 
     this.state = {
-      cohort: null,
-      students: [],
+      cohort: {},
+      classmates: [],
       assignments: [],
       submissions: [],
       events: [],
+      submissionComments: [],
       onFocusData: ''
 
     }
@@ -55,6 +55,12 @@ class StudentDashboard extends Component {
       <React.Fragment>
           <NavBar/>
           <Title>Student Dashboard</Title>
+          <StudentCohortDetails 
+            name={this.state.cohort.name}
+            course_type={this.state.cohort.course_type}
+            start_date={this.state.cohort.start_date}
+            end_date={this.state.cohort.end_date}
+          />
           {this.state.assignments.map(assignment => (
             <StudentAssignment 
               key={assignment.id}
