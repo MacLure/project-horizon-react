@@ -1,7 +1,11 @@
 import {reducer} from './reducers/adminAuthenticationReducer'
+
+const localURL = "http://localhost:3000"
+const serverURL = "https://project-horizon-rails.herokuapp.com"
+
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
+    fetch(`${serverURL}/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
     {
       method:'POST',
       mode: 'cors', 
@@ -17,7 +21,7 @@ export const onAdminLogin = (email,password) => {
 
 export const onStudentLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`https://project-horizon-rails.herokuapp.com/student/student_token`,
+    fetch(`${serverURL}/student/student_token`,
     {
       method:'POST',
       mode: 'cors', 
@@ -51,7 +55,7 @@ export const onStudentLogin = (email,password) => {
 
 export const getAdminDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`https://project-horizon-rails.herokuapp.com/admin?token=${token}`,{mode:'cors'})
+  fetch(`${serverURL}/admin?token=${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })
@@ -59,15 +63,17 @@ export const getAdminDashboardData = (token) => {
 
 export const getStudentDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`https://project-horizon-rails.herokuapp.com/student?token=${token}`,{mode:'cors'})
+  fetch(`${serverURL}/student?token=${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })
 }
 
+// doesn't work
 export const createNewCohort = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
+    // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
+      fetch(`${serverURL}/admin/cohorts?cohort=${data}&token=${token}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -78,7 +84,7 @@ export const createNewCohort = (data, token) => {
 // doesn't work
 export const deleteCohort = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id, "is_admin":true, "token":token})}`, {
+    fetch(`${serverURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id, "is_admin":true, "token":token})}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
