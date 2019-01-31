@@ -139,6 +139,7 @@ componentDidMount() {
         cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
         cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
         cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}
+        deleteSuccess={this.reload}
       />
     }
     return (

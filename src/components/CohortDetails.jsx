@@ -151,12 +151,15 @@ class CohortDetails extends Component {
     this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
   }
 
-  handleDelete = (event) => {
-    event.preventDefault();
+  handleDelete = (e) => {
+    e.preventDefault();
     let cohortId = this.props.onFocusData.id
     deleteCohort(cohortId, this.props.token)
+    .then(e=>this.props.deleteSuccess())
+
   }
   
+
   render() {
 
     const showNewStudentForm = () => {
