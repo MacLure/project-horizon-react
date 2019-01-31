@@ -79,6 +79,7 @@ class StudentDashboard extends Component {
             />
           ))}
           <NewSubmissionForm />
+          </Container>
           <Footer/>
       </React.Fragment>
     );
