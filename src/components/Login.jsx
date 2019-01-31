@@ -99,14 +99,9 @@ const Button = styled.button`
   }
 
   :hover {
-<<<<<<< HEAD
-    color: #FC6404;
-    transition: color 0.5s;
-=======
     color:  #FC6404;
     background-color: #fff;
     transition: 0.2;
->>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
   }`
 
   const SubmitButton = styled.button`
@@ -201,13 +196,8 @@ class Login extends Component {
       <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
       <ButtonFlex>
-<<<<<<< HEAD
-        <Button onClick={this.onStudent} activeClassName="active">Student</Button>
-        <Button onClick={this.onAdmin} activeClassName="btn_hover">Admin</Button>
-=======
         <Button style={this.highlightStudentButton()} onClick={this.onStudent}>Student</Button>
         <Button style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</Button>
->>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
       </ButtonFlex>
       {this.displayForm()}
       </Container>

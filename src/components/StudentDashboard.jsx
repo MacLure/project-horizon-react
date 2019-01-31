@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import JobFeed from './JobFeed'
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
+import StudentAssignment from './StudentAssignment';
+import StudentEvent from './StudentEvent';
 
 
 
@@ -33,10 +35,12 @@ class StudentDashboard extends Component {
       getStudentDashboardData(this.props.token)
       .then(response=>response.json())
       .then(response=> {this.setState({
-          cohort: response.cohorts,
-          students: response.students,
+          student: response.student,
+          cohort: response.cohort,
+          classmates: response.classmates,
           assignments: response.assignments,
           submissions: response.submissions,
+          submissionComments: response.submission_comments,
           events: response.events,
         });
       })
@@ -47,27 +51,28 @@ class StudentDashboard extends Component {
 
   render() {
 
-    if(this.props.token != null){
-      getStudentDashboardData(this.props.token)
-      .then(response=>response.json())
-      .then(response=> {this.setState({
-          key: response.value,
-        });
-      })
-    }else{
-      this.props.history.push('/')
-    }
-
-
-
     return (
       <React.Fragment>
           <NavBar/>
           <Title>Student Dashboard</Title>
-          <div style={{textAlign: 'center'}}>ASSIGNMENTS LIST</div>
-          <div style={{textAlign: 'center'}}>EVENTS LIST</div>
-          <div style={{textAlign: 'center'}}>(stretch: job feed)</div>
-          <div style={{textAlign: 'center'}}>(stretch: article feed)</div>
+          {this.state.assignments.map(assignment => (
+            <StudentAssignment 
+              key={assignment.id}
+              name={assignment.name}
+              body={assignment.body}
+              dueDate={assignment.due_date}
+            />
+          ))}
+          {this.state.events.map(event => (
+            <StudentEvent 
+              key={event.id}
+              name={event.name}
+              body={event.body}
+              date={event.date}
+              time={event.time}
+            />
+          ))}
+          ** ------------------------------Each assignment has submissions, and each submission has comments.  Not sure how we want to display them, but they're available.  I will work on an asignments progress calculator and other methods.  We also have classmates data if we want to use it.
           <Footer/>
       </React.Fragment>
     );

@@ -57,7 +57,6 @@ export const getAdminDashboardData = (token) => {
   })
 }
 
-// doesn't work
 export const getStudentDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
   fetch(`https://project-horizon-rails.herokuapp.com/student?token=${token}`,{mode:'cors'})
