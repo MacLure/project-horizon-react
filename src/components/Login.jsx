@@ -18,20 +18,12 @@ const LogoContainer = styled.div`
 `
 
 const Container = styled.div`
-  background-color: #2A2C33;
   margin: 0 auto;
   width: 400px;
   border-radius: 2px;
   min-width: 250px;
   background: none;
   `
-
-const Title = styled.h2 `
-  padding-top: 20px;
-  background-color: inherit;
-  text-align: center;
-  font-size: 30px;
-`
 
 const Horizon = styled.img`
   width: 300px;
@@ -43,13 +35,6 @@ const HorizonLogo = styled.img`
   background-color: inherit;
 `
 
-const Text = styled.p`
-  background-color: inherit;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 20px;
-`
 const ButtonFlex = styled.div`
   display: flex;
   flex-direction: row;
@@ -71,15 +56,16 @@ const Form = styled.form`
   grid-template-rows: 3;
   border-radius: 2px;
   border: 1px solid white;
-`
 
+`
 
 const Label = styled.label`
   font-size: 0.9em; 
   padding: 15px 0;
-  background-color: inherit;
   color: white;
   text-align: left;
+  background-color: transparent;
+
 `
 const Input = styled.input`
   width: 95%;
@@ -88,8 +74,9 @@ const Input = styled.input`
   margin: 10px 0;
   border-radius: 2px;
   padding: 5px 5px;
+  background-color: transparent;
+
   transition: border 0.5s;
-  background-color: inherit;
   :focus {
     border: 1px solid #FC6404;
     transition: border 0.5s;
@@ -110,7 +97,7 @@ const Button = styled.button`
   :hover {
     color:  #FC6404;
     background-color: #fff;
-    transition: 0.5;
+    transition: 0.2;
   }`
 
   const SubmitButton = styled.button`
@@ -127,8 +114,8 @@ const Button = styled.button`
     opacity: 1;
 
     :hover {
-      transition: 0.3;
-      opacity: 0.5;
+      transition: 0.2;
+      box-shadow: (0 0 5px 5px #000)
   }`
 
 class Login extends Component {
@@ -186,10 +173,17 @@ class Login extends Component {
         <Label htmlfor="password">Password</Label><Input type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
           }}></Input>
-      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'inherit'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
+      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
       </Form>
   }
 
+  highlightStudentButton = () => {
+    return (this.state.user === 'student') ? {backgroundColor: '#fff', color: '#FC6404'} : {}
+  }
+
+  highlightAdminButton = () => {
+    return (this.state.user === 'admin') ? {backgroundColor: '#fff', color: '#FC6404'} : {}
+  }
 
  render() {
 
@@ -198,8 +192,8 @@ class Login extends Component {
       <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
       <ButtonFlex>
-        <Button onClick={this.onStudent}>Student</Button>
-        <Button onClick={this.onAdmin}>Admin</Button>
+        <Button style={this.highlightStudentButton()} onClick={this.onStudent}>Student</Button>
+        <Button style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</Button>
       </ButtonFlex>
       {this.displayForm()}
       </Container>
