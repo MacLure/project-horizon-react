@@ -13,7 +13,7 @@ const CohortCard = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: auto;
-  width: 55vw;
+  width: 85vw;
   border-radius: 2px;
   padding: 10px 0px;
 `
@@ -24,7 +24,7 @@ const Grid = styled.div`
   background-color: inherit;
   grid-column-start: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `
 
 const Title = styled.h2 `
@@ -43,14 +43,22 @@ const Dates = styled.p`
   color: gray;
   font-size: 14px;
 `
-const Staff = styled.div`
+const Students = styled.div`
+  grid-column-start: 1;
+  background-color: inherit;
+`
+
+const Admin = styled.div`
   text-align: left;
   background-color: inherit;
   grid-column-start: 2;
 `
-
-const Students = styled.div`
-  grid-column-start: 1;
+const Assignments = styled.div`
+  grid-column-start: 3;
+  background-color: inherit;
+`
+const Events = styled.div`
+  grid-column-start: 4;
   background-color: inherit;
 `
 
@@ -76,7 +84,7 @@ const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #0078F1;
+  background-color: #17B57E;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
@@ -158,7 +166,7 @@ class CohortDetails extends Component {
     .then(e=>this.props.deleteSuccess())
 
   }
-  
+
 
   render() {
 
@@ -226,35 +234,39 @@ class CohortDetails extends Component {
               {this.cStudents}
             </List>
             <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
-            <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
-            <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
-            <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
-            <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>
-
+            {showNewStudentForm()}
           </Students>
-          <Staff>
+          <Admin>
             <Text>Staff:</Text>
             <List>
-              <ListItem>Hello</ListItem>
-              <ListItem>World</ListItem>
-              <ListItem>Bruh</ListItem>
+              <ListItem>Natalie</ListItem>
+              <ListItem>Daniel</ListItem>
+              <ListItem>Fred</ListItem>
+              <ListItem>Saree</ListItem>
+              <ListItem>Elvis</ListItem>
             </List>
-          </Staff>
-          <Staff>
-          <Text>Events:</Text>
-          <List>
-          {this.cEvents}
-          </List>
-          <List>
-          {this.cAssignments}
-          </List>
-        </Staff>
+            <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
+            {handleshowNewEventForm()}
+          </Admin>
+          <Assignments>
+            <Text>Assignments:</Text>
+            <List>
+              {this.cAssignments}
+            </List>
+            <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
+            {handleshowNewAssignmentForm()}
+          </Assignments>
+          <Events>
+            <Text>Events:</Text>
+            <List>
+              {this.cEvents}
+              <EventDetails />
+            </List>
+            <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
+            {handleshowNewEventForm()}
+          </Events>
         </Grid>
-        {showNewStudentForm()}
-        {handleshowNewAdminForm()}
-        {handleshowNewEventForm()}
-        {handleshowNewAssignmentForm()}
-        <EventDetails />
+        <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>
       </CohortCard>
   </React.Fragment>
   );

@@ -125,7 +125,7 @@ componentDidMount() {
         this.props.history.push('/')
       }
     }
-    
+
 
   render() {
 
@@ -161,7 +161,6 @@ componentDidMount() {
             )
           )}
           </CohortCards>
-
           <ContentContainer>
             {CohortDetail}
             <NewCohortForm cohortSuccess={this.reload}/>
