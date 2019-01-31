@@ -3,9 +3,11 @@ import {reducer} from './reducers/adminAuthenticationReducer'
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
+const rootURL = serverURL
+
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`${serverURL}/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
+    fetch(`${rootURL}/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
     {
       method:'POST',
       mode: 'cors', 
@@ -21,7 +23,7 @@ export const onAdminLogin = (email,password) => {
 
 export const onStudentLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`${serverURL}/student/student_token`,
+    fetch(`${rootURL}/student/student_token`,
     {
       method:'POST',
       mode: 'cors', 
@@ -55,7 +57,7 @@ export const onStudentLogin = (email,password) => {
 
 export const getAdminDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`${serverURL}/admin?token=${token}`,{mode:'cors'})
+  fetch(`${rootURL}/admin?token=${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })
@@ -63,7 +65,7 @@ export const getAdminDashboardData = (token) => {
 
 export const getStudentDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`${serverURL}/student?token=${token}`,{mode:'cors'})
+  fetch(`${rootURL}/student?token=${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })
@@ -73,7 +75,7 @@ export const getStudentDashboardData = (token) => {
 export const createNewCohort = (data, token) => {
   return new Promise((resolve, reject) => {
     // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
-      fetch(`${serverURL}/admin/cohorts?cohort=${data}&token=${token}`, {
+      fetch(`${rootURL}/admin/cohorts?cohort=${data}&token=${token}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -84,7 +86,7 @@ export const createNewCohort = (data, token) => {
 // doesn't work
 export const deleteCohort = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${serverURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id, "is_admin":true, "token":token})}`, {
+    fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id, "is_admin":true, "token":token})}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -95,7 +97,7 @@ export const deleteCohort = (cohort_id, token) => {
 // doesn't work
 export const createNewAssignment = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/assignemnts?assignment=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/admin/assignemnts?assignment=${JSON.stringify(data, token)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -106,7 +108,7 @@ export const createNewAssignment = (data, token) => {
 // doesn't work
 export const deleteAssignment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/assignments?assignment=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/assignments?assignment=${JSON.stringify(cohort_id, token)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -117,7 +119,7 @@ export const deleteAssignment = (cohort_id, token) => {
 // doesn't work
 export const createNewEvent = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/events?event=${JSON.stringify({'is_admin': true, data, token})}`, {
+    fetch(`${rootURL}/admin/events?event=${JSON.stringify({'is_admin': true, data, token})}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -128,7 +130,7 @@ export const createNewEvent = (data, token) => {
 // doesn't work
 export const deleteEvent = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/events?event=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/events?event=${JSON.stringify(cohort_id, token)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -139,7 +141,7 @@ export const deleteEvent = (cohort_id, token) => {
 // doesn't work
 export const createNewSibmission = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/student/submissions?submission=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submissions?submission=${JSON.stringify(data, token)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -150,7 +152,7 @@ export const createNewSibmission = (data, token) => {
 // doesn't work
 export const createStudentNote = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/student-note?note=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(data, token)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -161,7 +163,7 @@ export const createStudentNote = (data, token) => {
 // doesn't work
 export const deleteStudentnote = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/student-note?note=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(cohort_id, token)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -172,7 +174,7 @@ export const deleteStudentnote = (cohort_id, token) => {
 // doesn't work
 export const createNewSubmission = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/student/submission?submission=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submission?submission=${JSON.stringify(data, token)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -183,7 +185,7 @@ export const createNewSubmission = (data, token) => {
 // doesn't work
 export const createNewSubmissionComment = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/student/submission-comment?comment=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submission-comment?comment=${JSON.stringify(data, token)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -194,7 +196,7 @@ export const createNewSubmissionComment = (data, token) => {
 // doesn't work
 export const deleteSumissionComment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/submission-comment?comment=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/submission-comment?comment=${JSON.stringify(cohort_id, token)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
