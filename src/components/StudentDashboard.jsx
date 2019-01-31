@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import JobFeed from './JobFeed'
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
-import StudentAssignment from './StudentAssignment';
+import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEvent from './StudentEvent';
 import StudentCohortDetails from './StudentCohortDetails';
 
@@ -61,6 +61,7 @@ class StudentDashboard extends Component {
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
+<<<<<<< HEAD
 
             {this.state.assignments.map(assignment => (
           <StudentAssignment
@@ -81,6 +82,22 @@ class StudentDashboard extends Component {
             ))}
         </Container>
         <Footer/>
+=======
+      <StudentAssignmentsList
+        assignments={this.state.assignments}
+        submissions={this.state.submissions}
+      />
+          {this.state.events.map(event => (
+            <StudentEvent 
+              key={event.id}
+              name={event.name}
+              body={event.body}
+              date={event.date}
+              time={event.time}
+            />
+          ))}
+          <Footer/>
+>>>>>>> master
       </React.Fragment>
     );
   }
