@@ -65,36 +65,31 @@ const Hr = styled.div`
 const Form = styled.form`
   text-align: left;
   margin: 0 50px;
+  padding: 20px;
   background-color: inherit;
-  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
-
+  border-radius: 2px;
+  border: 1px solid white;
 `
 
-const Left = styled.div`
-  grid-column-start: 1;
-  background-color: inherit;
-`
-const Right= styled.div`
-  grid-column-start: 2;
-  background-color: inherit;
-`
 
 const Label = styled.label`
-  display: block;
+  font-size: 0.9em; 
   padding: 15px 0;
   background-color: inherit;
   color: white;
   text-align: left;
 `
 const Input = styled.input`
-  border: 1px solid black;
+  width: 95%;
+  font-size: 1.2em; 
+  border: 1px solid white;
   margin: 10px 0;
   border-radius: 2px;
   padding: 5px 5px;
   transition: border 0.5s;
-
+  background-color: inherit;
   :focus {
     border: 1px solid #FC6404;
     transition: border 0.5s;
@@ -113,7 +108,8 @@ const Button = styled.button`
   padding: 5px 10px;
 
   :hover {
-    background-color: #FC6404;
+    color:  #FC6404;
+    background-color: #fff;
     transition: 0.5;
   }`
 
@@ -121,7 +117,8 @@ const Button = styled.button`
     margin: 30px auto;
     cursor: pointer;
     padding: 7px 15px;
-    background-color: #FC6404;
+    color:  #FC6404;
+    background-color: #fff;
     transition: 0.3s;
     border-radius: 2px;
     font-size: 1.1em;
@@ -183,19 +180,13 @@ class Login extends Component {
   displayForm = () => {
     return (this.state.user === null) ?
     null : <Form method="post">
-      <Left>
-        <Label htmlfor="email">Email</Label>
-        <Label htmlfor="password">Password</Label>
-        <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
-      </Left>
-      <Right>
-        <Input type="text" name="email" onChange={e=>{
+        <Label htmlfor="email">Email</Label><Input type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
         }}></Input>
-        <Input type="password" name="password" onChange={e=>{
+        <Label htmlfor="password">Password</Label><Input type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
           }}></Input>
-      </Right>
+      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'inherit'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
       </Form>
   }
 
@@ -210,11 +201,9 @@ class Login extends Component {
         <Button onClick={this.onStudent}>Student</Button>
         <Button onClick={this.onAdmin}>Admin</Button>
       </ButtonFlex>
-      <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
       {this.displayForm()}
       </Container>
       <LogoContainer style={{position:"fixed", bottom:"0", left:"50%"}}><HorizonLogo src={horizon_logo}></HorizonLogo></LogoContainer>
-
     </div>
     );
  }
