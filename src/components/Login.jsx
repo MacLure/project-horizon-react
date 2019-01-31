@@ -8,14 +8,21 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/img/horizon_text2.svg';
 
 
+const LogoContainer = styled.div`
+  text-align: center;
+  background: none;
+  margin-top: 150px
+  margin-bottom: 50px
+
+`
+
 const Container = styled.div`
   background-color: #2A2C33;
   margin: 0 auto;
   width: 400px;
   border-radius: 2px;
   min-width: 250px;
-  margin-top: 200px;
-`
+  `
 
 const Title = styled.h2 `
   padding-top: 20px;
@@ -194,10 +201,8 @@ class Login extends Component {
 
    return (
     <div className="landing">
-    <Horizon src={Logo}/>
+    <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
-      <Title>Welcome to</Title>
-      <Text>I am a:</Text>
       <ButtonFlex>
         <Button onClick={this.onStudent} activeClassName="active">Student</Button>
         <Button onClick={this.onAdmin} activeClassName="btn_hover">Admin</Button>
