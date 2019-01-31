@@ -59,7 +59,8 @@ ul {
 }
 
 .active > li {
-    border-bottom: 3px solid #FC6404;
+    /* border-bottom: 3px solid #FC6404; */
+    background-color: #e74c3c;
 }
 
 .btn_hover > button {

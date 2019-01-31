@@ -10,7 +10,7 @@ import  {getAdminDashboardData} from './../service';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 140px auto;
+  grid-template-columns: auto;
 `
 
 const CohortCards = styled.div`
