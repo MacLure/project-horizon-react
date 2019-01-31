@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import JobFeed from './JobFeed'
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
-import StudentAssignment from './StudentAssignment';
+import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEvent from './StudentEvent';
 import StudentCohortDetails from './StudentCohortDetails';
 
@@ -61,14 +61,10 @@ class StudentDashboard extends Component {
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
-          {this.state.assignments.map(assignment => (
-            <StudentAssignment 
-              key={assignment.id}
-              name={assignment.name}
-              body={assignment.body}
-              dueDate={assignment.due_date}
-            />
-          ))}
+      <StudentAssignmentsList
+        assignments={this.state.assignments}
+        submissions={this.state.submissions}
+      />
           {this.state.events.map(event => (
             <StudentEvent 
               key={event.id}
@@ -78,7 +74,6 @@ class StudentDashboard extends Component {
               time={event.time}
             />
           ))}
-          ** ------------------------------Each assignment has submissions, and each submission has comments.  Not sure how we want to display them, but they're available.  I will work on an asignments progress calculator and other methods.  We also have classmates data if we want to use it.
           <Footer/>
       </React.Fragment>
     );

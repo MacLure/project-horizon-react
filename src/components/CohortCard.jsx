@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProgressCircle from './ProgressCircle'
+import CohortProgressCircle from './CohortProgressCircle'
 
 const Card = styled.div`
   background-color: rgba(42, 44, 51, 1);
@@ -92,7 +92,7 @@ const CohortCard = (props) => {
         <Text>{daysLeftDisplay()}</Text>
 
       </Grid>
-          {courseProgress() > 0 && courseProgress() < 100 ? <ProgressCircle progress={courseProgress}/> : ''}
+          {courseProgress() > 0 && courseProgress() < 100 ? <CohortProgressCircle progress={courseProgress}/> : ''}
 
       </Card>
     </React.Fragment>
