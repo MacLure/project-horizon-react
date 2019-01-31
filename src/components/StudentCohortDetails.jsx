@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const InfoCard = styled.div`
-  background-color: red;
+  background-color: #2A2C33;
   margin: 20px 10px;
   width: 40vw;
   height: 15vh;

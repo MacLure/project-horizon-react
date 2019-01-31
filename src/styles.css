@@ -43,6 +43,10 @@ a {
   background-color: inherit;
 }
 
+input, textarea, select {
+  background-color: #212229;
+}
+
 ul {
   padding: 0;
 }

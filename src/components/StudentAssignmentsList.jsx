@@ -3,7 +3,6 @@ import StudentAssignment from './StudentAssignment';
 import StudentProgressCircle from './StudentProgressCircle';
 import styled from 'styled-components';
 
-
 class StudentAssignmentsList extends Component {
   state = {  }
   render() {
