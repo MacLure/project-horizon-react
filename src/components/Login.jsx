@@ -6,6 +6,7 @@ import  {onStudentLogin} from './../service';
 import Facebook from '../assets/img/facebook.png';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/horizon_text2.svg';
+import horizon_logo from '../assets/img/horizon_logo.svg';
 
 
 const LogoContainer = styled.div`
@@ -22,6 +23,7 @@ const Container = styled.div`
   width: 400px;
   border-radius: 2px;
   min-width: 250px;
+  background: none;
   `
 
 const Title = styled.h2 `
@@ -33,7 +35,11 @@ const Title = styled.h2 `
 
 const Horizon = styled.img`
   width: 300px;
-  text-align: center;
+  background-color: inherit;
+`
+
+const HorizonLogo = styled.img`
+  width: 50px;
   background-color: inherit;
 `
 
@@ -100,13 +106,14 @@ const Button = styled.button`
   cursor: pointer;
   transition: 0.5s;
   border-radius: 2px;
-  border: none;
+  border: 1px solid white;
   font-size: 1.3em;
   text-align: center;
   background-color: inherit;
+  padding: 5px 10px;
 
   :hover {
-    color: #FC6404;
+    background-color: #FC6404;
     transition: 0.5;
   }`
 
@@ -197,7 +204,7 @@ class Login extends Component {
 
    return (
     <div className="landing">
-    <LogoContainer><Horizon src={Logo}/></LogoContainer>
+      <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
       <ButtonFlex>
         <Button onClick={this.onStudent}>Student</Button>
@@ -206,6 +213,8 @@ class Login extends Component {
       <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
       {this.displayForm()}
       </Container>
+      <LogoContainer style={{position:"fixed", bottom:"0", left:"50%"}}><HorizonLogo src={horizon_logo}></HorizonLogo></LogoContainer>
+
     </div>
     );
  }
