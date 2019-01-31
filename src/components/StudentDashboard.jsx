@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-import NavBar from './NavBar';
+import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
 import JobFeed from './JobFeed'
 import { connect } from 'react-redux';
@@ -58,7 +58,7 @@ class StudentDashboard extends Component {
 
     return (
       <React.Fragment>
-        <NavBar/>
+        <StudentNavbar/>
         <Container>
           <StudentCohortDetails
             name={this.state.cohort.name}

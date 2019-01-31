@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import Footer from './Footer';
-import NavBar from './NavBar';
+import StudentNavbar from './StudentNavbar';
 
 const Error404 = styled.div`
   background-color: #232F41;
@@ -61,7 +61,7 @@ const Button = styled.button`
 const NotFound = () => {
   return (
     <React.Fragment>
-      <NavBar/>
+      <StudentNavbar/>
       <Error404>
       <Text>404: The page you are requesting could not be found.</Text>
       <Text>Who would you like to blame?</Text>
