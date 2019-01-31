@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 class StudentAssignment extends Component {
   state = {  }
 
 
-  render() { 
+  render() {
     const { name, body, dueDate } = this.props
 
-    return ( 
+    return (
       <div style={{textAlign:'center'}}>
         <p>{name}</p>
         <p>{body}</p>
@@ -17,5 +18,5 @@ class StudentAssignment extends Component {
      );
   }
 }
- 
+
 export default StudentAssignment;

@@ -10,10 +10,12 @@ import StudentEvent from './StudentEvent';
 import StudentCohortDetails from './StudentCohortDetails';
 import NewSubmissionForm from './NewSubmissionForm'
 
-const Title = styled.h1`
-  text-align: center;
-  margin-left: 140px;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
 `
+
 
 class StudentDashboard extends Component {
   constructor (props) {
@@ -54,25 +56,26 @@ class StudentDashboard extends Component {
 
     return (
       <React.Fragment>
-          <NavBar/>
-          <Title>Student Dashboard</Title>
-          <StudentCohortDetails 
+        <NavBar/>
+        <Container>
+          <StudentCohortDetails
             name={this.state.cohort.name}
             course_type={this.state.cohort.course_type}
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
-      <StudentAssignmentsList
-        assignments={this.state.assignments}
-        submissions={this.state.submissions}
-      />
-          {this.state.events.map(event => (
-            <StudentEvent 
-              key={event.id}
-              name={event.name}
-              body={event.body}
-              date={event.date}
-              time={event.time}
+            {this.state.events.map(event => (
+          <StudentEvent
+            key={event.id}
+            name={event.name}
+            body={event.body}
+            date={event.date}
+            time={event.time}
+          />
+            ))}
+            <StudentAssignmentsList
+              assignments={this.state.assignments}
+              submissions={this.state.submissions}
             />
           ))}
           <NewSubmissionForm />
