@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
-import JobFeed from './JobFeed'
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
 import StudentAssignmentsList from './StudentAssignmentsList';
-import StudentEvent from './StudentEvent';
+import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import NewSubmissionForm from './NewSubmissionForm'
 
@@ -66,15 +65,7 @@ class StudentDashboard extends Component {
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
-            {this.state.events.map(event => (
-          <StudentEvent
-            key={event.id}
-            name={event.name}
-            body={event.body}
-            date={event.date}
-            time={event.time}
-          />
-            ))}
+            <StudentEventsList events = {this.state.events} />
             <StudentAssignmentsList
               assignments={this.state.assignments}
               submissions={this.state.submissions}

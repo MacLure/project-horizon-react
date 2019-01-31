@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import StudentEvent from './StudentEvent';
 
 const EventsCard = styled.div`
   background-color: red;
@@ -40,10 +41,19 @@ class StudentEventsList extends Component {
 
 }
   render() {
+    const events = this.props.events
 
   return (
     <EventsCard>
-      <p>Events</p>
+    {events.map(event => (
+      <StudentEvent
+        key={event.id}
+        name={event.name}
+        body={event.body}
+        date={event.date}
+        time={event.time}
+      />
+        ))}
     </EventsCard>
     );
   }

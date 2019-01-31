@@ -1,9 +1,7 @@
-import {reducer} from './reducers/adminAuthenticationReducer'
-
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
-const rootURL = serverURL
+const rootURL = localURL
 
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
@@ -30,7 +28,7 @@ export const onStudentLogin = (email,password) => {
       headers: {
         "Content-Type": "application/json ",
       },
-      body:JSON.stringify({ "auth": {"email":email, "password":password, "is_admin":false} })
+      body:JSON.stringify({ "auth": {"email":email, "password":password} })
     })
     .then(e=>e.ok?resolve(e):reject(e))
     .then(e=> console.log(e))
@@ -73,11 +71,21 @@ export const getStudentDashboardData = (token) => {
 
 // doesn't work
 export const createNewCohort = (data, token) => {
+//   const myHeaders = new Headers({
+//     'Content-Type': 'application/json',
+//     'Authorization': token,
+//     'Access-Controlcredential': true
+// });
+
   return new Promise((resolve, reject) => {
+
+    console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}`);
+    // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
     // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
-      fetch(`${rootURL}/admin/cohorts?cohort=${data}&token=${token}`, {
+      fetch(`${rootURL}/admin/cohorts?cohort=${(data)}`, {
       method: 'post',
-      mode: "cors"})
+      mode: "cors"
+    })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })
@@ -86,7 +94,7 @@ export const createNewCohort = (data, token) => {
 // doesn't work
 export const deleteCohort = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id, "is_admin":true, "token":token})}`, {
+    fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id})}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -97,7 +105,7 @@ export const deleteCohort = (cohort_id, token) => {
 // doesn't work
 export const createNewAssignment = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/assignemnts?assignment=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/admin/assignemnts?assignment=${JSON.stringify(data)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -108,7 +116,7 @@ export const createNewAssignment = (data, token) => {
 // doesn't work
 export const deleteAssignment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/assignments?assignment=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/assignments?assignment=${JSON.stringify(cohort_id)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -119,7 +127,7 @@ export const deleteAssignment = (cohort_id, token) => {
 // doesn't work
 export const createNewEvent = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/events?event=${JSON.stringify({'is_admin': true, data, token})}`, {
+    fetch(`${rootURL}/admin/events?event=${JSON.stringify({data})}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -130,7 +138,7 @@ export const createNewEvent = (data, token) => {
 // doesn't work
 export const deleteEvent = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/events?event=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/events?event=${JSON.stringify(cohort_id)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -141,7 +149,7 @@ export const deleteEvent = (cohort_id, token) => {
 // doesn't work
 export const createNewSibmission = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/student/submissions?submission=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submissions?submission=${JSON.stringify(data)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -152,7 +160,7 @@ export const createNewSibmission = (data, token) => {
 // doesn't work
 export const createStudentNote = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(data)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -163,7 +171,7 @@ export const createStudentNote = (data, token) => {
 // doesn't work
 export const deleteStudentnote = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/student-note?note=${JSON.stringify(cohort_id)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -174,7 +182,7 @@ export const deleteStudentnote = (cohort_id, token) => {
 // doesn't work
 export const createNewSubmission = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/student/submission?submission=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submission?submission=${JSON.stringify(data)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -185,7 +193,7 @@ export const createNewSubmission = (data, token) => {
 // doesn't work
 export const createNewSubmissionComment = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/student/submission-comment?comment=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/student/submission-comment?comment=${JSON.stringify(data)}`, {
       method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
@@ -196,7 +204,7 @@ export const createNewSubmissionComment = (data, token) => {
 // doesn't work
 export const deleteSumissionComment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/submission-comment?comment=${JSON.stringify(cohort_id, token)}`, {
+    fetch(`${rootURL}/admin/submission-comment?comment=${JSON.stringify(cohort_id)}`, {
       method: 'delete',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
