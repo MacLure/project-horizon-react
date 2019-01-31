@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-import NavBar from './NavBar';
+import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -13,7 +13,7 @@ class Settings extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar/>
+        <StudentNavbar/>
         <Title>Settings</Title>
         <Footer/>
       </React.Fragment>

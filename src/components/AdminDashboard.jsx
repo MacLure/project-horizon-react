@@ -3,7 +3,7 @@ import CohortCard from './CohortCard';
 import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
 import Footer from './Footer';
-import NavBar from './NavBar';
+import AdminNavBar from './AdminNavBar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getAdminDashboardData} from './../service';
@@ -146,7 +146,7 @@ componentDidMount() {
     }
     return (
       <React.Fragment>
-        <NavBar/>
+        <AdminNavBar/>
         <Container>
           <CohortCards>
           {this.state.cohorts
