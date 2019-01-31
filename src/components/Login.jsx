@@ -60,7 +60,7 @@ const Form = styled.form`
 `
 
 const Label = styled.label`
-  font-size: 0.9em; 
+  font-size: 0.9em;
   padding: 15px 0;
   color: white;
   text-align: left;
@@ -69,7 +69,7 @@ const Label = styled.label`
 `
 const Input = styled.input`
   width: 95%;
-  font-size: 1.2em; 
+  font-size: 1.2em;
   border: 1px solid white;
   margin: 10px 0;
   border-radius: 2px;
