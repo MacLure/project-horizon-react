@@ -57,8 +57,7 @@ class AdminNavBar extends Component {
         <MenuBar>
           <Icon src={Logo} />
           <NavList>
-            <NavLink to='/student'><NavItem>Students</NavItem></NavLink>
-            <NavLink to="/admin" activeClassName="active"> <NavItem>Admin</NavItem></NavLink>
+            <NavLink to="/admin" activeClassName="active"> <NavItem>Dashboard</NavItem></NavLink>
             <NavLink to="/articles" activeClassName="active"><NavItem >Articles</NavItem></NavLink>
             <NavLink to="/jobs" activeClassName="active"><NavItem>Job Board</NavItem></NavLink>
             <NavLink to="/contacts" activeClassName="active"><NavItem>Contacts</NavItem></NavLink>
