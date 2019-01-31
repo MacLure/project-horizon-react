@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+	version="1.1"
+	id="Layer_1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	x="0px"
+	y="0px"
+	width="900px"
+	height="900px" 
+	viewBox="0 0 900 900"
+	enable-background="new 0 0 900 900"
+	xml:space="preserve"
+>
+<defs>
+	<linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0%" stop-color="#Fa0"/>
+		<stop offset="100%" stop-color="#DD3D0F"/>
+	</linearGradient>
+	      <style type="text/css">
+				</style>
+	</defs>
+
+<circle
+	cx="450"
+	cy="450"
+	r="450"
+/>
+<g>
+	<path
+		d="M710.002,478.954H199.797V197.265h159.521v202.588h190.283V197.265h160.4V478.954z M710.002,546.19h-160.4
+		V506.2H359.318v39.99H199.797v-44.385h510.205V546.19z M359.318,635.839H199.797v-44.385h159.521V635.839z M359.318,715.38H199.797
+		v-12.305h159.521V715.38z M710.002,635.839h-160.4v-44.385h160.4V635.839z M710.002,715.38h-160.4v-12.305h160.4V715.38z"
+			fill="url(#Gradient)"
+
+	/>
+</g>
+</svg>
