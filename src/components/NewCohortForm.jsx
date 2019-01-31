@@ -131,12 +131,6 @@ class NewCohortForm extends Component {
 
 
   render() {
-<<<<<<< HEAD
-    document.body.style.backgroundColor = '#212229';
-
-=======
-    
->>>>>>> master
     return (
       <React.Fragment>
       <Container>
