@@ -5,6 +5,7 @@ import  {onAdminLogin} from './../service';
 import  {onStudentLogin} from './../service';
 import Facebook from '../assets/img/facebook.png';
 import { Link } from 'react-router-dom';
+import Logo from '../assets/img/horizon_text2.svg';
 
 
 const Container = styled.div`
@@ -21,6 +22,12 @@ const Title = styled.h2 `
   background-color: inherit;
   text-align: center;
   font-size: 30px;
+`
+
+const Horizon = styled.img`
+  width: 300px;
+  text-align: center;
+  background-color: inherit;
 `
 
 const Text = styled.p`
@@ -183,8 +190,9 @@ class Login extends Component {
 
    return (
     <div className="landing">
+    <Horizon src={Logo}/>
       <Container>
-      <Title>Nice to see you again</Title>
+      <Title>Welcome to</Title>
       <Text>I am a:</Text>
       <ButtonFlex>
         <Button onClick={this.onStudent}>Student</Button>
