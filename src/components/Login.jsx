@@ -91,16 +91,20 @@ const Input = styled.input`
 const Button = styled.button`
   margin: 20px 20px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: color 0.5s;
   border-radius: 2px;
   border: none;
   font-size: 1.3em;
   text-align: center;
   background-color: inherit;
 
+  :active {
+    color: #FC6404;
+  }
+
   :hover {
     color: #FC6404;
-    transition: 0.5;
+    transition: color 0.5s;
   }`
 
   const SubmitButton = styled.button`
@@ -195,8 +199,8 @@ class Login extends Component {
       <Title>Welcome to</Title>
       <Text>I am a:</Text>
       <ButtonFlex>
-        <Button onClick={this.onStudent}>Student</Button>
-        <Button onClick={this.onAdmin}>Admin</Button>
+        <Button onClick={this.onStudent} activeClassName="active">Student</Button>
+        <Button onClick={this.onAdmin} activeClassName="btn_hover">Admin</Button>
       </ButtonFlex>
       <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
       {this.displayForm()}
