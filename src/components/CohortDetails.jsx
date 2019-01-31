@@ -4,7 +4,7 @@ import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
-import EventDetails from './EventDetails'
+import AdminEventsList from './AdminEventsList'
 import { connect } from 'react-redux';
 import  {deleteCohort} from './../service';
 
@@ -260,7 +260,7 @@ class CohortDetails extends Component {
             <Text>Events:</Text>
             <List>
               {this.cEvents}
-              <EventDetails />
+              <AdminEventsList />
             </List>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
             {handleshowNewEventForm()}

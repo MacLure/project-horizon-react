@@ -128,6 +128,7 @@ componentDidMount() {
 
 
   render() {
+    document.body.style.backgroundColor = '#212229';
 
     let CohortDetail = null;
     if(this.state.onFocusData != null && typeof(this.state.onFocusData) != undefined){

@@ -32,7 +32,7 @@ const EventsCard = styled.div`
 //     transition: 0.3s;
 // }`
 
-class EventDetails extends Component {
+class StudentEventsList extends Component {
   constructor(props) {
     super(props)
   this.state ={
@@ -49,4 +49,4 @@ class EventDetails extends Component {
   }
 }
 
-export default EventDetails;
+export default StudentEventsList;
