@@ -8,6 +8,7 @@ import  {getStudentDashboardData} from './../service';
 import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEvent from './StudentEvent';
 import StudentCohortDetails from './StudentCohortDetails';
+import NewSubmissionForm from './NewSubmissionForm'
 
 const Title = styled.h1`
   text-align: center;
@@ -74,6 +75,7 @@ class StudentDashboard extends Component {
               time={event.time}
             />
           ))}
+          <NewSubmissionForm />
           <Footer/>
       </React.Fragment>
     );

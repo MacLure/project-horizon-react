@@ -39,7 +39,8 @@ const NavItem = styled.li`
   overflow: auto;
   cursor: pointer;
   border-top: 1px solid #1c1f21;
-  border-bottom: 1px solid #272a2c;
+  border-bottom: 1px solid linear-gradient(to right, red , yellow);
+
   opacity: 1;
   transition: opacity 0.5s;
 

@@ -142,7 +142,7 @@ export const createNewSibmission = (data, token) => {
 }
 
 // doesn't work
-export const createNewStudentNote = (data, token) => {
+export const createStudentNote = (data, token) => {
   return new Promise((resolve, reject) => {
     fetch(`https://project-horizon-rails.herokuapp.com/admin/student-note?note=${JSON.stringify(data, token)}`, {
       method: 'post',
@@ -157,6 +157,17 @@ export const deleteStudentnote = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
     fetch(`https://project-horizon-rails.herokuapp.com/admin/student-note?note=${JSON.stringify(cohort_id, token)}`, {
       method: 'delete',
+      mode: "cors"})
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
+
+// doesn't work
+export const createNewSubmission = (data, token) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://project-horizon-rails.herokuapp.com/student/submission?submission=${JSON.stringify(data, token)}`, {
+      method: 'post',
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
