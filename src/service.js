@@ -1,14 +1,14 @@
 import {reducer} from './reducers/adminAuthenticationReducer'
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
-    fetch(`https://project-horizon-rails.herokuapp.com/admin/admin_token`,
+    fetch(`https://project-horizon-rails.herokuapp.com/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
     {
       method:'POST',
       mode: 'cors', 
       headers: {
         "Content-Type": "application/json ",
       },
-      body:JSON.stringify({ "auth": {"email":email, "password":password, "is_admin":true} })
+      body:JSON.stringify({ "auth": {"email":email, "password":password} })
     })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
@@ -51,7 +51,7 @@ export const onStudentLogin = (email,password) => {
 
 export const getAdminDashboardData = (token) => {
   return new Promise((resolve,reject)=>{
-  fetch(`https://project-horizon-rails.herokuapp.com/admin?${token}`,{mode:'cors'})
+  fetch(`https://project-horizon-rails.herokuapp.com/admin?token=${token}`,{mode:'cors'})
   .then(e=>e.ok?resolve(e):reject(e))
   .catch(e => console.log('ERR: ', e))
   })

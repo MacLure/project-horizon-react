@@ -24,7 +24,7 @@ const NavList = styled.ul`
 `
 
 const Icon = styled.img`
-  width: 120px;
+  width: 80px;
   margin: 0 auto;
   padding: 10px;
   background-color: inherit;

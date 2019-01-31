@@ -119,7 +119,7 @@ const Button = styled.button`
 
     :hover {
       transition: 0.2;
-      box-shadow: (0 0 5px 5px #000)
+      box-shadow: (0 0 10px 10px #000)
   }`
 
 class Login extends Component {
