@@ -21,7 +21,7 @@ const Text = styled.p`
 
   :hover {
     transition: color 0.5s;
-    color: #DD3D0F;
+    color: #FC6404;
 }`
 
 

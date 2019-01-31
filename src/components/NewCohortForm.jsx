@@ -6,7 +6,7 @@ import  {createNewCohort} from './../service';
 
 const Container = styled.div`
   background-color: #2A2C33;
-  margin: 20px auto;
+  margin-top: 10px;
   width: 40vw;
   height: 300px;
   border-radius: 2px;
@@ -16,10 +16,6 @@ const Title = styled.h2 `
   padding: 20px 0px 15px 0px;
   background-color: inherit;
   text-align: center;
-`
-const Hr = styled.div`
-  border-bottom: 2px solid #DD3D0F;
-  border-radius: 5px;
 `
 
 const Form = styled.form`
@@ -95,7 +91,7 @@ const Button = styled.button`
   background-color: #17B57E;
   opacity: 1;
   border: none;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -104,7 +100,7 @@ const Button = styled.button`
 
   :hover {
     opacity: 0.5;
-    transition: opacoty 0.5s;
+    transition: opacity 0.3s;
   }`
 
 class NewCohortForm extends Component {
@@ -140,7 +136,6 @@ class NewCohortForm extends Component {
       <React.Fragment>
       <Container>
       <Title>New Cohort</Title>
-      <Hr></Hr>
       <Form onSubmit={this.handleSubmit}>
         <Name>
           <Label htmlFor="name">Name</Label>
@@ -157,12 +152,12 @@ class NewCohortForm extends Component {
         <StartDate>
           <Label htmlFor="start_date">Start Date</Label>
           <Input type="date" name="start_date" value={this.state.start_date} onChange={this.handleChange} ></Input>
+          <br/><Button type="submit">Submit</Button>
         </StartDate>
         <EndDate>
           <Label htmlFor="end_date" placeholder="yyyy-mm-dd">End Date</Label>
           <Input type="date" name="end_date" value={this.state.end_date} onChange={this.handleChange} ></Input>
         </EndDate>
-        <br/><Button type="submit">Submit</Button>
       </Form>
       </Container>
     </React.Fragment>

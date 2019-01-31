@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 const Container = styled.div`
-  background-color: #38383f;
+  background-color: #2A2C33;
   margin: 0 auto;
   width: 40vw;
   border-radius: 2px;
@@ -20,13 +20,13 @@ const Title = styled.h2 `
   padding-top: 20px;
   background-color: inherit;
   text-align: center;
-  padding-botom: 40px;
-  font-size: 50px;
+  font-size: 30px;
 `
 
 const Text = styled.p`
   background-color: inherit;
   text-align: center;
+  padding-top: 10px;
   padding-bottom: 10px;
   font-size: 20px;
 `
@@ -36,21 +36,29 @@ const ButtonFlex = styled.div`
   background-color: inherit;
   justify-content: center;
 `
-const Image = styled.img`
-  width: 250px;
-  margin-left: 29%;
-  border-radius: 4px;
-`
 
 const Hr = styled.div`
-  border-bottom: 2px solid #DD3D0F;
+  border-bottom: 2px solid #FC6404;
   border-radius: 5px;
 `
 
 const Form = styled.form`
   text-align: left;
-  margin: 0 auto;
-  padding-left: 80px;
+  margin: 0 100px;
+  padding-left: 50px;
+  background-color: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+
+`
+
+const Left = styled.div`
+  grid-column-start: 1;
+  background-color: inherit;
+`
+const Right= styled.div`
+  grid-column-start: 2;
   background-color: inherit;
 `
 
@@ -60,16 +68,16 @@ const Label = styled.label`
   background-color: inherit;
   color: white;
   text-align: left;
-  padding-left: 0;
 `
 const Input = styled.input`
   border: 1px solid black;
+  margin: 10px 0;
   border-radius: 2px;
   padding: 5px 5px;
   transition: border 0.5s;
 
   :focus {
-    border: 1px solid #DD3D0F;
+    border: 1px solid #FC6404;
     transition: border 0.5s;
   }
 `
@@ -77,38 +85,33 @@ const Input = styled.input`
 const Button = styled.button`
   margin: 20px 20px;
   cursor: pointer;
-  padding: 7px 15px;
-  background-color: rgba(56,56,63, 1);
-  border: 1px solid #DD3D0F;
-  color: rgba(255,255,255, 1);
-  transition: 0.3s;
+  transition: 0.5s;
   border-radius: 2px;
-  font-size: 1.1em;
+  border: none;
+  font-size: 1.3em;
   text-align: center;
   background-color: inherit;
 
   :hover {
-    color: rgba(255,255,255, 0.5);
-    background-color: rgba(56,56,63, 0.5);
-    transition: 0.3;
+    color: #FC6404;
+    transition: 0.5;
   }`
 
   const SubmitButton = styled.button`
-    margin: 20px auto;
+    margin: 30px auto;
     cursor: pointer;
     padding: 7px 15px;
-    background-color: rgba(56,56,63, 1);
-    border: 1px solid #DD3D0F;
-    color: rgba(255,255,255, 1);
+    background-color: #FC6404;
     transition: 0.3s;
     border-radius: 2px;
     font-size: 1.1em;
     text-align: center;
-    background-color: inherit;
+    border: none;
+    opacity: 1;
 
     :hover {
-      background-color: rgba(221,61,15);
       transition: 0.3;
+      opacity: 0.5;
   }`
 
 class Login extends Component {
@@ -162,26 +165,28 @@ class Login extends Component {
    return (
      <div className="landing">
        <Container>
-        <Title>Welcome Back</Title>
-          <Hr></Hr>
+        <Title>Nice to see you again</Title>
         <Text>I am a:</Text>
         <ButtonFlex>
           <Button onClick={this.onStudent}>Student</Button>
-          <Button onClick={this.onAdmin}>Administrator</Button>
+          <Button onClick={this.onAdmin}>Admin</Button>
         </ButtonFlex>
-        <Link to='https://deletefacebook.com/' target="_blank"><Image src={Facebook}/></Link>
-        <h3>{this.state.user ? `${this.state.user} login` : ''}</h3>
+        <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
         <Form method="post">
+          <Left>
            <Label htmlfor="email">Email</Label>
-           <Input type="text" name="email" onChange={e=>{
-             this.setState({email: e.target.value})
-           }}></Input>
            <Label htmlfor="password">Password</Label>
+           <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
+          </Left>
+          <Right>
+          <Input type="text" name="email" onChange={e=>{
+            this.setState({email: e.target.value})
+          }}></Input>
            <Input type="password" name="password" onChange={e=>{
             this.setState({password: e.target.value})
-          }}></Input>
-           <br/>
-           <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
+            }}></Input>
+
+          </Right>
          </Form>
        </Container>
       </div>
