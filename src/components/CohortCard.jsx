@@ -5,7 +5,7 @@ import CohortProgressCircle from './CohortProgressCircle'
 const Card = styled.div`
   background-color: rgba(42, 44, 51, 1);
   margin: 20px 10px;
-  width: 25vw;
+  width: 23vw;
   border-radius: 2px;
   grid-column-start: 1;
   justify-self: center;
@@ -83,7 +83,7 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <Card
-        style={{opacity:props.isActive ? ".5": ""}}
+        style={{backgroundColor:props.isActive ? "#e74c3c": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}
       >
       <Grid>

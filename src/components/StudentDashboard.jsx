@@ -7,15 +7,30 @@ import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
 import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEvent from './StudentEvent';
+import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import NewSubmissionForm from './NewSubmissionForm'
 
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  margin: 25px 60px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2;
+`
+const Info_EventsGrid = styled.div`
+  grid-column-start: 1fr;
+  grid-row-start: 1;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
 `
 
+const AssignmentsGrid = styled.div`
+  grid-column-start: 1fr;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr
+`
 
 class StudentDashboard extends Component {
   constructor (props) {

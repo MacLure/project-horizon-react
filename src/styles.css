@@ -59,17 +59,12 @@ ul {
 }
 
 .active > li {
-    /* border-bottom: 3px solid #FC6404; */
     background-color: #e74c3c;
 }
 
 .btn_hover > button {
   color: #FC6404;
   border: 5px solid green;
-}
-
-.selected {
-  opacity: 0.5;
 }
 
 svg {

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const EventsCard = styled.div`
   background-color: red;
   margin: 20px 10px;
-  width: 40vw;
-  height: 15vh;
+  width: 45vw;
+  height: 18vh;
   border-radius: 2px;
   grid-column-start: 3;
   gird-row-start: 1;

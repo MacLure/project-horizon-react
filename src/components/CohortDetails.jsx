@@ -10,9 +10,7 @@ import  {deleteCohort} from './../service';
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: auto;
+  margin: 20px 40px;
   width: 85vw;
   border-radius: 2px;
   padding: 10px 0px;
