@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
   background-color: #2A2C33;
   margin: 0 auto;
-  width: 40vw;
+  width: 400px;
   border-radius: 2px;
   min-width: 250px;
   margin-top: 200px;
@@ -160,37 +160,42 @@ class Login extends Component {
     }
   }
 
+  displayForm = () => {
+    return (this.state.user === null) ?
+    null : <Form method="post">
+      <Left>
+        <Label htmlfor="email">Email</Label>
+        <Label htmlfor="password">Password</Label>
+        <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
+      </Left>
+      <Right>
+        <Input type="text" name="email" onChange={e=>{
+          this.setState({email: e.target.value})
+        }}></Input>
+        <Input type="password" name="password" onChange={e=>{
+          this.setState({password: e.target.value})
+          }}></Input>
+      </Right>
+      </Form>
+  }
+
+
  render() {
 
    return (
-     <div className="landing">
-       <Container>
-        <Title>Nice to see you again</Title>
-        <Text>I am a:</Text>
-        <ButtonFlex>
-          <Button onClick={this.onStudent}>Student</Button>
-          <Button onClick={this.onAdmin}>Admin</Button>
-        </ButtonFlex>
-        <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
-        <Form method="post">
-          <Left>
-           <Label htmlfor="email">Email</Label>
-           <Label htmlfor="password">Password</Label>
-           <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
-          </Left>
-          <Right>
-          <Input type="text" name="email" onChange={e=>{
-            this.setState({email: e.target.value})
-          }}></Input>
-           <Input type="password" name="password" onChange={e=>{
-            this.setState({password: e.target.value})
-            }}></Input>
-
-          </Right>
-         </Form>
-       </Container>
-      </div>
-     );
+    <div className="landing">
+      <Container>
+      <Title>Nice to see you again</Title>
+      <Text>I am a:</Text>
+      <ButtonFlex>
+        <Button onClick={this.onStudent}>Student</Button>
+        <Button onClick={this.onAdmin}>Admin</Button>
+      </ButtonFlex>
+      <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
+      {this.displayForm()}
+      </Container>
+    </div>
+    );
  }
 }
 
