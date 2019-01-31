@@ -30,11 +30,6 @@ const Horizon = styled.img`
   background-color: inherit;
 `
 
-const HorizonLogo = styled.img`
-  width: 50px;
-  background-color: inherit;
-`
-
 const ButtonFlex = styled.div`
   display: flex;
   flex-direction: row;
@@ -69,7 +64,7 @@ const Label = styled.label`
 `
 const Input = styled.input`
   width: 95%;
-  font-size: 1.2em;
+  font-size: 1em;
   border: 1px solid white;
   margin: 10px 0;
   border-radius: 2px;
@@ -171,10 +166,10 @@ class Login extends Component {
   displayForm = () => {
     return (this.state.user === null) ?
     null : <Form method="post">
-        <Label htmlfor="email">Email</Label><Input type="text" name="email" onChange={e=>{
+        <Label htmlfor="email">Email</Label><Input placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
         }}></Input>
-        <Label htmlfor="password">Password</Label><Input type="password" name="password" onChange={e=>{
+        <Label htmlfor="password">Password</Label><Input placeholder="password" type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
           }}></Input>
       <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
@@ -201,7 +196,6 @@ class Login extends Component {
       </ButtonFlex>
       {this.displayForm()}
       </Container>
-      <LogoContainer style={{position:"fixed", bottom:"0", left:"50%"}}><HorizonLogo src={horizon_logo}></HorizonLogo></LogoContainer>
     </div>
     );
  }

@@ -1,45 +1,42 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/logo.svg';
+import Logo from '../assets/img/text_orange.svg';
 
 const MenuBar = styled.nav`
-  grid-coulmn-start: 1;
-  width: 140px;
-  height: 100%;
-  text-align: left;
-  position: fixed;
+  width: 100%;
+  height: 60px;
   background-color: #363A42;
 `
 
 const NavList = styled.ul`
   padding: 0px;
-  margin: 50% 0px;
+  /* margin: 50% 0px; */
   background-color: #363A42;
-  border-top: 1px solid #1c1f21;
-  border-bottom: 1px solid #1c1f21;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20px;
+  float: right;
 `
 
 const Icon = styled.img`
-  width: 80px;
-  margin: 0 auto;
-  padding: 10px;
+  height: 30px;
+  padding-left: 20px
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: inherit;
+  float: left;
 `
 
 const NavItem = styled.li`
-  padding: 20px 0px 20px 20px;
-  background-color: #2A2C32;
+  background-color: #363A42;
   font-size: 15px;
   list-style-type: none;
   color: white;
-  overflow: auto;
   cursor: pointer;
-  border-top: 1px solid #1c1f21;
-  border-bottom: 1px solid linear-gradient(to right, red , yellow);
+  padding: 20px;
+
 
   opacity: 1;
   transition: opacity 0.5s;
@@ -49,7 +46,7 @@ const NavItem = styled.li`
   transition: opacity 0.5s;
   }`
 
-class StudentNavbar extends Component {
+class StudentNavBar extends Component {
   state = {  }
   render() {
     return (
@@ -57,11 +54,11 @@ class StudentNavbar extends Component {
         <MenuBar>
           <Icon src={Logo} />
           <NavList>
-            <NavLink to='/student'><NavItem>Dashboard</NavItem></NavLink>
-            <NavLink to="/articles" activeClassName="active"><NavItem >Articles</NavItem></NavLink>
-            <NavLink to="/jobs" activeClassName="active"><NavItem>Job Board</NavItem></NavLink>
-            <NavLink to="/contacts" activeClassName="active"><NavItem>Contacts</NavItem></NavLink>
+            <NavLink to="/student" activeClassName="active"> <NavItem>Dashboard</NavItem></NavLink>
+
             <NavLink to="/settings" activeClassName="active"><NavItem>Settings</NavItem></NavLink>
+
+            <NavLink to="/login" activeClassName="active"><NavItem>Log out</NavItem></NavLink>
           </NavList>
         </MenuBar>
       </React.Fragment>
@@ -69,4 +66,4 @@ class StudentNavbar extends Component {
   }
 }
 
-export default StudentNavbar;
+export default StudentNavBar;

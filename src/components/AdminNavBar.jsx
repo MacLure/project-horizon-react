@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/horizon_text2.svg';
+import Logo from '../assets/img/text_orange.svg';
 
 const MenuBar = styled.nav`
   width: 100%;
@@ -57,6 +57,8 @@ class AdminNavBar extends Component {
             <NavLink to="/admin" activeClassName="active"> <NavItem>Dashboard</NavItem></NavLink>
 
             <NavLink to="/settings" activeClassName="active"><NavItem>Settings</NavItem></NavLink>
+
+            <NavLink to="/login" activeClassName="active"><NavItem>Log out</NavItem></NavLink>
           </NavList>
         </MenuBar>
       </React.Fragment>
