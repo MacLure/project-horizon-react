@@ -86,7 +86,7 @@ const Input = styled.input`
 const Button = styled.button`
   margin: 20px 20px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: color 0.5s;
   border-radius: 2px;
   border: 1px solid white;
   font-size: 1.3em;
@@ -94,10 +94,19 @@ const Button = styled.button`
   background-color: inherit;
   padding: 5px 10px;
 
+  :active {
+    color: #FC6404;
+  }
+
   :hover {
+<<<<<<< HEAD
+    color: #FC6404;
+    transition: color 0.5s;
+=======
     color:  #FC6404;
     background-color: #fff;
     transition: 0.2;
+>>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
   }`
 
   const SubmitButton = styled.button`
@@ -192,8 +201,13 @@ class Login extends Component {
       <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
       <ButtonFlex>
+<<<<<<< HEAD
+        <Button onClick={this.onStudent} activeClassName="active">Student</Button>
+        <Button onClick={this.onAdmin} activeClassName="btn_hover">Admin</Button>
+=======
         <Button style={this.highlightStudentButton()} onClick={this.onStudent}>Student</Button>
         <Button style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</Button>
+>>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
       </ButtonFlex>
       {this.displayForm()}
       </Container>

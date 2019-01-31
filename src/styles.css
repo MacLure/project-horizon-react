@@ -55,7 +55,12 @@ ul {
 }
 
 .active > li {
-    border-bottom: 3px solid #2C65F9;
+    border-bottom: 3px solid #FC6404;
+}
+
+.btn_hover > button {
+  color: #FC6404;
+  border: 5px solid green;
 }
 
 .selected {

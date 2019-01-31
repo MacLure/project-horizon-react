@@ -24,7 +24,7 @@ const ProgressCircle = (props) => {
           fill="transparent"
           strokeDasharray={2*Math.PI*25}
           strokeDashoffset={2*Math.PI*25 - (2*Math.PI*25 * (props.progress() / 100))}
-          stroke= '#A336FC'
+          stroke= '#2C65F9'
           strokeWidth="10px"
           ></circle>
     </svg>

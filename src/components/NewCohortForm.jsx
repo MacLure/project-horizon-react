@@ -95,10 +95,10 @@ const Button = styled.button`
   font-size: 1.1em;
   text-align: center;
   grid-column-start: 1;
-  grid-row-start: 3; 
+  grid-row-start: 3;
 
   :hover {
-    box-shadow: 4px 4px 4px black;
+    box-shadow: 0 0 15px black;
     transition: box-shadow 0.3s;
   }`
 
