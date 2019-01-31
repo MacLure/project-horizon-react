@@ -1,6 +1,6 @@
 const sendStudentEmail = (email) => {
   return new Promise((resolve,reject)=>{
-    fetch(`https://project-horizon-rails.herokuapp.com/student/find_student`,
+    fetch(`http://localhost:3000/student/find_student`,
     {
       method:'POST',
       mode: 'cors', 

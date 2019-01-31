@@ -32,7 +32,10 @@ class StudentDashboard extends Component {
     if(this.props.token != null){
       getStudentDashboardData(this.props.token)
       .then(response=>response.json())
-      .then(response=> {this.setState({
+      .then(response=> {
+        console.log('__', response);
+
+        this.setState({
           cohort: response.cohorts,
           students: response.students,
           assignments: response.assignments,
@@ -46,19 +49,17 @@ class StudentDashboard extends Component {
   }
 
   render() {
-
-    if(this.props.token != null){
-      getStudentDashboardData(this.props.token)
-      .then(response=>response.json())
-      .then(response=> {this.setState({
-          key: response.value,
-        });
-      })
-    }else{
-      this.props.history.push('/')
-    }
-
-
+    // if(this.props.token != null){
+    //   getStudentDashboardData(this.props.token)
+    //   .then(response=>response.json())
+    //   .then(response=> {this.setState({
+    //       key: response.value,
+    //     });
+    //   })
+    // }else{
+    //   this.props.history.push('/')
+    // }
+    //
 
     return (
       <React.Fragment>

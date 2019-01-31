@@ -5,7 +5,7 @@ import './styles.css';
 class App extends Component {
   render() {
 
-    fetch('https://project-horizon-rails.herokuapp.com/test')
+    fetch('http://localhost:3000/test')
       .then(e=>e.json())
       .then(e=>console.log(e))
 

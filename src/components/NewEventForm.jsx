@@ -120,7 +120,7 @@ class NewEventForm extends Component {
       // fetch('http://localhost:3000/api/admin/cohorts', {
       let data = this.state
       console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
+        fetch(`http://localhost:3000/api/admin/students?student=${JSON.stringify(data)}`, {
         method: 'post',
         mode: "cors"
       }).then(response => {console.log(this.state)})

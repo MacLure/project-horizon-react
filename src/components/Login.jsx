@@ -158,7 +158,8 @@ class Login extends Component {
       if (this.state.email !== '' && this.state.password !== '') {
         onStudentLogin(this.state.email, this.state.password)
         .then(e => e.json())
-        .then(e => {console.log(e)
+        .then(e => {
+          console.log('__', e);
           this.props.onTokenReceive(e.jwt)
           this.props.history.push('/student')
         })
