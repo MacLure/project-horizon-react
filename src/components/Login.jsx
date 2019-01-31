@@ -6,6 +6,7 @@ import  {onStudentLogin} from './../service';
 import Facebook from '../assets/img/facebook.png';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/horizon_text2.svg';
+import horizon_logo from '../assets/img/horizon_logo.svg';
 
 
 const LogoContainer = styled.div`
@@ -17,33 +18,23 @@ const LogoContainer = styled.div`
 `
 
 const Container = styled.div`
-  background-color: #2A2C33;
   margin: 0 auto;
   width: 400px;
   border-radius: 2px;
   min-width: 250px;
+  background: none;
   `
-
-const Title = styled.h2 `
-  padding-top: 20px;
-  background-color: inherit;
-  text-align: center;
-  font-size: 30px;
-`
 
 const Horizon = styled.img`
   width: 300px;
-  text-align: center;
   background-color: inherit;
 `
 
-const Text = styled.p`
+const HorizonLogo = styled.img`
+  width: 50px;
   background-color: inherit;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 20px;
 `
+
 const ButtonFlex = styled.div`
   display: flex;
   flex-direction: row;
@@ -59,36 +50,33 @@ const Hr = styled.div`
 const Form = styled.form`
   text-align: left;
   margin: 0 50px;
+  padding: 20px;
   background-color: inherit;
-  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
+  border-radius: 2px;
+  border: 1px solid white;
 
-`
-
-const Left = styled.div`
-  grid-column-start: 1;
-  background-color: inherit;
-`
-const Right= styled.div`
-  grid-column-start: 2;
-  background-color: inherit;
 `
 
 const Label = styled.label`
-  display: block;
+  font-size: 0.9em; 
   padding: 15px 0;
-  background-color: inherit;
   color: white;
   text-align: left;
+  background-color: transparent;
+
 `
 const Input = styled.input`
-  border: 1px solid black;
+  width: 95%;
+  font-size: 1.2em; 
+  border: 1px solid white;
   margin: 10px 0;
   border-radius: 2px;
   padding: 5px 5px;
-  transition: border 0.5s;
+  background-color: transparent;
 
+  transition: border 0.5s;
   :focus {
     border: 1px solid #FC6404;
     transition: border 0.5s;
@@ -100,25 +88,33 @@ const Button = styled.button`
   cursor: pointer;
   transition: color 0.5s;
   border-radius: 2px;
-  border: none;
+  border: 1px solid white;
   font-size: 1.3em;
   text-align: center;
   background-color: inherit;
+  padding: 5px 10px;
 
   :active {
     color: #FC6404;
   }
 
   :hover {
+<<<<<<< HEAD
     color: #FC6404;
     transition: color 0.5s;
+=======
+    color:  #FC6404;
+    background-color: #fff;
+    transition: 0.2;
+>>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
   }`
 
   const SubmitButton = styled.button`
     margin: 30px auto;
     cursor: pointer;
     padding: 7px 15px;
-    background-color: #FC6404;
+    color:  #FC6404;
+    background-color: #fff;
     transition: 0.3s;
     border-radius: 2px;
     font-size: 1.1em;
@@ -127,8 +123,8 @@ const Button = styled.button`
     opacity: 1;
 
     :hover {
-      transition: 0.3;
-      opacity: 0.5;
+      transition: 0.2;
+      box-shadow: (0 0 5px 5px #000)
   }`
 
 class Login extends Component {
@@ -180,36 +176,42 @@ class Login extends Component {
   displayForm = () => {
     return (this.state.user === null) ?
     null : <Form method="post">
-      <Left>
-        <Label htmlfor="email">Email</Label>
-        <Label htmlfor="password">Password</Label>
-        <SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Submit</SubmitButton>
-      </Left>
-      <Right>
-        <Input type="text" name="email" onChange={e=>{
+        <Label htmlfor="email">Email</Label><Input type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
         }}></Input>
-        <Input type="password" name="password" onChange={e=>{
+        <Label htmlfor="password">Password</Label><Input type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
           }}></Input>
-      </Right>
+      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
       </Form>
   }
 
+  highlightStudentButton = () => {
+    return (this.state.user === 'student') ? {backgroundColor: '#fff', color: '#FC6404'} : {}
+  }
+
+  highlightAdminButton = () => {
+    return (this.state.user === 'admin') ? {backgroundColor: '#fff', color: '#FC6404'} : {}
+  }
 
  render() {
 
    return (
     <div className="landing">
-    <LogoContainer><Horizon src={Logo}/></LogoContainer>
+      <LogoContainer><Horizon src={Logo}/></LogoContainer>
       <Container>
       <ButtonFlex>
+<<<<<<< HEAD
         <Button onClick={this.onStudent} activeClassName="active">Student</Button>
         <Button onClick={this.onAdmin} activeClassName="btn_hover">Admin</Button>
+=======
+        <Button style={this.highlightStudentButton()} onClick={this.onStudent}>Student</Button>
+        <Button style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</Button>
+>>>>>>> 6d6b2d64c7c7714d0f008706b66072c161e36bee
       </ButtonFlex>
-      <Text>{this.state.user ? `${this.state.user} login` : ''}</Text>
       {this.displayForm()}
       </Container>
+      <LogoContainer style={{position:"fixed", bottom:"0", left:"50%"}}><HorizonLogo src={horizon_logo}></HorizonLogo></LogoContainer>
     </div>
     );
  }
