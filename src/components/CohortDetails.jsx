@@ -24,6 +24,13 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `
+const FormFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  jusify-content: center;
+
+`
 
 const Title = styled.h2 `
   padding-top: 20px;
@@ -78,23 +85,15 @@ const ListItem = styled.li`
   text-align: left;
 `
 const AddStudentForm = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 2;
 `
 
 const AddAdminForm = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 2;
 `
 
 const AddAssignmentForm = styled.div`
-  grid-column-start: 3;
-  grid-row-start: 2;
 `
 
 const AddEventForm = styled.div`
-  grid-column-start: 4;
-  grid-row-start: 2;
 `
 
 const Button = styled.button`
@@ -251,7 +250,6 @@ class CohortDetails extends Component {
               {this.cStudents}
             </List>
             <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
-            <AddStudentForm>{showNewStudentForm()}</AddStudentForm>
           </Students>
           <Admin>
             <Text>Staff:</Text>
@@ -263,7 +261,6 @@ class CohortDetails extends Component {
               <ListItem>Elvis</ListItem>
             </List>
             <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
-            <AddAdminForm></AddAdminForm>
           </Admin>
           <Assignments>
             <Text>Assignments:</Text>
@@ -271,7 +268,6 @@ class CohortDetails extends Component {
               <AddAssignmentForm>{this.cAssignments}</AddAssignmentForm>
             </List>
             <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
-            {handleshowNewAssignmentForm()}
           </Assignments>
           <Events>
             <Text>Events:</Text>
@@ -279,10 +275,15 @@ class CohortDetails extends Component {
               {this.cEvents}
             </List>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
-            <AddEventForm>{handleshowNewEventForm()}</AddEventForm>
           </Events>
         </Grid>
         <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>
+        <FormFlex>
+          <AddStudentForm>{showNewStudentForm()}</AddStudentForm>
+          <AddAdminForm></AddAdminForm>
+          <AddAssignmentForm>{handleshowNewAssignmentForm()}</AddAssignmentForm>
+          <AddEventForm>{handleshowNewEventForm()}</AddEventForm>
+        </FormFlex>
       </CohortCard>
   </React.Fragment>
   );

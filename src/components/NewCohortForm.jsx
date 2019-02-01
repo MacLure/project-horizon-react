@@ -6,7 +6,7 @@ import  {createNewCohort} from './../service';
 
 const Container = styled.div`
   background-color: #2A2C33;
-  margin-top: 10px;
+  margin: 20px 40px;
   width: 40vw;
   height: 300px;
   border-radius: 2px;
@@ -70,7 +70,7 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  margin: 20px auto;
+  margin: 30px auto;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #17B57E;
