@@ -59,7 +59,6 @@ ul {
 }
 
 .active > li {
-    /* border-bottom: 3px solid #FC6404; */
     background-color: #e74c3c;
 }
 
@@ -68,12 +67,25 @@ ul {
   border: 5px solid green;
 }
 
-.selected {
-  opacity: 0.5;
-}
 
 svg {
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 3;
 }
+
+  select {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px 5px;
+    transition: border 0.5s;
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;       /* remove default arrow */ 
+    /* background-image: url=('src/assets/Icons/Arrow.png'); */
+  }
+
+  select:focus {
+    border: 1px solid #F6744E;
+    transition: border 0.5s;
+  }

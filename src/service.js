@@ -1,14 +1,16 @@
+ // if rooturl = localurl Must have local rails server running, if roolURL = serverURl you are relying on live server for API calls.
+
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
-const rootURL = localURL
+const rootURL = serverURL
 
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
     fetch(`${rootURL}/admin/admin_token?${JSON.stringify({ "auth": {"email":email, "password":password}})}`,
     {
       method:'POST',
-      mode: 'cors', 
+      mode: 'cors',
       headers: {
         "Content-Type": "application/json ",
       },
@@ -24,7 +26,7 @@ export const onStudentLogin = (email,password) => {
     fetch(`${rootURL}/student/student_token`,
     {
       method:'POST',
-      mode: 'cors', 
+      mode: 'cors',
       headers: {
         "Content-Type": "application/json ",
       },
@@ -41,7 +43,7 @@ export const onStudentLogin = (email,password) => {
 //     fetch(`https://project-horizon-rails.herokuapp.com/student/find_student`,
 //     {
 //       method:'POST',
-//       mode: 'cors', 
+//       mode: 'cors',
 //       headers: {
 //         "Content-Type": "application/json ",
 //       },

@@ -8,13 +8,28 @@ import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import NewSubmissionForm from './NewSubmissionForm'
+import StudentAssignmentsContainer from './StudentAssignmentsContainer';
 
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  margin: 25px 60px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2;
+`
+const Info_EventsGrid = styled.div`
+  grid-column-start: 1fr;
+  grid-row-start: 1;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
 `
 
+const AssignmentsGrid = styled.div`
+  grid-column-start: 1fr;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr
+`
 
 class StudentDashboard extends Component {
   constructor (props) {
@@ -26,7 +41,7 @@ class StudentDashboard extends Component {
       assignments: [],
       submissions: [],
       events: [],
-      submissionComments: [],
+      submission_comments: [],
       onFocusData: ''
 
     }
@@ -66,14 +81,12 @@ class StudentDashboard extends Component {
             end_date={this.state.cohort.end_date}
           />
             <StudentEventsList events = {this.state.events} />
-            <StudentAssignmentsList
-              assignments={this.state.assignments}
-              submissions={this.state.submissions}
-            />
-          ))}
-          <NewSubmissionForm />
-          </Container>
-          <Footer/>
+          <StudentAssignmentsContainer
+            submissions={this.state.submissions}
+            assignments={this.state.assignments}
+            submission_comments={this.state.cubmission_comments}
+          />
+        </Container>
       </React.Fragment>
     );
   }

@@ -24,7 +24,7 @@ const CohortProgressCircle = (props) => {
           fill="transparent"
           strokeDasharray={2*Math.PI*25}
           strokeDashoffset={2*Math.PI*25 - (2*Math.PI*25 * (props.progress() / 100))}
-          stroke= '#2C65F9'
+          stroke= '#17B57E'
           strokeWidth="10px"
           ></circle>
     </svg>

@@ -10,7 +10,7 @@ import  {getAdminDashboardData} from './../service';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
 `
 
 const CohortCards = styled.div`
@@ -18,7 +18,7 @@ const CohortCards = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  grid-column-start: 2;
+  grid-column-start: 1;
 `
 
 const ContentContainer = styled.div`
@@ -26,9 +26,8 @@ const ContentContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  grid-column-start: 2;
-  padding-left: 36px;
-  margin-bottom: 100px;
+  grid-column-start: 1;
+  margin: 20px 60px;
 `
 
 class AdminDashboard extends Component {
@@ -105,11 +104,11 @@ componentDidMount() {
       this.props.history.push('/')
     }
 
-    displayLogOutButton = () => {
-      return (this.props.token != null) ?
-      <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
-      ''
-    }
+    // displayLogOutButton = () => {
+    //   return (this.props.token != null) ?
+    //   <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
+    //   ''
+    // }
 
     reload = () =>{
 
@@ -150,7 +149,7 @@ componentDidMount() {
           <CohortCards>
           {this.state.cohorts
             .filter(cohort => (Date.parse(cohort.end_date) > Date.now()))
-            .slice(0, 6)
+            .slice(0, 8)
             .map((cohort, index) => (
               <CohortCard
                 key={cohort.id}

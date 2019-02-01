@@ -10,9 +10,7 @@ import  {deleteCohort} from './../service';
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: auto;
+  margin: 20px 40px;
   width: 85vw;
   border-radius: 2px;
   padding: 10px 0px;
@@ -84,7 +82,7 @@ const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #17B57E;
+  background-color: #2C65F9;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
@@ -98,7 +96,7 @@ const Button = styled.button`
 `
 
 const DeleteButton = styled.button`
-  margin: 20px auto;
+  margin: 40px auto 20px 80px;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #D1142C;
