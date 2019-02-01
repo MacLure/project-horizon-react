@@ -87,6 +87,7 @@ class StudentDashboard extends Component {
             submission_comments={this.state.cubmission_comments}
           />
         </Container>
+        <Footer/>
       </React.Fragment>
     );
   }

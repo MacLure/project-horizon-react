@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 
 const Footers = styled.footer`
-  position: absolute;
   left: 0 ; right: 0; bottom: 0;
   width: 100%;
   height: 80px;
   background-color: #2b2e34;
+  margin-top: 80px;
   text-align: center;
 `
 const Text = styled.p`

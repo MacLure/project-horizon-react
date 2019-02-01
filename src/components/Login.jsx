@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/img/horizon_text2.svg';
 import horizon_logo from '../assets/img/horizon_logo.svg';
 
-
 const LogoContainer = styled.div`
   text-align: center;
   background: none;
