@@ -5,7 +5,7 @@ import CohortProgressCircle from './CohortProgressCircle'
 const Card = styled.div`
   background-color: rgba(42, 44, 51, 1);
   margin: 20px 10px;
-  width: 25vw;
+  width: 23vw;
   border-radius: 2px;
   grid-column-start: 1;
   justify-self: center;
@@ -22,7 +22,7 @@ const Card = styled.div`
 `
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
   background-color: inherit;
   padding-left: 20px;
@@ -54,6 +54,11 @@ const Text = styled.p`
   grid-row-start: 3;
 `
 
+const Progress = styled.div`
+  margin-top: 35px;
+  margin-right: 10px;
+`
+
 const CohortCard = (props) => {
 
   const {start_date, end_date, name, id} = props.data
@@ -83,17 +88,15 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <Card
-        style={{opacity:props.isActive ? ".5": ""}}
+        style={{backgroundColor:props.isActive ? "#8e44ad": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}
       >
       <Grid>
         <CohortName>{name}</CohortName>
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
-
       </Grid>
-          {courseProgress() > 0 && courseProgress() < 100 ? <CohortProgressCircle progress={courseProgress}/> : ''}
-
+        <Progress>{courseProgress() > 0 && courseProgress() < 100 ? <CohortProgressCircle progress={courseProgress}/> : ''}</Progress>
       </Card>
     </React.Fragment>
    );

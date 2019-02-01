@@ -79,7 +79,7 @@ const Button = styled.button`
   padding-left: 0;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #17B57E;
+  background-color: #2C65F9;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;

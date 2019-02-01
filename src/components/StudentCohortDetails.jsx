@@ -4,12 +4,14 @@ import styled from 'styled-components';
 const InfoCard = styled.div`
   background-color: #2A2C33;
   margin: 20px 10px;
-  width: 40vw;
-  height: 15vh;
+  width: 45vw;
+  height: 18vh;
   border-radius: 2px;
-  grid-column-start: 2;
+  grid-column-start: 1;
   gird-row-start: 1;
 `
+
+// INCLUDES COHORT DETAILS/S
 
 class StudentCohortDetails extends Component {
   state = {  }
