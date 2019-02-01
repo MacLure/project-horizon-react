@@ -77,6 +77,25 @@ const ListItem = styled.li`
   margin: 20px auto;
   text-align: left;
 `
+const AddStudentForm = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 2;
+`
+
+const AddAdminForm = styled.div`
+  grid-column-start: 2;
+  grid-row-start: 2;
+`
+
+const AddAssignmentForm = styled.div`
+  grid-column-start: 3;
+  grid-row-start: 2;
+`
+
+const AddEventForm = styled.div`
+  grid-column-start: 4;
+  grid-row-start: 2;
+`
 
 const Button = styled.button`
   margin: 20px auto;
@@ -232,7 +251,7 @@ class CohortDetails extends Component {
               {this.cStudents}
             </List>
             <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
-            {showNewStudentForm()}
+            <AddStudentForm>{showNewStudentForm()}</AddStudentForm>
           </Students>
           <Admin>
             <Text>Staff:</Text>
@@ -244,12 +263,12 @@ class CohortDetails extends Component {
               <ListItem>Elvis</ListItem>
             </List>
             <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
-            {handleshowNewEventForm()}
+            <AddAdminForm></AddAdminForm>
           </Admin>
           <Assignments>
             <Text>Assignments:</Text>
             <List>
-              {this.cAssignments}
+              <AddAssignmentForm>{this.cAssignments}</AddAssignmentForm>
             </List>
             <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
             {handleshowNewAssignmentForm()}
@@ -258,10 +277,9 @@ class CohortDetails extends Component {
             <Text>Events:</Text>
             <List>
               {this.cEvents}
-              <AdminEventsList />
             </List>
             <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
-            {handleshowNewEventForm()}
+            <AddEventForm>{handleshowNewEventForm()}</AddEventForm>
           </Events>
         </Grid>
         <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>

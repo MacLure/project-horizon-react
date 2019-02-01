@@ -1,16 +1,17 @@
+// CURRENTLY NOT BEING USED
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const EventsCard = styled.div`
-  background-color: red;
+  background-color: #64646C;
   margin: 20px 10px;
-  width: 40vw;
-  height: 15vh;
+  width: 300px;
+  height: 400px;
   border-radius: 2px;
   grid-column-start: 3;
   gird-row-start: 1;
 `
-
 
 // MAY NEED THIS
 // -------------------------------------------
