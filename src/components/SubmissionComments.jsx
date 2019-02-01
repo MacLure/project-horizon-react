@@ -7,6 +7,7 @@ class SubmissionComments extends Component {
     const submission_comments = this.props.submission_comments
     return (
       <React.Fragment>
+        
       </React.Fragment>
     );
   }
