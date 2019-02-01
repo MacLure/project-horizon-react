@@ -3,13 +3,16 @@ import styled from 'styled-components';
 import StudentEvent from './StudentEvent';
 
 const EventsCard = styled.div`
-  background-color: red;
+  background-color: #2A2C33;
   margin: 20px 10px;
-  width: 40vw;
-  height: 15vh;
+  width: 500px;
+  height: 650px;
   border-radius: 2px;
-  grid-column-start: 3;
-  gird-row-start: 1;
+  grid-column-start: 1;
+  gird-row-start: 2;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 `
 
 

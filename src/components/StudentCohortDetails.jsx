@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const InfoCard = styled.div`
   background-color: #2A2C33;
   margin: 20px 10px;
-  width: 45vw;
-  height: 18vh;
+  width: 500px;
+  height: 150px;
   border-radius: 2px;
   grid-column-start: 1;
   gird-row-start: 1;

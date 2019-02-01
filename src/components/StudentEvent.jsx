@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const EventsCard = styled.div`
-  background-color: red;
-  margin: 20px 10px;
-  width: 45vw;
-  height: 18vh;
+  background-color: #3f4147;
+  margin: 0 auto;
+  width: 80%;
+  height: 150px;
   border-radius: 2px;
-  grid-column-start: 3;
-  gird-row-start: 1;
+  /* grid-column-start: 1;
+  gird-row-start: 2; */
 `
 
 class StudentEvent extends Component {

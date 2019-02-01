@@ -5,13 +5,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
 import StudentAssignmentsList from './StudentAssignmentsList';
-<<<<<<< HEAD
-=======
-import StudentEvent from './StudentEvent';
->>>>>>> ben
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import NewSubmissionForm from './NewSubmissionForm'
+import StudentAssignmentsContainer from './StudentAssignmentsContainer';
 
 
 const Container = styled.div`
@@ -44,7 +41,7 @@ class StudentDashboard extends Component {
       assignments: [],
       submissions: [],
       events: [],
-      submissionComments: [],
+      submission_comments: [],
       onFocusData: ''
 
     }
@@ -84,14 +81,12 @@ class StudentDashboard extends Component {
             end_date={this.state.cohort.end_date}
           />
             <StudentEventsList events = {this.state.events} />
-            <StudentAssignmentsList
-              assignments={this.state.assignments}
-              submissions={this.state.submissions}
-            />
-          ))}
-          <NewSubmissionForm />
-          </Container>
-          <Footer/>
+          <StudentAssignmentsContainer
+            submissions={this.state.submissions}
+            assignments={this.state.assignments}
+            submission_comments={this.state.cubmission_comments}
+          />
+        </Container>
       </React.Fragment>
     );
   }
