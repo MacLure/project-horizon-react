@@ -8,7 +8,7 @@ const Container = styled.div`
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  backgroud-color: #2A2C33;
+  backgroud-color: darkblue;
   width: 750px;
   height: 900px;
 
@@ -30,6 +30,10 @@ class StudentAssignmentsContainer extends Component {
             assignments={assignments}
             submission_comments={submission_comments}
             />
+          <SubmissionDetails/>
+          <SubmissionComments/>
+
+
         </Container>
       </React.Fragment>
     );

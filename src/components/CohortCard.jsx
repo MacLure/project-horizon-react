@@ -71,9 +71,9 @@ const CohortCard = (props) => {
 
   const daysLeftDisplay = () => {
     if (daysLeft > courseDays){
-      return `This cohort will start ${formattedStartDate.toLocaleString('en', options)}.`
+      return `Starts on ${formattedStartDate.toLocaleString('en', options)}.`
     } else if (daysLeft <= 0 ) {
-      return `This cohort ended on ${formattedEndDate.toLocaleString('en', options)}.`
+      return `Ended on ${formattedEndDate.toLocaleString('en', options)}.`
     } else if (daysLeft > 0){
       return `${daysLeft} days left`
     }
