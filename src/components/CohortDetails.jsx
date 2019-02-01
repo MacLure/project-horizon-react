@@ -96,7 +96,7 @@ const Button = styled.button`
 `
 
 const DeleteButton = styled.button`
-  margin: 20px auto;
+  margin: 40px auto 20px 80px;
   cursor: pointer;
   padding: 5px 10px;
   background-color: #D1142C;
