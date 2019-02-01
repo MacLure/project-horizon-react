@@ -17,7 +17,7 @@ const CohortCards = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   grid-column-start: 1;
 `
 
@@ -25,7 +25,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   grid-column-start: 1;
   margin: 20px 60px;
 `
@@ -37,7 +37,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [],
+      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 8),
       students: [],
       student_notes: [],
       assignments: [],
@@ -148,8 +148,6 @@ componentDidMount() {
         <Container>
           <CohortCards>
           {this.state.cohorts
-            .filter(cohort => (Date.parse(cohort.end_date) > Date.now()))
-            .slice(0, 8)
             .map((cohort, index) => (
               <CohortCard
                 key={cohort.id}

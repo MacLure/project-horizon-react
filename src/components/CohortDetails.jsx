@@ -235,6 +235,7 @@ class CohortDetails extends Component {
       <ListItem key={assignment.id}>{assignment.name}</ListItem>
     ))
   }
+  
 
 // rename CohortCard here (but not the actual component)
   return (

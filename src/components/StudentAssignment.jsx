@@ -6,14 +6,15 @@ class StudentAssignment extends Component {
 
 
   render() {
-    const { name, body, dueDate } = this.props
+    const { name, body, dueDate, data, onAssignmentClick } = this.props
 
     return (
-      <div style={{textAlign:'center'}}>
+      <div style={{textAlign:'center'}}
+        onClick={e=>{onAssignmentClick(data)}}
+      >
         <p>{name}</p>
         <p>{body}</p>
         <p>{dueDate}</p>
-
       </div>
      );
   }

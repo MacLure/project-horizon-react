@@ -89,3 +89,7 @@ svg {
     border: 1px solid #F6744E;
     transition: border 0.5s;
   }
+
+  input::placeholder {
+    color: rgba(255,255,255, 0.5)
+  }
