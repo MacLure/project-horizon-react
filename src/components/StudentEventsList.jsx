@@ -40,11 +40,12 @@ class StudentEventsList extends Component {
   constructor(props) {
     super(props)
   this.state ={
+    events: this.props.events
   }
 
 }
   render() {
-    const events = this.props.events
+    const events = this.state.events
 
   return (
     <EventsCard>

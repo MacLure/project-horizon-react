@@ -4,7 +4,29 @@ import StudentProgressCircle from './StudentProgressCircle';
 import styled from 'styled-components';
 
 class StudentAssignmentsList extends Component {
-  state = {  }
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      selectedAssignment: null,
+      onFocusData: null,
+      submissions: this.props.submissions,
+      submission_comments: this.props.submission_comments,
+      assignments: this.props.assignments
+    }
+
+    this.onAssignmentClick = this.onAssignmentClick.bind(this)
+
+  }
+
+  onAssignmentClick = (data) => {
+    console.log('Assignment Data',data)
+    this.setState({
+      onFocusData:data,
+      selectedAssignment:this.state.assignments.indexOf(data)
+    })
+  }
+
   render() {
 
     const assignments = this.props.assignments

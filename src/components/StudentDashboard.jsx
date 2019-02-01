@@ -4,10 +4,8 @@ import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getStudentDashboardData} from './../service';
-import StudentAssignmentsList from './StudentAssignmentsList';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
-import NewSubmissionForm from './NewSubmissionForm'
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
 
 
@@ -80,10 +78,12 @@ class StudentDashboard extends Component {
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
           />
-            <StudentEventsList events = {this.state.events} />
+
+          <StudentEventsList events = {this.state.events} />
+          
           <StudentAssignmentsContainer
-            submissions={this.state.submissions}
             assignments={this.state.assignments}
+            submissions={this.state.submissions}
             submission_comments={this.state.cubmission_comments}
           />
         </Container>
