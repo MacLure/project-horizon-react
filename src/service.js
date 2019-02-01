@@ -79,7 +79,7 @@ export const createNewCohort = (data, token) => {
 
   return new Promise((resolve, reject) => {
 
-    console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}`);
+    console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${JSON.stringify(data)}`);
     // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
     // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
       fetch(`${rootURL}/admin/cohorts?cohort=${(data)}`, {
