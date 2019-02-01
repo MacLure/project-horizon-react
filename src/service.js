@@ -3,7 +3,7 @@
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
-const rootURL = serverURL
+const rootURL = localURL
 
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
@@ -14,7 +14,7 @@ export const onAdminLogin = (email,password) => {
       headers: {
         "Content-Type": "application/json ",
       },
-      body:JSON.stringify({ "auth": {"email":email, "password":password} })
+      body:JSON.stringify({ "auth": {"email":email, "password":password}})
     })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))

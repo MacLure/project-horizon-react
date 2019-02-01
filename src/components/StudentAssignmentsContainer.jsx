@@ -15,12 +15,20 @@ const Container = styled.div`
 `
 
 class StudentAssignmentsContainer extends Component {
+  state = {
+    assignments: this.props.assignments,
+    submissions: this.props.submissions,
+    submission_comments: this.props.submission_comments
+  }
+
 
   render() {
 
-    const submissions = this.props.submissions
-    const assignments = this.props.assignments
-    const submission_comments = this.props.submission_comments
+    const assignments = this.state.assignments
+    const submissions = this.state.submissions
+    const submission_comments = this.state.submission_comments
+
+
 
     return (
       <React.Fragment>
@@ -30,8 +38,8 @@ class StudentAssignmentsContainer extends Component {
             assignments={assignments}
             submission_comments={submission_comments}
             />
-          <SubmissionDetails/>
-          <SubmissionComments/>
+          <SubmissionDetails />
+          <SubmissionComments />
 
 
         </Container>
