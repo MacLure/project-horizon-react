@@ -38,7 +38,7 @@ const EventsCard = styled.div`
 
 class StudentEventsList extends Component {
   constructor(props) {
-    super(props)
+  super(props)
   this.state ={
     events: this.props.events
   }

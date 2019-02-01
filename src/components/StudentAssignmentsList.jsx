@@ -10,9 +10,9 @@ class StudentAssignmentsList extends Component {
     this.state = {
       selectedAssignment: null,
       onFocusData: null,
-      submissions: this.props.submissions,
-      submission_comments: this.props.submission_comments,
-      assignments: this.props.assignments
+      assignments: [],
+      submissions: [],
+      submission_comments: []
     }
 
     this.onAssignmentClick = this.onAssignmentClick.bind(this)
@@ -27,10 +27,22 @@ class StudentAssignmentsList extends Component {
     })
   }
 
+  getAssignmentInfo = () => (
+    this.setState( {
+      assignments: this.props.assignments,
+      submissions: this.props.submissions,
+      submission_comments: this.props.submission_comments
+    })
+  )
+
+documentDidMount() {
+  this.getAssignmentInfo()
+}
+
   render() {
 
-    const assignments = this.props.assignments
-    const submissions = this.props.submissions
+  const {assignments, submissions, submission_comments} = this.props
+    
     const assignmentProgress = () => {
         return Math.round( submissions.length / assignments.length * 100)
     }

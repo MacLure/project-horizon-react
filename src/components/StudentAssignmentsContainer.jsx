@@ -15,28 +15,40 @@ const Container = styled.div`
 `
 
 class StudentAssignmentsContainer extends Component {
-  state = {
-    assignments: this.props.assignments,
-    submissions: this.props.submissions,
-    submission_comments: this.props.submission_comments
+  constructor(props) {
+    super(props)
+
+  this.state = {
+    assignments: [],
+    submissions: [],
+    submission_comments: []
   }
 
+  this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
+
+}
+
+  getAssignmentInfo = () => {
+    this.setState( {
+      assignments: this.props.assignments,
+      submissions: this.props.submissions,
+      submission_comments: this.props.submission_comments
+    })
+  }
+
+documentDidMount() {
+  this.getAssignmentInfo()
+}
 
   render() {
-
-    const assignments = this.state.assignments
-    const submissions = this.state.submissions
-    const submission_comments = this.state.submission_comments
-
-
 
     return (
       <React.Fragment>
         <Container>
           <StudentAssignmentsList
-            submissions={submissions}
-            assignments={assignments}
-            submission_comments={submission_comments}
+            submissions={this.props.submissions}
+            assignments={this.props.assignments}
+            submission_comments={this.props.submission_comments}
             />
           <SubmissionDetails />
           <SubmissionComments />

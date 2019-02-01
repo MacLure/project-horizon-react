@@ -78,26 +78,32 @@ export const createNewCohort = (data, token) => {
 //     'Authorization': token,
 //     'Access-Controlcredential': true
 // });
+return new Promise((resolve, reject) => {
 
-  return new Promise((resolve, reject) => {
-
-    console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${JSON.stringify(data)}`);
-    // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
-    // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
-      fetch(`${rootURL}/admin/cohorts?cohort=${(data)}`, {
-      method: 'post',
-      mode: "cors"
-    })
-    .then(e=>e.ok?resolve(e):reject(e))
-    .catch(e => console.log('ERR: ', e))
+  console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}`);
+  // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
+  // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
+    fetch(`${rootURL}/admin/cohorts?cohort=${JSON.stringify(data)}`, {
+    method: 'post',
+    mode: "cors",
+    headers: {
+      "Authorization": `${token}`,
+      'Content-Type': 'application/json'
+    },
   })
+  .then(e=>e.ok?resolve(e):reject(e))
+  .catch(e => console.log('ERR: ', e))
+})
 }
 
-// doesn't work
 export const deleteCohort = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohhort_id': cohort_id})}`, {
+    fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohort_id': cohort_id})}`, {
       method: 'delete',
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
