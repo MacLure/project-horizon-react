@@ -69,21 +69,6 @@ const Input = styled.input`
   }
 `
 
-const Select = styled.select`
-  border: 1px solid black;
-  border-radius: 2px;
-  padding: 5px 5px;
-  transition: border 0.5s;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;       /* remove default arrow */
-  background-image: src={Arrow};   /* add custom arrow */
-
-  :focus {
-    border: 1px solid #F6744E;
-    transition: border 0.5s;
-  }
-`
 const Button = styled.button`
   margin: 20px auto;
   cursor: pointer;
@@ -143,11 +128,11 @@ class NewCohortForm extends Component {
         </Name>
         <Course>
           <Label htmlFor="course_type">Course Type</Label>
-          <Select name="course_type" value={this.state.course_type} onChange={this.handleChange} >
+          <select name="course_type" placeholder="Choose a course" value={this.state.course_type} onChange={this.handleChange} >
           <option value="wdi">Web Development </option>
           <option value="uxdi">User Expierence</option>
           <option value="dsi">Data Science</option>
-          </Select>
+          </select>
         </Course>
         <StartDate>
           <Label htmlFor="start_date">Start Date</Label>

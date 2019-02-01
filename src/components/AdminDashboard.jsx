@@ -149,7 +149,7 @@ componentDidMount() {
           <CohortCards>
           {this.state.cohorts
             .filter(cohort => (Date.parse(cohort.end_date) > Date.now()))
-            .slice(0, 6)
+            .slice(0, 8)
             .map((cohort, index) => (
               <CohortCard
                 key={cohort.id}
