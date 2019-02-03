@@ -136,6 +136,7 @@ class NewSubmissionForm extends Component {
       <React.Fragment>
       <Container>
       <Title>New Submission</Title>
+      <p>{this.props.assignment.name}</p>
       <Form onSubmit={this.handleSubmit}>
         <div>
           <Label htmlFor="url">URL</Label>

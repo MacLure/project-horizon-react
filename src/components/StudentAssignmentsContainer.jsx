@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
-import SubmissionComments from './SubmissionComments';
+import SubmissionComments from './SubmissionComment';
 
 const Container = styled.div`
   grid-column-start: 2;
@@ -21,7 +21,9 @@ class StudentAssignmentsContainer extends Component {
   this.state = {
     assignments: [],
     submissions: [],
-    submission_comments: []
+    submission_comments: [],
+    onFocusData: null,
+    selectedAssignment: null
   }
 
   this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
@@ -32,7 +34,8 @@ class StudentAssignmentsContainer extends Component {
     this.setState( {
       assignments: this.props.assignments,
       submissions: this.props.submissions,
-      submission_comments: this.props.submission_comments
+      submission_comments: this.props.submission_comments,
+      onFocusData: this.props.onFocusData
     })
   }
 
@@ -40,7 +43,17 @@ documentDidMount() {
   this.getAssignmentInfo()
 }
 
+onAssignmentClick = (data) => {
+  console.log('Assignment Data',data)
+  this.setState({
+    onFocusData:data,
+    selectedAssignment:this.props.assignments.indexOf(data)
+  })
+}
+
   render() {
+
+
 
     return (
       <React.Fragment>
@@ -48,12 +61,9 @@ documentDidMount() {
           <StudentAssignmentsList
             submissions={this.props.submissions}
             assignments={this.props.assignments}
-            submission_comments={this.props.submission_comments}
+            submissionComments={this.props.submissionComments}
+            onCohortClick={this.onAssignmentClick}
             />
-          <SubmissionDetails />
-          <SubmissionComments />
-
-
         </Container>
       </React.Fragment>
     );

@@ -3,6 +3,7 @@ import StudentAssignment from './StudentAssignment';
 import StudentProgressCircle from './StudentProgressCircle';
 import styled from 'styled-components';
 import SubmissionDetails from './SubmissionDetails';
+import NewSubmissionForm from './NewSubmissionForm';
 
 class StudentAssignmentsList extends Component {
   constructor (props) {
@@ -40,23 +41,33 @@ documentDidMount() {
   this.getAssignmentInfo()
 }
 
+
   render() {
 
-  const {assignments, submissions, submission_comments} = this.props
+  const {assignments, submissions, submissionComments} = this.props
     
     const assignmentProgress = () => {
         return Math.round( submissions.length / assignments.length * 100)
     }
 
-    let submissionDetails = null;
+    let showSubmission = null;
     
-    if(this.state.onFocusData !== -1 && this.state.onFocusData !== null && typeof(this.state.onFocusData) != undefined){
-      submissionDetails = <SubmissionDetails
-        onFocusData={this.state.onFocusData}
-        submission_comments={this.props.submission_comments}
-        deleteSuccess={this.reload}
-      />
+    if(this.state.onFocusData !== null ){
+      if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
+          showSubmission = <SubmissionDetails
+          submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
+          submissionComments={submissionComments}
+          deleteSuccess={this.reload}
+        />
+      } else {
+        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} />
+      }
     }
+
+
+
+
+
 
 
     return (
@@ -76,6 +87,9 @@ documentDidMount() {
           isActive={this.state.selectedCohort === index}
         />
         ))}
+        
+        {showSubmission}
+
       </React.Fragment>
      );
   }

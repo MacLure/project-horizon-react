@@ -40,7 +40,7 @@ class StudentDashboard extends Component {
       submissions: [],
       events: [],
       submission_comments: [],
-      onFocusData: ''
+      onFocusData: null
 
     }
   }
@@ -84,7 +84,8 @@ class StudentDashboard extends Component {
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
             submissions={this.state.submissions}
-            submission_comments={this.state.cubmission_comments}
+            submissionComments={this.state.submissionComments}
+            onFocusData={this.state.onFocusData}
           />
         </Container>
         <Footer/>
