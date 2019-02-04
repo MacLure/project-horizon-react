@@ -3,6 +3,10 @@ import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import Footer from './Footer';
 import StudentNavbar from './StudentNavbar';
+import Ben from '../assets/img/ben-pixel.png';
+import Gabbi from '../assets/img/gabbi-pixel.png';
+import Malcolm from '../assets/img/malcolm-pixel.png';
+
 
 const Error404 = styled.div`
   background-color: #232F41;
@@ -57,9 +61,11 @@ const Button = styled.button`
     justify-content: center;
     background-color: inherit;
   `
+  document.body.style.backgroundColor = '#212229';
 
 const NotFound = () => {
   return (
+    
     <React.Fragment>
       <StudentNavbar/>
       <Error404>
@@ -67,14 +73,19 @@ const NotFound = () => {
       <Text>Who would you like to blame?</Text>
 
       <Container>
-        <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/mrbenjaminhoppe"><Button>Benjamin</Button></a>
+      <div style={{display: "inline-blocl", textAlign: "center"}}>
+      <img src={Malcolm} />
+      <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/Malcolm_MacLure"><Button>Malcolm</Button></a>
+    </div>
+
+      <div style={{display: "inline-blocl", textAlign: "center"}}>
+        <img src={Gabbi} />
         <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/macgabbi"><Button>Gabriela</Button></a>
-        <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/Malcolm_MacLure"><Button>Malcolm</Button></a><br/>
-      </Container>
-      <Container>
-        <Link to="/signup"><TextLink>Sign up</TextLink></Link>
-        &nbsp;&nbsp;&nbsp;
-        <Link to="/login"><TextLink>Log in</TextLink></Link>
+      </div>
+      <div style={{display: "inline-blocl", textAlign: "center"}}>
+        <img src={Ben} />
+        <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/mrbenjaminhoppe"><Button>Benjamin</Button></a>
+      </div>
       </Container>
       <br/>
     </Error404>
