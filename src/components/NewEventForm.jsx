@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import  {createNewEvent} from './../service';
 
 const Container = styled.div`
 background-color: #2A2C33;
@@ -28,29 +30,6 @@ const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
-`
-const FirstName = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 1;
-  background-color: inherit;
-`
-
-const LastName = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 1;
-  background-color: inherit;
-`
-
-const Phone = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 2;
-  background-color: inherit;
-`
-
-const Email = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 2;
-  background-color: inherit;
 `
 const Label = styled.label`
   display: block;
@@ -99,11 +78,12 @@ class NewEventForm extends Component {
     super(props);
     this.state = {
       cohort_id: this.props.cohortId,
-      first_name: '',
-      last_name: '',
-      phone: '',
-      email: '',
-      image_url: ''
+      name: '',
+      company_id: '',
+      contact_id: '',
+      date: '',
+      time: '',
+      body: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -115,16 +95,13 @@ class NewEventForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-      // fetch('http://localhost:3000/api/admin/cohorts', {
-      let data = this.state
-      console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
-        method: 'post',
-        mode: "cors"
-      }).then(response => {console.log(this.state)})
 
+    handleSubmit = (e) =>{
+    e.preventDefault();
+    let data = this.state
+    createNewEvent(data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.eventSuccess())
   }
 
  render() {
@@ -133,22 +110,22 @@ class NewEventForm extends Component {
       <Container>
         <Title>Add Event</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
-          <FirstName>
-            <Label htmlFor="first_name">First Name</Label>
-            <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
-          </FirstName>
-          <LastName>
-            <Label htmlFor="last_name">Last Name</Label>
-            <Input type="text" name="last_name" placeholder="Smith"  value={this.state.last_name} onChange={this.handleChange}></Input>
-          </LastName>
-          <Phone>
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input type="tel" name="phone" placeholder="555-555-5555"  value={this.state.phone} onChange={this.handleChange}></Input>
-          </Phone>
-          <Email>
-            <Label htmlFor="email">Email</Label>
-            <Input type="text" name="email" placeholder="hello@mail.com" value={this.state.email} onChange={this.handleChange}></Input>
-          </Email>
+          <div>
+            <Label htmlFor="first_name">Name</Label>
+            <Input type="text" name="name" placeholder="Event Name"  value={this.state.name} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="last_name">date</Label>
+            <Input type="date" name="date" placeholder="Date"  value={this.state.date} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="phone">time</Label>
+            <Input type="time" name="time" placeholder="Time"  value={this.state.time} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="email">body</Label>
+            <Input type="textArea" name="body" placeholder="Details" value={this.state.body} onChange={this.handleChange}></Input>
+          </div>
          <br/><Button type="submit">Submit</Button>
        </Form>
       </Container>
@@ -157,4 +134,23 @@ class NewEventForm extends Component {
  }
 }
 
-export default NewEventForm;
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(NewEventForm);

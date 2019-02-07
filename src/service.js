@@ -140,13 +140,24 @@ export const deleteAssignment = (cohort_id, token) => {
 // doesn't work
 export const createNewEvent = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/events?event=${JSON.stringify({data})}`, {
+    console.log(':::new Assignment::',`${rootURL}/admin/events?event=${data}`);
+      fetch(`${rootURL}/admin/events?event=${JSON.stringify(data)}`, {
       method: 'post',
-      mode: "cors"})
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+
+
+
+
 
 // doesn't work
 export const deleteEvent = (cohort_id, token) => {

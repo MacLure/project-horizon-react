@@ -149,7 +149,7 @@ componentDidMount() {
           return (
             <NewStudentForm 
               cohortId = {this.state.onFocusData.id}
-              assignmentSuccess = {this.reload}
+              studentSuccess = {this.reload}
             />
           )
         }
@@ -160,7 +160,7 @@ componentDidMount() {
           return (
             <NewAdminForm 
               cohortId = {this.state.onFocusData.id}
-              assignmentSuccess = {this.reload}
+              adminSuccess = {this.reload}
             />
           )
         }
@@ -171,7 +171,7 @@ componentDidMount() {
           return (
             <NewEventForm 
               cohortId = {this.state.onFocusData.id}
-              assignmentSuccess = {this.reload}
+              eventSuccess = {this.reload}
             />
           )
         }
