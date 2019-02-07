@@ -71,29 +71,27 @@ export const getStudentDashboardData = (token) => {
   })
 }
 
-// doesn't work
 export const createNewCohort = (data, token) => {
-//   const myHeaders = new Headers({
-//     'Content-Type': 'application/json',
-//     'Authorization': token,
-//     'Access-Controlcredential': true
-// });
-return new Promise((resolve, reject) => {
-
-  console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}`);
-  // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
-  // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
-    fetch(`${rootURL}/admin/cohorts?cohort=${JSON.stringify(data)}`, {
-    method: 'post',
-    mode: "cors",
-    headers: {
-      "Authorization": `${token}`,
-      'Content-Type': 'application/json'
-    },
+  //   const myHeaders = new Headers({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': token,
+  //     'Access-Controlcredential': true
+  // });
+  return new Promise((resolve, reject) => {
+    console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}`);
+    // console.log(':::new Cohort::',`${rootURL}/admin/cohorts?cohort=${data}&email=${(email)}`);
+    // fetch(`https://project-horizon-rails.herokuapp.com/admin/cohorts?cohort=${JSON.stringify(data, token)}`, {
+      fetch(`${rootURL}/admin/cohorts?cohort=${JSON.stringify(data)}`, {
+      method: 'post',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
   })
-  .then(e=>e.ok?resolve(e):reject(e))
-  .catch(e => console.log('ERR: ', e))
-})
 }
 
 export const deleteCohort = (cohort_id, token) => {
@@ -111,15 +109,33 @@ export const deleteCohort = (cohort_id, token) => {
 }
 
 // doesn't work
+// export const createNewAssignment = (data, token) => {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${rootURL}/admin/assignemnts?assignment=${JSON.stringify(data)}`, {
+//       method: 'post',
+//       mode: "cors"})
+//     .then(e=>e.ok?resolve(e):reject(e))
+//     .catch(e => console.log('ERR: ', e))
+//   })
+// }
+
 export const createNewAssignment = (data, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/assignemnts?assignment=${JSON.stringify(data)}`, {
+    console.log(':::new Assignment::',`${rootURL}/admin/assignments?assignment=${data}`);
+      fetch(`${rootURL}/admin/assignments?assignment=${JSON.stringify(data)}`, {
       method: 'post',
-      mode: "cors"})
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+
 
 // doesn't work
 export const deleteAssignment = (cohort_id, token) => {

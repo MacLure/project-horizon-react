@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import  {createNewAssignment} from './../service';
 
 const Container = styled.div`
@@ -101,15 +102,16 @@ class NewAssignmentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cohort_id: this.props.cohortId,
       name: '',
       due_date: '',
-      cohort: '',
       body: ''
    }
-   this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-   handleChange(e) {
+  handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -117,6 +119,8 @@ class NewAssignmentForm extends Component {
     e.preventDefault();
     let data = this.state
     createNewAssignment(data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.assignmentSuccess())
   }
 
   render() {
@@ -124,7 +128,7 @@ class NewAssignmentForm extends Component {
       <React.Fragment>
         <Container>
           <Title>Create Assignment</Title>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <AssignmentName>
               <Label htmlFor="name">Assignment Name</Label>
               <Input type="text" name="name" placeholder="Personal Branding"  value={this.state.name} onChange={this.handleChange}></Input>
@@ -133,20 +137,37 @@ class NewAssignmentForm extends Component {
               <Label htmlFor="due_date">Due Date</Label>
               <Input type="date" name="due_date" value={this.state.due_date} onChange={this.handleChange} ></Input>
             </DueDate>
-          </Form>
-          <AssignmentBody>
-            <Label htmlFor="body">Assignment Body</Label>
+            <AssignmentBody>
+              <Label htmlFor="body">Assignment Body</Label>
               <Textarea rows="10" cols="38" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></Textarea>
-          </AssignmentBody>
-          <br/>
-          <Button type="submit" onClick={e=>{
-            e.preventDefault();
-            this.handleSubmit()
-            }}>Submit</Button>
+            </AssignmentBody>
+            <br/>
+            <Button type="submit">Submit</Button>
+          </Form>
+
         </Container>
      </React.Fragment>
      );
   }
 }
 
-export default NewAssignmentForm;
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(NewAssignmentForm);

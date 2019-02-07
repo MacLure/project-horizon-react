@@ -9,7 +9,7 @@ const Card = styled.div`
   border-radius: 2px;
   grid-column-start: 1;
   justify-self: center;
-  transition: 0.3s;
+  transition: 0.2s;
   opacity: 1;
   cursor: pointer;
   display: flex;
@@ -17,7 +17,7 @@ const Card = styled.div`
 
   :hover {
     opacity: 0.5;
-    transition: 0.3s;
+    transition: 0.2s;
   }
 `
 const Grid = styled.div`

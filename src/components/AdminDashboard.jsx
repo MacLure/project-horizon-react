@@ -111,7 +111,6 @@ componentDidMount() {
     // }
 
     reload = () =>{
-
       if(this.props.token != null){
         getAdminDashboardData(this.props.token)
         .then(response=>response.json())

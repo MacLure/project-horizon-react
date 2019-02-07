@@ -7,6 +7,8 @@ import NewAssignmentForm from './NewAssignmentForm'
 import AdminEventsList from './AdminEventsList'
 import { connect } from 'react-redux';
 import  {deleteCohort} from './../service';
+import  {getAdminDashboardData} from './../service';
+
 
 const CohortCard = styled.div`
   background-color: #2A2C33;
@@ -130,26 +132,30 @@ const DeleteButton = styled.button`
     transition: opacity 0.5;
 `
 
-
-
 class CohortDetails extends Component {
   constructor(props) {
     super(props)
 
-  this.state ={
-    showNewStudentForm: false,
-    showNewAdminForm: false,
-    showNewEventForm: false,
-    showNewAssignmentForm: false,
+    this.state ={
+      showNewStudentForm: false,
+      showNewAdminForm: false,
+      showNewEventForm: false,
+      showNewAssignmentForm: false,
+      students: props.students,
+      admins: props.admins,
+      assignments: props.assignments,
+      events: props.events
+    }
+
+    this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
+    this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
+    this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
+    this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.reload = this.reload.bind(this);
+
+
   }
-
-  this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
-  this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
-  this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
-  this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
-  this.handleDelete = this.handleDelete.bind(this);
-
-}
 
 //  if(props.onFocusData != null){
 //   const {start_date, end_date, name, course_type} = props.onFocusData;
@@ -158,6 +164,7 @@ class CohortDetails extends Component {
   students = this.props.students
   cStudents = 'Loading...';
   cEvents = 'Loading...';
+  cAssignments = 'Loading...';
 
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
@@ -183,13 +190,16 @@ class CohortDetails extends Component {
 
   }
 
+  reload = () =>{
+    this.setState(this.state)
+  }
 
   render() {
 
     const showNewStudentForm = () => {
       if (this.state.showNewStudentForm ) {
         return (
-          <NewStudentForm />
+          <NewStudentForm cohortId = {this.props.onFocusData.id} />
         )
       }
     }
@@ -205,7 +215,7 @@ class CohortDetails extends Component {
     const handleshowNewEventForm = () => {
       if (this.state.showNewEventForm ) {
         return (
-          <NewEventForm />
+          <NewEventForm cohortId = {this.props.onFocusData.id} />
         )
       }
     }
@@ -213,7 +223,10 @@ class CohortDetails extends Component {
     const handleshowNewAssignmentForm = () => {
       if (this.state.showNewAssignmentForm ) {
         return (
-          <NewAssignmentForm />
+          <NewAssignmentForm 
+            cohortId = {this.props.onFocusData.id}
+            assignmentSuccess = {this.reload}
+          />
         )
       }
     }

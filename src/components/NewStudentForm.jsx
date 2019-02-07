@@ -98,11 +98,11 @@ class NewStudentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cohort_id: this.props.cohortId,
       first_name: '',
       last_name: '',
       phone: '',
       email: '',
-      cohort_id: '',
       image_url: ''
     }
 
