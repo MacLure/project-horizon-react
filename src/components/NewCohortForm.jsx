@@ -129,6 +129,7 @@ class NewCohortForm extends Component {
         <Course>
           <Label htmlFor="course_type">Course Type</Label>
           <select name="course_type" placeholder="Choose a course" value={this.state.course_type} onChange={this.handleChange} >
+          <option value="" hidden>Select a course</option>
           <option value="wdi">Web Development </option>
           <option value="uxdi">User Expierence</option>
           <option value="dsi">Data Science</option>
