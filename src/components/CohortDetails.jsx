@@ -31,7 +31,6 @@ const FormFlex = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   jusify-content: center;
-
 `
 
 const Title = styled.h2 `
@@ -147,10 +146,10 @@ class CohortDetails extends Component {
       events: props.events
     }
 
-    this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
+    // this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
     this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
     this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
-    this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
+    // this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.reload = this.reload.bind(this);
 
@@ -178,9 +177,9 @@ class CohortDetails extends Component {
     this.setState({showNewEventForm: !this.state.showNewEventForm})
   }
 
-  handleshowNewAssignmentForm = () =>{
-    this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
-  }
+  // handleshowNewAssignmentForm = () =>{
+  //   this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
+  // }
 
   handleDelete = (e) => {
     e.preventDefault();
@@ -191,7 +190,7 @@ class CohortDetails extends Component {
   }
 
   reload = () =>{
-    this.setState(this.state)
+this.setState(this.state)
   }
 
   render() {
@@ -263,7 +262,7 @@ class CohortDetails extends Component {
             <List>
               {this.cStudents}
             </List>
-            <Button onClick={e=>{this.handleShowNewStudentForm(e)}} >new student</Button>
+            <Button onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</Button>
           </Students>
           <Admin>
             <Text>Staff:</Text>
@@ -274,21 +273,21 @@ class CohortDetails extends Component {
               <ListItem>Saree</ListItem>
               <ListItem>Elvis</ListItem>
             </List>
-            <Button onClick={e=>{this.handleshowNewAdminForm(e)}} >new admin</Button>
+            <Button onClick={e=>{this.props.TriggerNewAdminForm(e)}} >new admin</Button>
           </Admin>
           <Assignments>
             <Text>Assignments:</Text>
             <List>
               <AddAssignmentForm>{this.cAssignments}</AddAssignmentForm>
             </List>
-            <Button onClick={e=>{this.handleshowNewAssignmentForm(e)}} >new assignment</Button>
+            <Button onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</Button>
           </Assignments>
           <Events>
             <Text>Events:</Text>
             <List>
               {this.cEvents}
             </List>
-            <Button onClick={e=>{this.handleshowNewEventForm(e)}} >new event</Button>
+            <Button onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</Button>
           </Events>
         </Grid>
         <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>

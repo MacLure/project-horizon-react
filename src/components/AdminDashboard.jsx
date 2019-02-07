@@ -7,6 +7,11 @@ import AdminNavBar from './AdminNavBar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getAdminDashboardData} from './../service';
+import NewAssignmentForm from './NewAssignmentForm';
+import NewStudentForm from './NewStudentForm';
+import NewAdminForm from './NewAdminForm';
+import NewEventForm from './NewEventForm';
+
 
 const Container = styled.div`
   display: grid;
@@ -47,8 +52,12 @@ class AdminDashboard extends Component {
       contact_notes: [],
       events: [],
       onFocusData: null,
+      showNewAssignmentForm: false,
       showNewStudentForm: false,
-      selectedCohort: null
+      showNewAdminForm: false,
+      showNewEventForm: false,
+      selectedCohort: null,
+      
     }
   }
 
@@ -104,6 +113,71 @@ componentDidMount() {
       this.props.history.push('/')
     }
 
+    TriggerNewAssignmentForm = (data) => {
+      console.log(data)
+      this.setState({showNewAssignmentForm: true})
+    }
+
+    TriggerNewStudentForm = (data) => {
+      console.log(data)
+      this.setState({showNewStudentForm: true})
+    }
+
+      TriggerNewAdminForm = (data) => {
+      console.log(data)
+      this.setState({showNewAdminForm: true})
+    }
+
+      TriggerNewEventForm = (data) => {
+      console.log(data)
+      this.setState({showNewEventForm: true})
+    }
+
+    showNewAssignmentForm = () => {
+        if (this.state.showNewAssignmentForm ) {
+          return (
+            <NewAssignmentForm 
+              cohortId = {this.state.onFocusData.id}
+              // assignmentSuccess = {this.reload}
+            />
+          )
+        }
+      }
+
+          showNewStudentForm = () => {
+        if (this.state.showNewStudentForm ) {
+          return (
+            <NewStudentForm 
+              cohortId = {this.state.onFocusData.id}
+              // assignmentSuccess = {this.reload}
+            />
+          )
+        }
+      }
+
+          showNewAdminForm = () => {
+        if (this.state.showNewAdminForm ) {
+          return (
+            <NewAdminForm 
+              cohortId = {this.state.onFocusData.id}
+              // assignmentSuccess = {this.reload}
+            />
+          )
+        }
+      }
+
+          showNewEventForm = () => {
+        if (this.state.showNewEventForm ) {
+          return (
+            <NewEventForm 
+              cohortId = {this.state.onFocusData.id}
+              // assignmentSuccess = {this.reload}
+            />
+          )
+        }
+      }
+
+
     // displayLogOutButton = () => {
     //   return (this.props.token != null) ?
     //   <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
@@ -139,6 +213,11 @@ componentDidMount() {
         cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
         cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}
         deleteSuccess={this.reload}
+        TriggerNewAssignmentForm={this.TriggerNewAssignmentForm}
+        TriggerNewStudentForm={this.TriggerNewStudentForm}
+        TriggerNewAdminForm={this.TriggerNewAdminForm}
+        TriggerNewEventForm={this.TriggerNewEventForm}
+
       />
     }
     return (
@@ -160,6 +239,11 @@ componentDidMount() {
           <ContentContainer>
             {CohortDetail}
             <NewCohortForm cohortSuccess={this.reload}/>
+            {this.showNewAssignmentForm()}
+            {this.showNewStudentForm()}
+            {this.showNewAdminForm()}
+            {this.showNewEventForm()}
+
           </ContentContainer>
         </Container>
         <Footer/>
