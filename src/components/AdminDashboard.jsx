@@ -138,7 +138,7 @@ componentDidMount() {
           return (
             <NewAssignmentForm 
               cohortId = {this.state.onFocusData.id}
-              // assignmentSuccess = {this.reload}
+              assignmentSuccess = {this.reload}
             />
           )
         }
@@ -149,7 +149,7 @@ componentDidMount() {
           return (
             <NewStudentForm 
               cohortId = {this.state.onFocusData.id}
-              // assignmentSuccess = {this.reload}
+              assignmentSuccess = {this.reload}
             />
           )
         }
@@ -160,7 +160,7 @@ componentDidMount() {
           return (
             <NewAdminForm 
               cohortId = {this.state.onFocusData.id}
-              // assignmentSuccess = {this.reload}
+              assignmentSuccess = {this.reload}
             />
           )
         }
@@ -171,7 +171,7 @@ componentDidMount() {
           return (
             <NewEventForm 
               cohortId = {this.state.onFocusData.id}
-              // assignmentSuccess = {this.reload}
+              assignmentSuccess = {this.reload}
             />
           )
         }
@@ -189,8 +189,11 @@ componentDidMount() {
         getAdminDashboardData(this.props.token)
         .then(response=>response.json())
         .then(response=> {this.setState({
-            cohorts: response.cohorts,
-            onFocusData: response.cohorts[0]
+          admins: response.admins,
+          students: response.students,
+          assignments: response.assignments,
+          events: response.events,
+          onFocusData: response.cohorts[0]
           });
         })
       }else{
