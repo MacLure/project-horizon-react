@@ -7,6 +7,7 @@ const Card = styled.div`
   margin: 20px 10px;
   width: 23vw;
   border-radius: 2px;
+  border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
   justify-self: center;
   transition: 0.3s;
@@ -88,7 +89,7 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <Card
-        style={{backgroundColor:props.isActive ? "#8e44ad": ""}}
+        style={{border:props.isActive ? "3px solid #8e44ad": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}
       >
       <Grid>

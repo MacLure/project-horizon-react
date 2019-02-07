@@ -11,9 +11,8 @@ import horizon_logo from '../assets/img/horizon_logo.svg';
 const LogoContainer = styled.div`
   text-align: center;
   background: none;
-  margin-top: 150px
-  margin-bottom: 50px
-
+  margin-top: 150px;
+  margin-bottom: 50px;
 `
 
 const Container = styled.div`
@@ -70,10 +69,9 @@ const Input = styled.input`
   padding: 5px 5px;
   background-color: transparent;
 
-  transition: border 0.5s;
-  :focus {
-    border: 1px solid #FC6404;
-    transition: border 0.5s;
+  ::placeholder {
+    color: white;
+    opacity: 1;
   }
 `
 

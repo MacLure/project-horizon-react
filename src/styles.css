@@ -81,15 +81,11 @@ svg {
     transition: border 0.5s;
     /* -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;       /* remove default arrow */ 
+    appearance: none;       /* remove default arrow */
     /* background-image: url=('src/assets/Icons/Arrow.png'); */
   }
 
   select:focus {
     border: 1px solid #F6744E;
     transition: border 0.5s;
-  }
-
-  input::placeholder {
-    color: rgba(255,255,255, 0.5)
   }
