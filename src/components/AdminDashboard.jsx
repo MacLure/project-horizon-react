@@ -25,6 +25,20 @@ const CohortCards = styled.div`
   justify-content: flex-start;
   grid-column-start: 1;
 `
+const NewCohortButton = styled.div`
+background-color: rgba(42, 44, 51, 1);
+margin: 20px 10px;
+width: 23vw;
+border-radius: 2px;
+grid-column-start: 1;
+justify-self: center;
+transition: 0.2s;
+opacity: 1;
+cursor: pointer;
+display: flex;
+justify-content: flex-start;
+
+`
 
 const ContentContainer = styled.div`
   display: flex;
@@ -42,7 +56,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 8),
+      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
       students: [],
       student_notes: [],
       assignments: [],
@@ -57,9 +71,9 @@ class AdminDashboard extends Component {
       showNewStudentForm: false,
       showNewAdminForm: false,
       showNewEventForm: false,
-      selectedCohort: null,
-      
+      selectedCohort: null, 
     }
+    this.showNewCohortForm = this.showNewCohortForm.bind(this)
   }
 
 componentDidMount() {
@@ -120,6 +134,7 @@ componentDidMount() {
     TriggerNewEventForm = (data) => {this.setState({showNewEventForm: true})}
 
     showNewCohortForm = () => {
+      console.log("OK")
       if (this.state.showNewCohortForm ) {
         return (
           <NewCohortForm 
@@ -247,6 +262,9 @@ componentDidMount() {
               />
             )
           )}
+          <NewCohortButton onClick={this.TriggerNewCohortForm}>
+              New Cohort
+          </NewCohortButton>
           </CohortCards>
           <ContentContainer>
             {CohortDetail}
@@ -254,6 +272,7 @@ componentDidMount() {
             {this.showNewStudentForm()}
             {this.showNewAdminForm()}
             {this.showNewEventForm()}
+            {this.showNewCohortForm()}
 
           </ContentContainer>
         </Container>
