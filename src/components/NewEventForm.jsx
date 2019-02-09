@@ -3,7 +3,22 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {createNewEvent} from './../service';
 
+const ModalBG = styled.div`
+background-color: rgba(0, 0, 0, 0.5);
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+`
+
 const Container = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 500px;
 background-color: #2A2C33;
 margin-top: 20px;
 margin-left: auto;
@@ -96,7 +111,7 @@ class NewEventForm extends Component {
   }
 
 
-    handleSubmit = (e) =>{
+  handleSubmit = (e) =>{
     e.preventDefault();
     let data = this.state
     createNewEvent(data, this.props.token)
@@ -107,6 +122,7 @@ class NewEventForm extends Component {
  render() {
    return (
      <React.Fragment>
+     <ModalBG onClick={this.props.escapeNewEventModal}>
       <Container>
         <Title>Add Event</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
@@ -129,6 +145,7 @@ class NewEventForm extends Component {
          <br/><Button type="submit">Submit</Button>
        </Form>
       </Container>
+      </ModalBG>
      </React.Fragment>
     );
  }

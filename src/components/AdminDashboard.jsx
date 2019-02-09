@@ -52,6 +52,7 @@ class AdminDashboard extends Component {
       contact_notes: [],
       events: [],
       onFocusData: null,
+      showNewCohortForm: false,
       showNewAssignmentForm: false,
       showNewStudentForm: false,
       showNewAdminForm: false,
@@ -134,48 +135,59 @@ componentDidMount() {
     }
 
     showNewAssignmentForm = () => {
-        if (this.state.showNewAssignmentForm ) {
-          return (
-            <NewAssignmentForm 
-              cohortId = {this.state.onFocusData.id}
-              assignmentSuccess = {this.reload}
-            />
-          )
-        }
+      if (this.state.showNewAssignmentForm ) {
+        return (
+          <NewAssignmentForm 
+            cohortId = {this.state.onFocusData.id}
+            assignmentSuccess = {this.reload}
+            escapeNewAssignmentModal = {this.escapeNewAssignmentModal}
+          />
+        )
       }
+    }
 
-          showNewStudentForm = () => {
-        if (this.state.showNewStudentForm ) {
-          return (
-            <NewStudentForm 
-              cohortId = {this.state.onFocusData.id}
-              studentSuccess = {this.reload}
-            />
-          )
-        }
+    showNewStudentForm = () => {
+      if (this.state.showNewStudentForm ) {
+        return (
+          <NewStudentForm 
+            cohortId = {this.state.onFocusData.id}
+            studentSuccess = {this.reload}
+            escapeNewStudentModal = {this.escapeNewStudentModal}
+          />
+        )
       }
+    }
 
-          showNewAdminForm = () => {
-        if (this.state.showNewAdminForm ) {
-          return (
-            <NewAdminForm 
-              cohortId = {this.state.onFocusData.id}
-              adminSuccess = {this.reload}
-            />
-          )
-        }
+    showNewAdminForm = () => {
+      if (this.state.showNewAdminForm ) {
+        return (
+          <NewAdminForm 
+            cohortId = {this.state.onFocusData.id}
+            adminSuccess = {this.reload}
+            escapeNewAdminModal = {this.escapeNewAdminModal}
+          />
+        )
       }
+    }
 
-          showNewEventForm = () => {
-        if (this.state.showNewEventForm ) {
-          return (
-            <NewEventForm 
-              cohortId = {this.state.onFocusData.id}
-              eventSuccess = {this.reload}
-            />
-          )
-        }
+    showNewEventForm = () => {
+      if (this.state.showNewEventForm ) {
+        return (
+          <NewEventForm 
+            cohortId = {this.state.onFocusData.id}
+            eventSuccess = {this.reload}
+            escapeNewEventModal = {this.escapeNewEventModal}
+          />
+        )
       }
+    }
+
+    escapeNewEventModal = () => {this.setState({showNewEventForm: false})}
+    escapeNewStudentModal = () => {this.setState({showNewStudentForm: false})}
+    escapeNewAssignmentModal = () => {this.setState({showNewAssignmentForm: false})}
+    escapeNewCohortModal = () => {this.setState({showNewCohortForm: false})}
+    escapeNewAdminModal = () => {this.setState({showNewAdminForm: false})}
+
 
 
     // displayLogOutButton = () => {

@@ -3,7 +3,22 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {createNewAssignment} from './../service';
 
+const ModalBG = styled.div`
+background-color: rgba(0, 0, 0, 0.5);
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+`
+
 const Container = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 500px;
   background-color: #2A2C33;
   margin-top: 20px;
   margin-left: auto;
@@ -126,6 +141,8 @@ class NewAssignmentForm extends Component {
   render() {
     return (
       <React.Fragment>
+      <ModalBG onClick={this.props.escapeNewAssignmentModal}>
+
         <Container>
           <Title>Create Assignment</Title>
           <Form onSubmit={this.handleSubmit}>
@@ -146,6 +163,8 @@ class NewAssignmentForm extends Component {
           </Form>
 
         </Container>
+        </ModalBG>
+
      </React.Fragment>
      );
   }

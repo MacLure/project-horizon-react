@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const ModalBG = styled.div`
+background-color: rgba(0, 0, 0, 0.5);
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+`
+
 const Container = styled.div`
 background-color: #2A2C33;
 margin-top: 20px;
@@ -10,6 +19,12 @@ width: 40vw;
 border-radius: 2px;
 grid-column-start: 1;
 justify-self: center;
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 500px;
 `
 
 const Title = styled.h2 `
@@ -130,6 +145,8 @@ class NewAdminForm extends Component {
  render() {
    return (
      <React.Fragment>
+     <ModalBG onClick={this.props.escapeNewAdminModal}>
+
       <Container>
         <Title>Add Admin</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
@@ -152,6 +169,8 @@ class NewAdminForm extends Component {
          <br/><Button type="submit">Submit</Button>
        </Form>
       </Container>
+      </ModalBG>
+
      </React.Fragment>
     );
  }
