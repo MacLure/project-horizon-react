@@ -124,6 +124,21 @@ export const createNewAssignment = (data, token) => {
   })
 }
 
+export const createNewStudent = (data, token) => {
+  return new Promise((resolve, reject) => {
+    console.log(':::new Student::',`${rootURL}/admin/students?student=${data}`);
+      fetch(`${rootURL}/admin/students?student=${JSON.stringify(data)}`, {
+      method: 'post',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
 
 
 // doesn't work
@@ -137,7 +152,6 @@ export const deleteAssignment = (cohort_id, token) => {
   })
 }
 
-// doesn't work
 export const createNewEvent = (data, token) => {
   return new Promise((resolve, reject) => {
     console.log(':::new Assignment::',`${rootURL}/admin/events?event=${data}`);

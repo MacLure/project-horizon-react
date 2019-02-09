@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import  {createNewStudent} from './../service';
+
 
 const Container = styled.div`
 background-color: #2A2C33;
@@ -103,7 +106,9 @@ class NewStudentForm extends Component {
       last_name: '',
       phone: '',
       email: '',
-      image_url: ''
+      image_url: '',
+      password: 'password'
+
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -115,16 +120,12 @@ class NewStudentForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-      // fetch('http://localhost:3000/api/admin/cohorts', {
-      let data = this.state
-      console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
-        method: 'post',
-        mode: "cors"
-      }).then(response => {console.log(this.state)})
-
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    let data = this.state
+    createNewStudent(data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.studentSuccess())
   }
 
  render() {
@@ -132,7 +133,7 @@ class NewStudentForm extends Component {
      <React.Fragment>
       <Container>
         <Title>Add Student</Title>
-        <Form method="post" onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <FirstName>
             <Label htmlFor="first_name">First Name</Label>
             <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
@@ -157,4 +158,24 @@ class NewStudentForm extends Component {
  }
 }
 
-export default NewStudentForm;
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(NewStudentForm);
