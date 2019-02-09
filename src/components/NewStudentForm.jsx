@@ -28,7 +28,16 @@ border-radius: 2px;
 grid-column-start: 1;
 justify-self: center;
 `
-
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
+`
 const Title = styled.h2 `
   padding-top: 20px;
   padding-left: 80px;
@@ -145,9 +154,9 @@ class NewStudentForm extends Component {
  render() {
    return (
      <React.Fragment>
-     <ModalBG onClick={this.props.escapeNewStudentModal}>
-
-      <Container>
+     <ModalBG>
+     <Container>
+      <ModalEscape  onClick={this.props.escapeNewStudentModal}>X</ModalEscape>
         <Title>Add Student</Title>
         <Form onSubmit={this.handleSubmit}>
           <FirstName>

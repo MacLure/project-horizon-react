@@ -113,25 +113,22 @@ componentDidMount() {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
+    TriggerNewCohortForm = () => {this.setState({showNewCohortForm: true})}
+    TriggerNewAssignmentForm = (data) => {this.setState({showNewAssignmentForm: true})}
+    TriggerNewStudentForm = (data) => {this.setState({showNewStudentForm: true})}
+    TriggerNewAdminForm = (data) => {this.setState({showNewAdminForm: true})}
+    TriggerNewEventForm = (data) => {this.setState({showNewEventForm: true})}
 
-    TriggerNewAssignmentForm = (data) => {
-      console.log(data)
-      this.setState({showNewAssignmentForm: true})
-    }
-
-    TriggerNewStudentForm = (data) => {
-      console.log(data)
-      this.setState({showNewStudentForm: true})
-    }
-
-      TriggerNewAdminForm = (data) => {
-      console.log(data)
-      this.setState({showNewAdminForm: true})
-    }
-
-      TriggerNewEventForm = (data) => {
-      console.log(data)
-      this.setState({showNewEventForm: true})
+    showNewCohortForm = () => {
+      if (this.state.showNewCohortForm ) {
+        return (
+          <NewCohortForm 
+            cohortId = {this.state.onFocusData.id}
+            cohortSuccess = {this.reload}
+            escapeNewCohortModal = {this.escapeNewCohortModal}
+          />
+        )
+      }
     }
 
     showNewAssignmentForm = () => {
@@ -253,7 +250,6 @@ componentDidMount() {
           </CohortCards>
           <ContentContainer>
             {CohortDetail}
-            <NewCohortForm cohortSuccess={this.reload}/>
             {this.showNewAssignmentForm()}
             {this.showNewStudentForm()}
             {this.showNewAdminForm()}

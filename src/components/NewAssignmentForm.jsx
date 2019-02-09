@@ -29,7 +29,16 @@ height: 500px;
   grid-row-start: 2;
   justify-self: center;
 `
-
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
+`
 const Title = styled.h2 `
   padding-top: 20px;
   padding-left: 80px;
@@ -141,10 +150,10 @@ class NewAssignmentForm extends Component {
   render() {
     return (
       <React.Fragment>
-      <ModalBG onClick={this.props.escapeNewAssignmentModal}>
-
-        <Container>
-          <Title>Create Assignment</Title>
+      <ModalBG>
+      <Container>
+       <ModalEscape  onClick={this.props.escapeNewAssignmentModal}>X</ModalEscape>
+           <Title>Create Assignment</Title>
           <Form onSubmit={this.handleSubmit}>
             <AssignmentName>
               <Label htmlFor="name">Assignment Name</Label>

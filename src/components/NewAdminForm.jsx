@@ -26,7 +26,16 @@ left: 0;
 right: 0;
 height: 500px;
 `
-
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
+`
 const Title = styled.h2 `
   padding-top: 20px;
   padding-left: 80px;
@@ -145,9 +154,9 @@ class NewAdminForm extends Component {
  render() {
    return (
      <React.Fragment>
-     <ModalBG onClick={this.props.escapeNewAdminModal}>
-
-      <Container>
+     <ModalBG>
+     <Container>
+      <ModalEscape  onClick={this.props.escapeNewAdminModal}>X</ModalEscape>
         <Title>Add Admin</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
           <FirstName>

@@ -13,6 +13,7 @@ left: 0;
 `
 
 const Container = styled.div`
+z-index: 10;
 position: fixed;
 top: 0;
 bottom: 0;
@@ -27,6 +28,16 @@ width: 40vw;
 border-radius: 2px;
 grid-column-start: 1;
 justify-self: center;
+`
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
 `
 
 const Title = styled.h2 `
@@ -119,11 +130,13 @@ class NewEventForm extends Component {
     .then(e=>this.props.eventSuccess())
   }
 
+
  render() {
    return (
      <React.Fragment>
-     <ModalBG onClick={this.props.escapeNewEventModal}>
-      <Container>
+     <ModalBG>
+     <Container>
+      <ModalEscape  onClick={this.props.escapeNewEventModal}>X</ModalEscape>
         <Title>Add Event</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
           <div>
