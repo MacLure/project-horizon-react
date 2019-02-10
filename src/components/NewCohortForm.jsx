@@ -3,15 +3,38 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {createNewCohort} from './../service';
 
+const ModalBG = styled.div`
+background-color: rgba(0, 0, 0, 0.5);
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+`
 
 const Container = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 500px;
   background-color: #2A2C33;
   margin: 20px 40px;
   width: 40vw;
   height: 300px;
   border-radius: 2px;
 `
-
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
+`
 const Title = styled.h2 `
   padding: 20px 0px 15px 0px;
   background-color: inherit;
@@ -119,8 +142,10 @@ class NewCohortForm extends Component {
     document.body.style.backgroundColor = '#212229';
     return (
       <React.Fragment>
+      <ModalBG>
       <Container>
-      <Title>New Cohort</Title>
+       <ModalEscape  onClick={this.props.escapeNewCohortModal}>X</ModalEscape>
+       <Title>New Cohort</Title>
       <Form onSubmit={this.handleSubmit}>
         <Name>
           <Label htmlFor="name">Name</Label>
@@ -146,6 +171,7 @@ class NewCohortForm extends Component {
         </EndDate>
       </Form>
       </Container>
+      </ModalBG>
     </React.Fragment>
    );
   }

@@ -10,7 +10,7 @@ const Card = styled.div`
   border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
   justify-self: center;
-  transition: 0.3s;
+  transition: 0.2s;
   opacity: 1;
   cursor: pointer;
   display: flex;
@@ -18,7 +18,7 @@ const Card = styled.div`
 
   :hover {
     opacity: 0.5;
-    transition: 0.3s;
+    transition: 0.2s;
   }
 `
 const Grid = styled.div`

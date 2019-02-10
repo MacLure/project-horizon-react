@@ -7,6 +7,11 @@ import AdminNavBar from './AdminNavBar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getAdminDashboardData} from './../service';
+import NewAssignmentForm from './NewAssignmentForm';
+import NewStudentForm from './NewStudentForm';
+import NewAdminForm from './NewAdminForm';
+import NewEventForm from './NewEventForm';
+
 
 const Container = styled.div`
   display: grid;
@@ -19,6 +24,20 @@ const CohortCards = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   grid-column-start: 1;
+`
+const NewCohortButton = styled.div`
+background-color: rgba(42, 44, 51, 1);
+margin: 20px 10px;
+width: 23vw;
+border-radius: 2px;
+grid-column-start: 1;
+justify-self: center;
+transition: 0.2s;
+opacity: 1;
+cursor: pointer;
+display: flex;
+justify-content: flex-start;
+
 `
 
 const ContentContainer = styled.div`
@@ -37,7 +56,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 8),
+      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
       students: [],
       student_notes: [],
       assignments: [],
@@ -47,9 +66,14 @@ class AdminDashboard extends Component {
       contact_notes: [],
       events: [],
       onFocusData: null,
+      showNewCohortForm: false,
+      showNewAssignmentForm: false,
       showNewStudentForm: false,
-      selectedCohort: null
+      showNewAdminForm: false,
+      showNewEventForm: false,
+      selectedCohort: null, 
     }
+    this.showNewCohortForm = this.showNewCohortForm.bind(this)
   }
 
 componentDidMount() {
@@ -103,6 +127,80 @@ componentDidMount() {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
+    TriggerNewCohortForm = () => {this.setState({showNewCohortForm: true})}
+    TriggerNewAssignmentForm = (data) => {this.setState({showNewAssignmentForm: true})}
+    TriggerNewStudentForm = (data) => {this.setState({showNewStudentForm: true})}
+    TriggerNewAdminForm = (data) => {this.setState({showNewAdminForm: true})}
+    TriggerNewEventForm = (data) => {this.setState({showNewEventForm: true})}
+
+    showNewCohortForm = () => {
+      console.log("OK")
+      if (this.state.showNewCohortForm ) {
+        return (
+          <NewCohortForm 
+            cohortId = {this.state.onFocusData.id}
+            cohortSuccess = {this.reload}
+            escapeNewCohortModal = {this.escapeNewCohortModal}
+          />
+        )
+      }
+    }
+
+    showNewAssignmentForm = () => {
+      if (this.state.showNewAssignmentForm ) {
+        return (
+          <NewAssignmentForm 
+            cohortId = {this.state.onFocusData.id}
+            assignmentSuccess = {this.reload}
+            escapeNewAssignmentModal = {this.escapeNewAssignmentModal}
+          />
+        )
+      }
+    }
+
+    showNewStudentForm = () => {
+      if (this.state.showNewStudentForm ) {
+        return (
+          <NewStudentForm 
+            cohortId = {this.state.onFocusData.id}
+            studentSuccess = {this.reload}
+            escapeNewStudentModal = {this.escapeNewStudentModal}
+          />
+        )
+      }
+    }
+
+    showNewAdminForm = () => {
+      if (this.state.showNewAdminForm ) {
+        return (
+          <NewAdminForm 
+            cohortId = {this.state.onFocusData.id}
+            adminSuccess = {this.reload}
+            escapeNewAdminModal = {this.escapeNewAdminModal}
+          />
+        )
+      }
+    }
+
+    showNewEventForm = () => {
+      if (this.state.showNewEventForm ) {
+        return (
+          <NewEventForm 
+            cohortId = {this.state.onFocusData.id}
+            eventSuccess = {this.reload}
+            escapeNewEventModal = {this.escapeNewEventModal}
+          />
+        )
+      }
+    }
+
+    escapeNewEventModal = () => {this.setState({showNewEventForm: false})}
+    escapeNewStudentModal = () => {this.setState({showNewStudentForm: false})}
+    escapeNewAssignmentModal = () => {this.setState({showNewAssignmentForm: false})}
+    escapeNewCohortModal = () => {this.setState({showNewCohortForm: false})}
+    escapeNewAdminModal = () => {this.setState({showNewAdminForm: false})}
+
+
 
     // displayLogOutButton = () => {
     //   return (this.props.token != null) ?
@@ -111,13 +209,15 @@ componentDidMount() {
     // }
 
     reload = () =>{
-
       if(this.props.token != null){
         getAdminDashboardData(this.props.token)
         .then(response=>response.json())
         .then(response=> {this.setState({
-            cohorts: response.cohorts,
-            onFocusData: response.cohorts[0]
+          admins: response.admins,
+          students: response.students,
+          assignments: response.assignments,
+          events: response.events,
+          onFocusData: response.cohorts[0]
           });
         })
       }else{
@@ -140,6 +240,11 @@ componentDidMount() {
         cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
         cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}
         deleteSuccess={this.reload}
+        TriggerNewAssignmentForm={this.TriggerNewAssignmentForm}
+        TriggerNewStudentForm={this.TriggerNewStudentForm}
+        TriggerNewAdminForm={this.TriggerNewAdminForm}
+        TriggerNewEventForm={this.TriggerNewEventForm}
+
       />
     }
     return (
@@ -157,10 +262,18 @@ componentDidMount() {
               />
             )
           )}
+          <NewCohortButton onClick={this.TriggerNewCohortForm}>
+              New Cohort
+          </NewCohortButton>
           </CohortCards>
           <ContentContainer>
             {CohortDetail}
-            <NewCohortForm cohortSuccess={this.reload}/>
+            {this.showNewAssignmentForm()}
+            {this.showNewStudentForm()}
+            {this.showNewAdminForm()}
+            {this.showNewEventForm()}
+            {this.showNewCohortForm()}
+
           </ContentContainer>
         </Container>
         <Footer/>

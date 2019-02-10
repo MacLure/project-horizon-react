@@ -1,17 +1,42 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import  {createNewStudent} from './../service';
+
+const ModalBG = styled.div`
+background-color: rgba(0, 0, 0, 0.5);
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+`
 
 const Container = styled.div`
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 500px;
 background-color: #2A2C33;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
-width: 40vw;
+width: 1000px;
 border-radius: 2px;
-grid-column-start: 1;
 justify-self: center;
 `
-
+const ModalEscape = styled.div`
+background-color: rgba(255,255,255,0.25);
+width: 30px;
+height: 30px;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+text-align: center;
+`
 const Title = styled.h2 `
   padding-top: 20px;
   padding-left: 80px;
@@ -98,12 +123,14 @@ class NewStudentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cohort_id: this.props.cohortId,
       first_name: '',
       last_name: '',
       phone: '',
       email: '',
-      cohort_id: '',
-      image_url: ''
+      image_url: '',
+      password: 'password'
+
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -115,24 +142,22 @@ class NewStudentForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-      // fetch('http://localhost:3000/api/admin/cohorts', {
-      let data = this.state
-      console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
-        method: 'post',
-        mode: "cors"
-      }).then(response => {console.log(this.state)})
-
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    let data = this.state
+    createNewStudent(data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.studentSuccess())
   }
 
  render() {
    return (
      <React.Fragment>
-      <Container>
+     <ModalBG>
+     <Container>
+      <ModalEscape  onClick={this.props.escapeNewStudentModal}>X</ModalEscape>
         <Title>Add Student</Title>
-        <Form method="post" onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <FirstName>
             <Label htmlFor="first_name">First Name</Label>
             <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
@@ -152,9 +177,31 @@ class NewStudentForm extends Component {
          <br/><Button type="submit">Submit</Button>
        </Form>
       </Container>
+      </ModalBG>
+
      </React.Fragment>
     );
  }
 }
 
-export default NewStudentForm;
+
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(NewStudentForm);
