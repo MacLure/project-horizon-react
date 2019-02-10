@@ -8,9 +8,10 @@ const Container = styled.div`
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  backgroud-color: darkblue;
-  width: 750px;
-  height: 900px;
+  border: 3px solid green;
+  width: 500px;
+  height: 500px;
+  background-color: #2A2C33;
 
 `
 

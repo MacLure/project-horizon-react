@@ -3,11 +3,10 @@ import Footer from './Footer';
 import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {getStudentDashboardData} from './../service';
+import {getStudentDashboardData} from './../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
-
 
 const Container = styled.div`
   display: grid;
@@ -65,9 +64,6 @@ class StudentDashboard extends Component {
   }
 
   render() {
-    document.body.style.backgroundColor = '#212229';
-
-
     return (
       <React.Fragment>
         <StudentNavbar/>
@@ -80,7 +76,7 @@ class StudentDashboard extends Component {
           />
 
           <StudentEventsList events = {this.state.events} />
-          
+
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
             submissions={this.state.submissions}

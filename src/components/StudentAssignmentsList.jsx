@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import SubmissionDetails from './SubmissionDetails';
 import NewSubmissionForm from './NewSubmissionForm';
 
+const Container = styled.div`
+
+
+`
+
 class StudentAssignmentsList extends Component {
   constructor (props) {
     super(props)
@@ -45,13 +50,13 @@ documentDidMount() {
   render() {
 
   const {assignments, submissions, submissionComments} = this.props
-    
+
     const assignmentProgress = () => {
         return Math.round( submissions.length / assignments.length * 100)
     }
 
     let showSubmission = null;
-    
+
     if(this.state.onFocusData !== null ){
       if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
           showSubmission = <SubmissionDetails
@@ -63,17 +68,10 @@ documentDidMount() {
         showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} />
       }
     }
-
-
-
-
-
-
-
     return (
       <React.Fragment>
         <p style={{textAlign:'center'}}>progress: {assignmentProgress()}%</p>
-        <div style={{marginLeft:"500px"}}>
+        <div style={{marginLeft:"200px"}}>
         <StudentProgressCircle progress={assignmentProgress}/>
         </div>
         {assignments.map((assignment, index) => (
@@ -87,9 +85,8 @@ documentDidMount() {
           isActive={this.state.selectedCohort === index}
         />
         ))}
-        
-        {showSubmission}
 
+        {showSubmission}
       </React.Fragment>
      );
   }
