@@ -23,9 +23,8 @@ background-color: #2A2C33;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
-width: 40vw;
+width: 1000px;
 border-radius: 2px;
-grid-column-start: 1;
 justify-self: center;
 `
 const ModalEscape = styled.div`
