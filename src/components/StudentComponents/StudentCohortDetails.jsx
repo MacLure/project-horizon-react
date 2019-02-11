@@ -31,10 +31,16 @@ class StudentCohortDetails extends Component {
         <div className="infoCard">
           <p>{name}</p>
           <p>{course_type}</p>
+<<<<<<< HEAD
           <p>{formattedStartDate}</p>
           <p>{formattedEndDate}</p>
           <p>{daysLeftDisplay()}</p>
 
+=======
+          <p>{start_date}</p>
+          <p>{end_date}</p>
+          <h1>Thanks Malcolm!</h1>
+>>>>>>> ben
         </div>
 
       </React.Fragment>
