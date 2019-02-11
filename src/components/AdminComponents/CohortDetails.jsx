@@ -165,6 +165,11 @@ class CohortDetails extends Component {
   cEvents = 'Loading...';
   cAssignments = 'Loading...';
 
+  options = {year: 'numeric', month: 'short', day: 'numeric' };
+  formattedStartDate = new Date(Date.parse(this.props.onFocusData.start_date)).toLocaleString('en', this.options)
+  formattedEndDate = new Date(Date.parse(this.props.onFocusData.end_date)).toLocaleString('en', this.options)
+
+
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
@@ -260,7 +265,7 @@ class CohortDetails extends Component {
     <React.Fragment>
       <CohortCard>
         <Title>{this.props.onFocusData!=null?this.props.onFocusData.name:null}</Title>
-        <Dates>{this.props.onFocusData!=null?this.props.onFocusData.start_date:null} - {this.props.onFocusData!=null?this.props.onFocusData.end_date:null}</Dates><br/>
+        <Dates>{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</Dates><br/>
         <Hr></Hr>
         <Grid>
           <Students>

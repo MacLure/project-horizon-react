@@ -31,7 +31,7 @@ class StudentEventsList extends Component {
 
 }
   render() {
-    const events = this.state.events
+    const events = this.props.events
 
   return (
     <div className="eventsContainer">

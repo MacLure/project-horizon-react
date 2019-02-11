@@ -57,7 +57,15 @@ class StudentDashboard extends Component {
             end_date={this.state.cohort.end_date}
           />
 
-          <StudentEventsList events = {this.state.events} />
+          <div className="eventsContainer">
+          <p>Events:</p>
+          {this.state.events.map( event => (
+            <div key={event.id}>
+              <p>{event.name}</p>
+              <p>{event.date} @ {event.time}</p>
+            </div>
+              ))}
+          </div>
 
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
