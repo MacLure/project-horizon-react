@@ -17,6 +17,7 @@ class StudentCohortDetails extends Component {
           <p>{course_type}</p>
           <p>{start_date}</p>
           <p>{end_date}</p>
+          <h1>Thanks Malcolm!</h1>
         </div>
 
       </React.Fragment>
