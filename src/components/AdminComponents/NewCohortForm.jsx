@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {createNewCohort} from './../service';
+import  {createNewCohort} from './../../service';
 
 const ModalBG = styled.div`
 background-color: rgba(0, 0, 0, 0.5);

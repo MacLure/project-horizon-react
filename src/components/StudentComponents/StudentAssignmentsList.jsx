@@ -5,10 +5,6 @@ import styled from 'styled-components';
 import SubmissionDetails from './SubmissionDetails';
 import NewSubmissionForm from './NewSubmissionForm';
 
-const Container = styled.div`
-
-
-`
 
 class StudentAssignmentsList extends Component {
   constructor (props) {

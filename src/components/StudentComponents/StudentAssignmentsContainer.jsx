@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
-import SubmissionComments from './SubmissionComment';
+import SubmissionComments from './../CommonComponents/SubmissionComment';
 
 const Container = styled.div`
   grid-column-start: 2;

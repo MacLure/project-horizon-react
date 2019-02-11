@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NewStudentForm from './NewStudentForm';
+import NewStudentForm from '.StudentComponents/NewStudentForm';
 
 
 const Card = styled.div`

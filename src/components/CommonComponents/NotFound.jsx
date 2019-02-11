@@ -2,10 +2,10 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import Footer from './Footer';
-import StudentNavbar from './StudentNavbar';
-import Ben from '../assets/img/ben-pixel.png';
-import Gabbi from '../assets/img/gabbi-pixel.png';
-import Malcolm from '../assets/img/malcolm-pixel.png';
+import StudentNavbar from './../StudentComponents/StudentNavbar';
+import Ben from '../../assets/img/ben-pixel.png';
+import Gabbi from '../../assets/img/gabbi-pixel.png';
+import Malcolm from '../../assets/img/malcolm-pixel.png';
 
 
 const Error404 = styled.div`
@@ -65,7 +65,7 @@ const Button = styled.button`
 
 const NotFound = () => {
   return (
-    
+
     <React.Fragment>
       <StudentNavbar/>
       <Error404>

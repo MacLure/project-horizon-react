@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import Logo from '../assets/img/text_orange.svg';
+import Logo from '../../assets/img/text_orange.svg';
 
 const MenuBar = styled.nav`
   width: 100%;

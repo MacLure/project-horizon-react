@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SubmissionComment from './SubmissionComment'
+import SubmissionComment from './../CommonComponents/SubmissionComment'
 
 class SubmissionDetails extends Component {
 
@@ -16,11 +16,11 @@ class SubmissionDetails extends Component {
       {body}
       Submitted on {created_at}
       {submissionComments.map(comment => (
-        <SubmissionComment 
-          key = {comment.id} 
-          admin = {comment.admin_id} 
-          date = {comment.created_ad} 
-          body = {comment.body} 
+        <SubmissionComment
+          key = {comment.id}
+          admin = {comment.admin_id}
+          date = {comment.created_ad}
+          body = {comment.body}
         />
       ))}
       </React.Fragment>

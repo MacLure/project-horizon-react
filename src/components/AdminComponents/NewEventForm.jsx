@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {createNewStudent} from './../service';
+import  {createNewEvent} from './../../service';
 
 const ModalBG = styled.div`
 background-color: rgba(0, 0, 0, 0.5);
@@ -13,6 +13,7 @@ left: 0;
 `
 
 const Container = styled.div`
+z-index: 10;
 position: fixed;
 top: 0;
 bottom: 0;
@@ -23,8 +24,9 @@ background-color: #2A2C33;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
-width: 1000px;
+width: 40vw;
 border-radius: 2px;
+grid-column-start: 1;
 justify-self: center;
 `
 const ModalEscape = styled.div`
@@ -37,6 +39,7 @@ right: 0;
 cursor: pointer;
 text-align: center;
 `
+
 const Title = styled.h2 `
   padding-top: 20px;
   padding-left: 80px;
@@ -53,29 +56,6 @@ const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
-`
-const FirstName = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 1;
-  background-color: inherit;
-`
-
-const LastName = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 1;
-  background-color: inherit;
-`
-
-const Phone = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 2;
-  background-color: inherit;
-`
-
-const Email = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 2;
-  background-color: inherit;
 `
 const Label = styled.label`
   display: block;
@@ -119,18 +99,17 @@ const Button = styled.button`
     transition: opacity 0.5s;
   }`
 
-class NewStudentForm extends Component {
+class NewEventForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cohort_id: this.props.cohortId,
-      first_name: '',
-      last_name: '',
-      phone: '',
-      email: '',
-      image_url: '',
-      password: 'password'
-
+      name: '',
+      company_id: '',
+      contact_id: '',
+      date: '',
+      time: '',
+      body: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -142,48 +121,48 @@ class NewStudentForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
+
   handleSubmit = (e) =>{
     e.preventDefault();
     let data = this.state
-    createNewStudent(data, this.props.token)
+    createNewEvent(data, this.props.token)
     .then(e=>e.json())
-    .then(e=>this.props.studentSuccess())
+    .then(e=>this.props.eventSuccess())
   }
+
 
  render() {
    return (
      <React.Fragment>
      <ModalBG>
      <Container>
-      <ModalEscape  onClick={this.props.escapeNewStudentModal}>X</ModalEscape>
-        <Title>Add Student</Title>
-        <Form onSubmit={this.handleSubmit}>
-          <FirstName>
-            <Label htmlFor="first_name">First Name</Label>
-            <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
-          </FirstName>
-          <LastName>
-            <Label htmlFor="last_name">Last Name</Label>
-            <Input type="text" name="last_name" placeholder="Smith"  value={this.state.last_name} onChange={this.handleChange}></Input>
-          </LastName>
-          <Phone>
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input type="tel" name="phone" placeholder="555-555-5555"  value={this.state.phone} onChange={this.handleChange}></Input>
-          </Phone>
-          <Email>
-            <Label htmlFor="email">Email</Label>
-            <Input type="text" name="email" placeholder="hello@mail.com" value={this.state.email} onChange={this.handleChange}></Input>
-          </Email>
+      <ModalEscape  onClick={this.props.escapeNewEventModal}>X</ModalEscape>
+        <Title>Add Event</Title>
+        <Form method="post" onSubmit={this.handleSubmit}>
+          <div>
+            <Label htmlFor="first_name">Name</Label>
+            <Input type="text" name="name" placeholder="Event Name"  value={this.state.name} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="last_name">date</Label>
+            <Input type="date" name="date" placeholder="Date"  value={this.state.date} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="phone">time</Label>
+            <Input type="time" name="time" placeholder="Time"  value={this.state.time} onChange={this.handleChange}></Input>
+          </div>
+          <div>
+            <Label htmlFor="email">body</Label>
+            <Input type="textArea" name="body" placeholder="Details" value={this.state.body} onChange={this.handleChange}></Input>
+          </div>
          <br/><Button type="submit">Submit</Button>
        </Form>
       </Container>
       </ModalBG>
-
      </React.Fragment>
     );
  }
 }
-
 
 const mapStatetoProps = state => {
   return {
@@ -204,4 +183,4 @@ const mapDispatchtoProps = dispatch => {
 export default connect(
   mapStatetoProps,
   mapDispatchtoProps
-)(NewStudentForm);
+)(NewEventForm);

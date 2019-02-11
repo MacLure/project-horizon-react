@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {onAdminLogin} from './../service';
-import  {onStudentLogin} from './../service';
-import Facebook from '../assets/img/facebook.png';
+import  {onAdminLogin} from '.././../service';
+import  {onStudentLogin} from '.././../service';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/img/horizon_text2.svg';
-import horizon_logo from '../assets/img/horizon_logo.svg';
+import Logo from '../../assets/img/horizon_text2.svg';
+import horizon_logo from '../../assets/img/horizon_logo.svg';
 
 const LogoContainer = styled.div`
   text-align: center;

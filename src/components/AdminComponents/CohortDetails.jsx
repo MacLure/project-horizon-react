@@ -6,8 +6,8 @@ import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import AdminEventsList from './AdminEventsList'
 import { connect } from 'react-redux';
-import  {deleteCohort} from './../service';
-import  {getAdminDashboardData} from './../service';
+import  {deleteCohort} from '.././../service';
+import  {getAdminDashboardData} from '.././../service';
 
 
 const CohortCard = styled.div`
@@ -222,7 +222,7 @@ this.setState(this.state)
     const handleshowNewAssignmentForm = () => {
       if (this.state.showNewAssignmentForm ) {
         return (
-          <NewAssignmentForm 
+          <NewAssignmentForm
             cohortId = {this.props.onFocusData.id}
             assignmentSuccess = {this.reload}
           />
@@ -247,7 +247,7 @@ this.setState(this.state)
       <ListItem key={assignment.id}>{assignment.name}</ListItem>
     ))
   }
-  
+
 
 // rename CohortCard here (but not the actual component)
   return (

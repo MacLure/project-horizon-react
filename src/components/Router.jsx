@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AdminDashboard from './AdminDashboard';
-import StudentDashboard from './StudentDashboard';
-import Login from './Login';
-import Signup from './Signup';
-import NotFound from './NotFound';
-import Articles from './Articles';
-import Contacts from './Contacts';
-import JobBoard from './JobBoard';
-import Settings from './Settings';
+import AdminDashboard from './AdminComponents/AdminDashboard';
+import StudentDashboard from './StudentComponents/StudentDashboard';
+import Login from './CommonComponents/Login';
+import Signup from './CommonComponents/Signup';
+import NotFound from './CommonComponents/NotFound';
+import Contacts from './AdminComponents/Contacts';
+import Settings from './CommonComponents/Settings';
 
 const Router = () => {
   return (
@@ -19,9 +17,7 @@ const Router = () => {
         <Route path='/login' exact component={ Login } />
         <Route path='/admin' component={ AdminDashboard } />
         <Route path='/student' component={ StudentDashboard } />
-        <Route path="/articles" component={ Articles } />
         <Route path="/contacts" component={ Contacts } />
-        <Route path="/jobs" component={ JobBoard } />
         <Route path="/settings" component={ Settings } />
 
         <Route component={ NotFound } />

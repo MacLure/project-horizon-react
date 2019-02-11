@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {createNewSubmission} from '../service';
+import  {createNewSubmission} from './../../service';
 
 
 const Container = styled.div`

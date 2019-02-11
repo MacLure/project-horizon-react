@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import CohortCard from './CohortCard';
 import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
-import Footer from './Footer';
+import Footer from './../CommonComponents/Footer';
 import AdminNavBar from './AdminNavBar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import  {getAdminDashboardData} from './../service';
+import  {getAdminDashboardData} from './../../service';
 import NewAssignmentForm from './NewAssignmentForm';
 import NewStudentForm from './NewStudentForm';
 import NewAdminForm from './NewAdminForm';
@@ -71,7 +71,7 @@ class AdminDashboard extends Component {
       showNewStudentForm: false,
       showNewAdminForm: false,
       showNewEventForm: false,
-      selectedCohort: null, 
+      selectedCohort: null,
     }
     this.showNewCohortForm = this.showNewCohortForm.bind(this)
   }
@@ -137,7 +137,7 @@ componentDidMount() {
       console.log("OK")
       if (this.state.showNewCohortForm ) {
         return (
-          <NewCohortForm 
+          <NewCohortForm
             cohortId = {this.state.onFocusData.id}
             cohortSuccess = {this.reload}
             escapeNewCohortModal = {this.escapeNewCohortModal}
@@ -149,7 +149,7 @@ componentDidMount() {
     showNewAssignmentForm = () => {
       if (this.state.showNewAssignmentForm ) {
         return (
-          <NewAssignmentForm 
+          <NewAssignmentForm
             cohortId = {this.state.onFocusData.id}
             assignmentSuccess = {this.reload}
             escapeNewAssignmentModal = {this.escapeNewAssignmentModal}
@@ -161,7 +161,7 @@ componentDidMount() {
     showNewStudentForm = () => {
       if (this.state.showNewStudentForm ) {
         return (
-          <NewStudentForm 
+          <NewStudentForm
             cohortId = {this.state.onFocusData.id}
             studentSuccess = {this.reload}
             escapeNewStudentModal = {this.escapeNewStudentModal}
@@ -173,7 +173,7 @@ componentDidMount() {
     showNewAdminForm = () => {
       if (this.state.showNewAdminForm ) {
         return (
-          <NewAdminForm 
+          <NewAdminForm
             cohortId = {this.state.onFocusData.id}
             adminSuccess = {this.reload}
             escapeNewAdminModal = {this.escapeNewAdminModal}
@@ -185,7 +185,7 @@ componentDidMount() {
     showNewEventForm = () => {
       if (this.state.showNewEventForm ) {
         return (
-          <NewEventForm 
+          <NewEventForm
             cohortId = {this.state.onFocusData.id}
             eventSuccess = {this.reload}
             escapeNewEventModal = {this.escapeNewEventModal}

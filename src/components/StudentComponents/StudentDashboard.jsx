@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
+import Footer from '../CommonComponents/Footer';
 import StudentNavbar from './StudentNavbar';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import {getStudentDashboardData} from './../service';
+import {getStudentDashboardData} from '.././../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
