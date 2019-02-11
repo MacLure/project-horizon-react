@@ -265,7 +265,7 @@ class AdminDashboard extends Component {
           )}
           <NewCohortButton onClick={this.TriggerNewCohortForm}>
           </NewCohortButton>
-          </CohortCards>
+          </CohortCards>HELLO
           <ContentContainer>
             {CohortDetail}
             {this.showNewAssignmentForm()}
