@@ -78,6 +78,7 @@ class AdminDashboard extends Component {
 
 componentDidMount() {
   if(this.props.token != null){
+    localStorage.setItem('jwt', JSON.stringify(this.props.token))
     getAdminDashboardData(this.props.token)
     .then(response=>response.json())
     .then(response=> {this.setState({
