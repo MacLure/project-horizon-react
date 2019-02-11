@@ -2,7 +2,7 @@ const initialState ={
   isAuthenticated: false,
   isAuthenticating: false,
   currentUser: {},
-  token: null,
+  token: JSON.parse(localStorage.getItem("jwt"))||null,
   errors: []
 };
 
