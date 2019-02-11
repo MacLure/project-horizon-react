@@ -290,7 +290,7 @@ componentDidMount() {
           <NewCohortButton onClick={this.TriggerNewCohortForm}>
               <img style={{margin:"0 auto", width: "20%"}} src={plus} />
           </NewCohortButton>
-          </CohortCards>
+          </CohortCards>HELLO
           <ContentContainer>
             {CohortDetail}
             {this.showNewAssignmentForm()}
