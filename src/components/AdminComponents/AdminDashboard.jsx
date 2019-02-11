@@ -11,8 +11,7 @@ import NewAssignmentForm from './NewAssignmentForm';
 import NewStudentForm from './NewStudentForm';
 import NewAdminForm from './NewAdminForm';
 import NewEventForm from './NewEventForm';
-import AdminEventDetails from './AdminEventDetails'
-import plus from './../../assets/Icons/plus.svg'
+
 
 const Container = styled.div`
   display: grid;
@@ -37,13 +36,8 @@ transition: 0.2s;
 opacity: 1;
 cursor: pointer;
 display: flex;
-align-items: center;
-text-align: center;
+justify-content: flex-start;
 
-:hover {
-  background-color: #17B57E;
-  transition: 0.2s;
-}
 `
 
 const ContentContainer = styled.div`
@@ -77,36 +71,35 @@ class AdminDashboard extends Component {
       showNewStudentForm: false,
       showNewAdminForm: false,
       showNewEventForm: false,
-      showEventDetails: false,
       selectedCohort: null,
     }
     this.showNewCohortForm = this.showNewCohortForm.bind(this)
   }
 
-componentDidMount() {
-  if(this.props.token != null){
-    localStorage.setItem('jwt', JSON.stringify(this.props.token))
-    getAdminDashboardData(this.props.token)
-    .then(response=>response.json())
-    .then(response=> {this.setState({
-        id: response.id,
-        admins: response.admins,
-        cohorts: response.cohorts,
-        students: response.students,
-        student_notes: response.student_notes,
-        assignments: response.assignments,
-        submissions: response.submissions,
-        submission_comments: response.submission_comments,
-        company_notes: response.company_notes,
-        contact_notes: response.contact_notes,
-        events: response.events,
-        onFocusData: response.cohorts[0]
-      });
-    })
-  }else{
-    this.props.history.push('/')
+  componentDidMount() {
+    if(this.props.token != null){
+      localStorage.setItem('jwt', JSON.stringify(this.props.token))
+      getAdminDashboardData(this.props.token)
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+          id: response.id,
+          admins: response.admins,
+          cohorts: response.cohorts,
+          students: response.students,
+          student_notes: response.student_notes,
+          assignments: response.assignments,
+          submissions: response.submissions,
+          submission_comments: response.submission_comments,
+          company_notes: response.company_notes,
+          contact_notes: response.contact_notes,
+          events: response.events,
+          onFocusData: response.cohorts[0]
+        });
+      })
+    }else{
+      this.props.history.push('/')
+    }
   }
-}
 
     getCohortStudents = (studentArr, cohortId) => {
       let arr = studentArr.filter(student => student.cohort_id === cohortId)
@@ -136,11 +129,10 @@ componentDidMount() {
       this.props.history.push('/')
     }
     TriggerNewCohortForm = () => {this.setState({showNewCohortForm: true})}
-    TriggerNewAssignmentForm = () => {this.setState({showNewAssignmentForm: true})}
-    TriggerNewStudentForm = () => {this.setState({showNewStudentForm: true})}
-    TriggerNewAdminForm = () => {this.setState({showNewAdminForm: true})}
-    TriggerNewEventForm = () => {this.setState({showNewEventForm: true})}
-    TriggerEventDetails = (event) => {this.setState({showEventDetails: event})}
+    TriggerNewAssignmentForm = (data) => {this.setState({showNewAssignmentForm: true})}
+    TriggerNewStudentForm = (data) => {this.setState({showNewStudentForm: true})}
+    TriggerNewAdminForm = (data) => {this.setState({showNewAdminForm: true})}
+    TriggerNewEventForm = (data) => {this.setState({showNewEventForm: true})}
 
     showNewCohortForm = () => {
       if (this.state.showNewCohortForm ) {
@@ -202,27 +194,11 @@ componentDidMount() {
       }
     }
 
-    showEventDetails = () => {
-      if (this.state.showEventDetails ) {
-        return (
-          <AdminEventDetails
-            eventId = {this.state.onFocusData.id}
-            eventSuccess = {this.reload}
-            escapeEventDetailsModal = {this.escapeEventDetailsModal}
-            event = {this.state.showEventDetails}
-            deleteSuccess={this.reload}
-
-          />
-        )
-      }
-    }
-
     escapeNewEventModal = () => {this.setState({showNewEventForm: false})}
     escapeNewStudentModal = () => {this.setState({showNewStudentForm: false})}
     escapeNewAssignmentModal = () => {this.setState({showNewAssignmentForm: false})}
     escapeNewCohortModal = () => {this.setState({showNewCohortForm: false})}
     escapeNewAdminModal = () => {this.setState({showNewAdminForm: false})}
-    escapeEventDetailsModal = () => {this.setState({showEventDetails: false})}
 
 
 
@@ -268,7 +244,6 @@ componentDidMount() {
         TriggerNewStudentForm={this.TriggerNewStudentForm}
         TriggerNewAdminForm={this.TriggerNewAdminForm}
         TriggerNewEventForm={this.TriggerNewEventForm}
-        TriggerEventDetails={this.TriggerEventDetails}
 
       />
     }
@@ -289,7 +264,6 @@ componentDidMount() {
             )
           )}
           <NewCohortButton onClick={this.TriggerNewCohortForm}>
-              <img style={{margin:"0 auto", width: "20%"}} src={plus} />
           </NewCohortButton>
           </CohortCards>
           <ContentContainer>
@@ -299,7 +273,6 @@ componentDidMount() {
             {this.showNewAdminForm()}
             {this.showNewEventForm()}
             {this.showNewCohortForm()}
-            {this.showEventDetails()}
 
           </ContentContainer>
         </Container>
