@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SubmissionComment from './../CommonComponents/SubmissionComment'
-
+import StudentStyles from './../../Student.css'
 class SubmissionDetails extends Component {
 
 

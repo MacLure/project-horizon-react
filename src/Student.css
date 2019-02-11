@@ -1,0 +1,144 @@
+/* -----------------------------------------
+  StudentDashboard
+----------------------------------------- */
+
+.dashboard {
+  display: grid;
+  margin: 25px 60px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2;
+}
+
+.eventsGrid {
+  grid-column-start: 1fr;
+  grid-row-start: 1;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+}
+
+.assignmentsGrid {
+  grid-column-start: 1fr;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr
+}
+
+/* -----------------------------------------
+  StudentCohortDetails
+----------------------------------------- */
+
+.infoCard {
+  background-color: #2A2C33;
+  margin: 20px 10px;
+  width: 500px;
+  height: 150px;
+  border-radius: 2px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+/* -----------------------------------------
+  StudentEventList
+----------------------------------------- */
+  .eventsContainer {
+    background-color: #2A2C33;
+    margin: 20px 10px;
+    width: 500px;
+    height: 650px;
+    border-radius: 2px;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+/* -----------------------------------------
+  StudentEvent
+----------------------------------------- */
+  .eventCard {
+    background-color: #3f4147;
+    margin: 0 auto;
+    width: 80%;
+    height: 150px;
+    border-radius: 2px;
+    /* grid-column-start: 1;
+    gird-row-start: 2; */
+  }
+
+
+/* -----------------------------------------
+  StudentAssignmentsContainer
+----------------------------------------- */
+  .assignmentContainer {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 3px solid green;
+    width: 500px;
+    height: 500px;
+    background-color: #2A2C33;
+  }
+
+/* -----------------------------------------
+StudentAssignmentList
+----------------------------------------- */
+/* no styles yet */
+
+/* -----------------------------------------
+StudentAssignment
+----------------------------------------- */
+/* no styles yet */
+
+/* -----------------------------------------
+StudentSubmissionDetails
+----------------------------------------- */
+/* no styles yet */
+
+
+/* -----------------------------------------
+StudentNavBar
+----------------------------------------- */
+
+.menuBar {
+  width: 100%;
+  height: 60px;
+  background-color: #363A42;
+}
+
+.navList {
+  padding: 0px;
+  background-color: #363A42;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20px;
+  float: right;
+}
+
+.navItem {
+  background-color: #363A42;
+  font-size: 15px;
+  list-style-type: none;
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.navItem:hover {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
+.icon {
+  height: 30px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: inherit;
+  float: left;
+}
+
+/* Bye */

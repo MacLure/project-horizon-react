@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import StudentStyles from './../../Student.css'
 import StudentEvent from './StudentEvent';
-
-const EventsCard = styled.div`
-  background-color: #2A2C33;
-  margin: 20px 10px;
-  width: 500px;
-  height: 650px;
-  border-radius: 2px;
-  grid-column-start: 1;
-  gird-row-start: 2;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-`
-
 
 // MAY NEED THIS
 // -------------------------------------------
@@ -48,7 +34,7 @@ class StudentEventsList extends Component {
     const events = this.state.events
 
   return (
-    <EventsCard>
+    <div className="eventsContainer">
     {events.map(event => (
       <StudentEvent
         key={event.id}
@@ -58,7 +44,7 @@ class StudentEventsList extends Component {
         time={event.time}
       />
         ))}
-    </EventsCard>
+    </div>
     );
   }
 }

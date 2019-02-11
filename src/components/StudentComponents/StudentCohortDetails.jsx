@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import StudentStyles from './../../Student.css'
 
-const InfoCard = styled.div`
-  background-color: #2A2C33;
-  margin: 20px 10px;
-  width: 500px;
-  height: 150px;
-  border-radius: 2px;
-  grid-column-start: 1;
-  gird-row-start: 1;
-`
 
 // INCLUDES COHORT DETAILS/S
 
@@ -21,12 +12,12 @@ class StudentCohortDetails extends Component {
 
     return (
       <React.Fragment>
-        <InfoCard>
+        <div className="infoCard">
           <p>{name}</p>
           <p>{course_type}</p>
           <p>{start_date}</p>
           <p>{end_date}</p>
-        </InfoCard>
+        </div>
 
       </React.Fragment>
 

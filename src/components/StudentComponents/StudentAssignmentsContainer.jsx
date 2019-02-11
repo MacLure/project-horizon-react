@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import StudentStyles from './../../Student.css'
 import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
 import SubmissionComments from './../CommonComponents/SubmissionComment';
-
-const Container = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  border: 3px solid green;
-  width: 500px;
-  height: 500px;
-  background-color: #2A2C33;
-
-`
 
 class StudentAssignmentsContainer extends Component {
   constructor(props) {
@@ -58,14 +47,14 @@ onAssignmentClick = (data) => {
 
     return (
       <React.Fragment>
-        <Container>
+        <div className="assignmentContainer">
           <StudentAssignmentsList
             submissions={this.props.submissions}
             assignments={this.props.assignments}
             submissionComments={this.props.submissionComments}
             onCohortClick={this.onAssignmentClick}
             />
-        </Container>
+        </div>
       </React.Fragment>
     );
   }

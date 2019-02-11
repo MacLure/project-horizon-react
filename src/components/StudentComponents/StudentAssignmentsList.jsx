@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StudentAssignment from './StudentAssignment';
 import StudentProgressCircle from './StudentProgressCircle';
-import styled from 'styled-components';
+import StudentStyles from './../../Student.css'
 import SubmissionDetails from './SubmissionDetails';
 import NewSubmissionForm from './NewSubmissionForm';
 

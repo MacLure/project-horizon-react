@@ -1,32 +1,13 @@
 import React, { Component } from 'react';
 import Footer from '../CommonComponents/Footer';
 import StudentNavbar from './StudentNavbar';
-import styled from 'styled-components';
+import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
 import {getStudentDashboardData} from '.././../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
 
-const Container = styled.div`
-  display: grid;
-  margin: 25px 60px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2;
-`
-const Info_EventsGrid = styled.div`
-  grid-column-start: 1fr;
-  grid-row-start: 1;
-  display: grid;
-  grid-template-columns:  1fr 1fr;
-`
-
-const AssignmentsGrid = styled.div`
-  grid-column-start: 1fr;
-  grid-row-start: 2;
-  display: grid;
-  grid-template-columns: 1fr 2fr
-`
 
 class StudentDashboard extends Component {
   constructor (props) {
@@ -67,7 +48,7 @@ class StudentDashboard extends Component {
     return (
       <React.Fragment>
         <StudentNavbar/>
-        <Container>
+        <div className="dashboard">
           <StudentCohortDetails
             name={this.state.cohort.name}
             course_type={this.state.cohort.course_type}
@@ -83,7 +64,7 @@ class StudentDashboard extends Component {
             submissionComments={this.state.submissionComments}
             onFocusData={this.state.onFocusData}
           />
-        </Container>
+        </div>
         <Footer/>
       </React.Fragment>
     );

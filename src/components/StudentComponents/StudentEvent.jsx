@@ -1,15 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const EventsCard = styled.div`
-  background-color: #3f4147;
-  margin: 0 auto;
-  width: 80%;
-  height: 150px;
-  border-radius: 2px;
-  /* grid-column-start: 1;
-  gird-row-start: 2; */
-`
+import StudentStyles from './../../Student.css'
 
 class StudentEvent extends Component {
   state = {  }
@@ -20,12 +10,12 @@ class StudentEvent extends Component {
 
     return (
       <React.Fragment>
-        <EventsCard>
+        <div className="eventCard">
           <p>{name}</p>
           <p>{date}</p>
           <p>{time}</p>
           <p>{body}</p>
-        </EventsCard>
+        </div>
       </React.Fragment>
 
      );
