@@ -276,6 +276,7 @@ componentDidMount() {
       <React.Fragment>
         <AdminNavBar/>
         <Container>
+        <h2>Hello</h2>
           <CohortCards>
           {this.state.cohorts
             .map((cohort, index) => (
