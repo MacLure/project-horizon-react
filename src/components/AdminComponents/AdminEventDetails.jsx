@@ -138,6 +138,10 @@ class AdminEventDetails extends Component {
 
   }
 
+  options = {year: 'numeric', month: 'short', day: 'numeric' };
+  formattedDate = new Date(Date.parse(this.props.event.date)).toLocaleString('en', this.options)
+  formattedEndDate = new Date(Date.parse(this.props.event.end_date)).toLocaleString('en', this.options)
+
 
   handleDelete = (e) => {
     e.preventDefault();
@@ -155,7 +159,7 @@ class AdminEventDetails extends Component {
      <Container>
       <ModalEscape  onClick={this.props.escapeEventDetailsModal}>×</ModalEscape>
         <Title>{this.props.event.name}</Title>
-        <p>{this.props.event.date} @ {this.props.event.time}</p>
+        <p>{this.formattedDate} @ {this.props.event.time}</p>
         <p>{this.props.event.body}</p>
         <button onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
 

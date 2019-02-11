@@ -11,7 +11,6 @@ class StudentCohortDetails extends Component {
     const { name, course_type, end_date, start_date } = this.props
 
     const options = {year: 'numeric', month: 'short', day: 'numeric' };
-
     const formattedStartDate = new Date(Date.parse(start_date)).toLocaleString('en', options)
     const formattedEndDate = new Date(Date.parse(end_date)).toLocaleString('en', options)
     const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
