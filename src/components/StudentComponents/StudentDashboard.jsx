@@ -58,11 +58,11 @@ class StudentDashboard extends Component {
           />
 
           <div className="eventsContainer">
-          <p>Events:</p>
           {this.state.events.map( event => (
             <div key={event.id}>
-              <p>{event.name}</p>
-              <p>{event.date} @ {event.time}</p>
+              name={event.name}
+              date={event.date}
+              time={event.time}
             </div>
               ))}
           </div>

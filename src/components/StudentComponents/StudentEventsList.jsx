@@ -29,6 +29,8 @@ class StudentEventsList extends Component {
     events: this.props.events
   }
 
+
+
 }
   render() {
     const events = this.props.events
