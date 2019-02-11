@@ -134,7 +134,6 @@ componentDidMount() {
     TriggerNewEventForm = (data) => {this.setState({showNewEventForm: true})}
 
     showNewCohortForm = () => {
-      console.log("OK")
       if (this.state.showNewCohortForm ) {
         return (
           <NewCohortForm
