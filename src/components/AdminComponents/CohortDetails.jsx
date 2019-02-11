@@ -4,10 +4,8 @@ import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
-import AdminEventsList from './AdminEventsList'
 import { connect } from 'react-redux';
 import  {deleteCohort} from '.././../service';
-import  {getAdminDashboardData} from '.././../service';
 
 
 const CohortCard = styled.div`
@@ -84,6 +82,7 @@ const ListItem = styled.li`
   background-color: inherit;
   margin: 20px auto;
   text-align: left;
+  cursor:pointer;
 `
 const AddStudentForm = styled.div`
 `
@@ -143,7 +142,8 @@ class CohortDetails extends Component {
       students: props.students,
       admins: props.admins,
       assignments: props.assignments,
-      events: props.events
+      events: props.events,
+      selectedEvent: null,
     }
 
     // this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
@@ -189,8 +189,14 @@ class CohortDetails extends Component {
 
   }
 
+  handleEventClick = (e) => {
+    this.setState({
+      selectedEvent: e
+    })
+  }
+
   reload = () =>{
-this.setState(this.state)
+    this.setState(this.state)
   }
 
   render() {
@@ -238,7 +244,7 @@ this.setState(this.state)
 
   if(this.props.cohortEvents){
     this.cEvents = this.props.cohortEvents.map(event => (
-      <ListItem key={event.id}>{event.name}</ListItem>
+      <ListItem key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</ListItem>
     ))
   }
 

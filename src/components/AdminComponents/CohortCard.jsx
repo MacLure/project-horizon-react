@@ -17,7 +17,7 @@ const Card = styled.div`
   justify-content: flex-start;
 
   :hover {
-    opacity: 0.5;
+    background-color: rgba(42, 44, 51, 0.5);
     transition: 0.2s;
   }
 `
@@ -25,20 +25,20 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3;
-  background-color: inherit;
+  background-color: transparent;
   padding-left: 20px;
 `
 
 const CohortName = styled.h3`
   padding-top: 20px;
   padding-bottom: 7px;
-  background-color: inherit;
+  background-color: transparent;
   text-align: left;
   grid-column-start: 1;
   grid-row-start: 1;
 `
 const Dates = styled.p`
-  background-color: inherit;
+  background-color: transparent;
   color: gray;
   font-size: 14px;
   text-align: left;
@@ -48,7 +48,7 @@ const Dates = styled.p`
 `
 
 const Text = styled.p`
-  background-color: inherit;
+  background-color: transparent;
   text-align: left;
   padding-bottom: 14px;
   grid-column-start: 1;
@@ -89,7 +89,7 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <Card
-        style={{border:props.isActive ? "3px solid #8e44ad": ""}}
+        style={{border:props.isActive ? "3px solid #FC6404": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}
       >
       <Grid>

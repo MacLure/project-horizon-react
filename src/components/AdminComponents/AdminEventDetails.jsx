@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import  {deleteEvent} from '.././../service';
+import { connect } from 'react-redux';
+
+
 
 const ModalBG = styled.div`
 background-color: rgba(0, 0, 0, 0.5);
@@ -118,7 +122,7 @@ const Button = styled.button`
     transition: opacity 0.5s;
   }`
 
-class NewAdminForm extends Component {
+class AdminEventDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -130,25 +134,18 @@ class NewAdminForm extends Component {
       image_url: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
   }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
 
-  handleSubmit(event) {
-    event.preventDefault();
-      // fetch('http://localhost:3000/api/admin/cohorts', {
-      let data = this.state
-      console.log(data);
-        fetch(`https://project-horizon-rails.herokuapp.com/api/admin/students?student=${JSON.stringify(data)}`, {
-        method: 'post',
-        mode: "cors"
-      }).then(response => {console.log(this.state)})
-      .then(this.props.escapeNewAdminModal)
+  handleDelete = (e) => {
+    e.preventDefault();
+    let event_id = this.props.event.id
+    deleteEvent(event_id, this.props.token)
+    .then(e=>this.props.deleteSuccess())
+    .then(this.props.escapeEventDetailsModal)
+
   }
 
  render() {
@@ -156,27 +153,12 @@ class NewAdminForm extends Component {
      <React.Fragment>
      <ModalBG>
      <Container>
-      <ModalEscape  onClick={this.props.escapeNewAdminModal}>×</ModalEscape>
-        <Title>Add Admin</Title>
-        <Form method="post" onSubmit={this.handleSubmit}>
-          <FirstName>
-            <Label htmlFor="first_name">First Name</Label>
-            <Input type="text" name="first_name" placeholder="John"  value={this.state.first_name} onChange={this.handleChange}></Input>
-          </FirstName>
-          <LastName>
-            <Label htmlFor="last_name">Last Name</Label>
-            <Input type="text" name="last_name" placeholder="Smith"  value={this.state.last_name} onChange={this.handleChange}></Input>
-          </LastName>
-          <Phone>
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input type="tel" name="phone" placeholder="555-555-5555"  value={this.state.phone} onChange={this.handleChange}></Input>
-          </Phone>
-          <Email>
-            <Label htmlFor="email">Email</Label>
-            <Input type="text" name="email" placeholder="hello@mail.com" value={this.state.email} onChange={this.handleChange}></Input>
-          </Email>
-         <br/><Button type="submit">Submit</Button>
-       </Form>
+      <ModalEscape  onClick={this.props.escapeEventDetailsModal}>×</ModalEscape>
+        <Title>{this.props.event.name}</Title>
+        <p>{this.props.event.date} @ {this.props.event.time}</p>
+        <p>{this.props.event.body}</p>
+        <button onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+
       </Container>
       </ModalBG>
 
@@ -185,4 +167,23 @@ class NewAdminForm extends Component {
  }
 }
 
-export default NewAdminForm;
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return  {
+    onTokenReceive: token => dispatch({ type: "SET_USER_TOKEN", payload: token})
+  }
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(AdminEventDetails);

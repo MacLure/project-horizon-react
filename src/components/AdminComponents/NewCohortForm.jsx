@@ -135,6 +135,8 @@ class NewCohortForm extends Component {
     createNewCohort(data, this.props.token)
     .then(e=>e.json())
     .then(e=>this.props.cohortSuccess())
+    .then(this.props.escapeNewCohortModal)
+
   }
 
 
@@ -144,7 +146,7 @@ class NewCohortForm extends Component {
       <React.Fragment>
       <ModalBG>
       <Container>
-       <ModalEscape  onClick={this.props.escapeNewCohortModal}>X</ModalEscape>
+       <ModalEscape  onClick={this.props.escapeNewCohortModal}>×</ModalEscape>
        <Title>New Cohort</Title>
       <Form onSubmit={this.handleSubmit}>
         <Name>

@@ -140,7 +140,6 @@ export const createNewStudent = (data, token) => {
   })
 }
 
-
 // doesn't work
 export const deleteAssignment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
@@ -174,15 +173,47 @@ export const createNewEvent = (data, token) => {
 
 
 // doesn't work
-export const deleteEvent = (cohort_id, token) => {
+export const deleteEvent = (event_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/events?event=${JSON.stringify(cohort_id)}`, {
+    fetch(`${rootURL}/admin/events/${event_id}?${JSON.stringify(event_id)}`, {
       method: 'delete',
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+
+
+// export const deleteCohort = (cohort_id, token) => {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohort_id': cohort_id})}`, {
+//       method: 'delete',
+//       headers: {
+//         "Authorization": `${token}`,
+//         'Content-Type': 'application/json'
+//       },
+//       mode: "cors"})
+//     .then(e=>e.ok?resolve(e):reject(e))
+//     .catch(e => console.log('ERR: ', e))
+//   })
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 
 // doesn't work
 export const createNewSibmission = (data, token) => {

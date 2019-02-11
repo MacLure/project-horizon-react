@@ -148,6 +148,8 @@ class NewStudentForm extends Component {
     createNewStudent(data, this.props.token)
     .then(e=>e.json())
     .then(e=>this.props.studentSuccess())
+    .then(this.props.escapeNewStudentModal)
+
   }
 
  render() {
@@ -155,7 +157,7 @@ class NewStudentForm extends Component {
      <React.Fragment>
      <ModalBG>
      <Container>
-      <ModalEscape  onClick={this.props.escapeNewStudentModal}>X</ModalEscape>
+      <ModalEscape  onClick={this.props.escapeNewStudentModal}>×</ModalEscape>
         <Title>Add Student</Title>
         <Form onSubmit={this.handleSubmit}>
           <FirstName>

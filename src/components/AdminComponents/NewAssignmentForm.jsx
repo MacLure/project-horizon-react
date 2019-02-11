@@ -145,6 +145,8 @@ class NewAssignmentForm extends Component {
     createNewAssignment(data, this.props.token)
     .then(e=>e.json())
     .then(e=>this.props.assignmentSuccess())
+    .then(this.props.escapeNewAssignmentModal)
+
   }
 
   render() {
@@ -152,7 +154,7 @@ class NewAssignmentForm extends Component {
       <React.Fragment>
       <ModalBG>
       <Container>
-       <ModalEscape  onClick={this.props.escapeNewAssignmentModal}>X</ModalEscape>
+       <ModalEscape  onClick={this.props.escapeNewAssignmentModal}>×</ModalEscape>
            <Title>Create Assignment</Title>
           <Form onSubmit={this.handleSubmit}>
             <AssignmentName>

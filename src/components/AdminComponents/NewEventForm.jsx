@@ -128,6 +128,8 @@ class NewEventForm extends Component {
     createNewEvent(data, this.props.token)
     .then(e=>e.json())
     .then(e=>this.props.eventSuccess())
+    .then(this.props.escapeNewEventModal)
+
   }
 
 
@@ -136,7 +138,7 @@ class NewEventForm extends Component {
      <React.Fragment>
      <ModalBG>
      <Container>
-      <ModalEscape  onClick={this.props.escapeNewEventModal}>X</ModalEscape>
+      <ModalEscape  onClick={this.props.escapeNewEventModal}>×</ModalEscape>
         <Title>Add Event</Title>
         <Form method="post" onSubmit={this.handleSubmit}>
           <div>
