@@ -122,7 +122,8 @@ class Login extends Component {
         user: null,
         email: '',
         password: '',
-        loader: ''
+        loader: false,
+        error: null,
        }
   }
 
@@ -141,24 +142,41 @@ class Login extends Component {
   }
 
   onSubmit = () => {
-    this.setState({loader: "loading..."})
     if (this.state.user === 'admin') {
+      if (!this.state.email || !this.state.password) {
+        this.setState({error: "email or password missing"})
+      }
       if (this.state.email !== '' && this.state.password !== '') {
+        this.setState({loader: true})
+        this.setState({error: null})
         onAdminLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
           this.props.onTokenReceive(e.jwt)
           this.props.history.push('/admin')
         })
+        .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "email or password incorrect"})
+      })
       }
     } else if (this.state.user === 'student') {
+      if (!this.state.email || !this.state.password) {
+        this.setState({error: "email or password missing"})
+      }
       if (this.state.email !== '' && this.state.password !== '') {
+        this.setState({loader: true})
+        this.setState({error: null})
         onStudentLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
           this.props.onTokenReceive(e.jwt)
           this.props.history.push('/student')
         })
+        .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "email or password incorrect"})
+      })
       }
     }
   }
@@ -174,6 +192,7 @@ class Login extends Component {
           }}></Input>
       <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
       {this.state.loader ? <img className="loader" src={loading} /> : null}
+      {this.state.error ? this.state.error : null}
       </Form>
   }
 
