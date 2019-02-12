@@ -3,7 +3,7 @@
 > Front end client for the Horizon web app.
 
 <p align="center">
-  <img src="src/assets/logo-orange.png" />
+  <img src="https://github.com/MacLure/project-horizon-react/blob/master/src/assets/img/logo-orange.png" />
 </p>
 
 Horizon is a student outcomes and success app designed for schools.
