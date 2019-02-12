@@ -69,7 +69,7 @@ const Input = styled.input`
   background-color: transparent;
 
   ::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     opacity: 1;
   }
 `
