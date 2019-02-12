@@ -32,7 +32,6 @@ We wanted to make an app for schools to manage their outcomes and student succes
 
 ### [Live App](https://project-horizon-react.herokuapp.com/)
 
-#### login credentials:
 ##### Admin login:
 :bust_in_silhouette: `sally.mcadmin@horizon.com`
 :key: `password`
