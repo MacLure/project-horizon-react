@@ -138,6 +138,10 @@ class AdminEventDetails extends Component {
 
   }
 
+  options = {year: 'numeric', month: 'short', day: 'numeric' };
+  formattedDate = new Date(Date.parse(this.props.event.date)).toLocaleString('en', this.options)
+  hour = new Date(Date.parse(this.props.event.time)).getHours()
+  minute = new Date(Date.parse(this.props.event.time)).getMinutes()
 
 
   handleDelete = (e) => {
