@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {onAdminLogin} from '.././../service';
 import  {onStudentLogin} from '.././../service';
-import { Link } from 'react-router-dom';
+import './../../Common.css'
 import Logo from '../../assets/img/horizon_text2.svg';
-import horizon_logo from '../../assets/img/horizon_logo.svg';
+import loading from '../../assets/Icons/loading.svg';
 
 const LogoContainer = styled.div`
   text-align: center;
@@ -113,13 +113,16 @@ const Button = styled.button`
       box-shadow: (0 0 10px 10px #000)
   }`
 
+
+
 class Login extends Component {
   constructor(props) {
     super(props)
       this.state = {
         user: null,
         email: '',
-        password: ''
+        password: '',
+        loader: ''
        }
   }
 
@@ -138,6 +141,7 @@ class Login extends Component {
   }
 
   onSubmit = () => {
+    this.setState({loader: "loading..."})
     if (this.state.user === 'admin') {
       if (this.state.email !== '' && this.state.password !== '') {
         onAdminLogin(this.state.email, this.state.password)
@@ -169,6 +173,7 @@ class Login extends Component {
           this.setState({password: e.target.value})
           }}></Input>
       <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
+      {this.state.loader ? <img className="loader" src={loading} /> : null}
       </Form>
   }
 
