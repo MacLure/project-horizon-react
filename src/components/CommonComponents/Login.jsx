@@ -113,6 +113,9 @@ const Button = styled.button`
       box-shadow: (0 0 10px 10px #000)
   }`
 
+  const Notice = styled.div`
+  text-align: center;
+  `
 
 
 class Login extends Component {
@@ -191,8 +194,10 @@ class Login extends Component {
           this.setState({password: e.target.value})
           }}></Input>
       <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
+      <Notice>
       {this.state.loader ? <img className="loader" src={loading} /> : null}
       {this.state.error ? this.state.error : null}
+      </Notice>
       </Form>
   }
 
