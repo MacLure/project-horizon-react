@@ -38,7 +38,7 @@ class StudentEventsList extends Component {
   return (
     <div className="eventsContainer">
     {events.map( event => (
-      <div class="eventItem" key={event.id}>
+      <div className="eventItem" key={event.id}>
         <p>{event.name}</p>
         <p>{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</p>
         

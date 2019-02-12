@@ -17,6 +17,7 @@ class StudentDashboard extends Component {
 
     this.state = {
       cohort: {},
+      student: {},
       classmates: [],
       assignments: [],
       submissions: [],
@@ -89,6 +90,8 @@ class StudentDashboard extends Component {
         <StudentNavbar/>
         <div className="dashboard">
           <StudentCohortDetails
+            studentFirstName={this.state.student.first_name}
+            studentLastName={this.state.student.last_name}
             name={this.state.cohort.name}
             course_type={this.state.cohort.course_type}
             start_date={this.state.cohort.start_date}

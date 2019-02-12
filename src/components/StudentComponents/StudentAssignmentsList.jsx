@@ -42,7 +42,6 @@ documentDidMount() {
   this.getAssignmentInfo()
 }
 
-
   render() {
 
   const {assignments, submissions, submissionComments} = this.props
