@@ -81,7 +81,9 @@ const CohortCard = (props) => {
   }
 
   const courseProgress = () => {
-    if (daysLeft > 0) {
+    if (daysLeft <= 0) return 100;
+    else if (daysLeft > courseDays) return 0;
+    else if (daysLeft > 0) {
       return Math.round( 100 - daysLeft / courseDays * 100)
     }
   }
@@ -97,7 +99,7 @@ const CohortCard = (props) => {
         <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
         <Text>{daysLeftDisplay()}</Text>
       </Grid>
-        <Progress>{courseProgress() > 0 && courseProgress() < 100 ? <CohortProgressCircle progress={courseProgress}/> : ''}</Progress>
+        <Progress><CohortProgressCircle progress={courseProgress}/></Progress>
       </Card>
     </React.Fragment>
    );

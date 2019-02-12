@@ -8,7 +8,7 @@ class StudentCohortDetails extends Component {
   state = {  }
   render() {
 
-    const { name, course_type, end_date, start_date } = this.props
+    const { name, course_type, end_date, start_date, studentFirstName, studentLastName } = this.props
 
     const options = {year: 'numeric', month: 'short', day: 'numeric' };
     const formattedStartDate = new Date(Date.parse(start_date)).toLocaleString('en', options)
@@ -29,6 +29,7 @@ class StudentCohortDetails extends Component {
     return (
       <React.Fragment>
         <div className="infoCard">
+          <p>{studentFirstName} {studentLastName}</p>
           <p>{name}</p>
           <p>{course_type}</p>
           <p>{formattedStartDate}</p>
