@@ -13,7 +13,8 @@ Horizon is a student outcomes and success app designed for schools.
 - [Screenshots](#screenshots)
 - [Motivation](#motivation)
 - [Getting started](#getting-started)
-- [Usage](#usage)
+- [Take a Tour](#take-a-tour)
+- [Run Horizon Locally](#run-horizon-locally)
 - [Tech Stack](#tech-stack)
 - [Developer team](#developer-team)
 
