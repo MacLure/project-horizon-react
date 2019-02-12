@@ -7,7 +7,7 @@ import {getStudentDashboardData} from '.././../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
-import AdminEventDetails from './../AdminComponents/AdminEventDetails'
+import StudentEventDetails from './StudentEventDetails'
 
 
 
@@ -53,7 +53,7 @@ class StudentDashboard extends Component {
   showEventDetails = () => {
     if (this.state.showEventDetails ) {
       return (
-          <AdminEventDetails
+          <StudentEventDetails
           events={this.state.events}
           eventId = {this.state.showEventDetails.id}
           eventSuccess = {this.reload}
@@ -99,7 +99,9 @@ class StudentDashboard extends Component {
           />
 
         <StudentEventsList 
-          events={this.state.events} />
+          events={this.state.events}
+          TriggerEventDetails={this.TriggerEventDetails}  
+        />
 
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
