@@ -3,7 +3,7 @@
 > Front end client for the Horizon web app.
 
 <p align="center">
-  <img src=".src//assets/horizon_text2.svg" />
+  <img src="src//assets/horizon_text2.svg" />
 </p>
 
 Horizon is a student outcomes and success app designed for schools.
