@@ -3,7 +3,7 @@
 > Front end client for the Horizon web app.
 
 <p align="center">
-  <img src="./assets/horizon_text2.svg" width="100%">
+  <img src=".src//assets/horizon_text2.svg" />
 </p>
 
 Horizon is a student outcomes and success app designed for schools.
@@ -19,15 +19,8 @@ Horizon is a student outcomes and success app designed for schools.
 
 ## Screenshots
 
-<p align="center">
-  <img src="" />
-</p>
-
 Your school's outcomes and student success portal with everything you need to track assignments, events, and teacher comments - all in one place!
 
-<p align="center">
-  <img src="" />
-</p>
 
 Students:  Access your assignments, upcoming events, and view feedback on your own personal dashboard.
 
