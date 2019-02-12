@@ -53,6 +53,13 @@
     flex-direction: column;
   }
 
+  .eventItem {
+  }
+
+  .eventItem:hover {
+    cursor: pointer;
+  }
+
 /* -----------------------------------------
   StudentEvent
 ----------------------------------------- */
@@ -83,7 +90,12 @@
 /* -----------------------------------------
 StudentAssignmentList
 ----------------------------------------- */
-/* no styles yet */
+.assignmentItem {
+}
+
+.assignmentItem:hover {
+  cursor: pointer;
+}
 
 /* -----------------------------------------
 StudentAssignment

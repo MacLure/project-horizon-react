@@ -70,7 +70,7 @@ npm start
 
 ## Tech Stack
 
-### Front-end
+### Front-end:
 
 - [React](https://reactjs.org//)
 - [Redux](https://redux.js.org/)
