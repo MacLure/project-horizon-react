@@ -8,14 +8,23 @@ class StudentAssignment extends Component {
 
   options = {year: 'numeric', month: 'short', day: 'numeric' };
 
-  
+   assignmentSubmitted = () => {return (this.props.submission)}
+   assignmentOverDue = () => {return (!this.props.submission && (Date.now() - Date.parse(this.propsdue_date) > 0))}
+
+    submissionStatus = () => {
+      if (this.assignmentSubmitted()) {
+        return {backgroundColor: 'green'}
+      } else if (this.assignmentOverDue()) {
+        return {backgroundColor: 'red'}
+      }
+    }
   
 
   render() {
     const { name, body, dueDate, data, onAssignmentClick } = this.props
 
     return (
-      <div className="assignmentItem" style={{textAlign:'center'}}
+      <div className="assignmentItem" style={this.submissionStatus()}
         onClick={e=>{onAssignmentClick(data)}}
       >
         <p>{name}</p>

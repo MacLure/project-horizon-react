@@ -64,12 +64,14 @@ documentDidMount() {
         {assignments.map((assignment, index) => (
         <StudentAssignment
           key={assignment.id}
+          id={assignment.id}
           name={assignment.name}
           body={assignment.body}
           dueDate={assignment.due_date}
           data={assignment}
           onAssignmentClick={this.onAssignmentClick}
           isActive={this.state.selectedCohort === index}
+          submission={this.props.submissions.filter(submission => submission.assignment_id === assignment.id)[0]}
         />
         ))}
 
