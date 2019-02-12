@@ -43,20 +43,28 @@ We wanted to make an app for schools to manage their outcomes and student succes
 
 ## Run Horizon Locally:
 
-1. Clone the [horizon_server](https://github.com/MacLure/project-horizon-rails) repo.
-2. Run migrations and seeds:
+1. Clone this repository 
+2. In the repository's directory, install gems:
+```
+bundle install
+```
+3. In the repository's directory, run migrations and seeds:
 ```
 rails db:migrate
 rails db:seed
 ```
-3. Clone this repository
-4. Download dependencies:
+4. Clone the [Horizon client](https://github.com/MacLure/project-horizon-rails) repository
+5. In the client repository's directory, download dependencies:
 ```
 npm install
 ```
-5. Start a server:
+6. Start servers in each directory:
+- In the server directory:
 ```
-cd project-horizon-react
+rails server
+```
+- In the client directory:
+```
 npm start
 ```
 
