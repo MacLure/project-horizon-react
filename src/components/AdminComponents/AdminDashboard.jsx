@@ -15,17 +15,16 @@ import AdminEventDetails from './AdminEventDetails'
 import plus from './../../assets/Icons/plus.svg'
 
 const Container = styled.div`
-  display: grid;
   grid-template-columns: 1fr;
 `
 
 const CohortCards = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  grid-column-start: 1;
+  width: 100vw;
+  height: 400px;
+  overflow: scroll;
 `
+
+
 const NewCohortButton = styled.div`
 background-color: rgba(42, 44, 51, 1);
 margin: 20px 10px;
@@ -62,7 +61,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
+      cohorts: [],
       students: [],
       student_notes: [],
       assignments: [],
@@ -238,6 +237,7 @@ componentDidMount() {
         .then(response=>response.json())
         .then(response=> {this.setState({
           admins: response.admins,
+          cohorts: response.cohorts,
           students: response.students,
           assignments: response.assignments,
           events: response.events,
@@ -288,7 +288,7 @@ componentDidMount() {
             )
           )}
           <NewCohortButton onClick={this.TriggerNewCohortForm}>
-              <img style={{margin:"0 auto", width: "20%"}} src={plus} />
+            <img style={{margin:"0 auto", width: "20%"}} src={plus} />
           </NewCohortButton>
           </CohortCards>
           <ContentContainer>
