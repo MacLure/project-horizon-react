@@ -7,6 +7,8 @@ import {getStudentDashboardData} from '.././../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
+import AdminEventDetails from './../AdminComponents/AdminEventDetails'
+
 
 
 class StudentDashboard extends Component {
@@ -20,7 +22,7 @@ class StudentDashboard extends Component {
       submissions: [],
       events: [],
       submission_comments: [],
-      onFocusData: null
+      showEventDetails: false,
 
     }
   }
@@ -45,6 +47,41 @@ class StudentDashboard extends Component {
     }
   }
 
+  TriggerEventDetails = (event) => {this.setState({showEventDetails: event})}
+
+  showEventDetails = () => {
+    if (this.state.showEventDetails ) {
+      return (
+          <AdminEventDetails
+          events={this.state.events}
+          eventId = {this.state.showEventDetails.id}
+          eventSuccess = {this.reload}
+          escapeEventDetailsModal = {this.escapeEventDetailsModal}
+          event = {this.state.showEventDetails}
+        />
+      )
+    }
+  }
+  escapeEventDetailsModal = () => {this.setState({showEventDetails: false})}
+
+
+
+
+  reload = () =>{
+    if(this.props.token != null){
+      getStudentDashboardData(this.props.token)
+      .then(response=>response.json())
+      .then(response=> {this.setState({
+        cohort: response.cohort,
+        classmates: response.students,
+        assignments: response.assignments,
+        events: response.events,
+        });
+      })
+    }else{
+      this.props.history.push('/')
+    }
+  }
 
   render() {
     return (
@@ -58,15 +95,8 @@ class StudentDashboard extends Component {
             end_date={this.state.cohort.end_date}
           />
 
-          <div className="eventsContainer">
-          {this.state.events.map( event => (
-            <div class="eventItem" key={event.id}>
-              name={event.name}
-              date={event.date}
-              time={event.time}
-            </div>
-              ))}
-          </div>
+        <StudentEventsList 
+          events={this.state.events} />
 
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
@@ -74,6 +104,7 @@ class StudentDashboard extends Component {
             submissionComments={this.state.submissionComments}
             onFocusData={this.state.onFocusData}
           />
+          {this.showEventDetails()}
         </div>
         <Footer/>
       </React.Fragment>
