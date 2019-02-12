@@ -9,7 +9,7 @@ class StudentAssignment extends Component {
     const { name, body, dueDate, data, onAssignmentClick } = this.props
 
     return (
-      <div class="assignmentItem" style={{textAlign:'center'}}
+      <div className="assignmentItem" style={{textAlign:'center'}}
         onClick={e=>{onAssignmentClick(data)}}
       >
         <p>{name}</p>
