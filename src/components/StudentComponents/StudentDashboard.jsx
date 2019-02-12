@@ -96,6 +96,8 @@ class StudentDashboard extends Component {
             course_type={this.state.cohort.course_type}
             start_date={this.state.cohort.start_date}
             end_date={this.state.cohort.end_date}
+            submissions={this.state.submissions}
+            assignments={this.state.assignments}
           />
 
         <StudentEventsList 
