@@ -9,12 +9,11 @@ const Card = styled.div`
   border-radius: 2px;
   border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
-  justify-self: center;
   transition: 0.2s;
   opacity: 1;
   cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
+  display: inline-block;
+
 
   :hover {
     background-color: rgba(42, 44, 51, 0.5);

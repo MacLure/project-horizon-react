@@ -18,10 +18,11 @@ const Container = styled.div`
   grid-template-columns: 1fr;
 `
 
+
 const CohortCards = styled.div`
-  width: 100vw;
-  height: 400px;
-  overflow: scroll;
+overflow: auto;
+white-space: nowrap;
+
 `
 
 
@@ -287,10 +288,11 @@ componentDidMount() {
               />
             )
           )}
-          <NewCohortButton onClick={this.TriggerNewCohortForm}>
-            <img style={{margin:"0 auto", width: "20%"}} src={plus} />
-          </NewCohortButton>
+
           </CohortCards>
+          <NewCohortButton onClick={this.TriggerNewCohortForm}>
+          <img style={{margin:"0 auto", width: "20%"}} src={plus} />
+        </NewCohortButton>
           <ContentContainer>
             {CohortDetail}
             {this.showNewAssignmentForm()}
