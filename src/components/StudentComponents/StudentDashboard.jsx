@@ -9,8 +9,6 @@ import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
 import StudentEventDetails from './StudentEventDetails'
 
-
-
 class StudentDashboard extends Component {
   constructor (props) {
     super(props)
@@ -24,7 +22,6 @@ class StudentDashboard extends Component {
       events: [],
       submission_comments: [],
       showEventDetails: false,
-
     }
   }
 
@@ -65,9 +62,6 @@ class StudentDashboard extends Component {
   }
   escapeEventDetailsModal = () => {this.setState({showEventDetails: false})}
 
-
-
-
   reload = () =>{
     if(this.props.token != null){
       getStudentDashboardData(this.props.token)
@@ -105,7 +99,7 @@ class StudentDashboard extends Component {
           TriggerEventDetails={this.TriggerEventDetails}  
         />
 
-          <StudentAssignmentsContainer
+          <StudentAssignmentsContainer 
             assignments={this.state.assignments}
             submissions={this.state.submissions}
             submissionComments={this.state.submissionComments}

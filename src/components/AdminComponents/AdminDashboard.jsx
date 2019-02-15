@@ -62,7 +62,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
+      cohorts: [].filter( cohort => Date.parse(cohort.end_date) > Date.now() ).slice(0, 1),
       students: [],
       student_notes: [],
       assignments: [],

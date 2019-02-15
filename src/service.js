@@ -33,7 +33,6 @@ export const onStudentLogin = (email,password) => {
       body:JSON.stringify({ "auth": {"email":email, "password":password} })
     })
     .then(e=>e.ok?resolve(e):reject(e))
-    .then(e=> console.log(e))
     .catch(e => console.log('ERR: ', e))
   })
 }
