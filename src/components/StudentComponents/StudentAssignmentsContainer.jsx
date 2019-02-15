@@ -8,17 +8,17 @@ class StudentAssignmentsContainer extends Component {
   constructor(props) {
     super(props)
 
-  this.state = {
-    assignments: [],
-    submissions: [],
-    submission_comments: [],
-    onFocusData: null,
-    selectedAssignment: null
+    this.state = {
+      assignments: [],
+      submissions: [],
+      submission_comments: [],
+      onFocusData: null,
+      selectedAssignment: null
+    }
+
+    this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
+
   }
-
-  this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
-
-}
 
   getAssignmentInfo = () => {
     this.setState( {
@@ -29,21 +29,20 @@ class StudentAssignmentsContainer extends Component {
     })
   }
 
-documentDidMount() {
-  this.getAssignmentInfo()
-}
+  documentDidMount() {
+    this.getAssignmentInfo()
+  }
 
-onAssignmentClick = (data) => {
-  console.log('Assignment Data',data)
-  this.setState({
-    onFocusData:data,
-    selectedAssignment:this.props.assignments.indexOf(data)
-  })
-}
+  onAssignmentClick = (data) => {
+    console.log('Assignment Data',data)
+    this.setState({
+      onFocusData:data,
+      selectedAssignment:this.props.assignments.indexOf(data)
+    })
+  }
+
 
   render() {
-
-
 
     return (
       <React.Fragment>

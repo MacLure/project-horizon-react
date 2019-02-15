@@ -136,7 +136,7 @@ class NewAdminForm extends Component {
   }
 
   handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({[event.target.name]: event.target.value.toLowerCase()});
   }
 
   handleSubmit(event) {

@@ -24,27 +24,30 @@ import StudentEvent from './StudentEvent';
 
 class StudentEventsList extends Component {
   constructor(props) {
-  super(props)
-  this.state ={
-    events: this.props.events
+    super(props)
+    this.state ={
+      events: this.props.events
+    }
   }
 
+  options = {year: 'numeric', month: 'short', day: 'numeric' };
 
 
-}
+  
   render() {
     const events = this.props.events
 
   return (
     <div className="eventsContainer">
-    {events.map(event => (
-      <StudentEvent
-        key={event.id}
-        name={event.name}
-        body={event.body}
-        date={event.date}
-        time={event.time}
-      />
+    {events.map( event => (
+      <div
+        className="eventItem"
+        key={event.id} 
+        onClick={()=>{this.props.TriggerEventDetails(event)}}>
+        <p>{event.name}</p>
+        <p>{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</p>
+        
+      </div>
         ))}
     </div>
     );

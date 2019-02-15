@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import StudentAssignment from './StudentAssignment';
-import StudentProgressCircle from './StudentProgressCircle';
 import StudentStyles from './../../Student.css'
 import SubmissionDetails from './SubmissionDetails';
 import NewSubmissionForm from './NewSubmissionForm';
@@ -42,14 +41,10 @@ documentDidMount() {
   this.getAssignmentInfo()
 }
 
-
   render() {
 
   const {assignments, submissions, submissionComments} = this.props
 
-    const assignmentProgress = () => {
-        return Math.round( submissions.length / assignments.length * 100)
-    }
 
     let showSubmission = null;
 
@@ -66,19 +61,17 @@ documentDidMount() {
     }
     return (
       <React.Fragment>
-        <p style={{textAlign:'center'}}>progress: {assignmentProgress()}%</p>
-        <div style={{marginLeft:"200px"}}>
-        <StudentProgressCircle progress={assignmentProgress}/>
-        </div>
         {assignments.map((assignment, index) => (
         <StudentAssignment
           key={assignment.id}
+          id={assignment.id}
           name={assignment.name}
           body={assignment.body}
           dueDate={assignment.due_date}
           data={assignment}
           onAssignmentClick={this.onAssignmentClick}
           isActive={this.state.selectedCohort === index}
+          submission={this.props.submissions.filter(submission => submission.assignment_id === assignment.id)[0]}
         />
         ))}
 

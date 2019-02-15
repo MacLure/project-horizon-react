@@ -53,6 +53,13 @@
     flex-direction: column;
   }
 
+  .eventItem {
+  }
+
+  .eventItem:hover {
+    cursor: pointer;
+  }
+
 /* -----------------------------------------
   StudentEvent
 ----------------------------------------- */
@@ -74,16 +81,21 @@
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 2;
-    border: 3px solid green;
     width: 500px;
     height: 500px;
     background-color: #2A2C33;
+    overflow: scroll;
   }
 
 /* -----------------------------------------
 StudentAssignmentList
 ----------------------------------------- */
-/* no styles yet */
+.assignmentItem {
+}
+
+.assignmentItem:hover {
+  cursor: pointer;
+}
 
 /* -----------------------------------------
 StudentAssignment

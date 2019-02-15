@@ -139,7 +139,6 @@ class NewCohortForm extends Component {
 
   }
 
-
   render() {
     document.body.style.backgroundColor = '#212229';
     return (
@@ -178,7 +177,6 @@ class NewCohortForm extends Component {
    );
   }
 }
-
 
 const mapStatetoProps = state => {
   return {

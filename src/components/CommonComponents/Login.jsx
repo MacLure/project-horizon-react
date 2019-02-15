@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {onAdminLogin} from '.././../service';
 import  {onStudentLogin} from '.././../service';
-import { Link } from 'react-router-dom';
+import './../../Common.css'
 import Logo from '../../assets/img/horizon_text2.svg';
-import horizon_logo from '../../assets/img/horizon_logo.svg';
+import loading from '../../assets/Icons/loading.svg';
 
 const LogoContainer = styled.div`
   text-align: center;
@@ -69,7 +69,7 @@ const Input = styled.input`
   background-color: transparent;
 
   ::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     opacity: 1;
   }
 `
@@ -113,13 +113,20 @@ const Button = styled.button`
       box-shadow: (0 0 10px 10px #000)
   }`
 
+  const Notice = styled.div`
+  text-align: center;
+  `
+
+
 class Login extends Component {
   constructor(props) {
     super(props)
       this.state = {
         user: null,
         email: '',
-        password: ''
+        password: '',
+        loader: false,
+        error: null,
        }
   }
 
@@ -139,22 +146,40 @@ class Login extends Component {
 
   onSubmit = () => {
     if (this.state.user === 'admin') {
+      if (!this.state.email || !this.state.password) {
+        this.setState({error: "email or password missing"})
+      }
       if (this.state.email !== '' && this.state.password !== '') {
+        this.setState({loader: true})
+        this.setState({error: null})
         onAdminLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
           this.props.onTokenReceive(e.jwt)
           this.props.history.push('/admin')
         })
+        .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "email or password incorrect"})
+      })
       }
     } else if (this.state.user === 'student') {
+      if (!this.state.email || !this.state.password) {
+        this.setState({error: "email or password missing"})
+      }
       if (this.state.email !== '' && this.state.password !== '') {
+        this.setState({loader: true})
+        this.setState({error: null})
         onStudentLogin(this.state.email, this.state.password)
         .then(e => e.json())
         .then(e => {console.log(e)
           this.props.onTokenReceive(e.jwt)
           this.props.history.push('/student')
         })
+        .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "email or password incorrect"})
+      })
       }
     }
   }
@@ -169,6 +194,10 @@ class Login extends Component {
           this.setState({password: e.target.value})
           }}></Input>
       <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
+      <Notice>
+      {this.state.loader ? <img className="loader" src={loading} /> : null}
+      {this.state.error ? this.state.error : null}
+      </Notice>
       </Form>
   }
 

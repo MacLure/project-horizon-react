@@ -62,7 +62,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [].filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
+      cohorts: [].filter( cohort => Date.parse(cohort.end_date) > Date.now() ).slice(0, 1),
       students: [],
       student_notes: [],
       assignments: [],
@@ -91,7 +91,7 @@ componentDidMount() {
     .then(response=> {this.setState({
         id: response.id,
         admins: response.admins,
-        cohorts: response.cohorts,
+        cohorts: response.cohorts.filter(cohort => (Date.parse(cohort.end_date) > Date.now())).slice(0, 7),
         students: response.students,
         student_notes: response.student_notes,
         assignments: response.assignments,
@@ -135,6 +135,7 @@ componentDidMount() {
       this.props.onTokenReceive(null)
       this.props.history.push('/')
     }
+
     TriggerNewCohortForm = () => {this.setState({showNewCohortForm: true})}
     TriggerNewAssignmentForm = () => {this.setState({showNewAssignmentForm: true})}
     TriggerNewStudentForm = () => {this.setState({showNewStudentForm: true})}
