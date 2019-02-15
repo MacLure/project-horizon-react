@@ -15,17 +15,17 @@ import AdminEventDetails from './AdminEventDetails'
 import plus from './../../assets/Icons/plus.svg'
 
 const Container = styled.div`
+  display: grid;
   grid-template-columns: 1fr;
 `
 
-
 const CohortCards = styled.div`
-overflow: auto;
-white-space: nowrap;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  grid-column-start: 1;
 `
-
-
 const NewCohortButton = styled.div`
 background-color: rgba(42, 44, 51, 1);
 margin: 20px 10px;
@@ -62,7 +62,7 @@ class AdminDashboard extends Component {
     this.state = {
       id: null,
       admins: [],
-      cohorts: [],
+      cohorts: [].filter( cohort => Date.parse(cohort.end_date) > Date.now() ).slice(0, 1),
       students: [],
       student_notes: [],
       assignments: [],
@@ -91,7 +91,7 @@ componentDidMount() {
     .then(response=> {this.setState({
         id: response.id,
         admins: response.admins,
-        cohorts: response.cohorts,
+        cohorts: response.cohorts.filter( cohort => Date.parse(cohort.end_date) > Date.now() ).slice(0, 7),
         students: response.students,
         student_notes: response.student_notes,
         assignments: response.assignments,
@@ -238,7 +238,6 @@ componentDidMount() {
         .then(response=>response.json())
         .then(response=> {this.setState({
           admins: response.admins,
-          cohorts: response.cohorts,
           students: response.students,
           assignments: response.assignments,
           events: response.events,
@@ -288,11 +287,10 @@ componentDidMount() {
               />
             )
           )}
-
-          </CohortCards>
           <NewCohortButton onClick={this.TriggerNewCohortForm}>
-          <img style={{margin:"0 auto", width: "20%"}} src={plus} />
-        </NewCohortButton>
+              <img style={{margin:"0 auto", width: "20%"}} src={plus} />
+          </NewCohortButton>
+          </CohortCards>
           <ContentContainer>
             {CohortDetail}
             {this.showNewAssignmentForm()}

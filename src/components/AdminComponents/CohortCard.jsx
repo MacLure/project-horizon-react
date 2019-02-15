@@ -13,6 +13,9 @@ const Card = styled.div`
   opacity: 1;
   cursor: pointer;
   display: inline-block;
+  display: flex;
+  justify-content: flext-start
+  justify-self: center;
 
 
   :hover {
