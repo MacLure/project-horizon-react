@@ -117,19 +117,19 @@ class CohortDetails extends Component {
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
-      <li key={student.id}>{student.first_name} {student.last_name}</li>
+      <li className="detailsListItem" key={student.id}>{student.first_name} {student.last_name}</li>
     ))
   }
 
   if(this.props.cohortEvents){
     this.cEvents = this.props.cohortEvents.map(event => (
-      <li key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</li>
+      <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</li>
     ))
   }
 
   if(this.props.cohortAssignments){
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
-      <li key={assignment.id}>{assignment.name}</li>
+      <li className="detailsListItem" key={assignment.id}>{assignment.name}</li>
     ))
   }
 
@@ -144,7 +144,7 @@ class CohortDetails extends Component {
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students:</h2>
-            <li>
+            <li className="detailsListItem">
               {this.cStudents}
             </li>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
@@ -152,18 +152,18 @@ class CohortDetails extends Component {
           <div className="Admin">
             <h2 className="sectionTitle">Staff:</h2>
             <ul>
-              <li>Natalie</li>
-              <li>Daniel</li>
-              <li>Fred</li>
-              <li>Saree</li>
-              <li>Elvis</li>
+              <li className="detailsListItem">Natalie</li>
+              <li className="detailsListItem">Daniel</li>
+              <li className="detailsListItem">Fred</li>
+              <li className="detailsListItem">Saree</li>
+              <li className="detailsListItem">Elvis</li>
             </ul>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAdminForm(e)}}>new admin</button>
           </div>
           <div className="assignments">
             <h2 className="sectionTitle">Assignments:</h2>
             <ul>
-              <li>{this.cAssignments}</li>
+              <li className="detailsListItem">{this.cAssignments}</li>
             </ul>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
