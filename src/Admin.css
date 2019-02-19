@@ -74,6 +74,24 @@ input:focus {
   transition: opacity 0.5s;
 }
 
+.deleteButton {
+  margin: 40px auto 20px 80px;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #D1142C;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.deleteButton:hover {
+  opacity: 0.5;
+  transition: opacity 0.5;
+}
+
 /* -----------------------------------------
   AdminDashboard
 ----------------------------------------- */
@@ -302,7 +320,6 @@ nav {
   margin-right: 10px;
 }
 
-
 /* -----------------------------------------
   CohortDetails
 ----------------------------------------- */
@@ -312,6 +329,25 @@ nav {
   width: 85vw;
   border-radius: 2px;
   padding: 10px 0px;
+}
+
+.detailsTitle {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  background-color: inherit;
+  text-align: center;
+}
+
+.dates {
+  padding-top: 10px;
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+}
+
+.hr {
+  border-bottom: 2px solid #FC6404;
+  border-radius: 5px;
 }
 
 .cohortDetailsGrid {
@@ -324,31 +360,66 @@ nav {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.formFlex {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.detailsTitle {
-  padding-top: 20px;
-  padding-bottom: 5px;
+.students {
+  grid-column-start: 1;
   background-color: inherit;
+}
+
+.admin {
+  background-color: inherit;
+  grid-column-start: 2;
+}
+
+.assignments {
+  grid-column-start: 3;
+  background-color: inherit;
+}
+
+.events {
+  grid-column-start: 4;
+  background-color: inherit;
+}
+
+.sectionTitle{
+  background-color: inherit;
+  text-align: left;
+  margin: 20px auto;
+  font-weight: bold;
+}
+
+ul {
+  background-color: inherit;
+  text-align: left;
+}
+
+li {
+  background-color: inherit;
+  margin: 20px auto;
+  text-align: left;
+  cursor:pointer;
+}
+
+.blueButton {
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #2C65F9;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
   text-align: center;
 }
 
-.hr {
-  border-bottom: 2px solid #FC6404;
-  border-radius: 5px;
+.blueButton:hover {
+  opacity: 0.5;
+  transition: opacity 0.5;
 }
 
-.dates {
-  padding-top: 10px;
-  text-align: center;
-  color: gray;
-  font-size: 14px;
-}
+
+
+
 
 
 
