@@ -122,8 +122,6 @@ footer {
   opacity: 1;
 }
 
-
-
 .loginSubmitButton {
   margin: 30px auto;
   cursor: pointer;
@@ -147,34 +145,22 @@ footer {
   text-align: center;
 }
 
-
-
 /* -----------------------------------------
   NotFound
-  NEEDS TO BE RESTYLED
+  <-- Needs to be restyled -->
 ----------------------------------------- */
 
 /* -----------------------------------------
   Settings
+  <-- No styles yet -->
 ----------------------------------------- */
 
 /* -----------------------------------------
   Signup
+  <-- Needs to be restyled -->
 ----------------------------------------- */
 
 /* -----------------------------------------
   SubmissionComment
+  <-- No styles yet -->
 ----------------------------------------- */
-
-
-/* Loading Animation */
-.loader {
-  display: block;
-  margin: 0 auto;
-  animation: rotate 2s linear  0s infinite running;
-}
-
-@keyframes rotate {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
-}
