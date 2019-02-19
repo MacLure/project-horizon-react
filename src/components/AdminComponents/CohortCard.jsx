@@ -17,12 +17,12 @@ const Card = styled.div`
   justify-content: flext-start
   justify-self: center;
 
-
   :hover {
     background-color: rgba(42, 44, 51, 0.5);
     transition: 0.2s;
   }
 `
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
