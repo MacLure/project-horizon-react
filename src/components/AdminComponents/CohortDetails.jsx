@@ -145,6 +145,7 @@ class CohortDetails extends Component {
       <div className="cohortCard">
         <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <p className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</p><br/>
+        <button className="deleteButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
         <div className="hr"></div>
         <div className="cohortDetailsGrid">
           <div className="students">
