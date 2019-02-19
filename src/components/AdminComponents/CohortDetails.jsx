@@ -7,7 +7,6 @@ import NewAssignmentForm from './NewAssignmentForm'
 import { connect } from 'react-redux';
 import  {deleteCohort} from '.././../service';
 
-
 const CohortCard = styled.div`
   background-color: #2A2C33;
   margin: 20px 40px;
@@ -152,8 +151,6 @@ class CohortDetails extends Component {
     // this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.reload = this.reload.bind(this);
-
-
   }
 
 //  if(props.onFocusData != null){
@@ -191,7 +188,6 @@ class CohortDetails extends Component {
     let cohortId = this.props.onFocusData.id
     deleteCohort(cohortId, this.props.token)
     .then(e=>this.props.deleteSuccess())
-
   }
 
   handleEventClick = (e) => {
@@ -313,7 +309,6 @@ class CohortDetails extends Component {
   );
   }
 }
-
 
 const mapStatetoProps = state => {
   return {

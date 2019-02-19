@@ -279,3 +279,13 @@ export const deleteSumissionComment = (cohort_id, token) => {
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+export const deleteSubmission = (cohort_id, token) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${rootURL}/admin/submissions?submission=${JSON.stringify(cohort_id)}`, {
+      method: 'delete',
+      mode: "cors"})
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}

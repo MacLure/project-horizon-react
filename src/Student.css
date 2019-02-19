@@ -105,7 +105,23 @@ StudentAssignment
 /* -----------------------------------------
 StudentSubmissionDetails
 ----------------------------------------- */
-/* no styles yet */
+.deleteButton{
+  margin: 40px auto 20px 80px;
+  cursor: pointer;
+  padding: 5px 5px;
+  background-color: #D1142C;
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.deleteButton:hover {
+    opacity: 0.5;
+    transition: opacity 0.5;
+}
 
 
 /* -----------------------------------------
