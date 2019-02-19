@@ -6,124 +6,6 @@ import NewAssignmentForm from './NewAssignmentForm'
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
-import styled from 'styled-components';
-
-const CohortCard = styled.div`
-  background-color: #2A2C33;
-  margin: 20px 40px;
-  width: 85vw;
-  border-radius: 2px;
-  padding: 10px 0px;
-`
-const Grid = styled.div`
-  text-align: left;
-  margin: 0 auto;
-  padding-left: 80px;
-  background-color: inherit;
-  grid-column-start: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-`
-const FormFlex = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  jusify-content: center;
-`
-
-const Title = styled.h2 `
-  padding-top: 20px;
-  padding-bottom: 5px;
-  background-color: inherit;
-  text-align: center;
-`
-const Hr = styled.div`
-  border-bottom: 2px solid #FC6404;
-  border-radius: 5px;
-`
-const Dates = styled.p`
-  padding-top: 10px;
-  text-align: center;
-  color: gray;
-  font-size: 14px;
-`
-const Students = styled.div`
-  grid-column-start: 1;
-  background-color: inherit;
-`
-const Admin = styled.div`
-  text-align: left;
-  background-color: inherit;
-  grid-column-start: 2;
-`
-const Assignments = styled.div`
-  grid-column-start: 3;
-  background-color: inherit;
-`
-const Events = styled.div`
-  grid-column-start: 4;
-  background-color: inherit;
-`
-
-const Text = styled.p`
-  background-color: inherit;
-  text-align: left;
-  margin: 20px auto;
-  font-weight: bold;
-`
-const List = styled.ul`
-  background-color: inherit;
-  text-align: left;
-`
-const ListItem = styled.li`
-  background-color: inherit;
-  margin: 20px auto;
-  text-align: left;
-  cursor:pointer;
-`
-const AddStudentForm = styled.div`
-
-`
-const AddAdminForm = styled.div`
-`
-const AddAssignmentForm = styled.div`
-`
-const AddEventForm = styled.div`
-`
-
-const Button = styled.button`
-  margin: 20px auto;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #2C65F9;
-  border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
-  border-radius: 2px;
-  font-size: 1.1em;
-  text-align: center;
-
-  :hover {
-    opacity: 0.5;
-    transition: opacity 0.5;
-`
-
-const DeleteButton = styled.button`
-  margin: 40px auto 20px 80px;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #D1142C;
-  border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
-  border-radius: 2px;
-  font-size: 1.1em;
-  text-align: center;
-
-  :hover {
-    opacity: 0.5;
-    transition: opacity 0.5;
-`
 
 class CohortDetails extends Component {
   constructor(props) {
@@ -235,19 +117,19 @@ class CohortDetails extends Component {
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
-      <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
+      <li key={student.id}>{student.first_name} {student.last_name}</li>
     ))
   }
 
   if(this.props.cohortEvents){
     this.cEvents = this.props.cohortEvents.map(event => (
-      <ListItem key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</ListItem>
+      <li key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</li>
     ))
   }
 
   if(this.props.cohortAssignments){
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
-      <ListItem key={assignment.id}>{assignment.name}</ListItem>
+      <li key={assignment.id}>{assignment.name}</li>
     ))
   }
 
@@ -255,52 +137,46 @@ class CohortDetails extends Component {
 // rename CohortCard here (but not the actual component)
   return (
     <React.Fragment>
-      <CohortCard>
-        <Title>{this.props.onFocusData!=null?this.props.onFocusData.name:null}</Title>
-        <Dates>{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</Dates><br/>
-        <Hr></Hr>
-        <Grid>
-          <Students>
-            <Text>Students:</Text>
-            <List>
+      <div className="cohortCard">
+        <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
+        <p className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</p><br/>
+        <div className="hr"></div>
+        <div className="cohortDetailsGrid">
+          <div className="students">
+            <h2 className="sectionTitle">Students:</h2>
+            <li>
               {this.cStudents}
-            </List>
-            <Button onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</Button>
-          </Students>
-          <Admin>
-            <Text>Staff:</Text>
-            <List>
-              <ListItem>Natalie</ListItem>
-              <ListItem>Daniel</ListItem>
-              <ListItem>Fred</ListItem>
-              <ListItem>Saree</ListItem>
-              <ListItem>Elvis</ListItem>
-            </List>
-            <Button onClick={e=>{this.props.TriggerNewAdminForm(e)}} >new admin</Button>
-          </Admin>
-          <Assignments>
-            <Text>Assignments:</Text>
-            <List>
-              <AddAssignmentForm>{this.cAssignments}</AddAssignmentForm>
-            </List>
-            <Button onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</Button>
-          </Assignments>
-          <Events>
-            <Text>Events:</Text>
-            <List>
+            </li>
+            <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
+          </div>
+          <div className="Admin">
+            <h2 className="sectionTitle">Staff:</h2>
+            <ul>
+              <li>Natalie</li>
+              <li>Daniel</li>
+              <li>Fred</li>
+              <li>Saree</li>
+              <li>Elvis</li>
+            </ul>
+            <button className="blueButton" onClick={e=>{this.props.TriggerNewAdminForm(e)}}>new admin</button>
+          </div>
+          <div className="assignments">
+            <h2 className="sectionTitle">Assignments:</h2>
+            <ul>
+              <li>{this.cAssignments}</li>
+            </ul>
+            <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
+          </div>
+          <div className="events">
+            <h2 className="sectionTitle">Events:</h2>
+            <ul>
               {this.cEvents}
-            </List>
-            <Button onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</Button>
-          </Events>
-        </Grid>
-        <DeleteButton onClick={e=>{this.handleDelete(e)}} >Delete Cohort</DeleteButton>
-        <FormFlex>
-          <AddStudentForm>{showNewStudentForm()}</AddStudentForm>
-          <AddAdminForm></AddAdminForm>
-          <AddAssignmentForm>{handleshowNewAssignmentForm()}</AddAssignmentForm>
-          <AddEventForm>{handleshowNewEventForm()}</AddEventForm>
-        </FormFlex>
-      </CohortCard>
+            </ul>
+            <button className="blueButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
+          </div>
+        </div>
+        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+      </div>
   </React.Fragment>
   );
   }
