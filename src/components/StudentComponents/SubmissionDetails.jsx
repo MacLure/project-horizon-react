@@ -15,25 +15,18 @@ class SubmissionDetails extends Component {
 
   render() {
     const {name, body, url, created_at} = this.props.submission
-    const submissionComments = this.props.submissionComments
-
+    const submissionComments = [].concat.apply([], this.props.submissionComments);
     return (
       <React.Fragment>
       <h1>submissionDetails:</h1>
       {name}
       <a href={url}>{url}</a>
       {body}
+
       Submitted on {created_at}
       {submissionComments.map(comment => (
+        console.log(submissionComments)))}
 
-        <SubmissionComment
-          key = {comment.id}
-          admin = {comment.admin_id}
-          date = {comment.created_ad}
-          body = {comment.body}
-        />
-
-      ))}
       <div className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
       
       </React.Fragment>

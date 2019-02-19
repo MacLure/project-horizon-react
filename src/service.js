@@ -3,7 +3,7 @@
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
-const rootURL = serverURL
+const rootURL = localURL
 
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
