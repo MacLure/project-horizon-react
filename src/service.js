@@ -280,10 +280,14 @@ export const deleteSumissionComment = (cohort_id, token) => {
   })
 }
 
-export const deleteSubmission = (cohort_id, token) => {
+export const deleteSubmission = (submission_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/admin/submissions?submission=${JSON.stringify(cohort_id)}`, {
+    fetch(`${rootURL}/student/submissions/${submission_id}?${JSON.stringify({'submission_id': submission_id})}`, {
       method: 'delete',
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
       mode: "cors"})
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))

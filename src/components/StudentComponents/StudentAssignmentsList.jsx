@@ -21,6 +21,10 @@ class StudentAssignmentsList extends Component {
 
   }
 
+  reload = () =>{
+    console.lot("OK")
+  }
+
   onAssignmentClick = (data) => {
     console.log('Assignment Data',data)
     this.setState({

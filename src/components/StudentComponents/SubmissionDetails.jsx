@@ -25,8 +25,13 @@ class SubmissionDetails extends Component {
 
       Submitted on {created_at}
       {submissionComments.map(comment => (
-        console.log(submissionComments)))}
-
+        <SubmissionComment
+          key = {comment.id}
+          admin = {comment.admin_id}
+          date = {comment.created_ad}
+          body = {comment.body}
+        />
+      ))}
       <div className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
       
       </React.Fragment>
