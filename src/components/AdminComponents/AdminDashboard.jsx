@@ -4,7 +4,6 @@ import CohortDetails from './CohortDetails';
 import NewCohortForm from './NewCohortForm';
 import Footer from './../CommonComponents/Footer';
 import AdminNavBar from './AdminNavBar';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import  {getAdminDashboardData} from './../../service';
 import NewAssignmentForm from './NewAssignmentForm';
@@ -13,47 +12,8 @@ import NewAdminForm from './NewAdminForm';
 import NewEventForm from './NewEventForm';
 import AdminEventDetails from './AdminEventDetails'
 import plus from './../../assets/Icons/plus.svg'
+import AdminStyles from './../../Admin.css'
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-`
-
-const CohortCards = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  grid-column-start: 1;
-`
-const NewCohortButton = styled.div`
-background-color: rgba(42, 44, 51, 1);
-margin: 20px 10px;
-width: 23vw;
-border-radius: 2px;
-grid-column-start: 1;
-justify-self: center;
-transition: 0.2s;
-opacity: 1;
-cursor: pointer;
-display: flex;
-align-items: center;
-text-align: center;
-
-:hover {
-  background-color: #17B57E;
-  transition: 0.2s;
-}
-`
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  grid-column-start: 1;
-  margin: 20px 60px;
-`
 
 class AdminDashboard extends Component {
   constructor (props) {
@@ -276,8 +236,8 @@ componentDidMount() {
     return (
       <React.Fragment>
         <AdminNavBar/>
-        <Container>
-          <CohortCards>
+        <div className="adminGrid">
+          <div className="cardContainer">
           {this.state.cohorts
             .map((cohort, index) => (
               <CohortCard
@@ -288,11 +248,11 @@ componentDidMount() {
               />
             )
           )}
-          <NewCohortButton onClick={this.TriggerNewCohortForm}>
-              <img style={{margin:"0 auto", width: "20%"}} src={plus} />
-          </NewCohortButton>
-          </CohortCards>
-          <ContentContainer>
+          <div className="newCohortButton" onClick={this.TriggerNewCohortForm}>
+              <img className="plus" src={plus} />
+          </div>
+          </div>
+          <div className="cohortDetailsContainer">
             {CohortDetail}
             {this.showNewAssignmentForm()}
             {this.showNewStudentForm()}
@@ -301,8 +261,8 @@ componentDidMount() {
             {this.showNewCohortForm()}
             {this.showEventDetails()}
 
-          </ContentContainer>
-        </Container>
+          </div>
+        </div>
         <Footer/>
       </React.Fragment>
     );

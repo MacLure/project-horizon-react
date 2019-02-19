@@ -1,6 +1,59 @@
 /* -----------------------------------------
+  Common Admin Styles
+----------------------------------------- */
+
+
+
+/* -----------------------------------------
   AdminDashboard
 ----------------------------------------- */
+
+.adminGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  grid-column-start: 1;
+}
+
+.newCohortButton {
+  background-color: rgba(42, 44, 51, 1);
+  margin: 20px 10px;
+  width: 23vw;
+  border-radius: 2px;
+  grid-column-start: 1;
+  justify-self: center;
+  transition: 0.2s;
+  opacity: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.plus {
+  margin: 0 auto;
+  width: 20%;
+}
+
+.newCohortButton:hover {
+  background-color: #17B57E;
+  transition: 0.2s;
+}
+
+.cohortDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-column-start: 1;
+  margin: 20px 60px;
+}
 
 /* -----------------------------------------
   AdminEventDetails
