@@ -92,7 +92,7 @@ input:focus {
   transition: opacity 0.5;
 }
 
-/* -----------------------------------------
+/* -----------------c------------------------
   AdminDashboard
 ----------------------------------------- */
 .adminGrid {
@@ -417,25 +417,41 @@ li {
   transition: opacity 0.5;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ----------------------------------------
-  CohortProgressCircle
------------------------------------------ */
-
 /* -----------------------------------------
   Contacts
 ----------------------------------------- */
+.contactCard {
+  background-color: rgba(42, 44, 51, 1);
+  margin: 20px 10px;
+  width: 25vw;
+  border-radius: 2px;
+  justify-self: center;
+  transition: 0.3s;
+  opacity: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contactCard:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.contactTitle {
+  text-align: center;
+  margin-left: 140px;
+}
+
+.contactDetails {
+  background-color: inherit;
+  color: gray;
+  font-size: 14px;
+  text-align: left;
+  padding-bottom: 7px;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
 
 /* -----------------------------------------
   NewAdminForm
