@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+
 class SubmissionComment extends Component {
 
   render() {
 
-    const {admin, date, body} = this.props\
+    const {admin, date, body} = this.props
 
     return (
       <React.Fragment>
