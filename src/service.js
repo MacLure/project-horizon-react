@@ -3,7 +3,7 @@
 const localURL = "http://localhost:3000"
 const serverURL = "https://project-horizon-rails.herokuapp.com"
 
-const rootURL = localURL
+const rootURL = serverURL
 
 export const onAdminLogin = (email,password) => {
   return new Promise((resolve,reject)=>{
@@ -298,6 +298,7 @@ export const deleteSubmission = (submission_id, token) => {
     .catch(e => console.log('ERR: ', e))
   })
 }
+<<<<<<< HEAD
 
 export const editCohort = (cohortId, data, token) => {
   return new Promise((resolve, reject) => {
@@ -313,3 +314,5 @@ export const editCohort = (cohortId, data, token) => {
     .catch(e => console.log('ERR: ', e))
   })
 }
+=======
+>>>>>>> 26c7bda206091adeaa7742b44007237dd4118545
