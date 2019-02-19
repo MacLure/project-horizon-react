@@ -213,17 +213,22 @@ export const deleteEvent = (event_id, token) => {
 
 
 
-
-// doesn't work
-export const createNewSibmission = (data, token) => {
+export const createNewSubmission = (data, token) => {
+  console.log(data)
   return new Promise((resolve, reject) => {
     fetch(`${rootURL}/student/submissions?submission=${JSON.stringify(data)}`, {
       method: 'post',
-      mode: "cors"})
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })
 }
+
 
 // doesn't work
 export const createStudentNote = (data, token) => {
@@ -247,16 +252,16 @@ export const deleteStudentnote = (cohort_id, token) => {
   })
 }
 
-// doesn't work
-export const createNewSubmission = (data, token) => {
-  return new Promise((resolve, reject) => {
-    fetch(`${rootURL}/student/submission?submission=${JSON.stringify(data)}`, {
-      method: 'post',
-      mode: "cors"})
-    .then(e=>e.ok?resolve(e):reject(e))
-    .catch(e => console.log('ERR: ', e))
-  })
-}
+// // doesn't work
+// export const createNewSubmission = (data, token) => {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${rootURL}/student/submission?submission=${JSON.stringify(data)}`, {
+//       method: 'post',
+//       mode: "cors"})
+//     .then(e=>e.ok?resolve(e):reject(e))
+//     .catch(e => console.log('ERR: ', e))
+//   })
+// }
 
 // doesn't work
 export const createNewSubmissionComment = (data, token) => {
@@ -289,6 +294,21 @@ export const deleteSubmission = (submission_id, token) => {
         'Content-Type': 'application/json'
       },
       mode: "cors"})
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
+
+export const editCohort = (cohortId, data, token) => {
+  return new Promise((resolve, reject) => {
+      fetch(`${rootURL}/admin/cohorts/${cohortId}?cohort=${JSON.stringify(data)}`, {
+      method: 'put',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
     .then(e=>e.ok?resolve(e):reject(e))
     .catch(e => console.log('ERR: ', e))
   })

@@ -104,6 +104,7 @@ class StudentDashboard extends Component {
             submissions={this.state.submissions}
             submissionComments={this.state.submissionComments}
             onFocusData={this.state.onFocusData}
+            student={this.state.student}
           />
           {this.showEventDetails()}
         </div>

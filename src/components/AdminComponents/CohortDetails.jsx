@@ -3,6 +3,7 @@ import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
+
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
@@ -144,6 +145,8 @@ class CohortDetails extends Component {
     // this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
     this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
     this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
+    // this.showEditCohortForm = this.showEditCohortForm.bind(this);
+
     // this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.reload = this.reload.bind(this);
@@ -233,6 +236,8 @@ class CohortDetails extends Component {
       }
     }
 
+
+
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
       <ListItem key={student.id}>{student.first_name} {student.last_name}</ListItem>
@@ -258,6 +263,8 @@ class CohortDetails extends Component {
       <CohortCard>
         <Title>{this.props.onFocusData!=null?this.props.onFocusData.name:null}</Title>
         <Dates>{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</Dates><br/>
+        <button onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
+
         <Hr></Hr>
         <Grid>
           <Students>
