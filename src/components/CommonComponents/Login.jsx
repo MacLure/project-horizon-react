@@ -110,7 +110,7 @@ const Button = styled.button`
 
     :hover {
       transition: 0.2;
-      box-shadow: (0 0 10px 10px #000)
+      box-shadow: (0 0 10px 10px #000);
   }`
 
   const Notice = styled.div`
@@ -186,19 +186,19 @@ class Login extends Component {
 
   displayForm = () => {
     return (this.state.user === null) ?
-    null : <Form method="post">
-        <Label htmlfor="email">Email</Label><Input placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
+    null : <form className="loginForm" method="post">
+        <label className="loginLabel" htmlfor="email">Email</label><input className="loginInput" placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
-        }}></Input>
-        <Label htmlfor="password">Password</Label><Input placeholder="password" type="password" name="password" onChange={e=>{
+        }}></input>
+        <label className="loginLabel" htmlfor="password">Password</label><input className="loginInput" placeholder="password" type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
-          }}></Input>
-      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><SubmitButton type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </SubmitButton></div>
-      <Notice>
+        }}></input>
+      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button></div>
+      <div className="notice">
       {this.state.loader ? <img className="loader" src={loading} /> : null}
       {this.state.error ? this.state.error : null}
-      </Notice>
-      </Form>
+      </div>
+      </form>
   }
 
   highlightStudentButton = () => {
@@ -213,14 +213,14 @@ class Login extends Component {
 
    return (
     <div className="landing">
-      <LogoContainer><Horizon src={Logo}/></LogoContainer>
-      <Container>
-      <ButtonFlex>
-        <Button style={this.highlightStudentButton()} onClick={this.onStudent}>Student</Button>
-        <Button style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</Button>
-      </ButtonFlex>
+      <div className="horizonContainer"><img className="horizon" src={Logo}/></div>
+      <div className="loginContainer">
+      <div className="buttonFlex">
+        <button className="selectButton" style={this.highlightStudentButton()} onClick={this.onStudent}>Student</button>
+        <button className="selectButton" style={this.highlightAdminButton()} onClick={this.onAdmin}>Admin</button>
+      </div>
       {this.displayForm()}
-      </Container>
+      </div>
     </div>
     );
  }
