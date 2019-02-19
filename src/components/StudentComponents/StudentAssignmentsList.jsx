@@ -14,7 +14,7 @@ class StudentAssignmentsList extends Component {
       onFocusData: null,
       assignments: [],
       submissions: [],
-      submission_comments: []
+      submission_comments: [],
     }
 
     this.onAssignmentClick = this.onAssignmentClick.bind(this)
@@ -33,17 +33,21 @@ class StudentAssignmentsList extends Component {
     this.setState( {
       assignments: this.props.assignments,
       submissions: this.props.submissions,
-      submission_comments: this.props.submission_comments
+      submission_comments: this.props.submission_comments,
     })
   )
+
+
 
 documentDidMount() {
   this.getAssignmentInfo()
 }
 
+
+
   render() {
 
-  const {assignments, submissions, submissionComments} = this.props
+  const {assignments, submissions, student, submissionComments} = this.props
 
 
     let showSubmission = null;
@@ -56,23 +60,24 @@ documentDidMount() {
           deleteSuccess={this.reload}
         />
       } else {
-        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} />
+        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} student = {student} />
       }
     }
     return (
       <React.Fragment>
         {assignments.map((assignment, index) => (
-        <StudentAssignment
-          key={assignment.id}
-          id={assignment.id}
-          name={assignment.name}
-          body={assignment.body}
-          dueDate={assignment.due_date}
-          data={assignment}
-          onAssignmentClick={this.onAssignmentClick}
-          isActive={this.state.selectedCohort === index}
-          submission={this.props.submissions.filter(submission => submission.assignment_id === assignment.id)[0]}
-        />
+          <StudentAssignment
+            key={assignment.id}
+            id={assignment.id}
+            name={assignment.name}
+            body={assignment.body}
+            dueDate={assignment.due_date}
+            data={assignment}
+            onAssignmentClick={this.onAssignmentClick}
+            isActive={this.state.selectedCohort === index}
+            submission={this.props.submissions.filter(submission => submission.assignment_id === assignment.id)[0]}
+            student={this.props.student}
+          />
         ))}
 
         {showSubmission}

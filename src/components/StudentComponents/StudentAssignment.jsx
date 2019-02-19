@@ -8,8 +8,8 @@ class StudentAssignment extends Component {
 
   options = {year: 'numeric', month: 'short', day: 'numeric' };
 
-   assignmentSubmitted = () => {return (this.props.submission)}
-   assignmentOverDue = () => {return (!this.props.submission && (Date.now() - Date.parse(this.propsdue_date) > 0))}
+  assignmentSubmitted = () => {return (this.props.submission)}
+  assignmentOverDue = () => {return (!this.props.submission && (Date.now() - Date.parse(this.propsdue_date) > 0))}
 
     submissionStatus = () => {
       if (this.assignmentSubmitted()) {
@@ -18,10 +18,9 @@ class StudentAssignment extends Component {
         return {backgroundColor: 'red'}
       }
     }
-  
 
   render() {
-    const { name, body, dueDate, data, onAssignmentClick } = this.props
+    const { name, body, dueDate, data, student, onAssignmentClick } = this.props
 
     return (
       <div className="assignmentItem" style={this.submissionStatus()}

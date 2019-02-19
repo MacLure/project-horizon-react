@@ -13,7 +13,7 @@ class StudentAssignmentsContainer extends Component {
       submissions: [],
       submission_comments: [],
       onFocusData: null,
-      selectedAssignment: null
+      selectedAssignment: null,
     }
 
     this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
@@ -25,7 +25,7 @@ class StudentAssignmentsContainer extends Component {
       assignments: this.props.assignments,
       submissions: this.props.submissions,
       submission_comments: this.props.submission_comments,
-      onFocusData: this.props.onFocusData
+      onFocusData: this.props.onFocusData,
     })
   }
 
@@ -52,6 +52,7 @@ class StudentAssignmentsContainer extends Component {
             assignments={this.props.assignments}
             submissionComments={this.props.submissionComments}
             onCohortClick={this.onAssignmentClick}
+            student={this.props.student}
             />
         </div>
       </React.Fragment>
