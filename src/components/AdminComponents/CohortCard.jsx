@@ -1,66 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import CohortProgressCircle from './CohortProgressCircle'
-
-const Card = styled.div`
-  background-color: rgba(42, 44, 51, 1);
-  margin: 20px 10px;
-  width: 23vw;
-  border-radius: 2px;
-  border: 3px solid rgba(42, 44, 51, 1);
-  grid-column-start: 1;
-  transition: 0.2s;
-  opacity: 1;
-  cursor: pointer;
-  display: inline-block;
-  display: flex;
-  justify-content: flext-start
-  justify-self: center;
-
-
-  :hover {
-    background-color: rgba(42, 44, 51, 0.5);
-    transition: 0.2s;
-  }
-`
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3;
-  background-color: transparent;
-  padding-left: 20px;
-`
-
-const CohortName = styled.h3`
-  padding-top: 20px;
-  padding-bottom: 7px;
-  background-color: transparent;
-  text-align: left;
-  grid-column-start: 1;
-  grid-row-start: 1;
-`
-const Dates = styled.p`
-  background-color: transparent;
-  color: gray;
-  font-size: 14px;
-  text-align: left;
-  padding-bottom: 7px;
-  grid-column-start: 1;
-  grid-row-start: 2;
-`
-
-const Text = styled.p`
-  background-color: transparent;
-  text-align: left;
-  padding-bottom: 14px;
-  grid-column-start: 1;
-  grid-row-start: 3;
-`
-
-const Progress = styled.div`
-  margin-top: 35px;
-  margin-right: 10px;
-`
+import CohortProgressCircle from './CohortProgressCircle';
+import AdminStyles from './../../Admin.css'
 
 const CohortCard = (props) => {
 
@@ -92,17 +32,16 @@ const CohortCard = (props) => {
 
   return (
     <React.Fragment>
-      <Card
+      <div className="card"
         style={{border:props.isActive ? "3px solid #FC6404": ""}}
-        onClick={e=>{props.onCohortClick(props.data)}}
-      >
-      <Grid>
-        <CohortName>{name}</CohortName>
-        <Dates>{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</Dates>
-        <Text>{daysLeftDisplay()}</Text>
-      </Grid>
-        <Progress><CohortProgressCircle progress={courseProgress}/></Progress>
-      </Card>
+        onClick={e=>{props.onCohortClick(props.data)}}>
+      <div className="cardGrid">
+        <h3 className="cohortName">{name}</h3>
+        <p className="dates">{formattedStartDate.toLocaleString('en', options)} - {formattedEndDate.toLocaleString('en', options)}</p>
+        <p className="text">{daysLeftDisplay()}</p>
+      </div>
+        <div className="progress"><CohortProgressCircle progress={courseProgress}/></div>
+      </div>
     </React.Fragment>
    );
   }

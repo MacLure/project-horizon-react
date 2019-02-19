@@ -77,7 +77,6 @@ input:focus {
 /* -----------------------------------------
   AdminDashboard
 ----------------------------------------- */
-
 .adminGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -178,7 +177,6 @@ input:focus {
   background-color: inherit;
 }
 
-
 /* -----------------------------------------
   AdminEventList
 ----------------------------------------- */
@@ -228,7 +226,7 @@ nav {
 }
 
 .active > li {
-    background-color: #e74c3c;
+  background-color: #e74c3c;
 }
 
 .icon {
@@ -243,12 +241,124 @@ nav {
 /* -----------------------------------------
   CohortCard
 ----------------------------------------- */
+.card {
+  background-color: rgba(42, 44, 51, 1);
+  margin: 20px 10px;
+  width: 23vw;
+  border-radius: 2px;
+  border: 3px solid rgba(42, 44, 51, 1);
+  grid-column-start: 1;
+  transition: 0.2s;
+  opacity: 1;
+  cursor: pointer;
+  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
+  justify-self: center;
+}
+
+.card:hover {
+  background-color: rgba(42, 44, 51, 0.5);
+  transition: 0.2s;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3;
+  background-color: transparent;
+  padding-left: 20px;
+}
+
+.cohortName {
+  padding-top: 20px;
+  padding-bottom: 7px;
+  background-color: transparent;
+  text-align: left;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.dates {
+  background-color: transparent;
+  color: gray;
+  font-size: 14px;
+  text-align: left;
+  padding-bottom: 7px;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.text {
+  background-color: transparent;
+  text-align: left;
+  padding-bottom: 14px;
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.progress {
+  margin-top: 35px;
+  margin-right: 10px;
+}
+
 
 /* -----------------------------------------
   CohortDetails
 ----------------------------------------- */
+.cohortCard {
+  background-color: #2A2C33;
+  margin: 20px 40px;
+  width: 85vw;
+  border-radius: 2px;
+  padding: 10px 0px;
+}
 
-/* -----------------------------------------
+.cohortDetailsGrid {
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 80px;
+  background-color: inherit;
+  grid-column-start: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.formFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detailsTitle {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  background-color: inherit;
+  text-align: center;
+}
+
+.hr {
+  border-bottom: 2px solid #FC6404;
+  border-radius: 5px;
+}
+
+.dates {
+  padding-top: 10px;
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------
   CohortProgressCircle
 ----------------------------------------- */
 

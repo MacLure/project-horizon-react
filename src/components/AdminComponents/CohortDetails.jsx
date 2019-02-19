@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import { connect } from 'react-redux';
-import  {deleteCohort} from '.././../service';
+import { deleteCohort } from '.././../service';
+import AdminStyles from './../../Admin.css';
+import styled from 'styled-components';
 
 
 const CohortCard = styled.div`
@@ -51,7 +52,6 @@ const Students = styled.div`
   grid-column-start: 1;
   background-color: inherit;
 `
-
 const Admin = styled.div`
   text-align: left;
   background-color: inherit;
@@ -72,12 +72,10 @@ const Text = styled.p`
   margin: 20px auto;
   font-weight: bold;
 `
-
 const List = styled.ul`
   background-color: inherit;
   text-align: left;
 `
-
 const ListItem = styled.li`
   background-color: inherit;
   margin: 20px auto;
@@ -85,14 +83,12 @@ const ListItem = styled.li`
   cursor:pointer;
 `
 const AddStudentForm = styled.div`
-`
 
+`
 const AddAdminForm = styled.div`
 `
-
 const AddAssignmentForm = styled.div`
 `
-
 const AddEventForm = styled.div`
 `
 
