@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  {onAdminLogin} from '.././../service';
 import  {onStudentLogin} from '.././../service';
-import './../../Common.css'
+import CommonStyles from './../../Common.css'
 import Logo from '../../assets/img/horizon_text2.svg';
 import loading from '../../assets/Icons/loading.svg';
 
@@ -81,7 +81,7 @@ class Login extends Component {
         <label className="loginLabel" htmlfor="password">Password</label><input className="loginInput" placeholder="password" type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
         }}></input>
-      <div style={{width: '100%', textAlign: 'center', backgroundColor: 'transparent'}}><button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button></div>
+        <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>
       <div className="notice">
       {this.state.loader ? <img className="loader" src={loading} /> : null}
       {this.state.error ? this.state.error : null}
