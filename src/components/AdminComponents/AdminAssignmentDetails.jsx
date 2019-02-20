@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import  {deleteEvent} from '.././../service';
+import  {deleteAssignment} from '../../service';
+
 import { connect } from 'react-redux';
 import AdminStyles from './../../Admin.css'
 
-class AdminEventDetails extends Component {
+class AdminAssignmentDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,17 +21,15 @@ class AdminEventDetails extends Component {
   }
 
   options = {year: 'numeric', month: 'short', day: 'numeric' };
-  formattedDate = new Date(Date.parse(this.props.event.date)).toLocaleString('en', this.options)
-  hour = new Date(Date.parse(this.props.event.time)).getHours()
-  minute = new Date(Date.parse(this.props.event.time)).getMinutes()
+  formattedDate = new Date(Date.parse(this.props.assignment.due_date)).toLocaleString('en', this.options)
 
 
   handleDelete = (e) => {
     e.preventDefault();
-    let event_id = this.props.event.id
-    deleteEvent(event_id, this.props.token)
+    let assignment_id = this.props.assignment.id
+    deleteAssignment(assignment_id, this.props.token)
     .then(e=>this.props.deleteSuccess())
-    .then(this.props.escapeEventDetailsModal)
+    .then(this.props.escapeAssignmentDetailsModal)
 
   }
 
@@ -39,11 +38,14 @@ class AdminEventDetails extends Component {
      <React.Fragment>
      <div className="modal">
      <div className="eventsContainer">
-      <div className="modalEscape"  onClick={this.props.escapeEventDetailsModal}>×</div>
-        <h2 className="eventsTitle">{this.props.event.name}</h2>
-        <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
-        <p>{this.props.event.body}</p>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+      <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}>×</div>
+
+      <h2 className="eventsTitle">{this.props.assignment.name}</h2>
+      <p>Due: {this.formattedDate}</p>
+      <p>{this.props.assignment.body}</p>
+
+      <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+      <button onClick={e=>{this.showEdit(e)}} >Edit Assignment</button>
 
       </div>
       </div>
@@ -72,4 +74,4 @@ const mapDispatchtoProps = dispatch => {
 export default connect(
   mapStatetoProps,
   mapDispatchtoProps
-)(AdminEventDetails);
+)(AdminAssignmentDetails);

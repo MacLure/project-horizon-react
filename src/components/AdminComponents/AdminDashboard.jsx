@@ -11,6 +11,7 @@ import NewStudentForm from './NewStudentForm';
 import NewAdminForm from './NewAdminForm';
 import NewEventForm from './NewEventForm';
 import AdminEventDetails from './AdminEventDetails'
+import AdminAssignmentDetails from './AdminAssignmentDetails';
 import EditCohortForm from './EditCohortForm';
 
 import plus from './../../assets/Icons/plus.svg'
@@ -44,6 +45,8 @@ class AdminDashboard extends Component {
     }
     this.showNewCohortForm = this.showNewCohortForm.bind(this)
     this.showEditCohortForm = this.showEditCohortForm.bind(this)
+    this.showAssignmentDetails = this.showAssignmentDetails.bind(this)
+
 
   }
 
@@ -105,6 +108,7 @@ componentDidMount() {
     TriggerNewStudentForm = () => {this.setState({showNewStudentForm: true})}
     TriggerNewAdminForm = () => {this.setState({showNewAdminForm: true})}
     TriggerNewEventForm = () => {this.setState({showNewEventForm: true})}
+    TriggerAssignmentDetails = (assignment) => {this.setState({showAssignmentDetails: assignment})}
     TriggerEventDetails = (event) => {this.setState({showEventDetails: event})}
     TriggerEditCohortForm = (cohort) => {this.setState({showEditCohortForm: cohort})}
 
@@ -128,6 +132,20 @@ componentDidMount() {
             cohortId = {this.state.onFocusData.id}
             assignmentSuccess = {this.reload}
             escapeNewAssignmentModal = {this.escapeNewAssignmentModal}
+          />
+        )
+      }
+    }
+
+    showAssignmentDetails = () => {
+      if (this.state.showAssignmentDetails ) {
+        return (
+          <AdminAssignmentDetails
+            assignment = {this.state.showAssignmentDetails}
+            assignmentSuccess = {this.reload}
+            escapeAssignmentDetailsModal = {this.escapeAssignmentDetailsModal}
+            deleteSuccess={this.reload}
+            editSuccess={this.reload}
           />
         )
       }
@@ -178,7 +196,6 @@ componentDidMount() {
             escapeEventDetailsModal = {this.escapeEventDetailsModal}
             event = {this.state.showEventDetails}
             deleteSuccess={this.reload}
-
           />
         )
       }
@@ -198,6 +215,7 @@ componentDidMount() {
     escapeNewEventModal = () => {this.setState({showNewEventForm: false})}
     escapeNewStudentModal = () => {this.setState({showNewStudentForm: false})}
     escapeNewAssignmentModal = () => {this.setState({showNewAssignmentForm: false})}
+    escapeAssignmentDetailsModal = () => {this.setState({showAssignmentDetails: false})}
     escapeNewCohortModal = () => {this.setState({showNewCohortForm: false})}
     escapeNewAdminModal = () => {this.setState({showNewAdminForm: false})}
     escapeEventDetailsModal = () => {this.setState({showEventDetails: false})}
@@ -247,6 +265,7 @@ componentDidMount() {
         TriggerNewEventForm={this.TriggerNewEventForm}
         TriggerEventDetails={this.TriggerEventDetails}
         TriggerEditCohortForm={this.TriggerEditCohortForm}
+        TriggerAssignmentDetails={this.TriggerAssignmentDetails}
 
       />
     }
@@ -272,14 +291,13 @@ componentDidMount() {
           <div className="cohortDetailsContainer">
             {CohortDetail}
             {this.showNewAssignmentForm()}
+            {this.showAssignmentDetails()}
             {this.showNewStudentForm()}
             {this.showNewAdminForm()}
             {this.showNewEventForm()}
             {this.showNewCohortForm()}
             {this.showEventDetails()}
             {this.showEditCohortForm()}
-
-
           </div>
         </div>
         <Footer/>

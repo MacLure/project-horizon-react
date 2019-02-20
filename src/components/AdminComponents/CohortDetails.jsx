@@ -122,7 +122,7 @@ class CohortDetails extends Component {
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
-      <li className="detailsListItem" key={student.id}>{student.first_name} {student.last_name}</li>
+      <li className="detailsListItem" key={student.id} >{student.first_name} {student.last_name}</li>
     ))
   }
 
@@ -134,7 +134,7 @@ class CohortDetails extends Component {
 
   if(this.props.cohortAssignments){
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
-      <li className="detailsListItem" key={assignment.id}>{assignment.name}</li>
+      <li className="detailsListItem" key={assignment.id} onClick={e=>{this.props.TriggerAssignmentDetails(assignment)}} >{assignment.name}</li>
     ))
   }
 
