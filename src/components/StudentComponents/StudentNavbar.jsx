@@ -13,8 +13,6 @@ class StudentNavBar extends Component {
           <ul className="navList">
             <NavLink to="/student" activeClassName="active"><li className="navItem">Dashboard</li></NavLink>
 
-            <NavLink to="/settings" activeClassName="active"><li className="navItem">Settings</li></NavLink>
-
             <NavLink to="/login" activeClassName="active"><li className="navItem">Log out</li></NavLink>
           </ul>
         </nav>

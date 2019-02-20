@@ -12,9 +12,7 @@ class AdminNavBar extends Component {
           <img className="icon" src={Logo} />
           <ul className="navList">
             <NavLink to="/admin" activeClassName="active"> <li className="navItem">Dashboard</li></NavLink>
-
-            <NavLink to="/settings" activeClassName="active"><li className="navItem">Settings</li></NavLink>
-            
+                      
             <NavLink to="/login" activeClassName="active"><li className="navItem">Log out</li></NavLink>
           </ul>
         </nav>
