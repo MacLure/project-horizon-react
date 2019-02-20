@@ -12,11 +12,13 @@ class AdminAssignmentDetails extends Component {
       assignment: this.props.assignment,
     }
 
-    this.handleDelete = this.handleDelete.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.EditButtonClass = this.EditButtonClass.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
 
+    
   }
 
   options = {year: 'numeric', month: 'short', day: 'numeric' };
@@ -89,7 +91,7 @@ class AdminAssignmentDetails extends Component {
         <div className="one"><p>name:</p><input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input></div>
     }
 
-
+    EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
 
  render() {
    return (
@@ -98,7 +100,7 @@ class AdminAssignmentDetails extends Component {
         <div className="eventsContainer">
           <div className="modalEscape" onClick={this.props.escapeAssignmentDetailsModal}>×</div>
           {this.detailsOrForm()}
-          <button onClick={e=>{this.toggleEdit()}} >{this.state.editing? "Cancel" : "Edit Assignment"}</button>
+          <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Assignment"}</button>
 
           </div>
         </div>

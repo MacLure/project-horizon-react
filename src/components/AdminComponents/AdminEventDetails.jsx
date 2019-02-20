@@ -31,7 +31,6 @@ class AdminEventDetails extends Component {
     deleteEvent(event_id, this.props.token)
     .then(e=>this.props.deleteSuccess())
     .then(this.props.escapeEventDetailsModal)
-
   }
 
  render() {
@@ -43,7 +42,7 @@ class AdminEventDetails extends Component {
         <h2 className="eventsTitle">{this.props.event.name}</h2>
         <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
         <p>{this.props.event.body}</p>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Event</button>
 
       </div>
       </div>
