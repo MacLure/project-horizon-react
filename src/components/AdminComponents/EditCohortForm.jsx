@@ -24,14 +24,13 @@ class EditCohortForm extends Component {
   }
 
   handleSubmit(event) {
-  event.preventDefault();
+    event.preventDefault();
     let data = this.state
     let cohortId = this.props.cohort.id
     editCohort(cohortId, data, this.props.token)
     .then(e=>e.json())
     .then(e=>this.props.cohortSuccess())
     .then(this.props.escapeEditCohortModal)
-
   }
 
   render() {

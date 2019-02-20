@@ -328,3 +328,50 @@ export const editCohort = (cohortId, data, token) => {
     .catch(e => console.log('ERR: ', e))
   })
 }
+
+export const editAssignment = (assignmentId, data, token) => {
+  return new Promise((resolve, reject) => {
+      fetch(`${rootURL}/admin/assignments/${assignmentId}?assignment=${JSON.stringify(data)}`, {
+      method: 'put',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
+
+
+export const editEvent = (eventId, data, token) => {
+  return new Promise((resolve, reject) => {
+      fetch(`${rootURL}/admin/events/${eventId}?event=${JSON.stringify(data)}`, {
+      method: 'put',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
+
+
+export const editSubmission = (submissionId, data, token) => {
+  return new Promise((resolve, reject) => {
+      fetch(`${rootURL}/student/submissions/${submissionId}?submission=${JSON.stringify(data)}`, {
+      method: 'put',
+      mode: "cors",
+      headers: {
+        "Authorization": `${token}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(e=>e.ok?resolve(e):reject(e))
+    .catch(e => console.log('ERR: ', e))
+  })
+}
