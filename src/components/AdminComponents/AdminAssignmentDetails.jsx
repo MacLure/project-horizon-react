@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  {deleteAssignment} from '../../service';
-
+import  {editAssignment} from '../../service';
 import { connect } from 'react-redux';
 import AdminStyles from './../../Admin.css'
 
@@ -15,6 +15,7 @@ class AdminAssignmentDetails extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -24,6 +25,16 @@ class AdminAssignmentDetails extends Component {
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let data = this.state
+    let assignmentId = this.props.assignment.id
+    editAssignment(assignmentId, data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.assignmentSuccess())
+    .then(this.toggleEdit())
   }
 
   handleDelete = (e) => {
@@ -38,22 +49,44 @@ class AdminAssignmentDetails extends Component {
       this.setState( this.state.editing ? {editing:false} : {editing:true} )
     }
 
-    due_date = () => {
+    detailsOrForm = () => {
       return !this.state.editing ?
-        this.formattedDate :
-        <input type="date" name="due_date" value={this.state.assignment.due_date} onChange={this.handleChange} ></input>
+        <div>
+          <h2 className="eventsTitle">{this.state.assignment.name}</h2>
+          <p>Due: {this.formattedDate}</p>
+          <p>{this.state.assignment.body}</p>
+          <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+        </div>
+        :
+        <form onSubmit={this.handleSubmit}>
+          <h2 className="formTitle">Edit Assignment</h2>
+          <div className="one">
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input>
+          </div>
+          <div className="two">
+            <label htmlFor="due_date">Due Date</label>
+            <input type="date" name="due_date" value={this.state.assignment.due_date} onChange={this.handleChange} ></input>
+          </div>
+          <div className="three">
+            <label htmlFor="body">Details</label>
+            <textArea name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea>
+          </div>
+          <button className="submitButton" type="submit">Submit</button>
+
+        </form>
     }
 
     body = () => {
       return !this.state.editing ?
         this.state.assignment.body :
-        <div><p>body:</p><input type="textArea" name="body" value={this.state.assignment.body} onChange={this.handleChange} ></input></div>
+        <div><p>body:</p><textArea type="textArea" name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea></div>
     }
     
     name = () => {
       return !this.state.editing ?
         <h2 className="eventsTitle">{this.state.assignment.name}</h2> :
-        <div><p>name:</p><input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input></div>
+        <div className="one"><p>name:</p><input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input></div>
     }
 
 
@@ -61,19 +94,14 @@ class AdminAssignmentDetails extends Component {
  render() {
    return (
      <React.Fragment>
-     <div className="modal">
-     <div className="eventsContainer">
-      <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}>×</div>
+      <div className="modal">
+        <div className="eventsContainer">
+          <div className="modalEscape" onClick={this.props.escapeAssignmentDetailsModal}>×</div>
+          {this.detailsOrForm()}
+          <button onClick={e=>{this.toggleEdit()}} >{this.state.editing? "Cancel" : "Edit Assignment"}</button>
 
-      <div>{this.name()}</div>
-      <div>Due: {this.due_date()}</div>
-      <div>{this.body()}</div>
-
-      <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
-      <button onClick={e=>{this.toggleEdit()}} >{this.state.editing? "Cancel" : "Edit Assignment"}</button>
-
-      </div>
-      </div>
+          </div>
+        </div>
 
      </React.Fragment>
     );
