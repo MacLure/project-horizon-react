@@ -47,51 +47,39 @@ class AdminAssignmentDetails extends Component {
     .then(this.props.escapeAssignmentDetailsModal)
   }
 
-    toggleEdit = () => {
-      this.setState( this.state.editing ? {editing:false} : {editing:true} )
-    }
+  toggleEdit = () => {
+    this.setState( this.state.editing ? {editing:false} : {editing:true} )
+  }
 
-    detailsOrForm = () => {
-      return !this.state.editing ?
-        <div>
-          <h2 className="eventsTitle">{this.state.assignment.name}</h2>
-          <p>Due: {this.formattedDate}</p>
-          <p>{this.state.assignment.body}</p>
-          <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+  detailsOrForm = () => {
+    return !this.state.editing ?
+      <div>
+        <h2 className="eventsTitle">{this.state.assignment.name}</h2>
+        <p>Due: {this.formattedDate}</p>
+        <p>{this.state.assignment.body}</p>
+        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+      </div>
+      :
+      <form onSubmit={this.handleSubmit}>
+        <h2 className="formTitle">Edit Assignment</h2>
+        <div className="one">
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input>
         </div>
-        :
-        <form onSubmit={this.handleSubmit}>
-          <h2 className="formTitle">Edit Assignment</h2>
-          <div className="one">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input>
-          </div>
-          <div className="two">
-            <label htmlFor="due_date">Due Date</label>
-            <input type="date" name="due_date" value={this.state.assignment.due_date} onChange={this.handleChange} ></input>
-          </div>
-          <div className="three">
-            <label htmlFor="body">Details</label>
-            <textArea name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea>
-          </div>
-          <button className="submitButton" type="submit">Submit</button>
+        <div className="two">
+          <label htmlFor="due_date">Due Date</label>
+          <input type="date" name="due_date" value={this.state.assignment.due_date} onChange={this.handleChange} ></input>
+        </div>
+        <div className="three">
+          <label htmlFor="body">Details</label>
+          <textArea name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea>
+        </div>
+        <button className="submitButton" type="submit">Submit</button>
 
-        </form>
-    }
+      </form>
+  }
 
-    body = () => {
-      return !this.state.editing ?
-        this.state.assignment.body :
-        <div><p>body:</p><textArea type="textArea" name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea></div>
-    }
-    
-    name = () => {
-      return !this.state.editing ?
-        <h2 className="eventsTitle">{this.state.assignment.name}</h2> :
-        <div className="one"><p>name:</p><input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input></div>
-    }
-
-    EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
+  EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
 
  render() {
    return (
