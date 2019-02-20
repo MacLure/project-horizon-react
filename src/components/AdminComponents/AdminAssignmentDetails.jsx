@@ -8,15 +8,13 @@ class AdminAssignmentDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: '',
-      last_name: '',
-      phone: '',
-      email: '',
-      cohort_id: '',
-      image_url: ''
+      editing: false,
+      assignment: this.props.assignment,
     }
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -24,14 +22,41 @@ class AdminAssignmentDetails extends Component {
   formattedDate = new Date(Date.parse(this.props.assignment.due_date)).toLocaleString('en', this.options)
 
 
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
   handleDelete = (e) => {
     e.preventDefault();
     let assignment_id = this.props.assignment.id
     deleteAssignment(assignment_id, this.props.token)
     .then(e=>this.props.deleteSuccess())
     .then(this.props.escapeAssignmentDetailsModal)
-
   }
+
+    toggleEdit = () => {
+      this.setState( this.state.editing ? {editing:false} : {editing:true} )
+    }
+
+    due_date = () => {
+      return !this.state.editing ?
+        this.formattedDate :
+        <input type="date" name="due_date" value={this.state.assignment.due_date} onChange={this.handleChange} ></input>
+    }
+
+    body = () => {
+      return !this.state.editing ?
+        this.state.assignment.body :
+        <div><p>body:</p><input type="textArea" name="body" value={this.state.assignment.body} onChange={this.handleChange} ></input></div>
+    }
+    
+    name = () => {
+      return !this.state.editing ?
+        <h2 className="eventsTitle">{this.state.assignment.name}</h2> :
+        <div><p>name:</p><input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input></div>
+    }
+
+
 
  render() {
    return (
@@ -40,12 +65,12 @@ class AdminAssignmentDetails extends Component {
      <div className="eventsContainer">
       <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}>×</div>
 
-      <h2 className="eventsTitle">{this.props.assignment.name}</h2>
-      <p>Due: {this.formattedDate}</p>
-      <p>{this.props.assignment.body}</p>
+      <div>{this.name()}</div>
+      <div>Due: {this.due_date()}</div>
+      <div>{this.body()}</div>
 
       <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
-      <button onClick={e=>{this.showEdit(e)}} >Edit Assignment</button>
+      <button onClick={e=>{this.toggleEdit()}} >{this.state.editing? "Cancel" : "Edit Assignment"}</button>
 
       </div>
       </div>
