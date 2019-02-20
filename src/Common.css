@@ -168,11 +168,22 @@ footer {
 ----------------------------------------- */
 
 .signupContainer {
-  margin: 0 auto;
+  margin: 10vh auto;
   width: 600px;
   border-radius: 2px;
   min-width: 250px;
   background: none;
+}
+
+.signupHorizonContainer {
+  text-align: center;
+  background: none;
+  margin: 20px auto;
+}
+
+.signupTitle {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 p {
