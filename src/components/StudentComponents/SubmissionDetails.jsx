@@ -3,27 +3,93 @@ import SubmissionComment from './../CommonComponents/SubmissionComment'
 import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
 import  {deleteSubmission} from '.././../service';
+import  {editSubmission} from '.././../service';
+
+
 
 class SubmissionDetails extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      editing: false,
+      submission: this.props.submission,
+      assignment: this.props.assignment,
+      comments: this.props.submissionComments,
+    }
+
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.EditButtonClass = this.EditButtonClass.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+
+  }
+
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let data = this.submission
+    let submissionId = this.state.submission.id
+    editSubmission(submissionId, data, this.props.token)
+    .then(e=>e.json())
+    .then(e=>this.props.submissionSuccess())
+    .then(this.toggleEdit())
+  }
+
+  toggleEdit = () => {
+    this.setState( this.state.editing ? {editing:false} : {editing:true} )
+  }
+
+  EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
 
   handleDelete = (e) => {
     e.preventDefault();
-    let submissionId = this.props.submission.id
+    let submissionId = this.state.submission.id
     deleteSubmission(submissionId, this.props.token)
     .then(e=>this.props.deleteSuccess())
   }
+
+
+
+  detailsOrForm = () => {
+    return !this.state.editing ?
+      <div>
+        <h2 className="AssignmentTitle">{this.state.assignment.name}</h2>
+        <p><a href={this.state.submission.url}>{this.state.submission.url}</a></p>
+        <p>{this.state.submission.body}</p>
+        <p>{this.state.submission.body}</p>
+        Submitted on {this.state.submission.created_at}
+      </div>
+      :
+      <form onSubmit={this.handleSubmit}>
+        <h2 className="formTitle">Edit Submission</h2>
+        <div className="one">
+          <label htmlFor="url">Name</label>
+          <input type="text" name="url" value={this.state.submission.url} onChange={this.handleChange} ></input>
+        </div>
+        <div className="two">
+          <label htmlFor="body">Body</label>
+          <textArea name="date" value={this.state.submission.body} onChange={this.handleChange} ></textArea>
+        </div>
+        <button className="submitButton" type="submit">Submit</button>
+
+      </form>
+  }
+
+
 
   render() {
     const {name, body, url, created_at} = this.props.submission
     const submissionComments = [].concat.apply([], this.props.submissionComments);
     return (
       <React.Fragment>
-      <h1>submissionDetails:</h1>
-      {name}
-      <a href={url}>{url}</a>
-      {body}
+      {this.detailsOrForm()}
+      <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Submission"}</button>
 
-      Submitted on {created_at}
+
       {submissionComments.map(comment => (
         <SubmissionComment
           key = {comment.id}

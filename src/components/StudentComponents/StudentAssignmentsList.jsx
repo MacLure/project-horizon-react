@@ -60,6 +60,7 @@ documentDidMount() {
       if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
           showSubmission = <SubmissionDetails
           submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
+          assignment={this.state.onFocusData}
           submissionComments={submissionComments}
           deleteSuccess={this.reload}
         />
