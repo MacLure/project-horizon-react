@@ -77,6 +77,18 @@ input:focus {
   transition: border 0.5s;
 }
 
+textarea {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+}
+
+textarea:focus {
+  border: 1px solid #F6744E;
+  transition: border 0.5s;
+}
+
 .one {
   grid-column-start: 1;
   grid-row-start: 1;
@@ -104,6 +116,7 @@ input:focus {
 .textarea {
   grid-column-start: 1;
   grid-column-end: 2;
+  background-color: inherit;
 }
 
 .submitButton {

@@ -38,7 +38,7 @@ class NewAdminForm extends Component {
    return (
      <div className="modal">
        <div className="modalContainer">
-       <div className="modalEscape"  onClick={this.props.escapeEditCohortModal}>×</div>
+       <div className="modalEscape"  onClick={this.props.escapeNewAdminModal}>×</div>
         <h2 className="formTitle">Add Admin</h2>
         <form method="post" onSubmit={this.handleSubmit}>
           <div className="one">
