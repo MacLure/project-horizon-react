@@ -339,12 +339,15 @@ nav {
   display: inline-block;
   display: flex;
   justify-content: flex-start;
+  transition: transform 0.3s;
   justify-self: center;
 }
 
 .card:hover {
-  background-color: rgba(42, 44, 51, 0.5);
-  transition: 0.2s;
+  /* background-color: rgba(42, 44, 51, 0.5);
+  transition: 0.2s; */
+  transform: translateY(-9px);
+  transition: transform 0.3s;
 }
 
 .cardGrid {
