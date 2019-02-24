@@ -120,15 +120,16 @@ class CohortDetails extends Component {
     }
 
     const getStudentProgressPercent = (student) => {
+      console.log(this.state.assignments.length)
       return this.state.submissions.filter(submission => submission.student_id === student.id).length <= 0 ?
       0 :
-      this.state.assignments.length / this.state.submissions.filter(submission => submission.student_id === student.id).length * 100
+      Math.round(this.state.submissions.filter(submission => submission.student_id === student.id).length / this.state.assignments.length * 100)
     }
 
-    const getStudentProgressPercent = (student) => {
-      return this.state.submissions.filter(submission => submission.student_id === student.id).length <= 0 ?
-      0 :
-      this.state.assignments.length / this.state.submissions.filter(submission => submission.student_id === student.id).length * 100
+    const getStudentProgressColor = (percent) => {
+      if (percent < 60) return "red"
+      if (percent > 60 && percent < 80) return "yellow"
+      if (percent > 80) return "green"
     }
 
 
@@ -136,8 +137,8 @@ class CohortDetails extends Component {
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
       <li className="detailsListItem" key={student.id} >
-        {student.first_name} {student.last_name} |
-        <span style={{}}>{getStudentProgressPercent(student)}%</span>
+        {student.first_name} {student.last_name}
+        <span style={{color: getStudentProgressColor(getStudentProgressPercent(student))}}>{getStudentProgressPercent(student)}%</span>
       </li>
     ))
   }
@@ -166,9 +167,9 @@ class CohortDetails extends Component {
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students:</h2>
-            <li className="detailsListItem">
+            <div className="detailsListItem">
               {this.cStudents}
-            </li>
+            </div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
           </div>
           <div className="Admin">
@@ -184,9 +185,7 @@ class CohortDetails extends Component {
           </div>
           <div className="assignments">
             <h2 className="sectionTitle">Assignments:</h2>
-            <ul>
-              <li className="detailsListItem">{this.cAssignments}</li>
-            </ul>
+              <div className="detailsListItem">{this.cAssignments}</div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
           <div className="events">
