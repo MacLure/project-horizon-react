@@ -255,6 +255,7 @@ componentDidMount() {
         admins={this.state.admins}
         events={this.state.events}
         assignments={this.state.assignments}
+        submissions={this.state.submissions}
         cohortStudents={this.getCohortStudents(this.state.students, this.state.onFocusData.id)}
         cohortEvents={this.getCohortEvents(this.state.events, this.state.onFocusData.id)}
         cohortAssignments={this.getCohortAssignments(this.state.assignments, this.state.onFocusData.id)}

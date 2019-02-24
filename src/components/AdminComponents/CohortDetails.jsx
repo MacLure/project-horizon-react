@@ -20,6 +20,7 @@ class CohortDetails extends Component {
       students: props.students,
       admins: props.admins,
       assignments: props.assignments,
+      submissions: props.submissions,
       events: props.events,
       selectedEvent: null,
     }
@@ -118,11 +119,26 @@ class CohortDetails extends Component {
       }
     }
 
+    const getStudentProgressPercent = (student) => {
+      return this.state.submissions.filter(submission => submission.student_id === student.id).length <= 0 ?
+      0 :
+      this.state.assignments.length / this.state.submissions.filter(submission => submission.student_id === student.id).length * 100
+    }
+
+    const getStudentProgressPercent = (student) => {
+      return this.state.submissions.filter(submission => submission.student_id === student.id).length <= 0 ?
+      0 :
+      this.state.assignments.length / this.state.submissions.filter(submission => submission.student_id === student.id).length * 100
+    }
+
 
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
-      <li className="detailsListItem" key={student.id} >{student.first_name} {student.last_name}</li>
+      <li className="detailsListItem" key={student.id} >
+        {student.first_name} {student.last_name} |
+        <span style={{}}>{getStudentProgressPercent(student)}%</span>
+      </li>
     ))
   }
 
