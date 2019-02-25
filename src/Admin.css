@@ -231,7 +231,7 @@ textarea:focus {
   AdminEventDetails
   <-- Still needs some work -->
 ----------------------------------------- */
-.eventsContainer {
+.AdminEventsContainer {
   background-color: #2A2C33;
   margin-top: 20px;
   margin-left: auto;

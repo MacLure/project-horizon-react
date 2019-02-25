@@ -1,16 +1,23 @@
 import React from 'react';
 
 const StudentProgressCircle = (props) => {
+
+  const getProgressColor = (percent) => {
+    if (percent < 60) return "#FC3404"
+    if (percent > 60 && percent < 80) return "#C5A022"
+    if (percent > 80) return "#17B57E"
+  }
+
   return (
-    <div>
+    <div className="studentProgressCircle">
       <svg
         id="svg"
-        width="100" height="100"
+        width="150" height="150"
         viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"
         style={{backgroundColor:'transparent'}}>
 
         <circle
-          r="25" cx="50" cy="50"
+          r="37.75" cx="75.5" cy="75.5"
           fill="transparent"
           strokeDasharray="565.48"
           strokeDashoffset="0"
@@ -19,15 +26,16 @@ const StudentProgressCircle = (props) => {
         ></circle>
 
         <circle
-          r="25" cx="50" cy="50"
-          transform="rotate(-90 50 50)"
+        r="37.75" cx="75.5" cy="75.5"
+        transform="rotate(-90 75.5 75.5)"
           fill="transparent"
-          strokeDasharray={2*Math.PI*25}
-          strokeDashoffset={2*Math.PI*25 - (2*Math.PI*25 * (props.progress() / 100))}
-          stroke= '#17B57E'
+          strokeDasharray={2*Math.PI*37.75}
+          strokeDashoffset={2*Math.PI*37.75 - (2*Math.PI*37.75 * (props.progress() / 100))}
+          stroke = {getProgressColor(props.progress())}
           strokeWidth="10px"
           ></circle>
     </svg>
+    <div class="circlePercentage">{props.progress()}%</div>
   </div>
    );
 }
