@@ -18,7 +18,7 @@ class StudentEventsList extends Component {
     const events = this.props.events
 
   return (
-    <div className="eventsContainer">
+    <div className="StudentEventsContainer">
     {events.map( event => (
       <div
         className="eventItem"
