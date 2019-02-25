@@ -172,26 +172,26 @@ class CohortDetails extends Component {
 // rename CohortCard here (but not the actual component)
   return (
     <React.Fragment>
-      <div className="cohortCard">
+      <div className="cohortDetailsSection">
         <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <p className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</p><br/>
         <button className="deleteButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
         <div className="hr"></div>
         <div className="cohortDetailsGrid">
           <div className="students">
-            <h2 className="sectionTitle">Students:</h2>
+            <h2 className="sectionTitle">Students</h2>
             <div >
               {this.cStudents}
             </div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
           </div>
           <div className="assignments">
-            <h2 className="sectionTitle">Assignments:</h2>
+            <h2 className="sectionTitle">Assignments</h2>
               <div>{this.cAssignments}</div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
           <div className="events">
-            <h2 className="sectionTitle">Events:</h2>
+            <h2 className="sectionTitle">Events</h2>
             <ul>
               {this.cEvents}
             </ul>
