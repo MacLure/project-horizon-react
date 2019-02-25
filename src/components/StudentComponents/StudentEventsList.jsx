@@ -33,7 +33,7 @@ class StudentEventsList extends Component {
   options = {year: 'numeric', month: 'short', day: 'numeric' };
 
 
-  
+
   render() {
     const events = this.props.events
 
@@ -42,11 +42,11 @@ class StudentEventsList extends Component {
     {events.map( event => (
       <div
         className="eventItem"
-        key={event.id} 
+        key={event.id}
         onClick={()=>{this.props.TriggerEventDetails(event)}}>
         <p>{event.name}</p>
         <p>{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</p>
-        
+
       </div>
         ))}
     </div>

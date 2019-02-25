@@ -94,12 +94,12 @@ class StudentDashboard extends Component {
             assignments={this.state.assignments}
           />
 
-        <StudentEventsList 
-          events={this.state.events}
-          TriggerEventDetails={this.TriggerEventDetails}  
-        />
+          <StudentEventsList
+            events={this.state.events}
+            TriggerEventDetails={this.TriggerEventDetails}
+          />
 
-          <StudentAssignmentsContainer 
+          <StudentAssignmentsContainer
             assignments={this.state.assignments}
             submissions={this.state.submissions}
             submissionComments={this.state.submissionComments}

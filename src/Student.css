@@ -5,7 +5,7 @@
 .dashboard {
   display: grid;
   margin: 25px 60px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
 }
 
@@ -44,12 +44,12 @@
     background-color: #2A2C33;
     margin: 20px 10px;
     width: 500px;
-    height: 650px;
+    height: 250px;
     border-radius: 2px;
     grid-column-start: 1;
     grid-row-start: 2;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    /* flex-wrap: wrap; */
     flex-direction: column;
   }
 
