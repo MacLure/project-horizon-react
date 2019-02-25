@@ -142,8 +142,8 @@ class CohortDetails extends Component {
       <li className="detailsListItem" key={student.id} >
         <div className="studentName">
           {student.first_name} {student.last_name}
-          <div className="studentProgressPercent">
-            <span style={{borderRadius: "2px", backgroundColor: getStudentProgressColor(getStudentProgressPercent(student)), padding: "2px 5px"}}>{getStudentProgressPercent(student)}%</span>
+          <div className="studentProgressPercent" style={{backgroundColor: getStudentProgressColor(getStudentProgressPercent(student))}}>
+            {getStudentProgressPercent(student)}%
           </div>
         </div>
       </li>
@@ -184,17 +184,6 @@ class CohortDetails extends Component {
               {this.cStudents}
             </div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
-          </div>
-          <div className="Admin">
-            <h2 className="sectionTitle">Staff:</h2>
-            <ul>
-              <li className="detailsListItem">Natalie</li>
-              <li className="detailsListItem">Daniel</li>
-              <li className="detailsListItem">Fred</li>
-              <li className="detailsListItem">Saree</li>
-              <li className="detailsListItem">Elvis</li>
-            </ul>
-            <button className="blueButton" onClick={e=>{this.props.TriggerNewAdminForm(e)}}>new admin</button>
           </div>
           <div className="assignments">
             <h2 className="sectionTitle">Assignments:</h2>
