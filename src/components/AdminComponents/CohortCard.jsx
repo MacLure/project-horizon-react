@@ -48,12 +48,8 @@ const CohortCard = (props) => {
       <div className="cardGrid">
         <div>
           <div>
-            <h3 className="cohortName">{name}</h3>
             <h3 className="courseType">{getDescriptiveCourseType(course_type)}</h3>
-          </div>
-          <div className="dates">
-            <div>{formattedStartDate.toLocaleString('en', options)} to</div>
-            <div>{formattedEndDate.toLocaleString('en', options)}</div>
+            <h3 className="cohortName">{name}</h3>
           </div>
         </div>
         <div className="progress">
