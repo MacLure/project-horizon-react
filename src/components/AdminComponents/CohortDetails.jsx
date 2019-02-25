@@ -168,7 +168,6 @@ class CohortDetails extends Component {
     ))
   }
 
-
 // rename CohortCard here (but not the actual component)
   return (
     <React.Fragment>
