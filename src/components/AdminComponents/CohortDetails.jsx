@@ -173,10 +173,12 @@ class CohortDetails extends Component {
   return (
     <React.Fragment>
       <div className="cohortCard">
+      <div className="header">
         <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
+        <button className="editButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
         <p className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</p><br/>
-        <button className="deleteButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
         <div className="hr"></div>
+      </div>
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students:</h2>
