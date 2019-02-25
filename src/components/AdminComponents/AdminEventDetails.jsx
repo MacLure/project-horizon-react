@@ -43,7 +43,7 @@ class AdminEventDetails extends Component {
     this.setState( this.state.editing ? {editing:false} : {editing:true} )
   }
 
-  EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
+  EditButtonClass = () => this.state.editing ? "whiteButton" : "addButton";
 
   handleDelete = (e) => {
     e.preventDefault();

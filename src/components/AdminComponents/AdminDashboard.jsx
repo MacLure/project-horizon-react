@@ -46,8 +46,6 @@ class AdminDashboard extends Component {
     this.showNewCohortForm = this.showNewCohortForm.bind(this)
     this.showEditCohortForm = this.showEditCohortForm.bind(this)
     this.showAssignmentDetails = this.showAssignmentDetails.bind(this)
-
-
   }
 
 componentDidMount() {

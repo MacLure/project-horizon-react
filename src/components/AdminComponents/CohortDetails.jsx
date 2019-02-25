@@ -88,7 +88,7 @@ class CohortDetails extends Component {
     const formattedEventDate = (date) => new Date(Date.parse(date)).toLocaleString('en', this.options)
     const EventHour = (event) => new Date(Date.parse(event.time)).getHours()
     const EventMinute = (event) => new Date(Date.parse(event.time)).getMinutes()
-  
+
     const showNewStudentForm = () => {
       if (this.state.showNewStudentForm ) {
         return (
@@ -183,19 +183,19 @@ class CohortDetails extends Component {
             <div >
               {this.cStudents}
             </div>
-            <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
+            <button className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
           </div>
           <div className="assignments">
             <h2 className="sectionTitle">Assignments</h2>
               <div>{this.cAssignments}</div>
-            <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
+            <button className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
           <div className="events">
             <h2 className="sectionTitle">Events</h2>
             <ul>
               {this.cEvents}
             </ul>
-            <button className="blueButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
+            <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
           </div>
         </div>
         <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>

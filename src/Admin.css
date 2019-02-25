@@ -537,11 +537,11 @@ ul {
   border-radius: 2px;
 }
 
-.blueButton {
+.addButton {
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #2C65F9;
+  background-color: #17B57E;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;
@@ -550,7 +550,7 @@ ul {
   text-align: center;
 }
 
-.blueButton:hover {
+.addButton:hover {
   opacity: 0.5;
   transition: opacity 0.5;
 }
