@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import checkmark from './../../assets/Icons/checkmark.svg'
-import exclamation from './../../assets/Icons/exclamation.svg'
+import checkmark from './../../assets/Icons/tick.svg'
+import exclamation from './../../assets/Icons/warning.svg'
 
 
 class StudentAssignment extends Component {
