@@ -434,7 +434,6 @@ nav {
 .studentName {
   display: block;
   position: relative;
-
 }
 
 .studentProgressPercent {
@@ -458,6 +457,10 @@ nav {
   background-color: inherit;
 }
 
+.eventAssignmentDates {
+  color: gray;
+}
+
 .sectionTitle{
   background-color: inherit;
   text-align: left;
@@ -472,9 +475,14 @@ ul {
 
 .detailsListItem {
   background-color: inherit;
-  margin: 15px auto;
+  margin: 0 auto;
   text-align: left;
   cursor:pointer;
+  padding: 10px
+}
+
+.detailsListItem:hover {
+  background-color: #363A42;
 }
 
 .blueButton {

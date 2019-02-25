@@ -154,7 +154,7 @@ class CohortDetails extends Component {
     this.cEvents = this.props.cohortEvents.map(event => (
       <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >
         <div>{event.name}</div>
-        <div>{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
+        <div className="eventAssignmentDates">{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
       </li>
     ))
   }
@@ -163,7 +163,7 @@ class CohortDetails extends Component {
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
       <li className="detailsListItem" key={assignment.id} onClick={e=>{this.props.TriggerAssignmentDetails(assignment)}} >
         <div>{assignment.name}</div>
-        <div>{formattedAssignmentDate(assignment.due_date)}</div>
+        <div className="eventAssignmentDates">{formattedAssignmentDate(assignment.due_date)}</div>
       </li>
     ))
   }
@@ -180,7 +180,7 @@ class CohortDetails extends Component {
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students:</h2>
-            <div className="detailsListItem">
+            <div >
               {this.cStudents}
             </div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
@@ -198,7 +198,7 @@ class CohortDetails extends Component {
           </div>
           <div className="assignments">
             <h2 className="sectionTitle">Assignments:</h2>
-              <div className="detailsListItem">{this.cAssignments}</div>
+              <div>{this.cAssignments}</div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
           <div className="events">
