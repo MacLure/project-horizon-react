@@ -142,8 +142,8 @@ class CohortDetails extends Component {
       <li className="detailsListItem" key={student.id} >
         <div className="studentName">
           {student.first_name} {student.last_name}
-          <div className="studentProgressPercent">
-            <span style={{borderRadius: "2px", backgroundColor: getStudentProgressColor(getStudentProgressPercent(student)), padding: "2px 5px"}}>{getStudentProgressPercent(student)}%</span>
+          <div className="studentProgressPercent" style={{backgroundColor: getStudentProgressColor(getStudentProgressPercent(student))}}>
+            {getStudentProgressPercent(student)}%
           </div>
         </div>
       </li>
@@ -154,7 +154,7 @@ class CohortDetails extends Component {
     this.cEvents = this.props.cohortEvents.map(event => (
       <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >
         <div>{event.name}</div>
-        <div>{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
+        <div className="eventAssignmentDates">{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
       </li>
     ))
   }
@@ -163,16 +163,15 @@ class CohortDetails extends Component {
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
       <li className="detailsListItem" key={assignment.id} onClick={e=>{this.props.TriggerAssignmentDetails(assignment)}} >
         <div>{assignment.name}</div>
-        <div>{formattedAssignmentDate(assignment.due_date)}</div>
+        <div className="eventAssignmentDates">{formattedAssignmentDate(assignment.due_date)}</div>
       </li>
     ))
   }
 
 
-// rename CohortCard here (but not the actual component)
   return (
     <React.Fragment>
-      <div className="cohortCard">
+      <div className="cohortDetailsSection">
       <div className="header">
         <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <button className="editButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
@@ -181,30 +180,19 @@ class CohortDetails extends Component {
       </div>
         <div className="cohortDetailsGrid">
           <div className="students">
-            <h2 className="sectionTitle">Students:</h2>
-            <div className="detailsListItem">
+            <h2 className="sectionTitle">Students</h2>
+            <div >
               {this.cStudents}
             </div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
           </div>
-          <div className="Admin">
-            <h2 className="sectionTitle">Staff:</h2>
-            <ul>
-              <li className="detailsListItem">Natalie</li>
-              <li className="detailsListItem">Daniel</li>
-              <li className="detailsListItem">Fred</li>
-              <li className="detailsListItem">Saree</li>
-              <li className="detailsListItem">Elvis</li>
-            </ul>
-            <button className="blueButton" onClick={e=>{this.props.TriggerNewAdminForm(e)}}>new admin</button>
-          </div>
           <div className="assignments">
-            <h2 className="sectionTitle">Assignments:</h2>
-              <div className="detailsListItem">{this.cAssignments}</div>
+            <h2 className="sectionTitle">Assignments</h2>
+              <div>{this.cAssignments}</div>
             <button className="blueButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
           </div>
           <div className="events">
-            <h2 className="sectionTitle">Events:</h2>
+            <h2 className="sectionTitle">Events</h2>
             <ul>
               {this.cEvents}
             </ul>
