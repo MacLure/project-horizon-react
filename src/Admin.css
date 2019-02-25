@@ -159,7 +159,7 @@ textarea:focus {
   transition: opacity 0.5;
 }
 
-/* -----------------c------------------------
+/* ------------------------------------------
   AdminDashboard
 ----------------------------------------- */
 .adminGrid {
@@ -338,12 +338,12 @@ nav {
   display: flex;
   justify-content: flex-start;
   justify-self: center;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .card:hover {
   transform: translateY(-9px);
-  transition: transform 0.2s;
+  transition: transform 0.1s;
 }
 
 .cardGrid {
@@ -431,6 +431,18 @@ nav {
   background-color: inherit;
 }
 
+.studentName {
+  display: block;
+  position: relative;
+
+}
+
+.studentProgressPercent {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
 .admin {
   background-color: inherit;
   grid-column-start: 2;
@@ -460,7 +472,7 @@ ul {
 
 .detailsListItem {
   background-color: inherit;
-  margin: 20px auto;
+  margin: 15px auto;
   text-align: left;
   cursor:pointer;
 }

@@ -48,7 +48,6 @@ class CohortDetails extends Component {
   formattedStartDate = new Date(Date.parse(this.props.onFocusData.start_date)).toLocaleString('en', this.options)
   formattedEndDate = new Date(Date.parse(this.props.onFocusData.end_date)).toLocaleString('en', this.options)
 
-
   handleShowNewStudentForm = () =>{
     this.setState({showNewStudentForm: !this.state.showNewStudentForm})
   }
@@ -84,6 +83,12 @@ class CohortDetails extends Component {
 
   render() {
 
+    const options = {year: 'numeric', month: 'short', day: 'numeric' };
+    const formattedAssignmentDate = (date) => new Date(Date.parse(date)).toLocaleString('en', this.options)
+    const formattedEventDate = (date) => new Date(Date.parse(date)).toLocaleString('en', this.options)
+    const EventHour = (event) => new Date(Date.parse(event.time)).getHours()
+    const EventMinute = (event) => new Date(Date.parse(event.time)).getMinutes()
+  
     const showNewStudentForm = () => {
       if (this.state.showNewStudentForm ) {
         return (
@@ -127,31 +132,39 @@ class CohortDetails extends Component {
     }
 
     const getStudentProgressColor = (percent) => {
-      if (percent < 60) return "red"
-      if (percent > 60 && percent < 80) return "yellow"
-      if (percent > 80) return "green"
+      if (percent < 60) return "#FC3404"
+      if (percent > 60 && percent < 80) return "#C5A022"
+      if (percent > 80) return "#17B57E"
     }
-
-
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
       <li className="detailsListItem" key={student.id} >
-        {student.first_name} {student.last_name}
-        <span style={{color: getStudentProgressColor(getStudentProgressPercent(student))}}>{getStudentProgressPercent(student)}%</span>
+        <div className="studentName">
+          {student.first_name} {student.last_name}
+          <div className="studentProgressPercent">
+            <span style={{borderRadius: "2px", backgroundColor: getStudentProgressColor(getStudentProgressPercent(student)), padding: "2px 5px"}}>{getStudentProgressPercent(student)}%</span>
+          </div>
+        </div>
       </li>
     ))
   }
 
   if(this.props.cohortEvents){
     this.cEvents = this.props.cohortEvents.map(event => (
-      <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >{event.name}</li>
+      <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >
+        <div>{event.name}</div>
+        <div>{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
+      </li>
     ))
   }
 
   if(this.props.cohortAssignments){
     this.cAssignments = this.props.cohortAssignments.map(assignment => (
-      <li className="detailsListItem" key={assignment.id} onClick={e=>{this.props.TriggerAssignmentDetails(assignment)}} >{assignment.name}</li>
+      <li className="detailsListItem" key={assignment.id} onClick={e=>{this.props.TriggerAssignmentDetails(assignment)}} >
+        <div>{assignment.name}</div>
+        <div>{formattedAssignmentDate(assignment.due_date)}</div>
+      </li>
     ))
   }
 

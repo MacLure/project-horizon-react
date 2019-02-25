@@ -17,13 +17,10 @@ class AdminAssignmentDetails extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-
-    
   }
 
   options = {year: 'numeric', month: 'short', day: 'numeric' };
   formattedDate = new Date(Date.parse(this.props.assignment.due_date)).toLocaleString('en', this.options)
-
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
