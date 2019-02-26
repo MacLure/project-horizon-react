@@ -462,6 +462,7 @@ nav {
 
 .hr {
   height: 3px;
+  margin-bottom: 5px;
   border-radius: 1.5px;
   background: linear-gradient(-90deg, #dd3d0f, #FFaa00 );
 }
@@ -531,6 +532,7 @@ nav {
   font-weight: bold;
   padding: 10px;
   border-bottom: 1px solid gray;
+  margin-bottom: 5px;
   color: rgb(148, 152, 160);
 
 }
