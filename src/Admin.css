@@ -166,15 +166,14 @@ textarea:focus {
   padding: 5px 10px;
   background-color: #FC3404;
   border: none;
-  
   transition: background-color 0.4s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
 }
 
-.editButton:hover, .adminDeleteButton:hover {
-
+ .adminDeleteButton:hover {
+  background-color: rgba(252, 52, 4, 0.5);
   transition: background-color 0.4s;
 }
 
