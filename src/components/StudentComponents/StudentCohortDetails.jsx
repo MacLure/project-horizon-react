@@ -62,7 +62,6 @@ class StudentCohortDetails extends Component {
     }
 
     return (
-      <React.Fragment>
         <div className="infoCard">
           <p>{studentFirstName} {studentLastName}</p>
           <p>{name}</p>
@@ -75,7 +74,6 @@ class StudentCohortDetails extends Component {
           <p>{progressStatus()}</p>
         </div>
 
-      </React.Fragment>
 
      );
   }

@@ -34,19 +34,19 @@ class NewStudentNoteForm extends Component {
     return (
       <div className="modal">
         <div className="modalContainer">
-        <div className="modalEscape"></div>
-        <h2 className="formTitle">New Student Note</h2>
-        <form onSubmit={this.handleSubmit}>
-        <div className="one">
-          <label htmlFor="title">Title</label>
-          <input type="text" name="title">
-        </div>
-        <div className="textarea">
-          <label htmlFor="body">Body</label>
-          <textarea rows="10" cols="30" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></textarea>
-        <br/>
-        <button className="submitButton" type="submit">Submit</button>
-        </div>
+          <div className="modalEscape"></div>
+          <h2 className="formTitle">New Student Note</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div className="one">
+              <label htmlFor="title">Title</label>
+              <input type="text" name="title"></input>
+            </div>
+            <div className="textarea">
+              <label htmlFor="body">Body</label>
+              <textarea rows="10" cols="30" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></textarea>
+              <br/>
+              <button className="submitButton" type="submit">Submit</button>
+            </div>
       </form>
       </div>
     </div>

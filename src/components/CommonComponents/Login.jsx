@@ -75,10 +75,10 @@ class Login extends Component {
   displayForm = () => {
     return (this.state.user === null) ?
     null : <form className="loginForm" method="post">
-        <label className="loginLabel" htmlfor="email">Email</label><input className="loginInput" placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
+        <label className="loginLabel" htmlFor="email">Email</label><input className="loginInput" placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
         }}></input>
-        <label className="loginLabel" htmlfor="password">Password</label><input className="loginInput" placeholder="password" type="password" name="password" onChange={e=>{
+        <label className="loginLabel" htmlFor="password">Password</label><input className="loginInput" placeholder="password" type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
         }}></input>
         <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>

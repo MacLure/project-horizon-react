@@ -3,7 +3,7 @@ import NewStudentForm from './NewStudentForm'
 import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
-
+import edit from '../../assets/Icons/edit.svg';
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
@@ -168,15 +168,22 @@ class CohortDetails extends Component {
     ))
   }
 
+  const getCohortType = (str) => {
+    if (str === "wdi") {return "Web Development"}
+    if (str === "uxdi") {return "UX / UI"}
+    if (str === "dsi") {return "Data Science"}
+
+  }
+
   return (
     <React.Fragment>
       <div className="cohortDetailsSection">
       <div className="header">
-        <h2 className="detailsTitle">{this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
-        <button className="editButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} >Edit Cohort</button>
-        <p className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</p><br/>
-        <div className="hr"></div>
+        <h2 className="detailsTitle">{getCohortType(this.props.onFocusData!=null?this.props.onFocusData.course_type:null)} | {this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
+        <div className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</div>
+        <div className="editCohortButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} ><img class="editIcon" src={edit}/></div>
       </div>
+      <div className="hr"></div>
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students</h2>

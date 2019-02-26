@@ -26,11 +26,11 @@ class StudentAssignmentsList extends Component {
   }
 
   onAssignmentClick = (data) => {
-    console.log('Assignment Data',data)
     this.setState({
       onFocusData:data,
       selectedAssignment:this.props.assignments.indexOf(data)
     })
+
   }
 
   getAssignmentInfo = () => (
@@ -84,7 +84,6 @@ documentDidMount() {
             student={this.props.student}
           />
         ))}
-
         {showSubmission}
       </React.Fragment>
      );

@@ -152,10 +152,29 @@ textarea:focus {
   opacity: 1;
   transition: opacity 0.5s;
   position: absolute;
+  height: 100px;
+  width: 100px;
 }
 
+.editCohortButton {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 15px;
+  right: 35px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.editCohortButton:hover {
+  background-color: rgb(73, 73, 73)
+}
+
+
 .editIcon {
-  height: 25px;
+  height: 100%;
 }
 
 .deleteButton {
@@ -360,7 +379,7 @@ nav {
 }
 
 .card:hover {
-  transform: translateY(-9px);
+  transform: translateY(-7px);
   transition: transform 0.1s;
 }
 
@@ -426,14 +445,13 @@ nav {
 }
 
 .header {
-
+  padding: 15px 35px;
 }
 
 .detailsTitle {
-  padding-top: 20px;
-  padding-bottom: 5px;
+  /* padding-top: 20px;
+  padding-bottom: 5px; */
   background-color: inherit;
-  text-align: center;
 }
 
 .dates {
@@ -443,9 +461,15 @@ nav {
   font-size: 14px;
 }
 
+
+
 .hr {
-  border-bottom: 2px solid #FC6404;
-  border-radius: 5px;
+  /* border-bottom: 2px solid #FC6404;
+  border-radius: 5px; */
+  height: 3px;
+  border-radius: 1.5px;
+  background: linear-gradient(-90deg, #dd3d0f, #FFaa00 );
+
 }
 
 .cohortDetailsGrid {
@@ -559,6 +583,26 @@ ul {
   padding: 5px 10px;
   background-color: rgb(192, 192, 192);
   color: rgb(58, 58, 58);
+  border: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.whiteButton:hover {
+  opacity: 0.5;
+  transition: opacity 0.5;
+}
+
+
+.blueButton {
+  margin: 20px auto;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgb(34, 44, 185);
+  color: white;
   border: none;
   opacity: 1;
   transition: opacity 0.5s;

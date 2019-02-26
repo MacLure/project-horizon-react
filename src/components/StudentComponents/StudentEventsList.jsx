@@ -24,9 +24,8 @@ class StudentEventsList extends Component {
         className="eventItem"
         key={event.id}
         onClick={()=>{this.props.TriggerEventDetails(event)}}>
-        <p>{event.name}</p>
-        <p>{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</p>
-
+        <div>{event.name}</div>
+        <div className="date">{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</div>
       </div>
         ))}
     </div>

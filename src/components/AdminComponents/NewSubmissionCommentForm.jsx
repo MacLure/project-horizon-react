@@ -38,7 +38,7 @@ class NewSubmissionCommentForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="one">
             <label htmlFor="title">Title</label>
-            <input type="text" name="title">
+            <input type="text" name="title"></input>
           </div>
           <div className="textarea">
             <label htmlFor="body">Comment</label>

@@ -52,14 +52,11 @@ class SubmissionDetails extends Component {
     .then(e=>this.props.deleteSuccess())
   }
 
-
-
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
         <h2 className="AssignmentTitle">{this.state.assignment.name}</h2>
         <p><a href={this.state.submission.url}>{this.state.submission.url}</a></p>
-        <p>{this.state.submission.body}</p>
         <p>{this.state.submission.body}</p>
         Submitted on {this.state.submission.created_at}
       </div>
@@ -78,8 +75,6 @@ class SubmissionDetails extends Component {
 
       </form>
   }
-
-
 
   render() {
     const {name, body, url, created_at} = this.props.submission
