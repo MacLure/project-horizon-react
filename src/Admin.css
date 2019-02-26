@@ -47,7 +47,6 @@
   padding: 20px 0px 15px 0px;
   background-color: inherit;
   text-align: center;
-  /* h2 */
 }
 
 form {
@@ -129,10 +128,9 @@ textarea:focus {
   padding-left: 0;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #00B67D;
+  background-color: rgb(0, 182, 125);
   border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
+  transition: background-color 0.4s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -141,8 +139,8 @@ textarea:focus {
 }
 
 .submitButton:hover {
-  opacity: 0.5;
-  transition: opacity 0.5s;
+  background-color: rgba(0, 182, 125, 0.5);
+  transition: background-color 0.4s;
 }
 
 .editButton {
@@ -156,41 +154,7 @@ textarea:focus {
   width: 100px;
 }
 
-.editCohortButton {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  cursor: pointer;
-  top: 15px;
-  right: 35px;
-  height: 40px;
-  padding: 10px;
-  border-radius: 3px;
-}
-
-.editCohortButton:hover {
-  background-color: rgb(73, 73, 73)
-}
-
-
-.editIcon {
-  height: 100%;
-}
-
-.deleteButton {
-  margin: 40px auto 20px 80px;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #FC3404;
-  border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
-  border-radius: 2px;
-  font-size: 1.1em;
-  text-align: center;
-}
-
-.editButton:hover, .deleteButton:hover {
+.editButton:hover {
   opacity: 0.5;
   transition: opacity 0.5;
 }
@@ -442,6 +406,7 @@ nav {
   border-radius: 2px;
   padding: 10px 0px;
   position: relative;
+  height: 730px;
 }
 
 .header {
@@ -456,20 +421,61 @@ nav {
 
 .dates {
   padding-top: 10px;
-  /* text-align: center; */
   color: gray;
   font-size: 14px;
 }
 
+.editCohortButton {
+  background-color: #363941;
+  transition: background-color 0.4s;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 100px;
+  height: 30px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 3px;
+}
 
+.editCohortButton:hover {
+  background-color: rgb(70, 75, 85);
+  transition: background-color 0.4s;
+}
+
+.editIcon {
+  height: 100%;
+}
+
+.adminDeleteButton {
+  background-color: #363941;
+  transition: background-color 0.4s;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 35px;
+  height: 30px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.adminDeleteButton:hover {
+  background-color: rgb(70, 75, 85);
+  transition: background-color 0.4s;
+}
+
+.deleteIcon {
+  height: 100%;
+}
 
 .hr {
-  /* border-bottom: 2px solid #FC6404;
-  border-radius: 5px; */
   height: 3px;
+  margin-bottom: 5px;
   border-radius: 1.5px;
   background: linear-gradient(-90deg, #dd3d0f, #FFaa00 );
-
 }
 
 .cohortDetailsGrid {
@@ -506,14 +512,8 @@ nav {
   text-align: center;
 }
 
-.admin {
-  background-color: inherit;
-  grid-column-start: 2;
-}
-
 .assignments {
   grid-column-start: 2;
-  background-color: inherit;
   background-color: rgb(54, 57, 65);
   padding: 10px;
   margin-top: 10px;
@@ -521,7 +521,6 @@ nav {
 
 .events {
   grid-column-start: 3;
-  background-color: inherit;
   background-color: rgb(54, 57, 65);
   padding: 10px;
   margin-top: 10px;
@@ -537,6 +536,7 @@ nav {
   font-weight: bold;
   padding: 10px;
   border-bottom: 1px solid gray;
+  margin-bottom: 5px;
   color: rgb(148, 152, 160);
 
 }
@@ -548,6 +548,7 @@ ul {
 
 .detailsListItem {
   background-color: inherit;
+  transition: background-color 0.4s;
   margin: 0 auto;
   text-align: left;
   cursor:pointer;
@@ -556,25 +557,25 @@ ul {
 
 .detailsListItem:hover {
   background-color: rgb(70, 75, 85);
+  transition: background-color 0.2s;
   border-radius: 2px;
 }
 
 .addButton {
-  margin: 20px auto;
+  margin: 20px auto 20px 10px;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #17B57E;
+  background-color: rgb(51, 112, 250);
   border: none;
-  opacity: 1;
-  transition: opacity 0.5s;
+  transition: background-color 0.2s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
 }
 
 .addButton:hover {
-  opacity: 0.5;
-  transition: opacity 0.5;
+  background-color: rgba(51, 112, 250, 0.5);
+  transition: background-color 0.4s;
 }
 
 .whiteButton {
@@ -597,7 +598,9 @@ ul {
 }
 
 
-.blueButton {
+
+
+/* .blueButton {
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
@@ -605,7 +608,7 @@ ul {
   color: white;
   border: none;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -613,8 +616,8 @@ ul {
 
 .blueButton:hover {
   opacity: 0.5;
-  transition: opacity 0.5;
-}
+  transition: opacity 0.4s;
+} */
 
 /* -----------------------------------------
   Contacts
