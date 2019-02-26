@@ -205,7 +205,7 @@ class CohortDetails extends Component {
             <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
           </div>
         </div>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+        <button className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
       </div>
   </React.Fragment>
   );
