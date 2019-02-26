@@ -538,7 +538,7 @@ ul {
 }
 
 .addButton {
-  margin: 20px auto;
+  margin: 20px auto 20px 10px;
   cursor: pointer;
   padding: 5px 10px;
   background-color: rgb(51, 112, 250);
