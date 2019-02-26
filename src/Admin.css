@@ -584,8 +584,26 @@ ul {
   text-align: center;
 }
 
- .adminDeleteButton:hover {
+.adminDeleteButton:hover {
   background-color: rgba(252, 52, 4, 0.5);
+  transition: background-color 0.4s;
+}
+
+.editCohortButton {
+  background-color: #363941;
+  transition: background-color 0.4s;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 35px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.editCohortButton:hover {
+  background-color: rgb(70, 75, 85);
   transition: background-color 0.4s;
 }
 

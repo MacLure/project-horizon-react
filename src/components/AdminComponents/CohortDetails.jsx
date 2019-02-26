@@ -4,6 +4,7 @@ import NewAdminForm from './NewAdminForm'
 import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import edit from '../../assets/Icons/edit.svg';
+import trash from '../../assets/Icons/trash.svg';
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
@@ -205,7 +206,7 @@ class CohortDetails extends Component {
             <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
           </div>
         </div>
-        <button className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Cohort</button>
+        <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
       </div>
   </React.Fragment>
   );
