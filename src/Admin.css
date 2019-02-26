@@ -406,6 +406,7 @@ nav {
   border-radius: 2px;
   padding: 10px 0px;
   position: relative;
+  height: 730px;
 }
 
 .header {
@@ -431,9 +432,10 @@ nav {
   position: absolute;
   cursor: pointer;
   top: 20px;
-  right: 35px;
+  right: 100px;
   height: 30px;
   padding: 10px;
+  display: inline-block;
   border-radius: 3px;
 }
 
@@ -443,6 +445,29 @@ nav {
 }
 
 .editIcon {
+  height: 100%;
+}
+
+.adminDeleteButton {
+  background-color: #363941;
+  transition: background-color 0.4s;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 35px;
+  height: 30px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.adminDeleteButton:hover {
+  background-color: rgb(70, 75, 85);
+  transition: background-color 0.4s;
+}
+
+.deleteIcon {
   height: 100%;
 }
 
@@ -572,40 +597,8 @@ ul {
   transition: opacity 0.5;
 }
 
-.adminDeleteButton {
-  margin: 40px auto 40px 30px;
-  cursor: pointer;
-  padding: 5px 10px;
-  background-color: #FC3404;
-  border: none;
-  transition: background-color 0.4s;
-  border-radius: 2px;
-  font-size: 1.1em;
-  text-align: center;
-}
 
-.adminDeleteButton:hover {
-  background-color: rgba(252, 52, 4, 0.5);
-  transition: background-color 0.4s;
-}
 
-.editCohortButton {
-  background-color: #363941;
-  transition: background-color 0.4s;
-  border: none;
-  position: absolute;
-  cursor: pointer;
-  top: 20px;
-  right: 35px;
-  height: 30px;
-  padding: 10px;
-  border-radius: 3px;
-}
-
-.editCohortButton:hover {
-  background-color: rgb(70, 75, 85);
-  transition: background-color 0.4s;
-}
 
 /* .blueButton {
   margin: 20px auto;
