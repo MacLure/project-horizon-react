@@ -37,16 +37,26 @@
 .infoCard {
   background-color: #2A2C33;
   padding: 10px;
-  width: 500px;
-  height: 150px;
+  width: 1300px;
+  height: 100px;
   border-radius: 2px;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .studentProgressCircle {
-  position: relative;
+  position: absolute;
+  right: 325px;
 }
+
+.assignmentProgress {
+  right: 100px;
+}
+
 
 .circlePercentage {
   position: absolute;
@@ -65,7 +75,7 @@
     height: 250px;
     border-radius: 2px;
     grid-column-start: 1;
-    grid-row-start: 2;
+    grid-row-start: 3;
     display: block;
     /* flex-wrap: wrap; */
     flex-direction: column;
@@ -73,7 +83,7 @@
 
   .eventItem {
     cursor: pointer;
-    padding: 10px;  
+    padding: 10px;
   }
 
   .eventItem:hover {
@@ -90,8 +100,8 @@
     width: 80%;
     height: 150px;
     border-radius: 2px;
-    /* grid-column-start: 1;
-    gird-row-start: 2; */
+    grid-column-start: 1;
+    grid-row-start: 2;
   }
 
 
@@ -100,7 +110,7 @@
 ----------------------------------------- */
   .assignmentContainer {
     grid-column-start: 2;
-    grid-row-start: 1;
+    grid-row-start: 2;
     grid-row-end: 2;
     width: 500px;
     height: 500px;

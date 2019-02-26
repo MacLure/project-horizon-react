@@ -182,7 +182,7 @@ class CohortDetails extends Component {
       <div className="header">
         <h2 className="detailsTitle">{getCohortType(this.props.onFocusData!=null?this.props.onFocusData.course_type:null)} | {this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <div className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</div>
-        
+
         <div className="editCohortButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} ><img class="editIcon" src={edit}/></div>
         <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
       </div>
@@ -209,7 +209,6 @@ class CohortDetails extends Component {
           </div>
         </div>
       </div>
-
   </React.Fragment>
   );
   }
