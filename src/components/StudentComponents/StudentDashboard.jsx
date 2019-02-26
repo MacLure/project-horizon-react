@@ -81,7 +81,17 @@ class StudentDashboard extends Component {
   render() {
     return (
       <React.Fragment>
-        <StudentNavbar/>
+        <StudentNavbar
+        studentFirstName={this.state.student.first_name}
+        studentLastName={this.state.student.last_name}
+        name={this.state.cohort.name}
+        course_type={this.state.cohort.course_type}
+        start_date={this.state.cohort.start_date}
+        end_date={this.state.cohort.end_date}
+        submissions={this.state.submissions}
+        assignments={this.state.assignments}
+
+        />
         <div className="dashboard">
           <StudentCohortDetails
             studentFirstName={this.state.student.first_name}

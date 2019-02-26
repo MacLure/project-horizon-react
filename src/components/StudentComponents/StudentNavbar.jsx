@@ -10,6 +10,9 @@ class StudentNavBar extends Component {
     return (
         <nav className="menuBar">
           <img className="icon" src={Logo} />
+          {this.props.studentFirstName} {this.props.studentLastName}
+
+  
           <ul className="navList">
             <NavLink to="/student" activeClassName="active"><li className="navItem">Dashboard</li></NavLink>
 
