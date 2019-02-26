@@ -68,6 +68,9 @@ documentDidMount() {
         showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} student = {student} />
       }
     }
+
+
+    
     return (
       <React.Fragment>
         {assignments.map((assignment, index) => (

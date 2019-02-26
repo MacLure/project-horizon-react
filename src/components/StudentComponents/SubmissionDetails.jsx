@@ -25,6 +25,7 @@ class SubmissionDetails extends Component {
 
   }
 
+
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
@@ -55,21 +56,21 @@ class SubmissionDetails extends Component {
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
-        <h2 className="AssignmentTitle">{this.state.assignment.name}</h2>
-        <p><a href={this.state.submission.url}>{this.state.submission.url}</a></p>
-        <p>{this.state.submission.body}</p>
-        Submitted on {this.state.submission.created_at}
+        <h2 className="AssignmentTitle">{this.props.assignment.name}</h2>
+        <p><a href={this.state.submission.url}>{this.props.submission.url}</a></p>
+        <p>{this.props.submission.body}</p>
+        Submitted on {this.props.submission.created_at}
       </div>
       :
       <form onSubmit={this.handleSubmit}>
         <h2 className="formTitle">Edit Submission</h2>
         <div className="one">
           <label htmlFor="url">Name</label>
-          <input type="text" name="url" value={this.state.submission.url} onChange={this.handleChange} ></input>
+          <input type="text" name="url" value={this.props.submission.url} onChange={this.handleChange} ></input>
         </div>
         <div className="two">
           <label htmlFor="body">Body</label>
-          <textArea name="date" value={this.state.submission.body} onChange={this.handleChange} ></textArea>
+          <textArea name="date" value={this.props.submission.body} onChange={this.handleChange} ></textArea>
         </div>
         <button className="submitButton" type="submit">Submit</button>
 
@@ -82,7 +83,7 @@ class SubmissionDetails extends Component {
     return (
       <React.Fragment>
       {this.detailsOrForm()}
-      <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Submission"}</button>
+      <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
 
 
       {submissionComments.map(comment => (
