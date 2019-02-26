@@ -62,7 +62,7 @@ class StudentCohortDetails extends Component {
           <p>{formattedEndDate}</p>
           <p>{daysLeftDisplay()}</p>
           <StudentProgressCircle progress={assignmentProgress}/>
-          <p>assignment progress: {assignmentProgress()}%</p>
+          <p className="assgnmentProgesss">assignment progress: {assignmentProgress()}%</p>
           <p>{progressStatus()}</p>
         </div>
 
