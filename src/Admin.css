@@ -544,6 +544,7 @@ ul {
 
 .detailsListItem {
   background-color: inherit;
+  transition: background-color 0.4s;
   margin: 0 auto;
   text-align: left;
   cursor:pointer;
@@ -552,6 +553,7 @@ ul {
 
 .detailsListItem:hover {
   background-color: rgb(70, 75, 85);
+  transition: background-color 0.2s;
   border-radius: 2px;
 }
 
@@ -561,7 +563,7 @@ ul {
   padding: 5px 10px;
   background-color: rgb(51, 112, 250);
   border: none;
-  transition: background-color 0.4s;
+  transition: background-color 0.2s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -591,8 +593,7 @@ ul {
   transition: opacity 0.5;
 }
 
-
-.blueButton {
+/* .blueButton {
   margin: 20px auto;
   cursor: pointer;
   padding: 5px 10px;
@@ -600,7 +601,7 @@ ul {
   color: white;
   border: none;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
@@ -608,8 +609,8 @@ ul {
 
 .blueButton:hover {
   opacity: 0.5;
-  transition: opacity 0.5;
-}
+  transition: opacity 0.4s;
+} */
 
 /* -----------------------------------------
   Contacts
