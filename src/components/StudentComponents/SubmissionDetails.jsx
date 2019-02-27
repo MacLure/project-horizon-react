@@ -4,6 +4,9 @@ import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
 import  {deleteSubmission} from '.././../service';
 import  {editSubmission} from '.././../service';
+import StudentAssignmentDetails from './StudentAssignmentDetails'
+
+
 
 
 
@@ -53,13 +56,15 @@ class SubmissionDetails extends Component {
     .then(e=>this.props.deleteSuccess())
   }
 
+  options = {year: 'numeric', month: 'short', day: 'numeric' };
+
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
-        <h2 className="AssignmentTitle">{this.props.assignment.name}</h2>
-        <p><a href={this.state.submission.url}>{this.props.submission.url}</a></p>
-        <p>{this.props.submission.body}</p>
-        Submitted on {this.props.submission.created_at}
+        <h2 className="AssignmentTitle">Your Submission</h2>
+        <div className="date">Submitted on {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}</div>
+        <div><a href={this.state.submission.url}>{this.props.submission.url}</a></div>
+        <div>{this.props.submission.body}</div>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
@@ -82,6 +87,10 @@ class SubmissionDetails extends Component {
     const submissionComments = [].concat.apply([], this.props.submissionComments);
     return (
       <React.Fragment>
+      <StudentAssignmentDetails
+        assignment = {this.state.assignment}
+        submission = {this.state.submission}
+      />
       {this.detailsOrForm()}
       <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
 
