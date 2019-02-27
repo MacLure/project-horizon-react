@@ -114,20 +114,34 @@
   .assignmentContainer {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 10px;
+    margin: 0 auto;
+    padding: 0 30px;
     width: 1300px;
     height: 500px;
+    grid-gap: 50px;
     background-color: #2A2C33;
     overflow: scroll;
   }
 
   .assignmentlist {
     grid-column-start: 1;
-
+    background-color: rgb(54, 57, 65);
+    padding: 10px;
+    margin-top: 10px;
   }
+
+.noAssignmentSelected {
+  padding-top: 30px;
+  color: grey;
+  text-align: center;
+  font-size: 1.5em;
+}
 
   .submissionContainer {
     grid-column-start: 2;
+    background-color: rgb(54, 57, 65);
+    padding: 20px;
+
   }
 
 /* -----------------------------------------

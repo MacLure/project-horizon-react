@@ -11,29 +11,16 @@ class StudentAssignmentsContainer extends Component {
     super(props)
 
     this.state = {
-      assignments: [],
-      submissions: [],
-      submission_comments: [],
+      student: this.props.student,
+      assignments: this.props.assignments,
+      submissions: this.props.submissions,
+      submission_comments: this.props.submission_comments,
       onFocusData: null,
       // selectedAssignment: null,
     }
 
-    this.getAssignmentInfo = this.getAssignmentInfo.bind(this)
-
   }
 
-  getAssignmentInfo = () => {
-    this.setState( {
-      assignments: this.props.assignments,
-      submissions: this.props.submissions,
-      submission_comments: this.props.submission_comments,
-      // onFocusData: this.props.onFocusData,
-    })
-  }
-
-  documentDidMount() {
-    this.getAssignmentInfo()
-  }
 
   getOnFocusData = (data) => {
     console.log('Assignment Data',data)
@@ -46,7 +33,7 @@ class StudentAssignmentsContainer extends Component {
 
   render() {
 
-    let showSubmission = null;
+    let showSubmission = <div className="noAssignmentSelected">No assignment selected</div>;
 
     if(this.state.onFocusData !== null ){
       if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {

@@ -107,6 +107,7 @@ class StudentDashboard extends Component {
 
 
           <StudentAssignmentsContainer
+            student = {this.state.student}
             assignments={this.state.assignments}
             submissions={this.state.submissions}
             submissionComments={this.state.submissionComments}

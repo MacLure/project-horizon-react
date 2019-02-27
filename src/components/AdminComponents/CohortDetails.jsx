@@ -177,39 +177,36 @@ class CohortDetails extends Component {
   }
 
   return (
-    <React.Fragment>
-      <div className="cohortDetailsSection">
+    <div className="cohortDetailsSection">
       <div className="header">
         <h2 className="detailsTitle">{getCohortType(this.props.onFocusData!=null?this.props.onFocusData.course_type:null)} | {this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <div className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</div>
-
         <div className="editCohortButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} ><img class="editIcon" src={edit}/></div>
         <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
       </div>
       <div className="hr"></div>
-        <div className="cohortDetailsGrid">
-          <div className="students">
-            <h2 className="sectionTitle">Students</h2>
-            <div >
-              {this.cStudents}
-            </div>
-            <button className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
+      <div className="cohortDetailsGrid">
+        <div className="students">
+          <h2 className="sectionTitle">Students</h2>
+          <div >
+            {this.cStudents}
           </div>
-          <div className="assignments">
-            <h2 className="sectionTitle">Assignments</h2>
-              <div>{this.cAssignments}</div>
-            <button className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
-          </div>
-          <div className="events">
-            <h2 className="sectionTitle">Events</h2>
-            <ul>
-              {this.cEvents}
-            </ul>
-            <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
-          </div>
+          <button className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
+        </div>
+        <div className="assignments">
+          <h2 className="sectionTitle">Assignments</h2>
+            <div>{this.cAssignments}</div>
+          <button className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
+        </div>
+        <div className="events">
+          <h2 className="sectionTitle">Events</h2>
+          <ul>
+            {this.cEvents}
+          </ul>
+          <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
         </div>
       </div>
-  </React.Fragment>
+    </div>
   );
   }
 }
