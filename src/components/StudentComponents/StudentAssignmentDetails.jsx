@@ -11,15 +11,13 @@ class StudentAssignmentDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      submission: this.props.submission,
-      assignment: this.props.assignment,
     }
   }
 
   render() {
 
-const assignment = this.state.assignment
-const submission = this.state.submission
+const assignment = this.props.assignment
+const submission = this.props.submission
 
 const options = {year: 'numeric', month: 'short', day: 'numeric' };
 

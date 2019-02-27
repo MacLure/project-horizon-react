@@ -4,6 +4,8 @@ import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
 import SubmissionComments from './../CommonComponents/SubmissionComment';
 import NewSubmissionForm from './NewSubmissionForm';
+import StudentAssignmentDetails from './StudentAssignmentDetails'
+
 
 
 class StudentAssignmentsContainer extends Component {
@@ -33,7 +35,8 @@ class StudentAssignmentsContainer extends Component {
 
   render() {
 
-    let showSubmission = <div className="noAssignmentSelected">No assignment selected</div>;
+    let showAssignmentDetails = <div className="noAssignmentSelected">No assignment selected</div>;
+    let showSubmission = null;
 
     if(this.state.onFocusData !== null ){
       if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
@@ -48,6 +51,13 @@ class StudentAssignmentsContainer extends Component {
       }
     }
 
+    if (this.state.onFocusData !== null ){
+      showAssignmentDetails = <StudentAssignmentDetails
+        assignment={this.state.onFocusData}
+        submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
+      />
+    }
+
     return (
         <div className="assignmentContainer">
             <StudentAssignmentsList
@@ -58,6 +68,7 @@ class StudentAssignmentsContainer extends Component {
               student={this.props.student}
             />
           <div className="submissionContainer">
+            {showAssignmentDetails}
             {showSubmission}
           </div>
 

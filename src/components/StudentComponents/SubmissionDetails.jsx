@@ -4,11 +4,6 @@ import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
 import  {deleteSubmission} from '.././../service';
 import  {editSubmission} from '.././../service';
-import StudentAssignmentDetails from './StudentAssignmentDetails'
-
-
-
-
 
 class SubmissionDetails extends Component {
   constructor(props) {
@@ -25,9 +20,7 @@ class SubmissionDetails extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-
   }
-
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
@@ -83,27 +76,21 @@ class SubmissionDetails extends Component {
   }
 
   render() {
-    const {name, body, url, created_at} = this.props.submission
     const submissionComments = [].concat.apply([], this.props.submissionComments);
     return (
       <React.Fragment>
-      <StudentAssignmentDetails
-        assignment = {this.state.assignment}
-        submission = {this.state.submission}
-      />
-      {this.detailsOrForm()}
-      <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
+        {this.detailsOrForm()}
+        <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
 
-      {submissionComments.map(comment => (
-        <SubmissionComment
-          key = {comment.id}
-          admin = {comment.admin_id}
-          date = {comment.created_ad}
-          body = {comment.body}
-        />
-      ))}
-      <div className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
-      
+        {submissionComments.map(comment => (
+          <SubmissionComment
+            key = {comment.id}
+            admin = {comment.admin_id}
+            date = {comment.created_ad}
+            body = {comment.body}
+          />
+        ))}
+        <div className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
       </React.Fragment>
     );
   }
