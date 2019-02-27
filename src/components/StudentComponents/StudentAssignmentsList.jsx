@@ -57,7 +57,7 @@ class StudentAssignmentsList extends Component {
 
     
     return (
-      <div>
+      <div class="assignmentlist">
         {assignments.map((assignment, index) => (
           <StudentAssignment
             key={assignment.id}

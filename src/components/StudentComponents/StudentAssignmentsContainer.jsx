@@ -50,7 +50,6 @@ class StudentAssignmentsContainer extends Component {
 
     return (
         <div className="assignmentContainer">
-          <div className="</div>">
             <StudentAssignmentsList
               submissions={this.props.submissions}
               assignments={this.props.assignments}
@@ -58,7 +57,6 @@ class StudentAssignmentsContainer extends Component {
               getOnFocusData={this.getOnFocusData}
               student={this.props.student}
             />
-          </div>
           <div className="submissionContainer">
             {showSubmission}
           </div>

@@ -111,24 +111,24 @@
 /* -----------------------------------------
   StudentAssignmentsContainer
 ----------------------------------------- */
-  .assignmentContainer {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    margin: 0 auto;
-    padding: 0 30px;
-    width: 1300px;
-    height: 500px;
-    grid-gap: 50px;
-    background-color: #2A2C33;
-    overflow: scroll;
-  }
+.assignmentContainer {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  margin: 0 auto;
+  padding: 0 30px;
+  width: 1300px;
+  height: 500px;
+  grid-gap: 50px;
+  background-color: #2A2C33;
+  overflow: scroll;
+}
 
-  .assignmentlist {
-    grid-column-start: 1;
-    background-color: rgb(54, 57, 65);
-    padding: 10px;
-    margin-top: 10px;
-  }
+.assignmentlist {
+  grid-column-start: 1;
+  background-color: rgb(54, 57, 65);
+  padding: 10px;
+  margin: 10px;
+}
 
 .noAssignmentSelected {
   padding-top: 30px;
@@ -140,8 +140,8 @@
   .submissionContainer {
     grid-column-start: 2;
     background-color: rgb(54, 57, 65);
-    padding: 20px;
-
+    padding: 10px;
+    margin: 10px;
   }
 
 /* -----------------------------------------
@@ -159,7 +159,6 @@ StudentAssignment
   grid-template-columns: 2fr 1fr;
   cursor: pointer;
   padding: 10px;
-
 }
 
 .assignmentItem:hover {
