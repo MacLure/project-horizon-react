@@ -8,14 +8,6 @@ import StudentProgressCircle from './StudentProgressCircle';
 class StudentCohortDetails extends Component {
   state = {  }
 
-
-
-
-
-
-
-
-  
   render() {
 
     const { name, course_type, end_date, start_date, studentFirstName, studentLastName, assignments, submissions } = this.props
@@ -23,7 +15,7 @@ class StudentCohortDetails extends Component {
     const assignmentProgress = () => {
       return Math.round( submissions.length / assignments.length * 100)
     }
-    
+
     const assignmentDueDatePassed = (assignment) => {return (Date.now() - Date.parse(assignment.due_date) > 0)}
     const assignmentSubmitted = (assignment) => {return (this.props.submissions.filter(submission => submission.assignment_id === assignment.id).length > 0)}
     const assignmentOverDue = (assignment) => {return (assignmentDueDatePassed(assignment) && !assignmentSubmitted(assignment))}
@@ -50,7 +42,7 @@ class StudentCohortDetails extends Component {
     const formattedEndDate = new Date(Date.parse(end_date)).toLocaleString('en', options)
     const courseDays = Math.trunc((Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24))
     const daysLeft = Math.trunc((Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24))
-  
+
     const daysLeftDisplay = () => {
       if (daysLeft > courseDays){
         return `Starts on ${formattedStartDate.toLocaleString('en', options)}.`
@@ -70,7 +62,7 @@ class StudentCohortDetails extends Component {
           <p>{formattedEndDate}</p>
           <p>{daysLeftDisplay()}</p>
           <StudentProgressCircle progress={assignmentProgress}/>
-          <p>assignment progress: {assignmentProgress()}%</p>
+          <p className="assgnmentProgesss">assignment progress: {assignmentProgress()}%</p>
           <p>{progressStatus()}</p>
         </div>
 

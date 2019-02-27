@@ -7,6 +7,7 @@
   margin: 25px 60px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
+  grid-gap: 15px;
 }
 
 .eventsGrid {
@@ -37,16 +38,26 @@
 .infoCard {
   background-color: #2A2C33;
   padding: 10px;
-  width: 500px;
-  height: 150px;
+  width: 1300px;
+  height: 100px;
   border-radius: 2px;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .studentProgressCircle {
-  position: relative;
+  position: absolute;
+  right: 325px;
 }
+
+.assignmentProgress {
+  right: 100px;
+}
+
 
 .circlePercentage {
   position: absolute;
@@ -60,20 +71,21 @@
 ----------------------------------------- */
   .StudentEventsContainer {
     background-color: #2A2C33;
-    margin: 20px 10px;
-    width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    width: 1300px;
     height: 250px;
     border-radius: 2px;
     grid-column-start: 1;
-    grid-row-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
     display: block;
-    /* flex-wrap: wrap; */
     flex-direction: column;
   }
 
   .eventItem {
     cursor: pointer;
-    padding: 10px;  
+    padding: 10px;
   }
 
   .eventItem:hover {
@@ -87,11 +99,12 @@
   .eventCard {
     background-color: #3f4147;
     margin: 0 auto;
+    padding: 10px;
     width: 80%;
     height: 150px;
     border-radius: 2px;
-    /* grid-column-start: 1;
-    gird-row-start: 2; */
+    grid-column-start: 1;
+    grid-row-start: 2;
   }
 
 
@@ -100,8 +113,15 @@
 ----------------------------------------- */
   .assignmentContainer {
     grid-column-start: 1;
+<<<<<<< HEAD
 
     width: 500px;
+=======
+    grid-column-end: 3;
+    grid-row-start: 2;
+    padding: 10px;
+    width: 1300px;
+>>>>>>> 5f66f7bb81c536cdf1b635c913020974b2425107
     height: 500px;
     background-color: #2A2C33;
     overflow: scroll;
