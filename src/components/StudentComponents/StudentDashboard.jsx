@@ -92,22 +92,19 @@ class StudentDashboard extends Component {
         assignments={this.state.assignments}
 
         />
-        <div className="dashboard">
-          <StudentCohortDetails
-            studentFirstName={this.state.student.first_name}
-            studentLastName={this.state.student.last_name}
-            name={this.state.cohort.name}
-            course_type={this.state.cohort.course_type}
-            start_date={this.state.cohort.start_date}
-            end_date={this.state.cohort.end_date}
-            submissions={this.state.submissions}
-            assignments={this.state.assignments}
-          />
+        <StudentCohortDetails
+        studentFirstName={this.state.student.first_name}
+        studentLastName={this.state.student.last_name}
+        name={this.state.cohort.name}
+        course_type={this.state.cohort.course_type}
+        start_date={this.state.cohort.start_date}
+        end_date={this.state.cohort.end_date}
+        submissions={this.state.submissions}
+        assignments={this.state.assignments}
+      />
+        <div className="assignmentSection">
 
-          <StudentEventsList
-            events={this.state.events}
-            TriggerEventDetails={this.TriggerEventDetails}
-          />
+
 
           <StudentAssignmentsContainer
             assignments={this.state.assignments}
@@ -118,6 +115,10 @@ class StudentDashboard extends Component {
           />
           {this.showEventDetails()}
         </div>
+        <StudentEventsList
+        events={this.state.events}
+        TriggerEventDetails={this.TriggerEventDetails}
+      />
         <Footer/>
       </React.Fragment>
     );

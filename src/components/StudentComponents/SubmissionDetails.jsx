@@ -85,7 +85,6 @@ class SubmissionDetails extends Component {
       {this.detailsOrForm()}
       <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
 
-
       {submissionComments.map(comment => (
         <SubmissionComment
           key = {comment.id}
