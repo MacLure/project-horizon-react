@@ -113,15 +113,10 @@
 ----------------------------------------- */
   .assignmentContainer {
     grid-column-start: 1;
-<<<<<<< HEAD
-
-    width: 500px;
-=======
     grid-column-end: 3;
     grid-row-start: 2;
     padding: 10px;
     width: 1300px;
->>>>>>> 5f66f7bb81c536cdf1b635c913020974b2425107
     height: 500px;
     background-color: #2A2C33;
     overflow: scroll;
