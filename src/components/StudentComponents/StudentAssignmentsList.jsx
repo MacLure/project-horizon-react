@@ -30,6 +30,7 @@ class StudentAssignmentsList extends Component {
       onFocusData:data,
       selectedAssignment:this.props.assignments.indexOf(data)
     })
+    this.props.getOnFocusData(data);
 
   }
 
@@ -43,36 +44,20 @@ class StudentAssignmentsList extends Component {
 
 
 
-documentDidMount() {
-  this.getAssignmentInfo()
-}
+// documentDidMount() {
+//   this.getAssignmentInfo()
+// }
 
 
 
   render() {
 
-  const {assignments, submissions, student, submissionComments} = this.props
-
-
-    let showSubmission = null;
-
-    if(this.state.onFocusData !== null ){
-      if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
-          showSubmission = <SubmissionDetails
-          submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
-          assignment={this.state.onFocusData}
-          submissionComments={submissionComments}
-          deleteSuccess={this.reload}
-        />
-      } else {
-        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} student = {student} />
-      }
-    }
+  const {assignments, submissions, student, getOnFocusData, submissionComments} = this.props
 
 
     
     return (
-      <React.Fragment>
+      <div>
         {assignments.map((assignment, index) => (
           <StudentAssignment
             key={assignment.id}
@@ -87,8 +72,7 @@ documentDidMount() {
             student={this.props.student}
           />
         ))}
-        {showSubmission}
-      </React.Fragment>
+      </div>
      );
   }
 }

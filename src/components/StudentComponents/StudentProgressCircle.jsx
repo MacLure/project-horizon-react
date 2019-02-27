@@ -35,7 +35,7 @@ const StudentProgressCircle = (props) => {
           strokeWidth="10px"
           ></circle>
     </svg>
-    <div class="circlePercentage">{props.progress()}%</div>
+    <div className="circlePercentage">{props.progress()}%</div>
   </div>
    );
 }
