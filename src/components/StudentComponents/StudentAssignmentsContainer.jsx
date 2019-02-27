@@ -63,10 +63,17 @@ class StudentAssignmentsContainer extends Component {
       showSubmissionComments = <StudentSubmissionComments
         assignment={this.state.onFocusData}
         submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
-        comments={this.props.submissionComments.filter(comment => comment.submission_id === this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0].id)}
+        comments = {this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), [])}
       />
-      console.log(this.props.submissionComments)
+      function flatten(array) {
+        return array.reduce(function(acc, b) {  
+           return acc.concat( Array.isArray(b) ? flatten(b) : b);
+        }, []); 
+      }
+      console.log(this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []))
     }
+
+
 
     return (
         <div className="assignmentContainer">
