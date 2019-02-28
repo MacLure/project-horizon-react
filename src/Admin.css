@@ -402,11 +402,11 @@ nav {
 ----------------------------------------- */
 .cohortDetailsSection {
   background-color: #2A2C33;
-  /* margin: 20px 40px; */
   border-radius: 2px;
-  padding: 10px 0px;
+  padding: 0px;
   position: relative;
   height: 700px;
+  margin: 0 5px;
 }
 
 .header {
