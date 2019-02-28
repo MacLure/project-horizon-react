@@ -82,6 +82,7 @@ footer {
   text-align: center;
   background-color: inherit;
   padding: 5px 10px;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 .selectButton:active {
@@ -89,9 +90,9 @@ footer {
 }
 
 .selectButton:hover {
+  transition: background-color 0.4s, color 0.4s;
   color: #FC6404;
   background-color: #fff;
-  transition: 0.2;
 }
 
 .loginForm {
@@ -120,6 +121,10 @@ footer {
   border-radius: 2px;
   padding: 5px 10px;
   background-color: transparent;
+}
+
+.loginInput:focus {
+  border: 1px solid white;
 }
 
 .loginInput::placeholder {

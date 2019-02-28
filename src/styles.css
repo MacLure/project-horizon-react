@@ -12,7 +12,6 @@ html {
 body {
   min-height: 100%;
   position: relative;
-  /* padding-bottom: 80px; */
 }
 
 h1 {
@@ -54,22 +53,22 @@ svg {
   grid-row-end: 3;
 }
 
-  select {
-    border: 1px solid black;
-    border-radius: 2px;
-    padding: 5px 5px;
-    transition: border 0.5s;
-  }
+select {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+}
 
-  select:focus {
-    border: 1px solid #F6744E;
-    transition: border 0.5s;
-  }
+select:focus {
+  border: 1px solid #F6744E;
+  transition: border 0.5s;
+}
 
-  input::placeholder {
-   color: rgba(255,255,255, 0.5)
- }
+input::placeholder {
+  color: rgba(255,255,255, 0.5)
+}
 
- option::placeholder {
+option::placeholder {
   color: rgba(255,255,255, 0.5)
 }
