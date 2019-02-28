@@ -31,6 +31,8 @@ footer {
   display: block;
   margin: 0 auto;
   animation: rotate 2s linear  0s infinite running;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 @keyframes rotate {
@@ -156,6 +158,8 @@ footer {
 
 .notice {
   text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 /* -----------------------------------------
