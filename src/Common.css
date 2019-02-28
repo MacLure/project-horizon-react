@@ -89,7 +89,7 @@ footer {
 }
 
 .selectButton:hover {
-  color:  #FC6404;
+  color: #FC6404;
   background-color: #fff;
   transition: 0.2;
 }
@@ -128,23 +128,25 @@ footer {
 }
 
 .loginSubmitButton {
-  margin: 20px auto 20px 0;
+  margin: 20px auto;
   cursor: pointer;
   padding: 7px 15px;
-  color:  #FC6404;
-  background-color: #fff;
-  transition: 0.3s;
+  color: white;
+  border: 1px solid white;
+  background-color: inherit;
+  transition: background-color 0.4s, color 0.4s;
   border-radius: 2px;
   font-size: 1.1em;
   text-align: center;
-  border: none;
-  opacity: 1;
   grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .loginSubmitButton:hover {
-  transition: 0.3s;
-  box-shadow: (0 0 10px 10px #000);
+  transition: background-color 0.4s, color 0.4s;
+  color: #FC6404;
+  background-color: #fff;
+
 }
 
 .notice {
