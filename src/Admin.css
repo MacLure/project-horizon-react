@@ -432,8 +432,8 @@ nav {
   position: absolute;
   cursor: pointer;
   top: 20px;
-  right: 90px;
-  height: 30px;
+  right: 70px;
+  height: 25px;
   padding: 6px;
   display: inline-block;
   border-radius: 3px;
@@ -455,8 +455,8 @@ nav {
   position: absolute;
   cursor: pointer;
   top: 20px;
-  right: 35px;
-  height: 30px;
+  right: 20px;
+  height: 25px;
   padding: 6px;
   display: inline-block;
   border-radius: 3px;
