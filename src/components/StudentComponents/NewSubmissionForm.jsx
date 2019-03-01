@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import  {createNewSubmission} from './../../service';
 
 
@@ -76,8 +76,8 @@ const Select = styled.select`
   transition: border 0.5s;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;       /* remove default arrow */
-  background-image: src={Arrow};   /* add custom arrow */
+  appearance: none;
+  background-image: src={Arrow};
 
   :focus {
     border: 1px solid #F6744E;
