@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdminStyles from './../../Admin.css';
+import X from '../../assets/Icons/x.svg';
 
 class NewAdminForm extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class NewAdminForm extends Component {
    return (
      <div className="modal">
        <div className="modalContainer">
-       <div className="modalEscape"  onClick={this.props.escapeNewAdminModal}>×</div>
+       <div className="modalEscape"  onClick={this.props.escapeNewAdminModal}><img className="escapeIcon" src={X}/></div>
         <h2 className="formTitle">Add Admin</h2>
         <form method="post" onSubmit={this.handleSubmit}>
           <div className="one">
