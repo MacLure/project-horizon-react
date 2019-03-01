@@ -57,8 +57,9 @@ class AdminEventDetails extends Component {
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
-        <h2 className="eventsTitle">{this.state.event.name}</h2>
+        <h2 className="eventsTitle">{this.state.event.event_type}: {this.state.event.name}</h2>
         <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
+        <p>{this.state.event.location}</p>
         <p>{this.state.event.body}</p>
         <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Event</button>
       </div>

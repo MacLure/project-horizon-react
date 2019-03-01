@@ -155,7 +155,7 @@ class CohortDetails extends Component {
   if(this.props.cohortEvents){
     this.cEvents = this.props.cohortEvents.map(event => (
       <li className="detailsListItem" key={event.id} onClick={e=>{this.props.TriggerEventDetails(event)}} >
-        <div>{event.name}</div>
+        <div>{event.event_type}:<br/> {event.name}</div>
         <div className="eventAssignmentDates">{formattedEventDate(event.date)} @ {EventHour(event)}:{EventMinute(event)}</div>
       </li>
     ))
