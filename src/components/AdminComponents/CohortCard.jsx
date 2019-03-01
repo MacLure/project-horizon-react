@@ -46,10 +46,11 @@ const CohortCard = (props) => {
         style={{border:props.isActive ? "2px solid #e74c3c": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}>
       <div className="cardGrid">
-            <h3 className="courseType">{getDescriptiveCourseType(course_type)}</h3>
-            <h3 className="cohortName">{name}</h3>
-            <p className="daysLeft">{daysLeftDisplay()}</p>
-
+        <div className="cardGridLeft">
+          <h3 className="courseType">{getDescriptiveCourseType(course_type)}</h3>
+          <h3 className="cohortName">{name}</h3>
+          <p className="daysLeft">{daysLeftDisplay()}</p>
+        </div>
         <div className="progress">
           <CohortProgressCircle progress={courseProgress}/>
         </div>
