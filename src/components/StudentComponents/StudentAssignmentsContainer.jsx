@@ -70,7 +70,7 @@ class StudentAssignmentsContainer extends Component {
            return acc.concat( Array.isArray(b) ? flatten(b) : b);
         }, []); 
       }
-      console.log(this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []))
+      console.log("OK", this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []))
     }
 
 

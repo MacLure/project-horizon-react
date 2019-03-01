@@ -18,17 +18,21 @@ class StudentSubmissionComments extends Component {
 
 const assignment = this.props.assignment
 const submission = this.props.submission
+const comments = this.props.comments.filter(comment => comment.submission_id === submission.id)
 
 const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
-
-    return (
-      <div>
-        <h2 className="AssignmentTitle">Outcomes Comments</h2>
-        <div className="date">Due: {new Date(Date.parse(assignment.due_date)).toLocaleString('en', options)}</div>
-        <div>{assignment.body}</div>
-      </div>
-      );
+  return (
+    <div>
+      <h2 className="AssignmentTitle">Outcomes Comments</h2>
+      {
+        comments.map(comment =><div key={comment.id}>{comment.admin_id}, {comment.submission_id}, {comment.body}<div className="date">on {new Date(Date.parse(comment.created_at)).toLocaleString('en', options)}</div></div>)
+      }
+      {
+        comments.map(comment =>console.log(comment))
+      }
+    </div>
+    );
   }
 }
 

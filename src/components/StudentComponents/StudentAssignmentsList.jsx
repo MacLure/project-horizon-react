@@ -22,7 +22,7 @@ class StudentAssignmentsList extends Component {
   }
 
   reload = () =>{
-    console.lot("OK")
+    console.log("OK")
   }
 
   onAssignmentClick = (data) => {
