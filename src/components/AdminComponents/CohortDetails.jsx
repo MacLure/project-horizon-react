@@ -5,6 +5,7 @@ import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import edit from '../../assets/Icons/edit.svg';
 import trash from '../../assets/Icons/trash.svg';
+import plus from '../../assets/Icons/plusSmall.svg';
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
@@ -188,10 +189,11 @@ class CohortDetails extends Component {
       <div className="cohortDetailsGrid">
         <div className="students">
           <h2 className="sectionTitle">Students</h2>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}}><img className="addIcon" src={plus}/></div>
           <div >
             {this.cStudents}
           </div>
-          <button className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
+          <div className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}}><img className="addIcon" src={plus}/></div>
         </div>
         <div className="assignments">
           <h2 className="sectionTitle">Assignments</h2>
@@ -203,7 +205,7 @@ class CohortDetails extends Component {
           <ul>
             {this.cEvents}
           </ul>
-          <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
+          <div className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}}>new event</div>
         </div>
       </div>
     </div>
