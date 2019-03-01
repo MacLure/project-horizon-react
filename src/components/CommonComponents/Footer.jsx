@@ -5,10 +5,21 @@ import CommonStyles from './../../Common.css'
 const Footer = (props) => {
   return (
     <footer>
-      <Link className="footerText" to="./admin">Admin Dashboard</Link>
-      <Link className="footerText" to="./student">Student Dashboard</Link>
-      <Link className="footerText" to="./signup">Sign up</Link>
-      <Link className="footerText" to="./login">Log in</Link>
+      <ul className="createdBy">
+        <li>Created by:</li>
+        <li><a target="_blank" href="http://malcolmmaclure.com/">Malcolm MacLure</a></li>
+        <li><a target="_blank" href="https://github.com/gabaza">Gabrella Cuello</a></li>
+        <li><a target="_blank" href="https://benjaminhoppe.co/">Benjamin Hoppe</a></li>
+      </ul>
+
+      <div className="copyright">
+        <p>&copy; Horizon 2019</p>
+      </div>
+
+      <ul className="footerStuff">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Legal Stuff</a></li>
+      </ul>
     </footer>
    );
 }
