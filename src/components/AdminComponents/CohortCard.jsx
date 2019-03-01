@@ -34,7 +34,7 @@ const CohortCard = (props) => {
     if (cohortName === "wdi") {
       return "Web Development"
     } else if (cohortName === "uxdi") {
-      return "UX / UI"
+      return "UX Design"
     } else if (cohortName === "dsi") {
       return "Data Science"
   }
@@ -46,13 +46,10 @@ const CohortCard = (props) => {
         style={{border:props.isActive ? "2px solid #e74c3c": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}>
       <div className="cardGrid">
-        <div>
-          <div>
             <h3 className="courseType">{getDescriptiveCourseType(course_type)}</h3>
             <h3 className="cohortName">{name}</h3>
             <p className="daysLeft">{daysLeftDisplay()}</p>
-          </div>
-        </div>
+
         <div className="progress">
           <CohortProgressCircle progress={courseProgress}/>
         </div>
