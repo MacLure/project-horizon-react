@@ -20,6 +20,7 @@ class StudentDashboard extends Component {
       assignments: [],
       submissions: [],
       events: [],
+      admins: [],
       submission_comments: [],
       showEventDetails: false,
     }
@@ -37,6 +38,7 @@ class StudentDashboard extends Component {
           assignments: response.assignments,
           submissions: response.submissions,
           submissionComments: response.submission_comments,
+          admins: response.admins,
           events: response.events,
         });
       })
@@ -113,6 +115,7 @@ class StudentDashboard extends Component {
             submissionComments={this.state.submissionComments}
             onFocusData={this.state.onFocusData}
             student={this.state.student}
+            admins={this.state.admins}
           />
           {this.showEventDetails()}
         </div>
