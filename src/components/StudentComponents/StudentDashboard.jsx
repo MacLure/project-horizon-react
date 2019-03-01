@@ -106,8 +106,6 @@ class StudentDashboard extends Component {
       />
         <div className="assignmentSection">
 
-
-
           <StudentAssignmentsContainer
             student = {this.state.student}
             assignments={this.state.assignments}
@@ -116,13 +114,14 @@ class StudentDashboard extends Component {
             onFocusData={this.state.onFocusData}
             student={this.state.student}
             admins={this.state.admins}
+            events={this.state.events}
           />
           {this.showEventDetails()}
         </div>
         <StudentEventsList
-        events={this.state.events}
-        TriggerEventDetails={this.TriggerEventDetails}
-      />
+          events={this.state.events}
+          TriggerEventDetails={this.TriggerEventDetails}
+        />
         <Footer/>
       </React.Fragment>
     );

@@ -6,6 +6,7 @@ import SubmissionComments from './../CommonComponents/SubmissionComment';
 import NewSubmissionForm from './NewSubmissionForm';
 import StudentAssignmentDetails from './StudentAssignmentDetails'
 import StudentSubmissionComments from './StudentSubmissionComments'
+import StudentEventsList from './StudentEventsList'
 
 class StudentAssignmentsContainer extends Component {
   constructor(props) {
@@ -17,11 +18,10 @@ class StudentAssignmentsContainer extends Component {
       submissions: this.props.submissions,
       submission_comments: this.props.submission_comments,
       onFocusData: null,
+      events: this.props.events,
       // selectedAssignment: null,
     }
-
   }
-
 
   getOnFocusData = (data) => {
     console.log('Assignment Data',data)
@@ -31,13 +31,11 @@ class StudentAssignmentsContainer extends Component {
     })
   }
 
-
   render() {
 
     let showAssignmentDetails = <div className="noAssignmentSelected">No assignment selected</div>;
     let showSubmission = null;
     let showSubmissionComments = null;
-
 
     if(this.state.onFocusData !== null ){
       if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
@@ -75,27 +73,24 @@ class StudentAssignmentsContainer extends Component {
       console.log("OK", this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []))
     }
 
-
-
     return (
-        <div className="assignmentContainer">
-            <StudentAssignmentsList
-              submissions={this.props.submissions}
-              assignments={this.props.assignments}
-              submissionComments={this.props.submissionComments}
-              getOnFocusData={this.getOnFocusData}
-              student={this.props.student}
-            />
-          <div className="submissionContainer">
-            {showAssignmentDetails}
-            {showSubmission}
-            {showSubmissionComments}
-          </div>
+      <div className="assignmentContainer">
+        <StudentAssignmentsList
+          submissions={this.props.submissions}
+          assignments={this.props.assignments}
+          submissionComments={this.props.submissionComments}
+          getOnFocusData={this.getOnFocusData}
+          student={this.props.student}
+        />
 
+        <div className="submissionContainer">
+          {showAssignmentDetails}
+          {showSubmission}
+          {showSubmissionComments}
         </div>
+      </div>
     );
   }
-
 }
 
 export default StudentAssignmentsContainer;
