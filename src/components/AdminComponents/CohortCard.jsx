@@ -50,13 +50,13 @@ const CohortCard = (props) => {
           <div>
             <h3 className="courseType">{getDescriptiveCourseType(course_type)}</h3>
             <h3 className="cohortName">{name}</h3>
+            <p className="daysLeft">{daysLeftDisplay()}</p>
           </div>
         </div>
         <div className="progress">
           <CohortProgressCircle progress={courseProgress}/>
         </div>
-        <div class="daysLeft">{daysLeftDisplay()}</div>
-        </div>
+      </div>
       </div>
 
     </React.Fragment>
