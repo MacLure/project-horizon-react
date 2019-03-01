@@ -412,8 +412,6 @@ nav {
 }
 
 .detailsTitle {
-  /* padding-top: 20px;
-  padding-bottom: 5px; */
   background-color: inherit;
   font-weight: 400;
 }
@@ -421,7 +419,7 @@ nav {
 .dates {
   padding-top: 10px;
   color: gray;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .editCohortButton {
@@ -430,8 +428,8 @@ nav {
   border: none;
   position: absolute;
   cursor: pointer;
-  top: 20px;
-  right: 70px;
+  top: 15px;
+  right: 65px;
   height: 25px;
   padding: 6px;
   display: inline-block;
@@ -453,8 +451,8 @@ nav {
   border: none;
   position: absolute;
   cursor: pointer;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   height: 25px;
   padding: 6px;
   display: inline-block;
