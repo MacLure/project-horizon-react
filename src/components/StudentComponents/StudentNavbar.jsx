@@ -10,6 +10,7 @@ class StudentNavBar extends Component {
     return (
         <nav className="menuBar">
           <img className="icon" src={Logo} />
+
           <ul className="navList">
             <NavLink to="/student" activeClassName="active"><li className="navItem">Dashboard</li></NavLink>
             <NavLink to="/login" activeClassName="active"><li className="navItem">Log out</li></NavLink>

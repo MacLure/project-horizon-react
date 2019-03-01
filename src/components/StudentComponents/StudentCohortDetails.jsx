@@ -55,8 +55,8 @@ class StudentCohortDetails extends Component {
 
     return (
         <div className="infoCard">
-          <p>{studentFirstName} {studentLastName}</p>
-          <p>{name}</p>
+          <div>{studentFirstName} {studentLastName}</div>
+          <div>{name}</div>
           <p>{course_type}</p>
           <p>{formattedStartDate}</p>
           <p>{formattedEndDate}</p>

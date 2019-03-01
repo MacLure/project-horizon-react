@@ -104,27 +104,28 @@ class StudentDashboard extends Component {
         submissions={this.state.submissions}
         assignments={this.state.assignments}
       />
-        <div className="assignmentSection">
-
-
-
-          <StudentAssignmentsContainer
-            student = {this.state.student}
-            assignments={this.state.assignments}
-            submissions={this.state.submissions}
-            submissionComments={this.state.submissionComments}
-            onFocusData={this.state.onFocusData}
-            student={this.state.student}
-            admins={this.state.admins}
-          />
-          {this.showEventDetails()}
-        </div>
+      <div className="assignmentSection">
+        <StudentAssignmentsContainer
+          student = {this.state.student}
+          assignments={this.state.assignments}
+          submissions={this.state.submissions}
+          submissionComments={this.state.submissionComments}
+          onFocusData={this.state.onFocusData}
+          student={this.state.student}
+          admins={this.state.admins}
+          events={this.state.events}
+        />
+        {this.showEventDetails()}
+      </div>
+      <div className="assignmentSection">
         <StudentEventsList
-        events={this.state.events}
-        TriggerEventDetails={this.TriggerEventDetails}
-      />
-        <Footer/>
-      </React.Fragment>
+          events={this.state.events}
+          TriggerEventDetails={this.TriggerEventDetails}
+        />
+        {this.showEventDetails()}
+      </div>
+      <Footer/>
+    </React.Fragment>
     );
   }
 }

@@ -150,8 +150,9 @@ class AdminEventDetails extends Component {
      <ModalBG>
      <Container>
       <ModalEscape  onClick={this.props.escapeEventDetailsModal}>×</ModalEscape>
-        <Title>{this.props.event.name}</Title>
+        <Title>{this.props.event.event_type}: {this.props.event.name}</Title>
         <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
+        <p>{this.props.event.location}</p>
         <p>{this.props.event.body}</p>
 
       </Container>

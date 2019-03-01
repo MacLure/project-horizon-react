@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import StudentStyles from './../../Student.css'
 import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
-import SubmissionComments from './../CommonComponents/SubmissionComment';
+import SubmissionComments from '../CommonComponents/SubmissionComment';
 import NewSubmissionForm from './NewSubmissionForm';
 import StudentAssignmentDetails from './StudentAssignmentDetails'
 import StudentSubmissionComments from './StudentSubmissionComments'
 import StudentEventsList from './StudentEventsList'
 
-class StudentAssignmentsContainer extends Component {
+class StudentEventsContainer extends Component {
   constructor(props) {
     super(props)
 
@@ -93,4 +93,4 @@ class StudentAssignmentsContainer extends Component {
   }
 }
 
-export default StudentAssignmentsContainer;
+export default StudentEventsContainer;
