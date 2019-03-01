@@ -171,7 +171,7 @@ class CohortDetails extends Component {
 
   const getCohortType = (str) => {
     if (str === "wdi") {return "Web Development"}
-    if (str === "uxdi") {return "UX / UI"}
+    if (str === "uxdi") {return "UX Design"}
     if (str === "dsi") {return "Data Science"}
 
   }
