@@ -5,6 +5,7 @@ import NewEventForm from './NewEventForm'
 import NewAssignmentForm from './NewAssignmentForm'
 import edit from '../../assets/Icons/edit.svg';
 import trash from '../../assets/Icons/trash.svg';
+import plus from '../../assets/Icons/plusSmall.svg';
 import { connect } from 'react-redux';
 import { deleteCohort } from '.././../service';
 import AdminStyles from './../../Admin.css';
@@ -181,29 +182,29 @@ class CohortDetails extends Component {
       <div className="header">
         <h2 className="detailsTitle">{getCohortType(this.props.onFocusData!=null?this.props.onFocusData.course_type:null)} | {this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <div className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</div>
-        <div className="editCohortButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} ><img class="editIcon" src={edit}/></div>
+        <div className="editCohortButton" onClick={e=>{this.props.TriggerEditCohortForm(e)}} ><img className="editIcon" src={edit}/></div>
         <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
       </div>
       <div className="hr"></div>
       <div className="cohortDetailsGrid">
         <div className="students">
           <h2 className="sectionTitle">Students</h2>
-          <div >
+            <div className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}}><img className="addIcon" src={plus}/></div>
+          <div>
             {this.cStudents}
           </div>
-          <button className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}} >new student</button>
         </div>
         <div className="assignments">
           <h2 className="sectionTitle">Assignments</h2>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}}><img className="addIcon" src={plus}/></div>
             <div>{this.cAssignments}</div>
-          <button className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}} >new assignment</button>
         </div>
         <div className="events">
           <h2 className="sectionTitle">Events</h2>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}}><img className="addIcon" src={plus}/></div>
           <ul>
             {this.cEvents}
           </ul>
-          <button className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}} >new event</button>
         </div>
       </div>
     </div>
