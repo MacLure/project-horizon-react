@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  {createNewCohort} from './../../service';
 import AdminStyles from './../../Admin.css';
+import X from '../../assets/Icons/x.svg';
 
 class NewCohortForm extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class NewCohortForm extends Component {
     return (
       <div className="modal">
       <div className="modalContainer">
-       <div className="modalEscape" onClick={this.props.escapeNewCohortModal}>×</div>
+       <div className="modalEscape" onClick={this.props.escapeNewCohortModal}><img className="escapeIcon" src={X}/></div>
        <h2 className="formTitle">New Cohort</h2>
        <form onSubmit={this.handleSubmit}>
         <div className="one">

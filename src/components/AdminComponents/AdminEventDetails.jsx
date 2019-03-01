@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import  {deleteEvent} from '.././../service';
 import  {editEvent} from '../../service';
 import { connect } from 'react-redux';
-import AdminStyles from './../../Admin.css'
+import AdminStyles from './../../Admin.css';
+import X from '../../assets/Icons/x.svg';
 
 class AdminEventDetails extends Component {
   constructor(props) {
@@ -61,7 +62,7 @@ class AdminEventDetails extends Component {
         <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
         <p>{this.state.event.location}</p>
         <p>{this.state.event.body}</p>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Event</button>
+        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}}>Delete Event</button>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
@@ -91,7 +92,7 @@ class AdminEventDetails extends Component {
      <React.Fragment>
       <div className="modal">
         <div className="eventsContainer">
-          <div className="modalEscape"  onClick={this.props.escapeEventDetailsModal}>×</div>
+          <div className="modalEscape"  onClick={this.props.escapeEventDetailsModal}><img className="escapeIcon" src={X}/></div>
           {this.detailsOrForm()}
           <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Event"}</button>
         </div>

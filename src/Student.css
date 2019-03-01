@@ -1,15 +1,6 @@
 /* -----------------------------------------
   StudentDashboard
 ----------------------------------------- */
-
-/* .assignmentSection {
-  display: grid;
-  margin: 25px 60px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2;
-  grid-gap: 15px;
-} */
-
 .eventsGrid {
   grid-column-start: 1fr;
   grid-row-start: 1;
@@ -36,13 +27,12 @@
   background-color: transparent;
   color: gray;
   font-size: 14px;
-  text-align: left; 
+  text-align: left;
 }
 
 /* -----------------------------------------
   StudentCohortDetails
 ----------------------------------------- */
-
 .infoCard {
   background-color: #2A2C33;
   padding: 10px;
@@ -65,7 +55,6 @@
 .assignmentProgress {
   right: 100px;
 }
-
 
 .circlePercentage {
   position: absolute;
@@ -115,9 +104,8 @@
     grid-row-start: 2;
   }
 
-
 /* -----------------------------------------
-  StudentAssignmentsContainer
+  StudentAssignmentsContainer/StudentAssignmentList
 ----------------------------------------- */
 .assignmentContainer {
   display: grid;
@@ -146,18 +134,12 @@
   font-size: 1.5em;
 }
 
-  .submissionContainer {
-    grid-column-start: 2;
-    background-color: rgb(54, 57, 65);
-    padding: 10px;
-    margin: 10px;
-  }
-
-/* -----------------------------------------
-StudentAssignmentList
------------------------------------------ */
-
-
+.submissionContainer {
+  grid-column-start: 2;
+  background-color: rgb(54, 57, 65);
+  padding: 10px;
+  margin: 10px;
+}
 
 /* -----------------------------------------
 StudentAssignment
@@ -229,7 +211,6 @@ StudentSubmissionDetails
     opacity: 0.5;
     transition: opacity 0.5;
 }
-
 
 /* -----------------------------------------
 StudentNavBar

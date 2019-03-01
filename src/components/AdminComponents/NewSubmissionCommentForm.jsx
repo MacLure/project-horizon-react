@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  {createNewSubmissionComment} from '../service';
 import AdminStyles from './../../Admin.css';
+import X from '../../assets/Icons/x.svg';
 
 class NewSubmissionCommentForm extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class NewSubmissionCommentForm extends Component {
     return (
       <div className="modal">
       <div className="modalContainer">
+      <div className="modalEscape"><img className="escapeIcon" src={X}/></div>
         <h2 className="formTitle">New Submission Cmment</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="one">
