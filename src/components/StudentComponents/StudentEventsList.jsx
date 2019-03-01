@@ -16,17 +16,23 @@ class StudentEventsList extends Component {
     const events = this.props.events
 
     return (
-      <div className="StudentEventsContainer">
-        {events.map( event => (
-          <div
-            className="eventItem"
-            key={event.id}
-            onClick={()=>{this.props.TriggerEventDetails(event)}}
-          >
-            <div>{event.name}</div>
-            <div className="date">{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</div>
-          </div>
-        ))}
+      <div className="assignmentContainer">
+        <div className="assignmentlist">
+          {events.map( event => (
+            <div
+              className="eventItem"
+              key={event.id}
+              onClick={()=>{this.props.TriggerEventDetails(event)}}
+            >
+              <div>{event.event_type}: {event.name}</div>
+              <div className="date">{new Date(Date.parse(event.date)).toLocaleString('en', this.options)} @ {new Date(Date.parse(event.time)).getHours()}:{new Date(Date.parse(event.time)).getMinutes()}</div>
+              <div className="date">{event.location}</div>
+
+            </div>
+          ))}
+        </div>
+        <div className="submissionContainer">
+      </div>
       </div>
       );
     }
