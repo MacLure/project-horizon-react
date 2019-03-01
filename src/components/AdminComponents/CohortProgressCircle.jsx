@@ -2,7 +2,7 @@ import React from 'react';
 
 const CohortProgressCircle = (props) => {
   return (
-    <div>
+    <div className="progressCircle">
       <svg
         id="svg"
         width="100" height="100"
