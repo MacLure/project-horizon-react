@@ -6,9 +6,11 @@
 }
 
 .formTitle {
-  padding: 20px 0px 15px 0px;
+  padding: 40px 0px 20px 80px;
   background-color: inherit;
-  text-align: center;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.7em;
 }
 
 form {
