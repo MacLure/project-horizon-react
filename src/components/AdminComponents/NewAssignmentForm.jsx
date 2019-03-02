@@ -48,7 +48,7 @@ class NewAssignmentForm extends Component {
             </div>
             <div className="textarea">
               <label htmlFor="body">Assignment Body</label>
-              <textarea rows="10" cols="30" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></textarea>
+              <textarea rows="10" cols="32" name="body" placeholder="body" value={this.state.body} onChange={this.handleChange}></textarea>
             <br/>
             <button className="submitButton" type="submit">Submit</button>
             </div>
