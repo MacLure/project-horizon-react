@@ -91,14 +91,15 @@ class AdminEventDetails extends Component {
    return (
      <React.Fragment>
       <div className="modal">
+        <div className="modalContainer">
         <div className="eventsContainer">
           <div className="modalEscape"  onClick={this.props.escapeEventDetailsModal}><img className="escapeIcon" src={X}/></div>
           {this.detailsOrForm()}
           <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Event"}</button>
+          </div>
         </div>
       </div>
-
-     </React.Fragment>
+    </React.Fragment>
     );
  }
 }

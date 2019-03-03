@@ -3,6 +3,7 @@ import  {deleteAssignment} from '../../service';
 import  {editAssignment} from '../../service';
 import { connect } from 'react-redux';
 import AdminStyles from './../../Admin.css'
+import X from '../../assets/Icons/x.svg';
 
 class AdminAssignmentDetails extends Component {
   constructor(props) {
@@ -72,7 +73,6 @@ class AdminAssignmentDetails extends Component {
           <textArea name="body" value={this.state.assignment.body} onChange={this.handleChange} ></textArea>
         </div>
         <button className="submitButton" type="submit">Submit</button>
-
       </form>
   }
 
@@ -85,6 +85,7 @@ class AdminAssignmentDetails extends Component {
         <div className="eventsContainer">
           <div className="modalEscape" onClick={this.props.escapeAssignmentDetailsModal}>×</div>
           {this.detailsOrForm()}
+
           <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Assignment"}</button>
 
           </div>
