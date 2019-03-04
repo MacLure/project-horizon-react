@@ -8,7 +8,7 @@ const Footer = (props) => {
       <ul className="createdBy">
         <li>Created by:</li>
         <li><a target="_blank" href="http://malcolmmaclure.com/">Malcolm MacLure</a></li>
-        <li><a target="_blank" href="https://github.com/gabaza">Gabrella Cuello</a></li>
+        <li><a target="_blank" href="https://github.com/gabaza">Gabriela Cuello</a></li>
         <li><a target="_blank" href="https://benjaminhoppe.co/">Benjamin Hoppe</a></li>
       </ul>
 
