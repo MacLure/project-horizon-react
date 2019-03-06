@@ -6,9 +6,11 @@
 }
 
 .formTitle {
-  padding: 20px 0px 15px 0px;
+  padding: 40px 0px 20px 80px;
   background-color: inherit;
-  text-align: center;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.7em;
 }
 
 form {
@@ -80,9 +82,38 @@ textarea:focus {
 
 .textarea {
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
   background-color: inherit;
 }
+
+.eventTextarea {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: inherit;
+  grid-row-start: 3;
+}
+
+.eventSubmitButton {
+  margin: 30px auto;
+  margin-left: 0;
+  padding-left: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgb(0, 182, 125);
+  border: none;
+  transition: background-color 0.4s;
+  border-radius: 2px;
+  font-size: 1.1em;
+  text-align: center;
+  grid-column-start: 1;
+  grid-row-start: 4;
+}
+
+.eventSubmitButton:hover {
+  background-color: rgba(0, 182, 125, 0.5);
+  transition: background-color 0.4s;
+}
+
 
 .submitButton {
   margin: 30px auto;
@@ -143,6 +174,7 @@ textarea:focus {
   margin: 15px;
   width: 300px;
   border-radius: 2px;
+  border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
   justify-self: center;
   transition: background-color 0.2s;
@@ -461,7 +493,7 @@ nav {
   position: relative;
 }
 
-.studentName {
+.adminStudentName {
   display: block;
   position: relative;
 }
@@ -590,27 +622,116 @@ ul {
 /* -----------------------------------------
   NewAdminForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewAssignmentForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewCohortForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewEventForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewStudentForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewStudentNoteForm
 ----------------------------------------- */
-
 /* -----------------------------------------
   NewSubmissionCommentForm
 ----------------------------------------- */
+
+@media only screen and (max-width: 420px) {
+
+/* NAV  */
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.icon {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+}
+
+.navList {
+  padding-right: 0;
+  float: none;
+}
+
+nav > ul {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  display: inline-block;
+}
+
+/* ADMIN DASHBOARD */
+
+  .cardContainer {
+    flex-direction: column;
+    margin: 80px auto 20px auto;
+    width: 95%;
+  }
+
+  .newCohortButton {
+    height: 90px;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+/* COHORT CARD */
+
+.card {
+  width: 90%;
+  margin: 15px auto;
+}
+
+/* COHORT DETAILS */
+
+.cohortDetailsContainer {
+  width: 90%;
+  margin: 10px auto;
+}
+
+header {
+  width: 100%;
+}
+
+.cohortDetailsGrid {
+  grid-template-columns: 1fr;
+}
+
+.students {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.assignments {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.events {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

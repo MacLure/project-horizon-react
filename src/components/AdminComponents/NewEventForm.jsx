@@ -49,19 +49,19 @@ class NewEventForm extends Component {
             <label htmlFor="first_name">Name</label>
             <input type="text" name="name" placeholder="Event Name"  value={this.state.name} onChange={this.handleChange}></input>
           </div>
-          <div className="two">
+          <div className="three">
             <label htmlFor="last_name">date</label>
             <input type="date" name="date" placeholder="Date"  value={this.state.date} onChange={this.handleChange}></input>
           </div>
-          <div className="three">
+          <div className="four">
             <label htmlFor="phone">time</label>
             <input type="time" name="time" placeholder="Time"  value={this.state.time} onChange={this.handleChange}></input>
           </div>
-          <div className="four">
+          <div className="eventTextarea">
             <label htmlFor="email">body</label>
-            <input type="textArea" name="body" placeholder="Details" value={this.state.body} onChange={this.handleChange}></input>
+            <textarea rows="3" cols="32" type="textArea" name="body" placeholder="Details" value={this.state.body} onChange={this.handleChange}></textarea>
           </div>
-         <br/><button className="submitButton" type="submit">Submit</button>
+         <br/><button className="eventSubmitButton" type="submit">Submit</button>
        </form>
       </div>
       </div>
