@@ -10,7 +10,7 @@ Horizon is a student outcomes and success app designed for schools.
 
 ## Table of contents
 
-- [Screenshots](#screenshots)
+<!-- - [Screenshots](#screenshots) -->
 - [Motivation](#motivation)
 - [Getting started](#getting-started)
 - [Take a Tour](#take-a-tour)
@@ -18,12 +18,12 @@ Horizon is a student outcomes and success app designed for schools.
 - [Tech Stack](#tech-stack)
 - [Developer team](#developer-team)
 
-## Screenshots
+<!-- ## Screenshots
 
-Your school's outcomes and student success portal with everything you need to track assignments, events, and teacher comments - all in one place!
+Your school's outcomes and student success portal with everything you need to track assignments, events, and teacher comments - all in one place.
 
 
-Students:  Access your assignments, upcoming events, and view feedback on your own personal dashboard.
+Students:  Access your assignments, upcoming events, and view feedback on your own personal dashboard. -->
 
 ## Motivation
 
@@ -34,11 +34,11 @@ We wanted to make an app for schools to manage their outcomes and student succes
 ### [Live App](https://project-horizon-react.herokuapp.com/)
 
 ##### Admin login:
-:bust_in_silhouette: `sally.mcadmin@horizon.com`
+:bust_in_silhouette: `guest.admin@horizon.com`
 :key: `password`
 
 ##### Student login:
-:bust_in_silhouette: `clara.ostudent@okboom.com`
+:bust_in_silhouette: `guest.student@horizon.com`
 :key: `"password"`
 
 ## Run Horizon Locally:
