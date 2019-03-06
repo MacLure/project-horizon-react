@@ -54,14 +54,14 @@ class SubmissionDetails extends Component {
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
-        <h2 className="AssignmentTitle">Your Submission</h2>
+      <h2 className="sectionTitle">Your Submission</h2>
         <div className="date">Submitted on {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}</div>
         <div><a href={this.state.submission.url}>{this.props.submission.url}</a></div>
         <div>{this.props.submission.body}</div>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
-        <h2 className="formTitle">Edit Submission</h2>
+      <h2 className="sectionTitle">Edit Submission</h2>
         <div className="one">
           <label htmlFor="url">Name</label>
           <input type="text" name="url" value={this.props.submission.url} onChange={this.handleChange} ></input>

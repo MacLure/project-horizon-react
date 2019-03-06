@@ -25,8 +25,8 @@ const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
   return (
     <div>
-      <h2 className="AssignmentTitle">Outcomes Comments</h2>
-      {comments.map(comment =>
+    <h2 className="sectionTitle">Outcomes Comments</h2>
+    {comments.map(comment =>
         <div key={comment.id}>
           {admins.filter(admin => admin.id === comment.admin_id)[0].first_name} {admins.filter(admin => admin.id === comment.admin_id)[0].last_name} <div className="inlineDate">({new Date(Date.parse(comment.created_at)).toLocaleString('en', options)})</div>
           <div>{comment.body}</div>

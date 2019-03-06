@@ -81,6 +81,7 @@ class StudentAssignmentsContainer extends Component {
           submissionComments={this.props.submissionComments}
           getOnFocusData={this.getOnFocusData}
           student={this.props.student}
+          cohort={this.props.cohort}
         />
 
         <div className="submissionContainer">

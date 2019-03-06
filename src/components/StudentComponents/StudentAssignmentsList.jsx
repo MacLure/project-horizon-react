@@ -3,6 +3,7 @@ import StudentAssignment from './StudentAssignment';
 import StudentStyles from './../../Student.css'
 import SubmissionDetails from './SubmissionDetails';
 import NewSubmissionForm from './NewSubmissionForm';
+import StudentCohortDetails from './StudentCohortDetails';
 
 
 class StudentAssignmentsList extends Component {
@@ -54,10 +55,21 @@ class StudentAssignmentsList extends Component {
 
   const {assignments, submissions, student, getOnFocusData, submissionComments} = this.props
 
-
-    
     return (
       <div className="assignmentlist">
+      <StudentCohortDetails 
+      studentFirstName={this.props.student.first_name}
+      studentLastName={this.props.student.last_name}
+      name={this.props.cohort.name}
+      course_type={this.props.cohort.course_type}
+      start_date={this.props.cohort.start_date}
+      end_date={this.props.cohort.end_date}
+      submissions={this.props.submissions}
+      assignments={this.props.assignments}
+
+      />
+      <h2 className="sectionTitle">Assignments</h2>
+
         {assignments.map((assignment, index) => (
           <StudentAssignment
             key={assignment.id}

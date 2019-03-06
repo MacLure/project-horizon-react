@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import StudentStyles from './../../Student.css'
 import StudentAssignmentsList from './StudentAssignmentsList';
 import SubmissionDetails from './SubmissionDetails';
-import SubmissionComments from '../CommonComponents/SubmissionComment';
+import SubmissionComments from './../CommonComponents/SubmissionComment';
 import NewSubmissionForm from './NewSubmissionForm';
-import StudentAssignmentDetails from './StudentAssignmentDetails'
+import StudentEventDetails from './StudentEventDetails'
 import StudentSubmissionComments from './StudentSubmissionComments'
 import StudentEventsList from './StudentEventsList'
 
@@ -33,60 +33,23 @@ class StudentEventsContainer extends Component {
 
   render() {
 
-    let showAssignmentDetails = <div className="noAssignmentSelected">No assignment selected</div>;
-    let showSubmission = null;
-    let showSubmissionComments = null;
-
-    if(this.state.onFocusData !== null ){
-      if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
-          showSubmission = <SubmissionDetails
-          submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
-          assignment={this.state.onFocusData}
-          submissionComments={this.state.submissionComments}
-          deleteSuccess={this.reload}
-        />
-      } else {
-        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} student = {this.state.student} />
-      }
-    }
+    let showEventDetails = <div className="noAssignmentSelected">No event selected</div>;
 
     if (this.state.onFocusData !== null ){
-      showAssignmentDetails = <StudentAssignmentDetails
-        assignment={this.state.onFocusData}
-        submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
+      showEventDetails = <StudentEventDetails
+        event={this.state.onFocusData}
       />
-    }
-
-    if (this.state.onFocusData !== null && this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length > 0){
-      showSubmissionComments = <StudentSubmissionComments
-        assignment={this.state.onFocusData}
-        submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
-        comments = {this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), [])}
-        admins = {this.props.admins}
-
-      />
-      function flatten(array) {
-        return array.reduce(function(acc, b) {  
-           return acc.concat( Array.isArray(b) ? flatten(b) : b);
-        }, []); 
-      }
-      console.log("OK", this.props.submissionComments.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []))
     }
 
     return (
       <div className="assignmentContainer">
-        <StudentAssignmentsList
-          submissions={this.props.submissions}
-          assignments={this.props.assignments}
-          submissionComments={this.props.submissionComments}
+        <StudentEventsList
+          events={this.props.events}
           getOnFocusData={this.getOnFocusData}
-          student={this.props.student}
         />
 
         <div className="submissionContainer">
-          {showAssignmentDetails}
-          {showSubmission}
-          {showSubmissionComments}
+          {showEventDetails}
         </div>
       </div>
     );
