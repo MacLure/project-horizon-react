@@ -642,15 +642,67 @@ ul {
 
 @media only screen and (max-width: 420px) {
 
+/* NAV  */
 
-  
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
+.icon {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+}
+
+.navList {
+  padding-right: 0;
+  float: none;
+}
+
+nav > ul {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  display: inline-block;
+}
+
+/* COHORT CARDS */
 
   .cardContainer {
     flex-direction: column;
-    margin: 5px 0;
+    margin: 55px 0;
   }
 
+/* COHORT DETAILS */
+
+.cohortDetailsContainer {
+  width: 90%;
+  margin: 10px auto;
+}
+
+header {
+  width: 100%;
+}
+
+.cohortDetailsGrid {
+  grid-template-columns: 1fr;
+}
+
+.students {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.assignments {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.events {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
 
 
 
