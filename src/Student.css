@@ -35,6 +35,7 @@
 ----------------------------------------- */
 .infoCard {
   /* background-color: #2A2C33; */
+  position: relative;
   padding: 10px;
   /* width: 1300px; */
   height: 100px;
@@ -64,8 +65,8 @@
 
 .studentProgressCircle {
   position: absolute;
-  left: 410px;
-  top: 65px;
+  right: 0;
+  top: -25px;
 }
 
 .assignmentProgress {
