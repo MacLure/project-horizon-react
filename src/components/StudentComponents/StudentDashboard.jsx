@@ -7,7 +7,7 @@ import {getStudentDashboardData} from '.././../service';
 import StudentEventsList from './StudentEventsList';
 import StudentCohortDetails from './StudentCohortDetails';
 import StudentAssignmentsContainer from './StudentAssignmentsContainer';
-import StudentEventDetails from './StudentEventDetails'
+import StudentEventsContainer from './StudentEventsContainer'
 
 class StudentDashboard extends Component {
   constructor (props) {
@@ -52,7 +52,7 @@ class StudentDashboard extends Component {
   showEventDetails = () => {
     if (this.state.showEventDetails ) {
       return (
-          <StudentEventDetails
+          <StudentEventsContainer
           events={this.state.events}
           eventId = {this.state.showEventDetails.id}
           eventSuccess = {this.reload}
@@ -110,10 +110,21 @@ class StudentDashboard extends Component {
         {this.showEventDetails()}
       </div>
       <div className="assignmentSection">
-        <StudentEventsList
-          events={this.state.events}
-          TriggerEventDetails={this.TriggerEventDetails}
-        />
+      <StudentEventsContainer
+        student = {this.state.student}
+        assignments={this.state.assignments}
+        submissions={this.state.submissions}
+        submissionComments={this.state.submissionComments}
+        onFocusData={this.state.onFocusData}
+        student={this.state.student}
+        admins={this.state.admins}
+        events={this.state.events}
+        cohort={this.state.cohort}
+      />
+      {this.showEventDetails()}
+    </div>
+      <div className="assignmentSection">
+
         {this.showEventDetails()}
       </div>
       <Footer/>
