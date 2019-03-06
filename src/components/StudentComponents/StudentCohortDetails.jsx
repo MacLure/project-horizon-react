@@ -55,12 +55,10 @@ class StudentCohortDetails extends Component {
 
     return (
         <div className="infoCard">
-          <div>{studentFirstName} {studentLastName}</div>
-          <div>{name}</div>
-          <p>{course_type}</p>
-          <p>{formattedStartDate}</p>
-          <p>{formattedEndDate}</p>
-          <p>{daysLeftDisplay()}</p>
+          <div className="studentName">{studentFirstName} {studentLastName}</div>
+          <div>{course_type} {name}</div>
+          <div className="date">{formattedStartDate} - {formattedEndDate}</div>
+          <div className="date">{daysLeftDisplay()}</div>
           <StudentProgressCircle progress={assignmentProgress}/>
           <p className="assgnmentProgesss">assignment progress: {assignmentProgress()}%</p>
           <p>{progressStatus()}</p>
