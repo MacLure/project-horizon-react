@@ -111,15 +111,8 @@ class StudentDashboard extends Component {
       </div>
       <div className="assignmentSection">
       <StudentEventsContainer
-        student = {this.state.student}
-        assignments={this.state.assignments}
-        submissions={this.state.submissions}
-        submissionComments={this.state.submissionComments}
         onFocusData={this.state.onFocusData}
-        student={this.state.student}
-        admins={this.state.admins}
         events={this.state.events}
-        cohort={this.state.cohort}
       />
       {this.showEventDetails()}
     </div>

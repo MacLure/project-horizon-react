@@ -34,40 +34,18 @@ class StudentEventsContainer extends Component {
   render() {
 
     let showEventDetails = <div className="noAssignmentSelected">No event selected</div>;
-    let showSubmission = null;
-    let showSubmissionComments = null;
-
-    if(this.state.onFocusData !== null ){
-      if (this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id).length !== 0) {
-          showSubmission = <StudentEventDetails
-          submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
-          assignment={this.state.onFocusData}
-          submissionComments={this.state.submissionComments}
-          deleteSuccess={this.reload}
-        />
-      } else {
-        showSubmission = <NewSubmissionForm assignment = {this.state.onFocusData} student = {this.state.student} />
-      }
-    }
 
     if (this.state.onFocusData !== null ){
       showEventDetails = <StudentEventDetails
         event={this.state.onFocusData}
-        submission={this.props.submissions.filter(submission => submission.assignment_id === this.state.onFocusData.id)[0]}
       />
-    
     }
 
     return (
       <div className="assignmentContainer">
         <StudentEventsList
           events={this.props.events}
-          submissions={this.props.submissions}
-          assignments={this.props.assignments}
-          submissionComments={this.props.submissionComments}
           getOnFocusData={this.getOnFocusData}
-          student={this.props.student}
-          cohort={this.props.cohort}
         />
 
         <div className="submissionContainer">

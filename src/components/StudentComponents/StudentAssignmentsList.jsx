@@ -55,8 +55,6 @@ class StudentAssignmentsList extends Component {
 
   const {assignments, submissions, student, getOnFocusData, submissionComments} = this.props
 
-
-    
     return (
       <div className="assignmentlist">
       <StudentCohortDetails 

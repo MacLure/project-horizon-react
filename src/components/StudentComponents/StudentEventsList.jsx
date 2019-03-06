@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import StudentEvent from './StudentEvent';
 import StudentStyles from './../../Student.css'
-import SubmissionDetails from './SubmissionDetails';
-import NewSubmissionForm from './NewSubmissionForm';
-import StudentCohortDetails from './StudentCohortDetails';
-
 
 class StudentAssignmentsList extends Component {
   constructor (props) {
@@ -33,7 +29,7 @@ class StudentAssignmentsList extends Component {
 
   }
 
-  getAssignmentInfo = () => (
+  getEventInfo = () => (
     this.setState( {
       events: this.props.events,
     })
