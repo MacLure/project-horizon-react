@@ -122,7 +122,6 @@
   height: 500px;
   grid-gap: 50px;
   background-color: #2A2C33;
-  overflow: scroll;
 }
 
 
@@ -131,6 +130,8 @@
   background-color: rgb(54, 57, 65);
   padding: 10px;
   margin: 10px;
+  overflow: scroll;
+
 }
 
 .noAssignmentSelected {
