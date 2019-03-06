@@ -68,6 +68,8 @@ class StudentAssignmentsList extends Component {
       assignments={this.props.assignments}
 
       />
+      <h2 className="sectionTitle">Assignments</h2>
+
         {assignments.map((assignment, index) => (
           <StudentAssignment
             key={assignment.id}

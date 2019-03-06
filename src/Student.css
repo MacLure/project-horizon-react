@@ -34,7 +34,7 @@
   StudentCohortDetails
 ----------------------------------------- */
 .infoCard {
-  background-color: #2A2C33;
+  /* background-color: #2A2C33; */
   padding: 10px;
   /* width: 1300px; */
   height: 100px;
@@ -45,6 +45,16 @@
   margin-bottom: 20px;
   /* display: flex;
   flex-direction: row; */
+}
+
+.sectionTitle{
+  background-color: inherit;
+  text-align: left;
+  font-weight: 400;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  color: rgb(148, 152, 160);
 }
 
 .studentName {
@@ -131,7 +141,12 @@
   padding: 10px;
   margin: 10px;
   overflow: scroll;
+}
 
+.studentCohortDetails {
+  grid-column-start: 1;
+  padding: 10px;
+  margin: 10px;
 }
 
 .noAssignmentSelected {

@@ -39,6 +39,8 @@ class StudentAssignmentsList extends Component {
 
     return (
       <div className="assignmentlist">
+      <h2 className="sectionTitle">Events</h2>
+
         {this.props.events.map((event, index) => (
           <StudentEvent
             key={event.id}
