@@ -94,16 +94,7 @@ class StudentDashboard extends Component {
         assignments={this.state.assignments}
 
         />
-        <StudentCohortDetails
-        studentFirstName={this.state.student.first_name}
-        studentLastName={this.state.student.last_name}
-        name={this.state.cohort.name}
-        course_type={this.state.cohort.course_type}
-        start_date={this.state.cohort.start_date}
-        end_date={this.state.cohort.end_date}
-        submissions={this.state.submissions}
-        assignments={this.state.assignments}
-      />
+
       <div className="assignmentSection">
         <StudentAssignmentsContainer
           student = {this.state.student}
@@ -114,6 +105,7 @@ class StudentDashboard extends Component {
           student={this.state.student}
           admins={this.state.admins}
           events={this.state.events}
+          cohort={this.state.cohort}
         />
         {this.showEventDetails()}
       </div>

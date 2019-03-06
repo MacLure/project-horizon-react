@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import StudentStyles from './../../Student.css'
 import StudentProgressCircle from './StudentProgressCircle';
 
-
 // INCLUDES COHORT DETAILS/S
 
 class StudentCohortDetails extends Component {
@@ -60,11 +59,7 @@ class StudentCohortDetails extends Component {
           <div className="date">{formattedStartDate} - {formattedEndDate}</div>
           <div className="date">{daysLeftDisplay()}</div>
           <StudentProgressCircle progress={assignmentProgress}/>
-          <p className="assgnmentProgesss">assignment progress: {assignmentProgress()}%</p>
-          <p>{progressStatus()}</p>
         </div>
-
-
      );
   }
 }
