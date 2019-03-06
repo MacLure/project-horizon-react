@@ -161,6 +161,7 @@
   background-color: rgb(54, 57, 65);
   padding: 10px;
   margin: 10px;
+  overflow: scroll;
 }
 
 /* -----------------------------------------
