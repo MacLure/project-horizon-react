@@ -39,7 +39,7 @@ We wanted to make an app for schools to manage their outcomes and student succes
 
 ##### Student login:
 :bust_in_silhouette: `guest.student@horizon.com`
-:key: `"password"`
+:key: `password`
 
 ## Run Horizon Locally:
 
