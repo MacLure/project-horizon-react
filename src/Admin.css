@@ -650,8 +650,6 @@ nav {
   grid-template-columns: 1fr 1fr;
 }
 
-
-
 .icon {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -698,19 +696,17 @@ nav > ul {
 .cohortDetailsContainer {
   width: 90%;
   margin: 10px auto;
-}
-
-header {
-  width: 100%;
+  padding: 0;
 }
 
 .editCohortButton {
-  right: 15px;
+  right: 30px;
 
 }
 
 .adminDeleteButton {
   top: 60px;
+  right: 30px;
 }
 
 .cohortDetailsGrid {
