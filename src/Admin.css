@@ -650,10 +650,13 @@ nav {
   grid-template-columns: 1fr 1fr;
 }
 
+
+
 .icon {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
+  margin: 0 auto;
 }
 
 .navList {
