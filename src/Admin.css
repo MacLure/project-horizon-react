@@ -661,7 +661,7 @@ nav {
 
 .navList {
   float: none;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 
 }
 
