@@ -464,7 +464,7 @@ nav {
 }
 
 .deleteIcon {
-    height: 25px;
+  height: 25px;
 }
 
 .hr {
@@ -717,21 +717,43 @@ header {
   grid-template-columns: 1fr;
 }
 
+.sectionTitle {
+  padding: 5px 10px !important;
+  font-size: 1.5em;
+  margin: 0;
+
+}
+
+.addButton {
+  top: 5px;
+  right: 5px;
+}
+
 .students {
   grid-column-start: 1;
   grid-row-start: 1;
-  width: 100%;
-  margin: 10px auto;
+  width: 310px;
+  margin: 5px auto;
+  padding: 0;
+  height: 100%;
 }
 
 .assignments {
   grid-column-start: 1;
   grid-row-start: 2;
+  width: 310px;
+  margin: 5px auto;
+  padding: 0;
+  height: 100%;
 }
 
 .events {
   grid-column-start: 1;
   grid-row-start: 3;
+  width: 310px;
+  margin: 5px auto;
+  padding: 0;
+  height: 100%;
 }
 
 
