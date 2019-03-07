@@ -657,8 +657,9 @@ nav {
 }
 
 .navList {
-  padding-right: 0;
   float: none;
+  justify-content: flex-start;
+
 }
 
 nav > ul {
@@ -698,6 +699,15 @@ nav > ul {
 
 header {
   width: 100%;
+}
+
+.editCohortButton {
+  right: 15px;
+
+}
+
+.adminDeleteButton {
+  top: 60px;
 }
 
 .cohortDetailsGrid {
