@@ -4,8 +4,8 @@ const StudentProgressCircle = (props) => {
 
   const getProgressColor = (percent) => {
     if (percent < 60) return "#FC3404"
-    if (percent > 60 && percent < 80) return "#C5A022"
-    if (percent > 80) return "#17B57E"
+    if (percent >= 60 && percent < 80) return "#C5A022"
+    if (percent >= 80) return "#17B57E"
   }
 
   return (
