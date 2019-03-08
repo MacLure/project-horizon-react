@@ -21,7 +21,7 @@ class CohortDetails extends Component {
       showNewAssignmentForm: false,
       students: props.students,
       admins: props.admins,
-      assignments: props.assignments,
+      assignments: props.cohortAssignments,
       submissions: props.submissions,
       events: props.events,
       selectedEvent: null,
@@ -135,8 +135,8 @@ class CohortDetails extends Component {
 
     const getStudentProgressColor = (percent) => {
       if (percent < 60) return "#FC3404"
-      if (percent > 60 && percent < 80) return "#C5A022"
-      if (percent > 80) return "#17B57E"
+      if (percent >= 60 && percent < 80) return "#C5A022"
+      if (percent >= 80) return "#17B57E"
     }
 
   if(this.props.cohortStudents){
