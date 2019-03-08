@@ -30,12 +30,12 @@ const StudentProgressCircle = (props) => {
         transform="rotate(-90 75.5 75.5)"
           fill="transparent"
           strokeDasharray={2*Math.PI*37.75}
-          strokeDashoffset={2*Math.PI*37.75 - (2*Math.PI*37.75 * (props.progress() / 100))}
-          stroke = {getProgressColor(props.progress())}
+          strokeDashoffset={props.progress ? 2*Math.PI*37.75 - (2*Math.PI*37.75 * (props.progress / 100)) : 0}
+          stroke = {getProgressColor(props.progress)}
           strokeWidth="10px"
           ></circle>
     </svg>
-    <div className="circlePercentage">{props.progress()}%</div>
+    <div className="circlePercentage">{props.progress}%</div>
   </div>
    );
 }
