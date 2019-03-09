@@ -76,20 +76,17 @@ class AdminEventDetails extends Component {
           <input type="date" name="date" value={this.state.event.date} onChange={this.handleChange} ></input>
           <label htmlFor="time">Time</label>
           <input type="time" name="time" value={this.state.event.time} onChange={this.handleChange} ></input>
-
         </div>
         <div className="three">
           <label htmlFor="body">Details</label>
           <textArea name="body" value={this.state.event.body} onChange={this.handleChange} ></textArea>
         </div>
         <button className="submitButton" type="submit">Submit</button>
-
       </form>
   }
 
  render() {
    return (
-     <React.Fragment>
       <div className="modal">
         <div className="modalContainer">
         <div className="eventsContainer">
@@ -102,7 +99,6 @@ class AdminEventDetails extends Component {
           </div>
         </div>
       </div>
-    </React.Fragment>
     );
  }
 }

@@ -4,6 +4,8 @@ import  {editAssignment} from '../../service';
 import { connect } from 'react-redux';
 import AdminStyles from './../../Admin.css'
 import X from '../../assets/Icons/x.svg';
+import edit from '../../assets/Icons/edit.svg';
+import trash from '../../assets/Icons/trash.svg';
 
 class AdminAssignmentDetails extends Component {
   constructor(props) {
@@ -14,7 +16,6 @@ class AdminAssignmentDetails extends Component {
     }
 
     this.toggleEdit = this.toggleEdit.bind(this);
-    this.EditButtonClass = this.EditButtonClass.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -51,15 +52,12 @@ class AdminAssignmentDetails extends Component {
 
   detailsOrForm = () => {
     return !this.state.editing ?
-      <div>
-        <h2 className="eventsTitle">{this.state.assignment.name}</h2>
-        <p>Due: {this.formattedDate}</p>
-        <p>{this.state.assignment.body}</p>
-        <button className="deleteAssignmentButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+      <div class="modalBox">
+        <div className="eventAssignmentDates">Due: {this.formattedDate}</div>
+        <div className="eventBody">{this.state.assignment.body}</div>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
-        <h2 className="formTitle">Edit Assignment</h2>
         <div className="one">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" value={this.state.assignment.name} onChange={this.handleChange} ></input>
@@ -76,24 +74,21 @@ class AdminAssignmentDetails extends Component {
       </form>
   }
 
-  EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
-
  render() {
-   return (
-     <React.Fragment>
+    return (
       <div className="modal">
-        <div className="eventsContainer">
-          <div className="modalEscape" onClick={this.props.escapeAssignmentDetailsModal}>×</div>
-          {this.detailsOrForm()}
-
-          <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Assignment"}</button>
-
+        <div className="modalContainer">
+          <div className="eventsContainer">
+            <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}><img className="escapeIcon" src={X}/></div>
+            <h2 className="sectionTitle">{this.state.assignment.name}</h2>
+            <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
+            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+            {this.detailsOrForm()}
           </div>
         </div>
-
-     </React.Fragment>
+      </div>
     );
- }
+  }
 }
 
 const mapStatetoProps = state => {
