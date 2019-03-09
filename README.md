@@ -33,14 +33,6 @@ We wanted to make an app for schools to manage their outcomes and student succes
 
 ### [Live App](https://project-horizon-react.herokuapp.com/)
 
-##### Admin login:
-:bust_in_silhouette: `guest.admin@horizon.com`
-:key: `password`
-
-##### Student login:
-:bust_in_silhouette: `guest.student@horizon.com`
-:key: `password`
-
 ## Run Horizon Locally:
 
 1. Clone this repository 
