@@ -207,6 +207,16 @@ textarea:focus {
 /* -----------------------------------------
   AdminEventDetails
 ----------------------------------------- */
+
+.modalBox {
+  padding: 10px;
+}
+
+.eventsContainer {
+  position: relative;
+  padding: 10px;
+}
+
 .AdminEventsContainer {
   background-color: #2A2C33;
   margin-top: 20px;
@@ -256,20 +266,45 @@ textarea:focus {
   background-color: inherit;
 }
 
-.deleteEventButton{
-  display: inline-block;
-  width: 150px;
-  margin: 40px auto 20px 80px;
-  padding: 5px 5px;
+.editEventButton {
+  position: absolute;
+  background-color: #363941;
+  transition: background-color 0.4s;
   border: none;
-  border-radius: 2px;
-  background-color: #FC3404;
-  font-size: 1.1em;
-  text-align: center;
   cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.5s;
+  top: 5px;
+  right: 65px;
+  height: 25px;
+  padding: 6px;
+  display: inline-block;
+  border-radius: 3px;
 }
+
+.editEventButton:hover {
+  background-color: rgb(70, 75, 85);
+  transition: background-color 0.4s;
+}
+
+.deleteEventButton {
+  position: absolute;
+  display: inline-block;
+  width: 25px;
+  background-color: #363941;
+  transition: background-color 0.4s;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  top: 5px;
+  right: 15px;
+  height: 25px;
+  padding: 6px;
+}
+
+.deleteEventButton:hover {
+  background-color: rgb(70, 75, 85);
+  transition: background-color 0.4s;
+}
+
 
 /* -----------------------------------------
   AdminEventList
@@ -541,6 +576,10 @@ nav {
 
 .eventAssignmentDates {
   color: gray;
+}
+
+.eventBody {
+  margin: 10px 20px;
 }
 
 .sectionTitle{

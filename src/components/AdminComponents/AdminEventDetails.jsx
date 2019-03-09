@@ -4,6 +4,9 @@ import  {editEvent} from '../../service';
 import { connect } from 'react-redux';
 import AdminStyles from './../../Admin.css';
 import X from '../../assets/Icons/x.svg';
+import edit from '../../assets/Icons/edit.svg';
+import trash from '../../assets/Icons/trash.svg';
+
 
 class AdminEventDetails extends Component {
   constructor(props) {
@@ -57,16 +60,13 @@ class AdminEventDetails extends Component {
 
   detailsOrForm = () => {
     return !this.state.editing ?
-      <div>
-        <h2 className="eventsTitle">{this.state.event.event_type}: {this.state.event.name}</h2>
-        <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
-        <p>{this.state.event.location}</p>
-        <p>{this.state.event.body}</p>
-        <button className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}>Delete Event</button>
+      <div class="modalBox">
+        <div className="eventAssignmentDates">{this.formattedDate} @ {this.hour}:{this.minute}</div>
+        <div className="eventAssignmentDates">{this.state.event.location}</div>
+        <div className="eventBody">{this.state.event.body}</div>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
-        <h2 className="formTitle">Edit Event</h2>
         <div className="one">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" value={this.state.event.name} onChange={this.handleChange} ></input>
@@ -94,8 +94,11 @@ class AdminEventDetails extends Component {
         <div className="modalContainer">
         <div className="eventsContainer">
           <div className="modalEscape"  onClick={this.props.escapeEventDetailsModal}><img className="escapeIcon" src={X}/></div>
+          <h2 className="sectionTitle">{this.state.event.event_type}: {this.state.event.name}</h2>
+          <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
+          <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+    
           {this.detailsOrForm()}
-          <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.state.editing ? "Cancel" : "Edit Event"}</button>
           </div>
         </div>
       </div>
