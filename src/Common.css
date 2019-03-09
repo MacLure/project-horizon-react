@@ -284,5 +284,17 @@ p {
 
 /* -----------------------------------------
   SubmissionComment
-  <-- No styles yet -->
 ----------------------------------------- */
+
+.submittionComment {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+}
+
+.submissionCommentBody {
+  padding: 5px 10px;
+  background-color: rgb(70, 75, 85);
+  border-radius: 10px;
+
+}
