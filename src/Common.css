@@ -159,6 +159,11 @@ li > a:hover {
   background-color: #fff;
 }
 
+.guestOrLogin {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
 .loginForm {
   text-align: left;
   margin: 0 50px;

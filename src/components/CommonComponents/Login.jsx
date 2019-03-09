@@ -47,9 +47,9 @@ class Login extends Component {
           this.props.history.push('/admin')
         })
         .catch(e => {console.log('ERR: ', e)
-        this.setState({loader: false})
-        this.setState({error: "email or password incorrect"})
-      })
+          this.setState({loader: false})
+          this.setState({error: "email or password incorrect"})
+        })
       }
     } else if (this.state.user === 'student') {
       if (!this.state.email || !this.state.password) {
@@ -65,16 +65,47 @@ class Login extends Component {
           this.props.history.push('/student')
         })
         .catch(e => {console.log('ERR: ', e)
-        this.setState({loader: false})
-        this.setState({error: "email or password incorrect"})
-      })
+          this.setState({loader: false})
+          this.setState({error: "email or password incorrect"})
+        })
       }
+    }
+  }
+
+  onGuestSubmit = () => {
+    this.setState({loader: true})
+    this.setState({error: null})
+    if (this.state.user === 'student') {
+      onStudentLogin('guest.student@horizon.com', 'password')
+      .then(e => e.json())
+      .then(e => {console.log(e)
+        this.props.onTokenReceive(e.jwt)
+        this.props.history.push('/student')
+      })
+      .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "Something went wrong. Please try again."})
+      })
+    }
+    if (this.state.user === 'admin') {
+      onAdminLogin('guest.admin@horizon.com', 'password')
+      .then(e => e.json())
+      .then(e => {console.log(e)
+        this.props.onTokenReceive(e.jwt)
+        this.props.history.push('/admin')
+      })
+      .catch(e => {console.log('ERR: ', e)
+        this.setState({loader: false})
+        this.setState({error: "Something went wrong. Please try again."})
+      })
     }
   }
 
   displayForm = () => {
     return (this.state.user === null) ?
     null : <form className="loginForm" method="post">
+    <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onGuestSubmit()}}>Log in as a guest {this.state.user}</button>
+    <p class="guestOrLogin">or:</p>
         <label className="loginLabel" htmlFor="email">Email</label><input className="loginInput" placeholder="hello@horizon.com" type="text" name="email" onChange={e=>{
           this.setState({email: e.target.value})
         }}></input>
@@ -82,6 +113,7 @@ class Login extends Component {
           this.setState({password: e.target.value})
         }}></input>
         <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>
+
       <div className="notice">
       {this.state.loader ? <img className="loader" src={loading} /> : null}
       {this.state.error ? this.state.error : null}
