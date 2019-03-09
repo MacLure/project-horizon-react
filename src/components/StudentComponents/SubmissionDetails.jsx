@@ -96,7 +96,6 @@ class SubmissionDetails extends Component {
             body = {comment.body}
           />
         ))}
-        <div className="deleteSubmissionButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
       </React.Fragment>
     );
   }

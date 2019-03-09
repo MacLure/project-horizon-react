@@ -20,7 +20,7 @@ class StudentEventDetails extends Component {
 
     return (
       <div>
-        <h2 className="AssignmentTitle">{this.props.event.event_type}: {this.props.event.name}</h2>
+      <h2 className="sectionTitle">{this.props.event.event_type}: {this.props.event.name}</h2>
         <div className="date">{new Date(Date.parse(this.props.event.date)).toLocaleString('en', this.options)} @ {hour}:{minute}</div>
         <div className="date">{this.props.event.location}</div>
 

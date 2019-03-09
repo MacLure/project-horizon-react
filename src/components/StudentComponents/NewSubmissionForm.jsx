@@ -5,7 +5,6 @@ import  {createNewSubmission} from './../../service';
 
 
 const Container = styled.div`
-  background-color: #2A2C33;
   margin-top: 10px;
   width: 40vw;
   height: 300px;
@@ -133,10 +132,8 @@ class NewSubmissionForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
       <Container>
-      <Title>New Submission</Title>
-      <p>{this.props.assignment.name}</p>
+      <h2 className="sectionTitle">Your Submission</h2>
       <Form onSubmit={this.handleSubmit}>
         <div>
           <Label htmlFor="url">URL</Label>
@@ -149,7 +146,6 @@ class NewSubmissionForm extends Component {
           <Button type="submit">Submit</Button>
       </Form>
       </Container>
-    </React.Fragment>
    );
   }
 }

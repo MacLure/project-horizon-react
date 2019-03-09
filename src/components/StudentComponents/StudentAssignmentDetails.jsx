@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import SubmissionComment from '../CommonComponents/SubmissionComment'
 import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
-import  {deleteSubmission} from '../../service';
-import  {editSubmission} from '../../service';
 
 
 
@@ -23,7 +20,8 @@ const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
     return (
       <div>
-        <h2 className="AssignmentTitle">{assignment.name}</h2>
+      <h2 className="sectionTitle">{assignment.name}</h2>
+
         <div className="date">Due: {new Date(Date.parse(assignment.due_date)).toLocaleString('en', options)}</div>
         <div class="assignmentBody">{assignment.body}</div>
       </div>
