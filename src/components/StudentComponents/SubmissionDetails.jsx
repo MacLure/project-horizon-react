@@ -4,6 +4,9 @@ import StudentStyles from './../../Student.css'
 import { connect } from 'react-redux';
 import  {deleteSubmission} from '.././../service';
 import  {editSubmission} from '.././../service';
+import edit from '../../assets/Icons/edit.svg';
+import trash from '../../assets/Icons/trash.svg';
+
 
 class SubmissionDetails extends Component {
   constructor(props) {
@@ -40,7 +43,7 @@ class SubmissionDetails extends Component {
     this.setState( this.state.editing ? {editing:false} : {editing:true} )
   }
 
-  EditButtonClass = () => this.state.editing ? "whiteButton" : "blueButton";
+  EditButtonClass = () => this.state.editing ? "cencel" : "editSubmissionButton";
 
   handleDelete = (e) => {
     e.preventDefault();
@@ -54,23 +57,22 @@ class SubmissionDetails extends Component {
   detailsOrForm = () => {
     return !this.state.editing ?
       <div>
-      <h2 className="sectionTitle">Your Submission</h2>
         <div className="date">Submitted on {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}</div>
         <div><a href={this.state.submission.url}>{this.props.submission.url}</a></div>
-        <div>{this.props.submission.body}</div>
+        <div class="submissionBody">{this.props.submission.body}</div>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
-      <h2 className="sectionTitle">Edit Submission</h2>
         <div className="one">
-          <label htmlFor="url">Name</label>
+          <label htmlFor="url">URL</label>
           <input type="text" name="url" value={this.props.submission.url} onChange={this.handleChange} ></input>
         </div>
         <div className="two">
           <label htmlFor="body">Body</label>
           <textArea name="date" value={this.props.submission.body} onChange={this.handleChange} ></textArea>
         </div>
-        <button className="submitButton" type="submit">Submit</button>
+        <button className="submitEditButton" type="submit">Submit</button>
+        <button className="cancelButton" type="submit">Cancel</button>
 
       </form>
   }
@@ -79,8 +81,12 @@ class SubmissionDetails extends Component {
     const submissionComments = [].concat.apply([], this.props.submissionComments);
     return (
       <React.Fragment>
+      <div class="submission">
+        <h2 className="sectionTitle">{!this.state.editing ? "Your Submission" : "Edit Submission"}</h2>
+        <div className="editSubmissionButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
+        <div className="deleteSubmissionButton" ><img className="deleteIcon" src={trash}/></div>
+      </div>
         {this.detailsOrForm()}
-        <button className={this.EditButtonClass()} onClick={e=>{this.toggleEdit()}} >{this.props.editing ? "Cancel" : "Edit Submission"}</button>
 
         {submissionComments.map(comment => (
           <SubmissionComment
@@ -90,7 +96,7 @@ class SubmissionDetails extends Component {
             body = {comment.body}
           />
         ))}
-        <div className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
+        <div className="deleteSubmissionButton" onClick={e=>{this.handleDelete(e)}} >Delete Submission</div>
       </React.Fragment>
     );
   }

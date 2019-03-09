@@ -17,7 +17,6 @@ class StudentAssignmentDetails extends Component {
   render() {
 
 const assignment = this.props.assignment
-const submission = this.props.submission
 
 const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
@@ -26,7 +25,7 @@ const options = {year: 'numeric', month: 'short', day: 'numeric' };
       <div>
         <h2 className="AssignmentTitle">{assignment.name}</h2>
         <div className="date">Due: {new Date(Date.parse(assignment.due_date)).toLocaleString('en', options)}</div>
-        <div>{assignment.body}</div>
+        <div class="assignmentBody">{assignment.body}</div>
       </div>
       );
   }

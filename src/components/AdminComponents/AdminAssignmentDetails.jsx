@@ -55,7 +55,7 @@ class AdminAssignmentDetails extends Component {
         <h2 className="eventsTitle">{this.state.assignment.name}</h2>
         <p>Due: {this.formattedDate}</p>
         <p>{this.state.assignment.body}</p>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
+        <button className="deleteAssignmentButton" onClick={e=>{this.handleDelete(e)}} >Delete Assignment</button>
       </div>
       :
       <form onSubmit={this.handleSubmit}>

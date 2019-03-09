@@ -62,7 +62,7 @@ class AdminEventDetails extends Component {
         <p>{this.formattedDate} @ {this.hour}:{this.minute}</p>
         <p>{this.state.event.location}</p>
         <p>{this.state.event.body}</p>
-        <button className="deleteButton" onClick={e=>{this.handleDelete(e)}}>Delete Event</button>
+        <button className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}>Delete Event</button>
       </div>
       :
       <form onSubmit={this.handleSubmit}>
