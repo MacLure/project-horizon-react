@@ -36,19 +36,19 @@ We wanted to make an app for schools to manage their outcomes and student succes
 ## Run Horizon Locally:
 
 1. Clone this repository 
-2. In the repository's directory, install gems:
+2. In the repository's directory, download dependencies:
 ```
-bundle install
+npm install
 ```
 3. In the repository's directory, run migrations and seeds:
 ```
 rails db:migrate
 rails db:seed
 ```
-4. Clone the [Horizon client](https://github.com/MacLure/project-horizon-rails) repository
-5. In the client repository's directory, download dependencies:
+4. Clone the [Horizon server](https://github.com/MacLure/project-horizon-rails) repository
+5. In the server repository's directory, install gems:
 ```
-npm install
+bundle install
 ```
 6. Start servers in each directory:
 - In the server directory:
