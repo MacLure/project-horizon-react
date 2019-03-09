@@ -40,15 +40,15 @@ We wanted to make an app for schools to manage their outcomes and student succes
 ```
 npm install
 ```
-3. In the repository's directory, run migrations and seeds:
+3. Clone the [Horizon server](https://github.com/MacLure/project-horizon-rails) repository
+4. In the server repository's directory, install gems:
+```
+bundle install
+```
+5. In the server repository's directory, run migrations and seeds:
 ```
 rails db:migrate
 rails db:seed
-```
-4. Clone the [Horizon server](https://github.com/MacLure/project-horizon-rails) repository
-5. In the server repository's directory, install gems:
-```
-bundle install
 ```
 6. Start servers in each directory:
 - In the server directory:
