@@ -67,7 +67,7 @@ class AdminStudentDetails extends Component {
             {this.props.assignments.map(assignment =>
               <div key = {assignment.id}>
                 <div>{assignment.name}</div>
-                <div>{this.props.submissions.filter(submission => (submission.assignment_id === assignment.id) && (submission.student_id === this.props.student.id)).length > 0 ? "submitted" : '' }</div>
+                <div class="eventAssignmentDates">{this.props.submissions.filter(submission => (submission.assignment_id === assignment.id) && (submission.student_id === this.props.student.id)).length > 0 ? "submitted" : "not submitted" }</div>
               </div>
               )}
             </div>
