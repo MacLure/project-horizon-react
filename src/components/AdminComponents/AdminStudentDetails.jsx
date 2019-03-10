@@ -53,21 +53,35 @@ class AdminStudentDetails extends Component {
   }
 
 
- render() {
-   return (
+  render() {
+    return (
       <div className="modal">
         <div className="modalContainer">
-        <div className="eventsContainer">
-          <div className="modalEscape"  onClick={this.props.escapeStudentDetails}><img className="escapeIcon" src={X}/></div>
-          <h2 className="sectionTitle">{this.props.student.first_name} {this.props.student.last_name}</h2>
-          <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
-          <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
-    
+          <div className="eventsContainer">
+            <div className="modalEscape"  onClick={this.props.escapeStudentDetails}><img className="escapeIcon" src={X}/></div>
+            <h2 className="sectionTitle">{this.props.student.first_name} {this.props.student.last_name}</h2>
+            <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
+            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+            <div className="studentDetailsGrid">
+            <div>
+            {this.props.assignments.map(assignment =>
+              <div key = {assignment.id}>
+                <div>{assignment.name}</div>
+                <div>{this.props.submissions.filter(submission => (submission.assignment_id === assignment.id) && (submission.student_id === this.props.student.id)).length > 0 ? "submitted" : '' }</div>
+              </div>
+              )}
+            </div>
+            
+            <div>
+            </div>
+            
+            </div>
+
           </div>
         </div>
       </div>
     );
- }
+  }
 }
 
 const mapStatetoProps = state => {

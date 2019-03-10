@@ -218,6 +218,9 @@ componentDidMount() {
         return (
           <AdminStudentDetails
             student= {this.state.showStudentDetails}
+            assignments = {this.state.assignments.filter(assignment => assignment.cohort_id === this.state.showStudentDetails.cohort_id)}
+            submissions = {this.state.submissions}
+            comments = {this.state.submission_comments}
             updateSuccess = {this.reload}
             escapeStudentDetails = {this.escapeStudentDetails}
           />

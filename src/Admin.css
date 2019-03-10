@@ -818,17 +818,12 @@ nav > ul {
   height: 100%;
 }
 
+/* STUDENT DETAILS */
 
-
-
-
-
-
-
-
-
-
-
+.studentDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 
 }

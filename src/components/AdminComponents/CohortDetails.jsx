@@ -127,7 +127,6 @@ class CohortDetails extends Component {
     }
 
     const getStudentProgressPercent = (student) => {
-      console.log(this.state.assignments.length)
       return this.state.submissions.filter(submission => submission.student_id === student.id).length <= 0 ?
       0 :
       Math.round(this.state.submissions.filter(submission => submission.student_id === student.id).length / this.state.assignments.length * 100)
@@ -141,8 +140,8 @@ class CohortDetails extends Component {
 
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
-      <li className="detailsListItem" key={student.id} >
-        <div className="adminStudentName" onClick={e=>{this.props.TriggerStudentDetails(student.id)}}>
+      <li className="detailsListItem" key={student.id} onClick={e=>{this.props.TriggerStudentDetails(student.id)}}>
+        <div className="adminStudentName">
           {student.first_name} {student.last_name}
           <div className="studentProgressPercent" style={{backgroundColor: getStudentProgressColor(getStudentProgressPercent(student))}}>
             {getStudentProgressPercent(student)}%
