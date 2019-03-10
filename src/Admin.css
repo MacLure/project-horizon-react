@@ -177,7 +177,7 @@ textarea:focus {
   border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
   justify-self: center;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border 0.2s;
   opacity: 1;
   cursor: pointer;
   display: flex;
@@ -191,8 +191,9 @@ textarea:focus {
 }
 
 .newCohortButton:hover {
+  border: 3px solid #17B57E;
   background-color: #17B57E;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border 0.2s;
 }
 
 .cohortDetailsContainer {
