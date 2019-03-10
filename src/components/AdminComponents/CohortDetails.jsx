@@ -142,7 +142,7 @@ class CohortDetails extends Component {
   if(this.props.cohortStudents){
     this.cStudents = this.props.cohortStudents.map(student => (
       <li className="detailsListItem" key={student.id} >
-        <div className="adminStudentName">
+        <div className="adminStudentName" onClick={e=>{this.props.TriggerStudentDetails(student.id)}}>
           {student.first_name} {student.last_name}
           <div className="studentProgressPercent" style={{backgroundColor: getStudentProgressColor(getStudentProgressPercent(student))}}>
             {getStudentProgressPercent(student)}%

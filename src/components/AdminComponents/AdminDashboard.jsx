@@ -13,6 +13,7 @@ import NewEventForm from './NewEventForm';
 import AdminEventDetails from './AdminEventDetails'
 import AdminAssignmentDetails from './AdminAssignmentDetails';
 import EditCohortForm from './EditCohortForm';
+import AdminStudentDetails from './AdminStudentDetails';
 
 import plus from './../../assets/Icons/plus.svg'
 import AdminStyles from './../../Admin.css'
@@ -41,6 +42,7 @@ class AdminDashboard extends Component {
       showNewEventForm: false,
       showEventDetails: false,
       showEditCohortForm: false,
+      showStudentDetails: false,
       selectedCohort: null,
     }
     this.showNewCohortForm = this.showNewCohortForm.bind(this)
@@ -109,6 +111,7 @@ componentDidMount() {
     TriggerAssignmentDetails = (assignment) => {this.setState({showAssignmentDetails: assignment})}
     TriggerEventDetails = (event) => {this.setState({showEventDetails: event})}
     TriggerEditCohortForm = (cohort) => {this.setState({showEditCohortForm: cohort})}
+    TriggerStudentDetails = (studentId) => {this.setState({showStudentDetails: this.state.students.filter(student => student.id === studentId)[0]})}
 
 
     showNewCohortForm = () => {
@@ -210,6 +213,18 @@ componentDidMount() {
       }
     }
 
+    showStudentDetails = () => {
+      if (this.state.showStudentDetails ) {
+        return (
+          <AdminStudentDetails
+            student= {this.state.showStudentDetails}
+            updateSuccess = {this.reload}
+            escapeStudentDetails = {this.escapeStudentDetails}
+          />
+        )
+      }
+    }
+
     escapeNewEventModal = () => {this.setState({showNewEventForm: false})}
     escapeNewStudentModal = () => {this.setState({showNewStudentForm: false})}
     escapeNewAssignmentModal = () => {this.setState({showNewAssignmentForm: false})}
@@ -218,6 +233,7 @@ componentDidMount() {
     escapeNewAdminModal = () => {this.setState({showNewAdminForm: false})}
     escapeEventDetailsModal = () => {this.setState({showEventDetails: false})}
     escapeEditCohortModal = () => {this.setState({showEditCohortForm: false})}
+    escapeStudentDetails = () => {this.setState({showStudentDetails: false})}
 
     // displayLogOutButton = () => {
     //   return (this.props.token != null) ?
@@ -265,6 +281,7 @@ componentDidMount() {
         TriggerEventDetails={this.TriggerEventDetails}
         TriggerEditCohortForm={this.TriggerEditCohortForm}
         TriggerAssignmentDetails={this.TriggerAssignmentDetails}
+        TriggerStudentDetails={this.TriggerStudentDetails}
 
       />
     }
@@ -297,6 +314,8 @@ componentDidMount() {
             {this.showNewCohortForm()}
             {this.showEventDetails()}
             {this.showEditCohortForm()}
+            {this.showStudentDetails()}
+
           </div>
         </div>
         <Footer/>
