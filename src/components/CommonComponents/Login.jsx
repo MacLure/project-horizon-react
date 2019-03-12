@@ -112,12 +112,11 @@ class Login extends Component {
         <label className="loginLabel" htmlFor="password">Password</label><input className="loginInput" placeholder="password" type="password" name="password" onChange={e=>{
           this.setState({password: e.target.value})
         }}></input>
-        <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>
-
       <div className="notice">
       {this.state.loader ? <img className="loader" src={loading} /> : null}
       {this.state.error ? this.state.error : null}
       </div>
+      <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>
       </form>
   }
 
