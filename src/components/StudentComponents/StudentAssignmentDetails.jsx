@@ -20,8 +20,7 @@ const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
     return (
       <div>
-      <h2 className="sectionTitle">{assignment.name}</h2>
-
+        <h2 className="assignmentTitle">{assignment.name}</h2>
         <div className="date">Due: {new Date(Date.parse(assignment.due_date)).toLocaleString('en', options)}</div>
         <div class="assignmentBody">{assignment.body}</div>
       </div>

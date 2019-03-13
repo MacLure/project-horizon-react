@@ -107,7 +107,6 @@ class StudentDashboard extends Component {
           events={this.state.events}
           cohort={this.state.cohort}
         />
-        {this.showEventDetails()}
       </div>
       <div className="assignmentSection">
       <StudentEventsContainer
@@ -116,10 +115,7 @@ class StudentDashboard extends Component {
       />
       {this.showEventDetails()}
     </div>
-      <div className="assignmentSection">
 
-        {this.showEventDetails()}
-      </div>
       <Footer/>
     </React.Fragment>
     );

@@ -30,6 +30,8 @@
   text-align: left;
 }
 
+
+
 /* -----------------------------------------
   StudentCohortDetails
 ----------------------------------------- */
@@ -52,6 +54,16 @@
   background-color: inherit;
   text-align: left;
   font-weight: 400;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  color: rgb(148, 152, 160);
+}
+
+.assignmentTitle {
+  background-color: inherit;
+  text-align: left;
+  font-weight: 800;
   padding: 0px 0px 10px 10px;
   border-bottom: 1px solid gray;
   margin-bottom: 5px;

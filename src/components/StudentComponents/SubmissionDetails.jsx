@@ -83,7 +83,6 @@ class SubmissionDetails extends Component {
       <React.Fragment>
       <div class="submission">
         <h2 className="sectionTitle">{!this.state.editing ? "Your Submission" : "Edit Submission"}</h2>
-        <div className="editSubmissionButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
         <div className="deleteSubmissionButton" ><img className="deleteIcon" src={trash}/></div>
       </div>
         {this.detailsOrForm()}
