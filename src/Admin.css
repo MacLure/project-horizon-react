@@ -177,7 +177,7 @@ textarea:focus {
   border: 3px solid rgba(42, 44, 51, 1);
   grid-column-start: 1;
   justify-self: center;
-  transition: background-color 0.2s, border 0.2s;
+  transition: background-color 0.2s;
   opacity: 1;
   cursor: pointer;
   display: flex;
@@ -764,7 +764,12 @@ nav > ul {
 .cohortDetailsContainer {
   width: 100%;
   margin: 10px auto;
-  padding: 0;
+}
+
+.cohortDetailsSection {
+  margin: 0;
+  width: 90%;
+
 }
 
 .editCohortButton {
