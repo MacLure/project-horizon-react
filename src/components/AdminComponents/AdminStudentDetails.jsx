@@ -60,7 +60,6 @@ class AdminStudentDetails extends Component {
           <div className="eventsContainer">
             <div className="modalEscape"  onClick={this.props.escapeStudentDetails}><img className="escapeIcon" src={X}/></div>
             <h2 className="sectionTitle">{this.props.student.first_name} {this.props.student.last_name}</h2>
-            <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
             <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
             <div className="studentDetailsGrid">
             <div>
