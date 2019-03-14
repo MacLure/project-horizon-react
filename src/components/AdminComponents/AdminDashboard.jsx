@@ -304,7 +304,7 @@ componentDidMount() {
             )
           )}
           <div className="newCohortButton" onClick={this.TriggerNewCohortForm}>
-              <img className="plus" src={plus} alt="new cohort" />
+              <img className="plus" src={plus} alt="new cohort"  alt="new" />
           </div>
           </div>
           <div className="cohortDetailsContainer">

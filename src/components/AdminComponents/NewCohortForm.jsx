@@ -36,7 +36,7 @@ class NewCohortForm extends Component {
     return (
       <div className="modal">
       <div className="modalContainer">
-       <div className="modalEscape" onClick={this.props.escapeNewCohortModal}><img className="escapeIcon" src={X}/></div>
+       <div className="modalEscape" onClick={this.props.escapeNewCohortModal}><img className="escapeIcon" src={X} alt="exit" /></div>
        <h2 className="formTitle">New Cohort</h2>
        <form onSubmit={this.handleSubmit}>
         <div className="one">

@@ -83,7 +83,7 @@ class SubmissionDetails extends Component {
       <React.Fragment>
       <div class="submission">
         <h2 className="sectionTitle">{!this.state.editing ? "Your Submission" : "Edit Submission"}</h2>
-        <div className="deleteSubmissionButton" ><img className="deleteIcon" src={trash}/></div>
+        <div className="deleteSubmissionButton" ><img className="deleteIcon" src={trash} alt="delete" /></div>
       </div>
         {this.detailsOrForm()}
 

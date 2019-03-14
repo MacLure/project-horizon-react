@@ -10,7 +10,7 @@ class Signup extends Component {
     return (
         <div className="landing">
           <div className="signupContainer">
-          <div className="signupHorizonContainer"><img className="horizon" src={Logo}/></div>
+          <div className="signupHorizonContainer"><img className="horizon" src={Logo} alt="Horizon" /></div>
           <h2 className="signupTitle">Create an Account</h2>
           <form className="loginForm" method="post">
             <label htmlfor="first_name">First Name</label>

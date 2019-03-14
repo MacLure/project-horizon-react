@@ -9,7 +9,7 @@ class StudentNavBar extends Component {
   render() {
     return (
         <nav className="menuBar">
-          <img className="icon" src={Logo} />
+          <img className="icon" src={Logo} alt="Horizon" />
 
           <ul className="navList">
             <NavLink to="/student" activeClassName="active"><li className="navItem">Dashboard</li></NavLink>
