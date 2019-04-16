@@ -6,6 +6,7 @@ import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
 import edit from "../../assets/Icons/edit.svg";
 import trash from "../../assets/Icons/trash.svg";
+import Assignment from "./StudentDetails/Assignment";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
@@ -114,7 +115,9 @@ class AdminStudentDetails extends Component {
                   ))}
                 </div>
               </div>
-              <div style={{ height: "900px", backgroundColor: "green" }} />
+              {this.state.selectedAssignment ? (
+                <Assignment assignment={this.state.selectedAssignment} />
+              ) : null}
             </div>
           </div>
         </div>
