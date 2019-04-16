@@ -48,6 +48,7 @@ class StudentAssignmentsList extends Component {
             onEventClick={this.onEventClick}
           />
         ))}
+        <div style={{height:"10px", backgroundColor:"white"}} />
       </div>
      );
   }

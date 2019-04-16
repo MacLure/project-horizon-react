@@ -57,7 +57,7 @@ class StudentAssignmentsList extends Component {
 
     return (
       <div className="assignmentlist">
-      <StudentCohortDetails 
+      <StudentCohortDetails
       studentFirstName={this.props.student.first_name}
       studentLastName={this.props.student.last_name}
       name={this.props.cohort.name}
@@ -84,6 +84,8 @@ class StudentAssignmentsList extends Component {
             student={this.props.student}
           />
         ))}
+        <div style={{height:"10px", backgroundColor:"white"}} />
+
       </div>
      );
   }

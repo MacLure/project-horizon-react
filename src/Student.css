@@ -191,10 +191,12 @@ StudentAssignment
   grid-template-columns: 2fr 1fr;
   cursor: pointer;
   padding: 10px;
+  transition: background-color 0.3s;
 }
 
 .assignmentItem:hover {
-  background-color: rgb(70, 75, 85);
+  transition: background-color 0.3s;
+  background-color: #E6E6E6;
   border-radius: 5px;
 }
 
