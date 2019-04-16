@@ -148,6 +148,7 @@ li > a:hover {
   background-color: inherit;
   padding: 5px 10px;
   transition: background-color 0.4s, color 0.4s;
+  color: white;
 }
 
 .selectButton:active {
