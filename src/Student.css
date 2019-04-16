@@ -1,6 +1,10 @@
 /* -----------------------------------------
   StudentDashboard
 ----------------------------------------- */
+body {
+  background-color: #F4F4F4 !important;
+}
+
 .eventsGrid {
   grid-column-start: 1fr;
   grid-row-start: 1;
@@ -142,13 +146,13 @@
   width: 1300px;
   height: 500px;
   grid-gap: 50px;
-  background-color: #2A2C33;
+  background-color: #E6E6E6;
 }
 
 
 .assignmentlist {
   grid-column-start: 1;
-  background-color: rgb(54, 57, 65);
+  background-color: #fff;
   padding: 10px;
   margin: 10px;
   overflow: scroll;
@@ -169,7 +173,7 @@
 
 .submissionContainer {
   grid-column-start: 2;
-  background-color: rgb(54, 57, 65);
+  background-color: #fff;
   padding: 20px;
   margin: 10px;
   overflow: scroll;
