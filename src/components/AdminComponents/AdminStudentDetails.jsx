@@ -128,7 +128,8 @@ class AdminStudentDetails extends Component {
                     this.state.submissions.filter(
                       submission =>
                         submission.assignment_id ===
-                        this.state.selectedAssignment.id
+                          this.state.selectedAssignment.id &&
+                        submission.student_id === this.state.student.id
                     )[0]
                   }
                 />
@@ -146,7 +147,8 @@ class AdminStudentDetails extends Component {
                     this.state.submissions.filter(
                       submission =>
                         submission.assignment_id ===
-                        this.state.selectedAssignment.id
+                          this.state.selectedAssignment.id &&
+                        submission.student_id === this.state.student.id
                     )[0]
                   }
                   comments={this.state.comments}
