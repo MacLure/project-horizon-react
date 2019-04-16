@@ -72,25 +72,38 @@ class AdminStudentDetails extends Component {
             >
               <img className="deleteIcon" src={trash} alt="delete" />
             </div>
-            <div className="studentDetailsGrid">
-              <div>
-                {this.props.assignments.map(assignment => (
-                  <div key={assignment.id} className="detailsListItem">
-                    <div>{assignment.name}</div>
-                    <div class="eventAssignmentDates">
-                      {this.props.submissions.filter(
-                        submission =>
-                          submission.assignment_id === assignment.id &&
-                          submission.student_id === this.props.student.id
-                      ).length > 0
-                        ? "submitted"
-                        : "not submitted"}
+            <div
+              style={{
+                height: "385px",
+                overflow: "scroll"
+              }}
+            >
+              <div className="studentAssignmentDetailsList">
+                <div>
+                  {this.props.assignments.map(assignment => (
+                    <div key={assignment.id} className="detailsListItem">
+                      <div>{assignment.name}</div>
+                      <div className="eventAssignmentDates">
+                        {this.props.submissions.filter(
+                          submission =>
+                            submission.assignment_id === assignment.id &&
+                            submission.student_id === this.props.student.id
+                        ).length > 0
+                          ? `submitted: ${
+                              this.props.submissions.filter(
+                                submission =>
+                                  submission.assignment_id === assignment.id &&
+                                  submission.student_id ===
+                                    this.props.student.id
+                              )[0].created_at
+                            }`
+                          : "not submitted"}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-
-              <div />
+              <div style={{ height: "900px", backgroundColor: "green" }} />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
   Common Admin Styles
 ----------------------------------------- */
 * {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .formTitle {
@@ -40,7 +40,7 @@ input {
 }
 
 input:focus {
-  border: 1px solid #FC6404;
+  border: 1px solid #fc6404;
   transition: border 0.5s;
 }
 
@@ -52,7 +52,7 @@ textarea {
 }
 
 textarea:focus {
-  border: 1px solid #F6744E;
+  border: 1px solid #f6744e;
   transition: border 0.5s;
 }
 
@@ -113,7 +113,6 @@ textarea:focus {
   background-color: rgba(0, 182, 125, 0.5);
   transition: background-color 0.4s;
 }
-
 
 .submitButton {
   margin: 30px auto;
@@ -191,8 +190,8 @@ textarea:focus {
 }
 
 .newCohortButton:hover {
-  border: 3px solid #17B57E;
-  background-color: #17B57E;
+  border: 3px solid #17b57e;
+  background-color: #17b57e;
   transition: background-color 0.2s, border 0.2s;
 }
 
@@ -219,7 +218,7 @@ textarea:focus {
 }
 
 .AdminEventsContainer {
-  background-color: #2A2C33;
+  background-color: #2a2c33;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -306,12 +305,11 @@ textarea:focus {
   transition: background-color 0.4s;
 }
 
-
 /* -----------------------------------------
   AdminEventList
 ----------------------------------------- */
 .eventsList {
-  background-color: #64646C;
+  background-color: #64646c;
   margin: 20px 10px;
   width: 300px;
   height: 400px;
@@ -326,12 +324,12 @@ textarea:focus {
 nav {
   width: 100%;
   height: 60px;
-  background-color: #363A42;
+  background-color: #363a42;
 }
 
 .navList {
   padding: 0px;
-  background-color: #363A42;
+  background-color: #363a42;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -340,7 +338,7 @@ nav {
 }
 
 .navItem {
-  background-color: #363A42;
+  background-color: #363a42;
   font-size: 15px;
   list-style-type: none;
   color: white;
@@ -400,7 +398,7 @@ nav {
   padding-left: 10px;
 }
 
-.cardGridLeft{
+.cardGridLeft {
   grid-column-start: 1;
   width: 200px;
 }
@@ -444,12 +442,11 @@ nav {
   top: -5px;
 }
 
-
 /* -----------------------------------------
   CohortDetails
 ----------------------------------------- */
 .cohortDetailsSection {
-  background-color: #2A2C33;
+  background-color: #2a2c33;
   border-radius: 2px;
   padding: 0px;
   position: relative;
@@ -521,7 +518,7 @@ nav {
   height: 3px;
   margin-bottom: 5px;
   border-radius: 1.5px;
-  background: linear-gradient(-90deg, #dd3d0f, #FFaa00 );
+  background: linear-gradient(-90deg, #dd3d0f, #ffaa00);
 }
 
 .cohortDetailsGrid {
@@ -583,7 +580,7 @@ nav {
   margin: 10px 20px;
 }
 
-.sectionTitle{
+.sectionTitle {
   background-color: inherit;
   text-align: left;
   font-weight: 400;
@@ -603,8 +600,8 @@ ul {
   transition: background-color 0.4s;
   margin: 0 auto;
   text-align: left;
-  cursor:pointer;
-  padding: 10px
+  cursor: pointer;
+  padding: 10px;
 }
 
 .detailsListItem:hover {
@@ -636,14 +633,14 @@ ul {
   height: 20px;
 }
 
-.deleteAssignmentButton{
+.deleteAssignmentButton {
   display: inline-block;
   width: 210px;
   margin: 40px auto 20px 80px;
   padding: 5px 5px;
   border: none;
   border-radius: 2px;
-  background-color: #FC3404;
+  background-color: #fc3404;
   font-size: 1.1em;
   text-align: center;
   cursor: pointer;
@@ -710,35 +707,33 @@ ul {
 ----------------------------------------- */
 
 @media only screen and (max-width: 420px) {
+  /* NAV  */
 
-/* NAV  */
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  .icon {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    margin: 0 auto;
+  }
 
-.icon {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  margin: 0 auto;
-}
+  .navList {
+    float: none;
+    justify-content: flex-start !important;
+  }
 
-.navList {
-  float: none;
-  justify-content: flex-start !important;
+  nav > ul {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    display: inline-block;
+  }
 
-}
-
-nav > ul {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  display: inline-block;
-}
-
-/* ADMIN DASHBOARD */
+  /* ADMIN DASHBOARD */
 
   .cardContainer {
     flex-direction: column;
@@ -752,84 +747,87 @@ nav > ul {
     margin: 10px auto;
   }
 
-/* COHORT CARD */
+  /* COHORT CARD */
 
-.card {
-  width: 90%;
-  margin: 15px auto;
-}
+  .card {
+    width: 90%;
+    margin: 15px auto;
+  }
 
-/* COHORT DETAILS */
+  /* COHORT DETAILS */
 
-.cohortDetailsContainer {
-  width: 100%;
-  margin: 10px auto;
-}
+  .cohortDetailsContainer {
+    width: 100%;
+    margin: 10px auto;
+  }
 
-.cohortDetailsSection {
-  margin: 0;
-  width: 90%;
+  .cohortDetailsSection {
+    margin: 0;
+    width: 90%;
+  }
 
-}
+  .editCohortButton {
+    right: 30px;
+  }
 
-.editCohortButton {
-  right: 30px;
-}
+  .adminDeleteButton {
+    top: 60px;
+    right: 30px;
+  }
 
-.adminDeleteButton {
-  top: 60px;
-  right: 30px;
-}
+  .cohortDetailsGrid {
+    grid-template-columns: 1fr;
+  }
 
-.cohortDetailsGrid {
-  grid-template-columns: 1fr;
-}
+  .sectionTitle {
+    padding: 5px 10px !important;
+    font-size: 1.5em;
+    margin: 0;
+  }
 
-.sectionTitle {
-  padding: 5px 10px !important;
-  font-size: 1.5em;
-  margin: 0;
+  .addButton {
+    top: 5px;
+    right: 5px;
+  }
 
-}
+  .students {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-.addButton {
-  top: 5px;
-  right: 5px;
-}
+  .assignments {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-.students {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  .events {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-.assignments {
-  grid-column-start: 1;
-  grid-row-start: 2;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  /* STUDENT DETAILS */
 
-.events {
-  grid-column-start: 1;
-  grid-row-start: 3;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  .studentAssignmentDetailsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-/* STUDENT DETAILS */
-
-.studentDetailsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-
+  .studentAssignmentDetailsContainer {
+    overflow: scroll;
+    background-color: pink;
+    width: 1000px;
+    height: 10px;
+  }
 }
