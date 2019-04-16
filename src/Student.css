@@ -43,7 +43,7 @@ body {
   padding: 10px;
   /* width: 1300px; */
   height: 100px;
-  border-radius: 2px;
+  border-radius: 5px;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -103,7 +103,7 @@ body {
     padding: 10px;
     width: 1300px;
     height: 250px;
-    border-radius: 2px;
+    border-radius: 5px;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -118,7 +118,7 @@ body {
 
   .eventItem:hover {
     /* background-color: rgb(70, 75, 85); */
-    border-radius: 2px;
+    border-radius: 5px;
     }
 
 /* -----------------------------------------
@@ -130,7 +130,7 @@ body {
     padding: 10px;
     width: 80%;
     height: 150px;
-    border-radius: 2px;
+    border-radius: 5px;
     grid-column-start: 1;
     grid-row-start: 2;
   }
@@ -156,6 +156,7 @@ body {
   padding: 10px;
   margin: 10px;
   overflow: scroll;
+  border-radius: 5px;
 }
 
 .studentCohortDetails {
@@ -177,6 +178,7 @@ body {
   padding: 20px;
   margin: 10px;
   overflow: scroll;
+  border-radius: 5px;
 }
 
 /* -----------------------------------------
@@ -192,7 +194,7 @@ StudentAssignment
 
 .assignmentItem:hover {
   background-color: rgb(70, 75, 85);
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .assignmentItemDetails {
@@ -245,7 +247,7 @@ StudentSubmissionDetails
   margin: 40px auto 20px 80px;
   padding: 5px 5px;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   background-color: #FC3404;
   font-size: 1.1em;
   text-align: center;
