@@ -43,7 +43,7 @@ const CohortCard = (props) => {
   return (
     <React.Fragment>
       <div className="card"
-        style={{border:props.isActive ? "5px solid #e74c3c": ""}}
+        style={{transform:props.isActive ? "translateY(-10px)": ""}}
         onClick={e=>{props.onCohortClick(props.data)}}>
       <div className="cardGrid">
         <div className="cardGridLeft">
