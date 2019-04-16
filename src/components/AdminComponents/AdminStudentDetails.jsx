@@ -12,7 +12,8 @@ class AdminStudentDetails extends Component {
     super(props);
     this.state = {
       editing: false,
-      event: this.props.event
+      event: this.props.event,
+      selectedAssignment: null
     };
 
     this.toggleEdit = this.toggleEdit.bind(this);
@@ -26,8 +27,8 @@ class AdminStudentDetails extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
     let data = this.state;
     let eventId = this.props.event.id;
     editEvent(eventId, data, this.props.token)
@@ -50,11 +51,15 @@ class AdminStudentDetails extends Component {
       .then(this.props.escapeStudentDetailsModal);
   };
 
+  selectAssignment = assignment => {
+    this.setState({ selectedAssignment: assignment });
+  };
+
   render() {
     return (
       <div className="modal">
         <div className="modalContainer">
-          <div className="eventsContainer">
+          <div className="studentsContainer">
             <div
               className="modalEscape"
               onClick={this.props.escapeStudentDetails}
@@ -81,7 +86,13 @@ class AdminStudentDetails extends Component {
               <div className="studentAssignmentDetailsList">
                 <div>
                   {this.props.assignments.map(assignment => (
-                    <div key={assignment.id} className="detailsListItem">
+                    <div
+                      key={assignment.id}
+                      className="detailsListItem"
+                      onClick={e => {
+                        this.selectAssignment(assignment);
+                      }}
+                    >
                       <div>{assignment.name}</div>
                       <div className="eventAssignmentDates">
                         {this.props.submissions.filter(
