@@ -2,7 +2,7 @@
   Common Admin Styles
 ----------------------------------------- */
 * {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: black;
 }
 
@@ -41,7 +41,7 @@ input {
 }
 
 input:focus {
-  border: 1px solid #FC6404;
+  border: 1px solid #fc6404;
   transition: border 0.5s;
 }
 
@@ -53,7 +53,7 @@ textarea {
 }
 
 textarea:focus {
-  border: 1px solid #F6744E;
+  border: 1px solid #f6744e;
   transition: border 0.5s;
 }
 
@@ -115,7 +115,6 @@ textarea:focus {
   transition: background-color 0.4s;
 }
 
-
 .submitButton {
   margin: 30px auto;
   margin-left: 0;
@@ -159,7 +158,7 @@ textarea:focus {
 .adminGrid {
   display: grid;
   grid-template-columns: 1fr;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 
 .cardContainer {
@@ -193,8 +192,8 @@ textarea:focus {
 }
 
 .newCohortButton:hover {
-  border: 5px solid #17B57E;
-  background-color: #17B57E;
+  border: 5px solid #17b57e;
+  background-color: #17b57e;
   transition: background-color 0.2s, border 0.2s;
 }
 
@@ -221,7 +220,7 @@ textarea:focus {
 }
 
 .AdminEventsContainer {
-  background-color: #2A2C33;
+  background-color: #2a2c33;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -308,12 +307,11 @@ textarea:focus {
   transition: background-color 0.4s;
 }
 
-
 /* -----------------------------------------
   AdminEventList
 ----------------------------------------- */
 .eventsList {
-  background-color: #64646C;
+  background-color: #64646c;
   margin: 20px 10px;
   width: 300px;
   height: 400px;
@@ -333,7 +331,7 @@ nav {
 
 .navList {
   padding: 0px;
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -402,7 +400,7 @@ nav {
   border-radius: 5px;
 }
 
-.cardGridLeft{
+.cardGridLeft {
   grid-column-start: 1;
   width: 200px;
 }
@@ -446,7 +444,6 @@ nav {
   top: -5px;
 }
 
-
 /* -----------------------------------------
   CohortDetails
 ----------------------------------------- */
@@ -474,7 +471,7 @@ nav {
 }
 
 .adminDeleteButton {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   opacity: 1;
   transition: opacity 0.4s;
   border: none;
@@ -501,7 +498,7 @@ nav {
   height: 3px;
   margin-bottom: 5px;
   border-radius: 1.5px;
-  background: linear-gradient(-90deg, #dd3d0f, #FFaa00 );
+  background: linear-gradient(-90deg, #dd3d0f, #ffaa00);
 }
 
 .cohortDetailsGrid {
@@ -513,6 +510,11 @@ nav {
   display: grid;
   grid-template-columns: 6fr 5fr 5fr;
   grid-gap: 50px;
+}
+
+.studentsContainer {
+  position: relative;
+  padding: 10px;
 }
 
 .students {
@@ -566,7 +568,7 @@ nav {
   margin: 10px 20px;
 }
 
-.sectionTitle{
+.sectionTitle {
   background-color: inherit;
   text-align: left;
   font-weight: 400;
@@ -586,18 +588,18 @@ ul {
   transition: background-color 0.3s;
   margin: 0 auto;
   text-align: left;
-  cursor:pointer;
-  padding: 10px
+  cursor: pointer;
+  padding: 10px;
 }
 
 .detailsListItem:hover {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   transition: background-color 0.3s;
   border-radius: 5px;
 }
 
 .addButton {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   opacity: 1;
   transition: opacity 0.3s;
   position: absolute;
@@ -620,14 +622,14 @@ ul {
   height: 20px;
 }
 
-.deleteAssignmentButton{
+.deleteAssignmentButton {
   display: inline-block;
   width: 210px;
   margin: 40px auto 20px 80px;
   padding: 5px 5px;
   border: none;
   border-radius: 2px;
-  background-color: #FC3404;
+  background-color: #fc3404;
   font-size: 1.1em;
   text-align: center;
   cursor: pointer;
@@ -694,35 +696,33 @@ ul {
 ----------------------------------------- */
 
 @media only screen and (max-width: 420px) {
+  /* NAV  */
 
-/* NAV  */
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  .icon {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    margin: 0 auto;
+  }
 
-.icon {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  margin: 0 auto;
-}
+  .navList {
+    float: none;
+    justify-content: flex-start !important;
+  }
 
-.navList {
-  float: none;
-  justify-content: flex-start !important;
+  nav > ul {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    display: inline-block;
+  }
 
-}
-
-nav > ul {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  display: inline-block;
-}
-
-/* ADMIN DASHBOARD */
+  /* ADMIN DASHBOARD */
 
   .cardContainer {
     flex-direction: column;
@@ -736,82 +736,94 @@ nav > ul {
     margin: 10px auto;
   }
 
-/* COHORT CARD */
+  /* COHORT CARD */
 
-.card {
-  width: 90%;
-  margin: 15px auto;
-}
+  .card {
+    width: 90%;
+    margin: 15px auto;
+  }
 
-/* COHORT DETAILS */
+  /* COHORT DETAILS */
 
-.cohortDetailsContainer {
-  width: 100%;
-  margin: 10px auto;
-}
+  .cohortDetailsContainer {
+    width: 100%;
+    margin: 10px auto;
+  }
 
-.cohortDetailsSection {
-  margin: 0;
-  width: 90%;
-}
+  .cohortDetailsSection {
+    margin: 0;
+    width: 90%;
+  }
 
-.editCohortButton {
-  right: 30px;
-}
+  .cohortDetailsContainer {
+    width: 100%;
+    margin: 10px auto;
+  }
 
-.adminDeleteButton {
-  top: 60px;
-  right: 30px;
-}
+  .cohortDetailsSection {
+    margin: 0;
+    width: 90%;
+  }
 
-.cohortDetailsGrid {
-  grid-template-columns: 1fr;
-}
+  .editCohortButton {
+    right: 30px;
+  }
 
-.sectionTitle {
-  padding: 5px 10px !important;
-  font-size: 1.5em;
-  margin: 0;
-}
+  .sectionTitle {
+    padding: 5px 10px !important;
+    font-size: 1.5em;
+    margin: 0;
+  }
 
-.addButton {
-  top: 5px;
-  right: 5px;
-}
+  .sectionTitle {
+    padding: 5px 10px !important;
+    font-size: 1.5em;
+    margin: 0;
+  }
 
-.students {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  .addButton {
+    top: 5px;
+    right: 5px;
+  }
 
-.assignments {
-  grid-column-start: 1;
-  grid-row-start: 2;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  .students {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-.events {
-  grid-column-start: 1;
-  grid-row-start: 3;
-  width: 310px;
-  margin: 5px auto;
-  padding: 0;
-  height: 100%;
-}
+  .assignments {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-/* STUDENT DETAILS */
+  .events {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    width: 310px;
+    margin: 5px auto;
+    padding: 0;
+    height: 100%;
+  }
 
-.studentDetailsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  /* STUDENT DETAILS */
 
+  .studentAssignmentDetailsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
+  .studentAssignmentDetailsContainer {
+    overflow: scroll;
+    background-color: pink;
+    width: 1000px;
+    height: 10px;
+  }
 }

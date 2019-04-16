@@ -2,14 +2,14 @@
   StudentDashboard
 ----------------------------------------- */
 body {
-  background-color: #F4F4F4 !important;
+  background-color: #f4f4f4 !important;
 }
 
 .eventsGrid {
   grid-column-start: 1fr;
   grid-row-start: 1;
   display: grid;
-  grid-template-columns:  1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .assignmentsGrid {
@@ -49,7 +49,7 @@ body {
   margin-top: 10px;
 }
 
-.sectionTitle{
+.sectionTitle {
   background-color: inherit;
   text-align: left;
   font-weight: 400;
@@ -94,43 +94,43 @@ body {
 /* -----------------------------------------
   StudentEventList
 ----------------------------------------- */
-  .StudentEventsContainer {
-    background-color: #2A2C33;
-    margin: 20px auto;
-    padding: 10px;
-    width: 1300px;
-    height: 250px;
-    border-radius: 5px;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    display: block;
-    flex-direction: column;
-  }
+.StudentEventsContainer {
+  background-color: #2a2c33;
+  margin: 20px auto;
+  padding: 10px;
+  width: 1300px;
+  height: 250px;
+  border-radius: 5px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  display: block;
+  flex-direction: column;
+}
 
-  .eventItem {
-    cursor: pointer;
-    padding: 10px;
-  }
+.eventItem {
+  cursor: pointer;
+  padding: 10px;
+}
 
-  .eventItem:hover {
-    /* background-color: rgb(70, 75, 85); */
-    border-radius: 5px;
-    }
+.eventItem:hover {
+  /* background-color: rgb(70, 75, 85); */
+  border-radius: 5px;
+}
 
 /* -----------------------------------------
   StudentEvent
 ----------------------------------------- */
-  .eventCard {
-    background-color: #3f4147;
-    margin: 0 auto;
-    padding: 10px;
-    width: 80%;
-    height: 150px;
-    border-radius: 5px;
-    grid-column-start: 1;
-    grid-row-start: 2;
-  }
+.eventCard {
+  background-color: #3f4147;
+  margin: 0 auto;
+  padding: 10px;
+  width: 80%;
+  height: 150px;
+  border-radius: 5px;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
 
 /* -----------------------------------------
   StudentAssignmentsContainer/StudentAssignmentList
@@ -143,9 +143,8 @@ body {
   width: 1300px;
   height: 500px;
   grid-gap: 50px;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
-
 
 .assignmentlist {
   grid-column-start: 1;
@@ -173,7 +172,7 @@ body {
   grid-column-start: 2;
   background-color: #fff;
   padding: 15px;
-  margin: 30px 0 ;
+  margin: 30px 0;
   overflow: scroll;
   border-radius: 5px;
 }
@@ -192,7 +191,7 @@ StudentAssignment
 
 .assignmentItem:hover {
   transition: background-color 0.3s;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   border-radius: 5px;
 }
 
@@ -208,7 +207,6 @@ StudentAssignment
   /* padding-top: 7px; */
   height: 80%;
   grid-template-columns: 1fr 3fr;
-
 }
 
 .checkmarkContainer {
@@ -252,7 +250,7 @@ StudentSubmissionDetails
   height: 25px;
   margin: 40px auto 30px 0;
   padding: 5px 5px;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 
 .deleteSubmissionButton:hover {
@@ -338,7 +336,7 @@ StudentNavBar
 
 .navList {
   padding: 0px;
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
