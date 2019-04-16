@@ -475,6 +475,7 @@ nav {
 }
 
 .adminDeleteButton {
+  background-color: #F4F4F4;
   opacity: 1;
   transition: opacity 0.4s;
   border: none;
@@ -573,7 +574,7 @@ nav {
   padding: 0px 0px 10px 10px;
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
-  color: rgb(148, 152, 160);
+  color: black;
 }
 
 ul {
@@ -753,7 +754,6 @@ nav > ul {
 .cohortDetailsSection {
   margin: 0;
   width: 90%;
-
 }
 
 .editCohortButton {
@@ -773,7 +773,6 @@ nav > ul {
   padding: 5px 10px !important;
   font-size: 1.5em;
   margin: 0;
-
 }
 
 .addButton {
