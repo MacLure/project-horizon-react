@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { createNewSubmissionComment } from "./../../../service";
 import { connect } from "react-redux";
 
+// THIS COMPONENTS IS NOT USED //
+
 class NewComment extends Component {
   constructor(props) {
     super(props);
@@ -22,9 +24,7 @@ class NewComment extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let data = this.state;
-    createNewSubmissionComment(data, this.props.token)
-      .then(e => e.json())
-      .then(this.props.escapeNewEventModal);
+    createNewSubmissionComment(data, this.props.token).then(e => e.json());
   };
 
   render() {

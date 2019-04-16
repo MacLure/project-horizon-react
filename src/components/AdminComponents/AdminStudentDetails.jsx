@@ -141,6 +141,7 @@ class AdminStudentDetails extends Component {
                   submission.student_id == this.state.student.id
               ).length > 0 ? (
                 <SubmissionComments
+                  admin={this.state.admin}
                   submission={
                     this.state.submissions.filter(
                       submission =>
@@ -150,24 +151,6 @@ class AdminStudentDetails extends Component {
                   }
                   comments={this.state.comments}
                   admins={this.state.admins}
-                />
-              ) : null}
-              {this.state.selectedAssignment &&
-              this.state.submissions.filter(
-                submission =>
-                  submission.assignment_id ===
-                    this.state.selectedAssignment.id &&
-                  submission.student_id == this.state.student.id
-              ).length > 0 ? (
-                <NewComment
-                  admin={this.state.admin}
-                  submission={
-                    this.state.submissions.filter(
-                      submission =>
-                        submission.assignment_id ===
-                        this.state.selectedAssignment.id
-                    )[0]
-                  }
                 />
               ) : null}
             </div>
