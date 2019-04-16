@@ -7,7 +7,7 @@ class NewComment extends Component {
     super(props);
     this.state = {
       admin_id: this.props.admin.id,
-      submission_id: "",
+      submission_id: this.props.submission.id,
       body: ""
     };
 

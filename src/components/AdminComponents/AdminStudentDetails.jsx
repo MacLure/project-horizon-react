@@ -159,7 +159,16 @@ class AdminStudentDetails extends Component {
                     this.state.selectedAssignment.id &&
                   submission.student_id == this.state.student.id
               ).length > 0 ? (
-                <NewComment admin={this.state.admin} />
+                <NewComment
+                  admin={this.state.admin}
+                  submission={
+                    this.state.submissions.filter(
+                      submission =>
+                        submission.assignment_id ===
+                        this.state.selectedAssignment.id
+                    )[0]
+                  }
+                />
               ) : null}
             </div>
           </div>
