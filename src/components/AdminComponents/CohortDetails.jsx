@@ -133,8 +133,8 @@ class CohortDetails extends Component {
     }
 
     const getStudentProgressColor = (percent) => {
-      if (percent < 60) return "#FC3404"
-      if (percent >= 60 && percent < 80) return "#C5A022"
+      if (percent < 60) return "#DA101B"
+      if (percent >= 60 && percent < 80) return "#FCE404"
       if (percent >= 80) return "#17B57E"
     }
 
