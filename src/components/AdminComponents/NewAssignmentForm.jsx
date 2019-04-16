@@ -35,7 +35,7 @@ class NewAssignmentForm extends Component {
     return (
       <div className="modal">
       <div className="modalContainer">
-       <div className="modalEscape"  onClick={this.props.escapeNewAssignmentModal}><img className="escapeIcon" src={X}/></div>
+       <div className="modalEscape"  onClick={this.props.escapeNewAssignmentModal}><img className="escapeIcon" src={X} alt="exit" /></div>
            <h2 className="formTitle">Create Assignment</h2>
           <form onSubmit={this.handleSubmit}>
             <div className="one">

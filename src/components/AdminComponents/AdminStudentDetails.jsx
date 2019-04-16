@@ -58,9 +58,9 @@ class AdminStudentDetails extends Component {
       <div className="modal">
         <div className="modalContainer">
           <div className="eventsContainer">
-            <div className="modalEscape"  onClick={this.props.escapeStudentDetails}><img className="escapeIcon" src={X}/></div>
+            <div className="modalEscape"  onClick={this.props.escapeStudentDetails}><img className="escapeIcon" src={X} alt="exit" /></div>
             <h2 className="sectionTitle">{this.props.student.first_name} {this.props.student.last_name}</h2>
-            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash} alt="delete" /></div>
             <div className="studentDetailsGrid">
             <div>
             {this.props.assignments.map(assignment =>

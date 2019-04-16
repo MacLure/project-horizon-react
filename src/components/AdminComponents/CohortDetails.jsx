@@ -181,25 +181,25 @@ class CohortDetails extends Component {
       <div className="header">
         <h2 className="detailsTitle">{getCohortType(this.props.onFocusData!=null?this.props.onFocusData.course_type:null)} | {this.props.onFocusData!=null?this.props.onFocusData.name:null}</h2>
         <div className="dates">{this.props.onFocusData!=null?this.formattedStartDate:null} - {this.props.onFocusData!=null?this.formattedEndDate:null}</div>
-        <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+        <div className="adminDeleteButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash} alt="delete" /></div>
       </div>
       <div className="hr"></div>
       <div className="cohortDetailsGrid">
         <div className="students">
           <h2 className="sectionTitle">Students</h2>
-            <div className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}}><img className="addIcon" src={plus}/></div>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewStudentForm(e)}}><img className="addIcon" src={plus} alt="add" /></div>
           <div>
             {this.cStudents}
           </div>
         </div>
         <div className="assignments">
           <h2 className="sectionTitle">Assignments</h2>
-            <div className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}}><img className="addIcon" src={plus}/></div>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewAssignmentForm(e)}}><img className="addIcon" src={plus} alt="add" /></div>
             <div>{this.cAssignments}</div>
         </div>
         <div className="events">
           <h2 className="sectionTitle">Events</h2>
-            <div className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}}><img className="addIcon" src={plus}/></div>
+            <div className="addButton" onClick={e=>{this.props.TriggerNewEventForm(e)}}><img className="addIcon" src={plus} alt="add" /></div>
           <ul>
             {this.cEvents}
           </ul>

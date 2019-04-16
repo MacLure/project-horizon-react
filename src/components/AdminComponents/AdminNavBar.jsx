@@ -9,7 +9,7 @@ class AdminNavBar extends Component {
     return (
       <React.Fragment>
         <nav>
-          <img className="icon" src={Logo} />
+          <img className="icon" src={Logo} alt="Horizon" />
           <ul className="navList">
             <NavLink to="/login" activeClassName="active"><li className="navItem">Log out</li></NavLink>
           </ul>

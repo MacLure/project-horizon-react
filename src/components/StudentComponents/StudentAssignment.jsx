@@ -29,7 +29,7 @@ class StudentAssignment extends Component {
       if (this.assignmentSubmitted()) {
         return (
           <div className="studentSubmissionStatus">
-            <div className="checkmarkContainer"><img className="checkmark" src={checkmark} /></div>
+            <div className="checkmarkContainer"><img className="checkmark" src={checkmark} alt="submitted" /></div>
             <div className="submissionStatusText">
               submitted:<br />
               {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}
@@ -39,7 +39,7 @@ class StudentAssignment extends Component {
       } else {
         return (
           <div className="studentSubmissionStatus">
-            <div className="checkmarkContainer"><img className="checkmark" src={exclamation} /></div>
+            <div className="checkmarkContainer"><img className="checkmark" src={exclamation} alt="Overdue" /></div>
             <div className="submissionStatusText">
               overdue<br />
             </div>

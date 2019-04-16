@@ -113,7 +113,7 @@ class Login extends Component {
           this.setState({password: e.target.value})
         }}></input>
       <div className="notice">
-      {this.state.loader ? <img className="loader" src={loading} /> : null}
+      {this.state.loader ? <img className="loader" src={loading}  alt="loading" /> : null}
       {this.state.error ? this.state.error : null}
       </div>
       <button className="loginSubmitButton" type="submit" onClick={e=>{e.preventDefault(); this.onSubmit()}}>Log in </button>
@@ -132,7 +132,7 @@ class Login extends Component {
 
    return (
     <div className="landing">
-      <div className="horizonContainer"><img className="horizon" src={Logo}/></div>
+      <div className="horizonContainer"><img className="horizon" src={Logo} alt="Horizon" /></div>
       <div className="loginContainer">
       <div className="buttonFlex">
         <button className="selectButton" style={this.highlightStudentButton()} onClick={this.onStudent}>Student</button>

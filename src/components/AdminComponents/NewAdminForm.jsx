@@ -39,7 +39,7 @@ class NewAdminForm extends Component {
    return (
      <div className="modal">
        <div className="modalContainer">
-       <div className="modalEscape"  onClick={this.props.escapeNewAdminModal}><img className="escapeIcon" src={X}/></div>
+       <div className="modalEscape"  onClick={this.props.escapeNewAdminModal}><img className="escapeIcon" src={X} alt="exit" /></div>
         <h2 className="formTitle">Add Admin</h2>
         <form method="post" onSubmit={this.handleSubmit}>
           <div className="one">

@@ -79,10 +79,9 @@ class AdminAssignmentDetails extends Component {
       <div className="modal">
         <div className="modalContainer">
           <div className="eventsContainer">
-            <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}><img className="escapeIcon" src={X}/></div>
+            <div className="modalEscape"  onClick={this.props.escapeAssignmentDetailsModal}><img className="escapeIcon" src={X} alt="exit" /></div>
             <h2 className="sectionTitle">{this.state.assignment.name}</h2>
-            <div className="editEventButton" onClick={e=>{this.toggleEdit()}} ><img className="editIcon" src={edit}/></div>
-            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash}/></div>
+            <div className="deleteEventButton" onClick={e=>{this.handleDelete(e)}}><img className="deleteIcon" src={trash} alt="delete" /></div>
             {this.detailsOrForm()}
           </div>
         </div>

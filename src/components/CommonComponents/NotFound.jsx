@@ -74,17 +74,17 @@ const NotFound = () => {
 
       <Container>
       <div style={{display: "inline-blocl", textAlign: "center"}}>
-      <img src={Malcolm} />
-      <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/Malcolm_MacLure"><Button>Malcolm</Button></a>
+      <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/Malcolm_MacLure"><img src={Malcolm}  alt="Malcolm" />
+      <Button>Malcolm</Button></a>
     </div>
 
       <div style={{display: "inline-blocl", textAlign: "center"}}>
-        <img src={Gabbi} />
-        <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/macgabbi"><Button>Gabriela</Button></a>
+      <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/macgabbi"><img src={Gabbi}  alt="Gabbi" />
+        <Button>Gabriela</Button></a>
       </div>
       <div style={{display: "inline-blocl", textAlign: "center"}}>
-        <img src={Ben} />
-        <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/mrbenjaminhoppe"><Button>Benjamin</Button></a>
+      <a target="_blank" without rel="noopener noreferrer" href="https://twitter.com/mrbenjaminhoppe"><img src={Ben}  alt="Ben" />
+        <Button>Benjamin</Button></a>
       </div>
       </Container>
       <br/>
