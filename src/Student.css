@@ -38,19 +38,15 @@ body {
   StudentCohortDetails
 ----------------------------------------- */
 .infoCard {
-  /* background-color: #2A2C33; */
   position: relative;
   padding: 10px;
-  /* width: 1300px; */
   height: 100px;
   border-radius: 5px;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   margin-bottom: 20px;
-  margin-top: 30px;
-  /* display: flex;
-  flex-direction: row; */
+  margin-top: 10px;
 }
 
 .sectionTitle{
@@ -142,7 +138,7 @@ body {
 .assignmentContainer {
   display: grid;
   grid-template-columns: 4fr 6fr;
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 0 30px;
   width: 1300px;
   height: 500px;
@@ -155,7 +151,7 @@ body {
   grid-column-start: 1;
   background-color: #fff;
   padding: 10px;
-  margin: 10px;
+  margin: 30px 0;
   overflow: scroll;
   border-radius: 5px;
 }
