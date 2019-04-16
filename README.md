@@ -20,6 +20,7 @@ Horizon is a student outcomes and success app designed for schools.
 
 <!-- ## Screenshots
 
+
 Your school's outcomes and student success portal with everything you need to track assignments, events, and teacher comments - all in one place.
 
 
