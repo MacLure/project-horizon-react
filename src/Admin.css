@@ -159,7 +159,7 @@ textarea:focus {
 .adminGrid {
   display: grid;
   grid-template-columns: 1fr;
-  background-color: #fff;
+  background-color: #F4F4F4;
 }
 
 .cardContainer {
@@ -172,14 +172,14 @@ textarea:focus {
 }
 
 .newCohortButton {
-  background-color: #f2f2f2;
+  background-color: #fff;
   margin: 15px;
   width: 300px;
-  border-radius: 2px;
-  border: 5px solid #f2f2f2;
+  border-radius: 7px;
+  border: 5px solid #fff;
   grid-column-start: 1;
   justify-self: center;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border 0.2s;
   opacity: 1;
   cursor: pointer;
   display: flex;
@@ -193,7 +193,7 @@ textarea:focus {
 }
 
 .newCohortButton:hover {
-  border: 3px solid #17B57E;
+  border: 5px solid #17B57E;
   background-color: #17B57E;
   transition: background-color 0.2s, border 0.2s;
 }
@@ -374,12 +374,12 @@ nav {
   CohortCard
 ----------------------------------------- */
 .card {
-  background-color: rgba(42, 44, 51, 1);
+  background-color: #fff;
   margin: 15px;
   width: 300px;
   height: 90px;
-  border-radius: 2px;
-  border: 5px solid #f2f2f2;
+  border-radius: 7px;
+  border: 5px solid #fff;
   grid-column-start: 1;
   cursor: pointer;
   display: inline-block;
@@ -398,8 +398,9 @@ nav {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 2;
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding-left: 10px;
+  border-radius: 7px;
 }
 
 .cardGridLeft{
@@ -451,7 +452,7 @@ nav {
   CohortDetails
 ----------------------------------------- */
 .cohortDetailsSection {
-  background-color: #f2f2f2;
+  background-color: #e6e6e6;
   border-radius: 2px;
   padding: 0px;
   position: relative;
@@ -473,32 +474,9 @@ nav {
   font-size: 16px;
 }
 
-.editCohortButton {
-  background-color: #363941;
-  transition: background-color 0.4s;
-  border: none;
-  position: absolute;
-  cursor: pointer;
-  top: 15px;
-  right: 65px;
-  height: 25px;
-  padding: 6px;
-  display: inline-block;
-  border-radius: 3px;
-}
-
-.editCohortButton:hover {
-  background-color: rgb(70, 75, 85);
-  transition: background-color 0.4s;
-}
-
-.editIcon {
-  height: 25px;
-}
-
 .adminDeleteButton {
-  background-color: #363941;
-  transition: background-color 0.4s;
+  opacity: 1;
+  transition: opacity 0.4s;
   border: none;
   position: absolute;
   cursor: pointer;
@@ -511,8 +489,8 @@ nav {
 }
 
 .adminDeleteButton:hover {
-  background-color: rgb(70, 75, 85);
-  transition: background-color 0.4s;
+  opacity: 0.5;
+  transition: opacity 0.4s;
 }
 
 .deleteIcon {
@@ -539,7 +517,7 @@ nav {
 
 .students {
   grid-column-start: 1;
-  background-color: #c1c1c1;
+  background-color: #fff;
   padding: 10px;
   margin-top: 10px;
   position: relative;
@@ -563,7 +541,7 @@ nav {
 
 .assignments {
   grid-column-start: 2;
-  background-color: #c1c1c1;
+  background-color: #fff;
   padding: 10px;
   margin-top: 10px;
   position: relative;
@@ -571,7 +549,7 @@ nav {
 
 .events {
   grid-column-start: 3;
-  background-color: #c1c1c1;
+  background-color: #fff;
   padding: 10px;
   margin-top: 10px;
   position: relative;
