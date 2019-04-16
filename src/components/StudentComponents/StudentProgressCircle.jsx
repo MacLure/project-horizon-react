@@ -21,7 +21,7 @@ const StudentProgressCircle = (props) => {
           fill="transparent"
           strokeDasharray="565.48"
           strokeDashoffset="0"
-          stroke="grey"
+          stroke="#c1c1c1"
           strokeWidth="10px"
         ></circle>
 
