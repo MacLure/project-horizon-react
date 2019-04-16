@@ -13,7 +13,7 @@ class SubmissionComments extends Component {
       <div style={{ backgroundColor: "orange" }}>
         submission Comments:
         {this.state.comments.map(comment => (
-          <div key={comment.id} className="submittionComment">
+          <div key={comment.id}>
             <div>
               {
                 this.state.admins.filter(

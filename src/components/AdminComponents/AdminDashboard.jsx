@@ -24,6 +24,7 @@ class AdminDashboard extends Component {
 
     this.state = {
       id: null,
+      admin: null,
       admins: [],
       cohorts: []
         .filter(cohort => Date.parse(cohort.end_date) > Date.now())
@@ -60,6 +61,7 @@ class AdminDashboard extends Component {
         .then(response => {
           this.setState({
             id: response.id,
+            admin: response.admin,
             admins: response.admins,
             cohorts: response.cohorts
               .filter(cohort => Date.parse(cohort.end_date) > Date.now())
@@ -246,6 +248,7 @@ class AdminDashboard extends Component {
       return (
         <AdminStudentDetails
           student={this.state.showStudentDetails}
+          admin={this.state.admin}
           admins={this.state.admins}
           assignments={this.state.assignments.filter(
             assignment =>

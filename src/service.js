@@ -301,14 +301,20 @@ export const deleteStudentnote = (cohort_id, token) => {
 //   })
 // }
 
-// doesn't work
+// untested
 export const createNewSubmissionComment = (data, token) => {
   return new Promise((resolve, reject) => {
     fetch(
-      `${rootURL}/student/submission-comment?comment=${JSON.stringify(data)}`,
+      `${rootURL}/admin/submission_comments?submission_comment=${JSON.stringify(
+        data
+      )}`,
       {
         method: "post",
-        mode: "cors"
+        mode: "cors",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json"
+        }
       }
     )
       .then(e => (e.ok ? resolve(e) : reject(e)))

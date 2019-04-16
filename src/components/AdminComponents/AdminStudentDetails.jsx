@@ -9,6 +9,7 @@ import trash from "../../assets/Icons/trash.svg";
 import Assignment from "./StudentDetails/Assignment";
 import Submission from "./StudentDetails/Submission";
 import SubmissionComments from "./StudentDetails/SubmissionComments";
+import NewComment from "./StudentDetails/NewComment";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class AdminStudentDetails extends Component {
       assignments: this.props.assignments,
       submissions: this.props.submissions,
       comments: this.props.comments,
-      selectedAssignment: null
+      selectedAssignment: null,
+      admin: this.props.admin
     };
 
     this.toggleEdit = this.toggleEdit.bind(this);
@@ -149,6 +151,15 @@ class AdminStudentDetails extends Component {
                   comments={this.state.comments}
                   admins={this.state.admins}
                 />
+              ) : null}
+              {this.state.selectedAssignment &&
+              this.state.submissions.filter(
+                submission =>
+                  submission.assignment_id ===
+                    this.state.selectedAssignment.id &&
+                  submission.student_id == this.state.student.id
+              ).length > 0 ? (
+                <NewComment admin={this.state.admin} />
               ) : null}
             </div>
           </div>
