@@ -5,8 +5,10 @@ class Submission extends Component {
 
   render() {
     return (
-      <div style={{ height: "900px", backgroundColor: "pink" }}>
-        submission: {this.props.submission ? this.props.submission.id : null}
+      <div style={{ backgroundColor: "pink" }}>
+        submission:
+        <div>{this.props.submission.url}</div>
+        <div>{this.props.submission.body}</div>
       </div>
     );
   }

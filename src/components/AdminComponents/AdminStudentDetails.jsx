@@ -8,6 +8,7 @@ import edit from "../../assets/Icons/edit.svg";
 import trash from "../../assets/Icons/trash.svg";
 import Assignment from "./StudentDetails/Assignment";
 import Submission from "./StudentDetails/Submission";
+import SubmissionComments from "./StudentDetails/SubmissionComments";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
@@ -15,8 +16,10 @@ class AdminStudentDetails extends Component {
     this.state = {
       editing: false,
       student: this.props.student,
+      admins: this.props.admins,
       assignments: this.props.assignments,
       submissions: this.props.submissions,
+      comments: this.props.comments,
       selectedAssignment: null
     };
 
@@ -126,6 +129,25 @@ class AdminStudentDetails extends Component {
                         this.state.selectedAssignment.id
                     )[0]
                   }
+                />
+              ) : null}
+              {this.state.selectedAssignment &&
+              this.state.submissions.filter(
+                submission =>
+                  submission.assignment_id ===
+                    this.state.selectedAssignment.id &&
+                  submission.student_id == this.state.student.id
+              ).length > 0 ? (
+                <SubmissionComments
+                  submission={
+                    this.state.submissions.filter(
+                      submission =>
+                        submission.assignment_id ===
+                        this.state.selectedAssignment.id
+                    )[0]
+                  }
+                  comments={this.state.comments}
+                  admins={this.state.admins}
                 />
               ) : null}
             </div>
