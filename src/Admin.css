@@ -451,7 +451,7 @@ nav {
   CohortDetails
 ----------------------------------------- */
 .cohortDetailsSection {
-  background-color: #2A2C33;
+  background-color: #f2f2f2;
   border-radius: 2px;
   padding: 0px;
   position: relative;
@@ -539,7 +539,7 @@ nav {
 
 .students {
   grid-column-start: 1;
-  background-color: rgb(54, 57, 65);
+  background-color: #c1c1c1;
   padding: 10px;
   margin-top: 10px;
   position: relative;
@@ -563,7 +563,7 @@ nav {
 
 .assignments {
   grid-column-start: 2;
-  background-color: rgb(54, 57, 65);
+  background-color: #c1c1c1;
   padding: 10px;
   margin-top: 10px;
   position: relative;
@@ -571,7 +571,7 @@ nav {
 
 .events {
   grid-column-start: 3;
-  background-color: rgb(54, 57, 65);
+  background-color: #c1c1c1;
   padding: 10px;
   margin-top: 10px;
   position: relative;
