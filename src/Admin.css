@@ -328,21 +328,20 @@ textarea:focus {
 nav {
   width: 100%;
   height: 60px;
-  background-color: #363A42;
+  background-color: #c0c0c0;
 }
 
 .navList {
   padding: 0px;
-  background-color: #363A42;
+  background-color: #C0C0C0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-right: 20px;
   float: right;
 }
 
 .navItem {
-  background-color: #363A42;
+  background-color: #C0C0C0;
   font-size: 15px;
   list-style-type: none;
   color: white;
