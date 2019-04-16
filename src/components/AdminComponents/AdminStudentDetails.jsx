@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { deleteEvent } from "../../service";
+import { deleteStudent } from "../../service";
 import { editEvent } from "../../service";
 import { connect } from "react-redux";
 import AdminStyles from "./../../Admin.css";
@@ -7,35 +7,27 @@ import X from "../../assets/Icons/x.svg";
 import edit from "../../assets/Icons/edit.svg";
 import trash from "../../assets/Icons/trash.svg";
 import Assignment from "./StudentDetails/Assignment";
+import Submission from "./StudentDetails/Submission";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editing: false,
-      event: this.props.event,
+      student: this.props.student,
+      assignments: this.props.assignments,
+      submissions: this.props.submissions,
       selectedAssignment: null
     };
 
     this.toggleEdit = this.toggleEdit.bind(this);
     this.EditButtonClass = this.EditButtonClass.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    let data = this.state;
-    let eventId = this.props.event.id;
-    editEvent(eventId, data, this.props.token)
-      .then(e => e.json())
-      .then(e => this.props.eventSuccess())
-      .then(this.toggleEdit());
   }
 
   toggleEdit = () => {
@@ -46,8 +38,8 @@ class AdminStudentDetails extends Component {
 
   handleDelete = e => {
     e.preventDefault();
-    let event_id = this.props.event.id;
-    deleteEvent(event_id, this.props.token)
+    let student_id = this.props.student.id;
+    deleteStudent(student_id, this.props.token)
       .then(e => this.props.deleteSuccess())
       .then(this.props.escapeStudentDetailsModal);
   };
@@ -86,7 +78,7 @@ class AdminStudentDetails extends Component {
             >
               <div className="studentAssignmentDetailsList">
                 <div>
-                  {this.props.assignments.map(assignment => (
+                  {this.state.assignments.map(assignment => (
                     <div
                       key={assignment.id}
                       className="detailsListItem"
@@ -117,6 +109,24 @@ class AdminStudentDetails extends Component {
               </div>
               {this.state.selectedAssignment ? (
                 <Assignment assignment={this.state.selectedAssignment} />
+              ) : null}
+              {this.state.selectedAssignment &&
+              this.state.submissions.filter(
+                submission =>
+                  submission.assignment_id ===
+                    this.state.selectedAssignment.id &&
+                  submission.student_id == this.state.student.id
+              ).length > 0 ? (
+                <Submission
+                  assignment={this.state.selectedAssignment}
+                  submission={
+                    this.state.submissions.filter(
+                      submission =>
+                        submission.assignment_id ===
+                        this.state.selectedAssignment.id
+                    )[0]
+                  }
+                />
               ) : null}
             </div>
           </div>

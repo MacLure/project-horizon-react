@@ -217,6 +217,25 @@ export const deleteEvent = (event_id, token) => {
   });
 };
 
+// untested
+export const deleteStudent = (student_id, token) => {
+  return new Promise((resolve, reject) => {
+    fetch(
+      `${rootURL}/admin/students/${student_id}?${JSON.stringify(student_id)}`,
+      {
+        method: "delete",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json"
+        },
+        mode: "cors"
+      }
+    )
+      .then(e => (e.ok ? resolve(e) : reject(e)))
+      .catch(e => console.log("ERR: ", e));
+  });
+};
+
 // export const deleteCohort = (cohort_id, token) => {
 //   return new Promise((resolve, reject) => {
 //     fetch(`${rootURL}/admin/cohorts/${cohort_id}?${JSON.stringify({'cohort_id': cohort_id})}`, {

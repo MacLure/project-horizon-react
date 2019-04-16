@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Submission from "./Submission";
 
 class Assignment extends Component {
-  state = {};
+  state = {
+    assignment: this.props.assignment,
+    submission: this.props.submission
+  };
 
   render() {
     return (
@@ -10,7 +12,6 @@ class Assignment extends Component {
         <div>{this.props.assignment.name}</div>
         <div>{this.props.assignment.due_date}</div>
         <div>{this.props.assignment.body}</div>
-        <Submission assignment={this.props.assignment} />
       </div>
     );
   }
