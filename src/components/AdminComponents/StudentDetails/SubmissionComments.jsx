@@ -47,16 +47,8 @@ class SubmissionComments extends Component {
       );
   };
 
-  handleDelete = e => {
-    e.preventDefault();
-    let data = this.state.form;
-    deleteSumissionComment(data, this.props.token)
-      .then(e => e.json())
-      .then(
-        this.setState(prevState => ({
-          comments: [...prevState.comments, data]
-        }))
-      );
+  handleDelete = comment => {
+    deleteSumissionComment(comment, this.props.token);
   };
 
   render() {
@@ -86,7 +78,9 @@ class SubmissionComments extends Component {
                   display: "inline-block",
                   backgroundColor: "black"
                 }}
-                onClick={this.handleDelete}
+                onClick={e => {
+                  this.handleDelete(comment.id);
+                }}
               >
                 DELETE
               </div>

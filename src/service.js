@@ -3,7 +3,7 @@
 const localURL = "http://localhost:3000";
 const serverURL = "https://project-horizon-rails.herokuapp.com";
 
-const rootURL = serverURL;
+const rootURL = localURL;
 
 export const onAdminLogin = (email, password) => {
   return new Promise((resolve, reject) => {
@@ -324,19 +324,14 @@ export const createNewSubmissionComment = (data, token) => {
 // untested
 export const deleteSumissionComment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
-    fetch(
-      `${rootURL}/admin/submission_comment?submission_comment=${JSON.stringify(
-        cohort_id
-      )}`,
-      {
-        method: "delete",
-        mode: "cors",
-        headers: {
-          Authorization: `${token}`,
-          "Content-Type": "application/json"
-        }
+    fetch(`${rootURL}/admin/submission_comments/${JSON.stringify(cohort_id)}`, {
+      method: "delete",
+      mode: "cors",
+      headers: {
+        Authorization: `${token}`,
+        "Content-Type": "application/json"
       }
-    )
+    })
       .then(e => (e.ok ? resolve(e) : reject(e)))
       .catch(e => console.log("ERR: ", e));
   });
