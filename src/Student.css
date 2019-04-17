@@ -132,7 +132,7 @@ body {
   grid-template-columns: 4fr 6fr;
   margin: 30px auto;
   padding: 0 30px;
-  width: 1300px;
+  width: 90%;
   height: 500px;
   grid-gap: 50px;
   background-color: #e6e6e6;
@@ -190,6 +190,12 @@ StudentAssignment
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
   color: black;
+}
+
+.studentSubmissionContainer {
+  margin-top: 10px;
+  height: 300px;
+  border-radius: 2px;
 }
 
 .submissionContent > .date {
@@ -350,7 +356,6 @@ StudentSubmissionDetails
 }
 
 .studentComments {
-
 }
 
 .studentComments > .sectionTitle {
@@ -362,6 +367,20 @@ StudentSubmissionDetails
   margin-left: 10px;
 }
 
+.studentSubmissionURLInput {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 5px;
+  transition: border 0.5s;
+  background-color: #e6e6e6;
+}
+.studentSubmissionURLInput:focus {
+  border: 1px solid #f6744e;
+  transition: border 0.5s;
+}
+.studentSubmissionURLInput::placeholder {
+  color: gray;
+}
 
 /* -----------------------------------------
 StudentNavBar
