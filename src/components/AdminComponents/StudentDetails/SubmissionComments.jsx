@@ -52,6 +52,8 @@ class SubmissionComments extends Component {
   };
 
   render() {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+
     return (
       <div style={{ backgroundColor: "orange" }}>
         submission Comments:
@@ -69,7 +71,10 @@ class SubmissionComments extends Component {
                 )[0].last_name
               }
             </div>
-            <div>{comment.created_at}</div>
+            {new Date(Date.parse(comment.created_at)).toLocaleString(
+              "en",
+              options
+            )}
             <div>{comment.body}</div>
             {comment.admin_id === this.state.admin.id ? (
               <div
