@@ -24,12 +24,12 @@ const comments = this.props.comments.filter(comment => comment.submission_id ===
 const options = {year: 'numeric', month: 'short', day: 'numeric' };
 
   return (
-    <div >
+    <div className="studentComments">
     <h2 className="sectionTitle">Outcomes Comments</h2>
         {comments.map(comment =>
         <div key={comment.id} className="submittionComment">
           <div>
-            <div>{admins.filter(admin => admin.id === comment.admin_id)[0].first_name} {admins.filter(admin => admin.id === comment.admin_id)[0].last_name}</div>
+            <div class="adminName">{admins.filter(admin => admin.id === comment.admin_id)[0].first_name} {admins.filter(admin => admin.id === comment.admin_id)[0].last_name}</div>
             <div className="inlineDate">{new Date(Date.parse(comment.created_at)).toLocaleString('en', options)}</div>
           </div>
           <div className="submissionCommentBody">

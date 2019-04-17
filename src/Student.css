@@ -32,6 +32,7 @@ body {
   color: gray;
   font-size: 14px;
   text-align: left;
+  margin-left: 10px;
 }
 
 /* -----------------------------------------
@@ -45,8 +46,8 @@ body {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .sectionTitle {
@@ -59,19 +60,10 @@ body {
   color: black;
 }
 
-.assignmentTitle {
-  background-color: inherit;
-  text-align: left;
-  font-weight: 800;
-  padding: 0px 0px 10px 10px;
-  border-bottom: 1px solid gray;
-  margin-bottom: 5px;
-  color: rgb(148, 152, 160);
-}
-
 .studentName {
-  font-size: 1.5em;
-  font-weight: 800;
+  font-size: 1.7em;
+  font-weight: 400;
+  margin-bottom: 12px;
 }
 
 .studentProgressCircle {
@@ -189,6 +181,25 @@ StudentAssignment
   transition: background-color 0.3s;
 }
 
+.assignmentTitle {
+  background-color: inherit;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.submissionContent > .date {
+  margin-left: 10px;
+}
+
+.submissionContent {
+  margin: 10px 0 20px 0;
+}
+
 .assignmentItem:hover {
   transition: background-color 0.3s;
   background-color: #e6e6e6;
@@ -228,7 +239,7 @@ StudentAssignment
 }
 
 .assignmentBody {
-  margin: 10px 20px;
+  margin: 10px 10px;
 }
 
 /* -----------------------------------------
@@ -238,6 +249,19 @@ StudentSubmissionDetails
   position: relative;
 }
 
+.submission > h2 {
+  font-size: 1.3em;
+  color: gray;
+}
+
+.submissionDetails {
+  margin-bottom: 20px;
+}
+
+.submissionDetails > .date {
+  margin-left: 10px;
+}
+
 .deleteSubmissionButton {
   position: absolute;
   display: inline-block;
@@ -245,7 +269,7 @@ StudentSubmissionDetails
   transition: opacity 0.3s;
   border-radius: 3px;
   cursor: pointer;
-  top: -45px;
+  top: -50px;
   right: 15px;
   height: 25px;
   margin: 40px auto 30px 0;
@@ -278,7 +302,7 @@ StudentSubmissionDetails
 }
 
 .submissionBody {
-  margin: 10px 20px;
+  margin: 10px;
 }
 
 .submitEditButton {
@@ -324,6 +348,21 @@ StudentSubmissionDetails
   background-color: rgb(87, 87, 87);
   transition: background-color 0.4s;
 }
+
+.studentComments {
+
+}
+
+.studentComments > .sectionTitle {
+  font-size: 1.3em;
+  color: gray;
+}
+
+.adminName {
+  margin-left: 10px;
+}
+
+
 /* -----------------------------------------
 StudentNavBar
 ----------------------------------------- */
@@ -368,4 +407,19 @@ StudentNavBar
   float: left;
 }
 
-/* Bye */
+/* -----------------------------------------
+    Other Event Styles
+----------------------------------------- */
+
+.eventDetails > .sectionTitle {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.eventDetails > .date {
+  margin-left: 10px;
+}
+
+.eventBody {
+  margin-left: 10px;
+}
