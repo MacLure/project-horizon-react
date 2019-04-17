@@ -407,4 +407,19 @@ StudentNavBar
   float: left;
 }
 
-/* Bye */
+/* -----------------------------------------
+    Other Event Styles
+----------------------------------------- */
+
+.eventDetails > .sectionTitle {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.eventDetails > .date {
+  margin-left: 10px;
+}
+
+.eventBody {
+  margin-left: 10px;
+}
