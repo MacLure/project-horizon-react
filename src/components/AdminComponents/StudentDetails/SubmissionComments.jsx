@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { createNewSubmissionComment } from "./../../../service";
+import {
+  createNewSubmissionComment,
+  deleteSumissionComment
+} from "./../../../service";
 import { connect } from "react-redux";
 
 class SubmissionComments extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      admin: this.props.admin,
       form: {
         admin_id: this.props.admin.id,
         submission_id: this.props.submission.id,
@@ -43,6 +47,18 @@ class SubmissionComments extends Component {
       );
   };
 
+  handleDelete = e => {
+    e.preventDefault();
+    let data = this.state.form;
+    deleteSumissionComment(data, this.props.token)
+      .then(e => e.json())
+      .then(
+        this.setState(prevState => ({
+          comments: [...prevState.comments, data]
+        }))
+      );
+  };
+
   render() {
     return (
       <div style={{ backgroundColor: "orange" }}>
@@ -61,8 +77,20 @@ class SubmissionComments extends Component {
                 )[0].last_name
               }
             </div>
-            <div>{comment.body}</div>
             <div>{comment.created_at}</div>
+            <div>{comment.body}</div>
+            {comment.admin_id === this.state.admin.id ? (
+              <div
+                style={{
+                  color: "white",
+                  display: "inline-block",
+                  backgroundColor: "black"
+                }}
+                onClick={this.handleDelete}
+              >
+                DELETE
+              </div>
+            ) : null}
           </div>
         ))}
         <div style={{ backgroundColor: "darkcyan" }}>

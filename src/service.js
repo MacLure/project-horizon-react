@@ -301,7 +301,6 @@ export const deleteStudentnote = (cohort_id, token) => {
 //   })
 // }
 
-// untested
 export const createNewSubmissionComment = (data, token) => {
   return new Promise((resolve, reject) => {
     fetch(
@@ -322,16 +321,20 @@ export const createNewSubmissionComment = (data, token) => {
   });
 };
 
-// doesn't work
+// untested
 export const deleteSumissionComment = (cohort_id, token) => {
   return new Promise((resolve, reject) => {
     fetch(
-      `${rootURL}/admin/submission-comment?comment=${JSON.stringify(
+      `${rootURL}/admin/submission_comment?submission_comment=${JSON.stringify(
         cohort_id
       )}`,
       {
         method: "delete",
-        mode: "cors"
+        mode: "cors",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json"
+        }
       }
     )
       .then(e => (e.ok ? resolve(e) : reject(e)))
