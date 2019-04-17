@@ -55,7 +55,7 @@ class SubmissionComments extends Component {
     const options = { year: "numeric", month: "short", day: "numeric" };
 
     return (
-      <div style={{ backgroundColor: "orange" }}>
+      <div className="submissionComment">
         submission Comments:
         {this.state.comments.map(comment => (
           <div key={comment.id}>
@@ -92,7 +92,7 @@ class SubmissionComments extends Component {
             ) : null}
           </div>
         ))}
-        <div style={{ backgroundColor: "darkcyan" }}>
+        <div class="newComment">
           NEW COMMENT
           <form method="post" onSubmit={this.handleSubmit}>
             <label htmlFor="body">Body</label>

@@ -5,7 +5,7 @@ class Submission extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "pink" }}>
+      <div class="submission">
         submission:
         <div>{this.props.submission.url}</div>
         <div>{this.props.submission.body}</div>

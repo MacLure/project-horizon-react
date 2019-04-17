@@ -77,7 +77,7 @@ class AdminStudentDetails extends Component {
             </div>
             <div
               style={{
-                height: "385px",
+                height: "340px",
                 overflow: "scroll"
               }}
             >
