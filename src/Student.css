@@ -59,16 +59,6 @@ body {
   color: black;
 }
 
-.assignmentTitle {
-  background-color: inherit;
-  text-align: left;
-  font-weight: 800;
-  padding: 0px 0px 10px 10px;
-  border-bottom: 1px solid gray;
-  margin-bottom: 5px;
-  color: rgb(148, 152, 160);
-}
-
 .studentName {
   font-size: 1.7em;
   font-weight: 400;
@@ -190,6 +180,25 @@ StudentAssignment
   transition: background-color 0.3s;
 }
 
+.assignmentTitle {
+  background-color: inherit;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 0px 0px 10px 10px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.submissionContent > .date {
+  margin-left: 10px;
+}
+
+.submissionContent {
+  margin: 10px 0 20px 0;
+}
+
 .assignmentItem:hover {
   transition: background-color 0.3s;
   background-color: #e6e6e6;
@@ -229,7 +238,7 @@ StudentAssignment
 }
 
 .assignmentBody {
-  margin: 10px 20px;
+  margin: 10px 10px;
 }
 
 /* -----------------------------------------
@@ -237,6 +246,11 @@ StudentSubmissionDetails
 ----------------------------------------- */
 .submission {
   position: relative;
+}
+
+.submission > h2 {
+  font-size: 1.3em;
+  color: gray;
 }
 
 .deleteSubmissionButton {
