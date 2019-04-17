@@ -56,7 +56,7 @@ class SubmissionDetails extends Component {
 
   detailsOrForm = () => {
     return !this.state.editing ?
-      <div>
+      <div className="submissionDetails">
         <div className="date">Submitted on {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}</div>
         <div><a href={this.state.submission.url}>{this.props.submission.url}</a></div>
         <div class="submissionBody">{this.props.submission.body}</div>
