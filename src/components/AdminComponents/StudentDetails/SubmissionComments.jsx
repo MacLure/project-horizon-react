@@ -55,11 +55,11 @@ class SubmissionComments extends Component {
     const options = { year: "numeric", month: "short", day: "numeric" };
 
     return (
-      <div style={{ backgroundColor: "orange" }}>
-        submission Comments:
+      <div className="submissionComment">
+        <h2>Submission Comments:</h2>
         {this.state.comments.map(comment => (
           <div key={comment.id}>
-            <div>
+            <p className="paragraph">
               {
                 this.state.admins.filter(
                   admin => admin.id === comment.admin_id
@@ -70,7 +70,7 @@ class SubmissionComments extends Component {
                   admin => admin.id === comment.admin_id
                 )[0].last_name
               }
-            </div>
+            </p>
             {new Date(Date.parse(comment.created_at)).toLocaleString(
               "en",
               options
@@ -92,19 +92,18 @@ class SubmissionComments extends Component {
             ) : null}
           </div>
         ))}
-        <div style={{ backgroundColor: "darkcyan" }}>
-          NEW COMMENT
-          <form method="post" onSubmit={this.handleSubmit}>
-            <label htmlFor="body">Body</label>
-            <input
+        <div class="newComment">
+          <form className="commentForm" method="post" onSubmit={this.handleSubmit}>
+            <textarea className="commentText"rows="4" cols="30"
               type="text"
               name="body"
               placeholder="new comment..."
               value={this.state.name}
               onChange={this.handleChange}
             />
+            <br/>
             <br />
-            <button style={{ backgroundColor: "black" }} type="submit">
+            <button class="btn" type="submit">
               Submit
             </button>
           </form>

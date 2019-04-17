@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Submission from './Submission.css';
 
 class Assignment extends Component {
   state = {
@@ -8,10 +9,10 @@ class Assignment extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "green" }}>
-        <div>{this.props.assignment.name}</div>
-        <div>{this.props.assignment.due_date}</div>
-        <div>{this.props.assignment.body}</div>
+      <div className="assignment">
+        <h2>{this.props.assignment.name}</h2>
+        <p className="paragraph">due: {this.props.assignment.due_date}</p>
+        <p className="paragraph">{this.props.assignment.body}</p>
       </div>
     );
   }
