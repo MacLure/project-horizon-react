@@ -293,8 +293,9 @@ textarea:focus {
   position: absolute;
   display: inline-block;
   width: 25px;
-  background-color: #363941;
-  transition: background-color 0.4s;
+  background-color: #fff;
+  opacity: 1;
+  transition: opacity 0.4s;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -305,8 +306,8 @@ textarea:focus {
 }
 
 .deleteEventButton:hover {
-  background-color: rgb(70, 75, 85);
-  transition: background-color 0.4s;
+  opacity: 0.5;
+  transition: opacity 0.4s;
 }
 
 /* -----------------------------------------
