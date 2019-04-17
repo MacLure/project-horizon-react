@@ -6,9 +6,9 @@ class Submission extends Component {
   render() {
     return (
       <div class="submission">
-        submission:
-        <div>{this.props.submission.url}</div>
-        <div>{this.props.submission.body}</div>
+        <h2>Submission:</h2>
+        <p className="paragraph">{this.props.submission.url}</p>
+        <p className="paragraph">{this.props.submission.body}</p>
       </div>
     );
   }

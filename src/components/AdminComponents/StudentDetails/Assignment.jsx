@@ -10,9 +10,9 @@ class Assignment extends Component {
   render() {
     return (
       <div className="assignment">
-        <div>{this.props.assignment.name}</div>
-        <div>{this.props.assignment.due_date}</div>
-        <div>{this.props.assignment.body}</div>
+        <h2>{this.props.assignment.name}</h2>
+        <p className="paragraph">due: {this.props.assignment.due_date}</p>
+        <p className="paragraph">{this.props.assignment.body}</p>
       </div>
     );
   }

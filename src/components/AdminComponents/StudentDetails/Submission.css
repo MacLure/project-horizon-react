@@ -4,3 +4,45 @@
   border-radius: 5px;
   margin: 20px auto;
 }
+
+h2 {
+  color: gray;
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.paragraph {
+  color: black;
+}
+
+.due {
+  color: gray;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: rgba(0, 182, 125, 1);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  font-size: 1.1em;
+  border: none;
+
+}
+
+.commentText {
+  border-radius: 5px;
+  width: 50%;
+}
+
+.commentForm {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px;
+}
