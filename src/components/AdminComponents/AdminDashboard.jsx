@@ -355,7 +355,7 @@ class AdminDashboard extends Component {
     }
     return (
       <React.Fragment>
-        <AdminNavBar />
+        <AdminNavBar admin={this.state.admin} />
         <div className="adminGrid">
           <div className="cardContainer">
             {this.state.cohorts.map((cohort, index) => (
