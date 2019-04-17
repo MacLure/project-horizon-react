@@ -35,7 +35,8 @@ a {
 }
 
 input, textarea, select {
-  background-color: #212229;
+  background-color: #F4F4F4;
+  border-radius: 5px;
 }
 
 ul {
@@ -66,9 +67,9 @@ select:focus {
 }
 
 input::placeholder {
-  color: rgba(255,255,255, 0.5)
+  color: black;
 }
 
 option::placeholder {
-  color: rgba(255,255,255, 0.5)
+  color: black;
 }
