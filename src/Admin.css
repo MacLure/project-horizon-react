@@ -401,6 +401,7 @@ nav {
   background-color: #fff;
   padding-left: 10px;
   border-radius: 5px;
+  background-color: transparent;
 }
 
 .cardGridLeft {
@@ -456,6 +457,7 @@ nav {
   padding: 0px;
   position: relative;
   margin: 20px auto 40px auto;
+  min-width: 80vw;
 }
 
 .header {
