@@ -370,6 +370,12 @@ nav {
   float: left;
 }
 
+.adminNavbarDetails {
+  margin: 20px;
+  color: white;
+  font-weight: 600;
+}
+
 /* -----------------------------------------
   CohortCard
 ----------------------------------------- */
