@@ -32,6 +32,7 @@ body {
   color: gray;
   font-size: 14px;
   text-align: left;
+  margin-left: 10px;
 }
 
 /* -----------------------------------------
@@ -347,6 +348,21 @@ StudentSubmissionDetails
   background-color: rgb(87, 87, 87);
   transition: background-color 0.4s;
 }
+
+.studentComments {
+
+}
+
+.studentComments > .sectionTitle {
+  font-size: 1.3em;
+  color: gray;
+}
+
+.adminName {
+  margin-left: 10px;
+}
+
+
 /* -----------------------------------------
 StudentNavBar
 ----------------------------------------- */
