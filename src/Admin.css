@@ -28,16 +28,18 @@ label {
   display: block;
   padding: 15px 0;
   background-color: inherit;
-  color: white;
+  color: black;
   text-align: left;
   padding-left: 0;
 }
 
 input {
   border: 1px solid black;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 5px 5px;
   transition: border 0.5s;
+  background-color: #fff;
+  color: black;
 }
 
 input:focus {
