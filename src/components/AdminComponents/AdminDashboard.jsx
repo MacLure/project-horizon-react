@@ -257,6 +257,7 @@ class AdminDashboard extends Component {
           submissions={this.state.submissions}
           comments={this.state.submission_comments}
           updateSuccess={this.reload}
+          deleteSuccess={this.reload}
           escapeStudentDetails={this.escapeStudentDetails}
         />
       );
