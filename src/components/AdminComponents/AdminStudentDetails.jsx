@@ -56,6 +56,8 @@ class AdminStudentDetails extends Component {
   };
 
   render() {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+
     return (
       <div className="modal">
         <div className="modalContainer">
@@ -107,15 +109,17 @@ class AdminStudentDetails extends Component {
                                 submission.assignment_id === assignment.id &&
                                 submission.student_id === this.props.student.id
                             ).length > 0
-                              ? `submitted: ${
-                                  this.props.submissions.filter(
-                                    submission =>
-                                      submission.assignment_id ===
-                                        assignment.id &&
-                                      submission.student_id ===
-                                        this.props.student.id
-                                  )[0].created_at
-                                }`
+                              ? `submitted: ${new Date(
+                                  Date.parse(
+                                    this.props.submissions.filter(
+                                      submission =>
+                                        submission.assignment_id ===
+                                          assignment.id &&
+                                        submission.student_id ===
+                                          this.props.student.id
+                                    )[0].created_at
+                                  )
+                                ).toLocaleString("en", options)}`
                               : "not submitted"}
                           </div>
                         </div>
