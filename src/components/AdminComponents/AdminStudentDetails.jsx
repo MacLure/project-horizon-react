@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { deleteStudent } from "../../service";
-import { editEvent } from "../../service";
 import { connect } from "react-redux";
 import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
-import edit from "../../assets/Icons/edit.svg";
 import trash from "../../assets/Icons/trash.svg";
 import Assignment from "./StudentDetails/Assignment";
 import Submission from "./StudentDetails/Submission";
 import SubmissionComments from "./StudentDetails/SubmissionComments";
-import NewComment from "./StudentDetails/NewComment";
 import checkmark from "./../../assets/Icons/tick.svg";
 import exclamation from "./../../assets/Icons/warning.svg";
 import { formattedDate } from "./../../utilities";
