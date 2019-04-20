@@ -45,7 +45,7 @@ ul {
 }
 
 .btn_hover > button {
-  color: #fc6404;
+  /* color: #fc6404; */
   border: 5px solid green;
 }
 
@@ -63,7 +63,7 @@ select {
 }
 
 select:focus {
-  border: 1px solid #f6744e;
+  /* border: 1px solid #f6744e; */
   transition: border 0.5s;
 }
 

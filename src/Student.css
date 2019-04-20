@@ -345,9 +345,6 @@ StudentSubmissionDetails
   transition: background-color 0.4s;
 }
 
-.studentComments {
-}
-
 .studentComments > .sectionTitle {
   font-size: 1.3em;
   color: gray;
