@@ -5,11 +5,3 @@ export const formattedDate = date =>
 
 export const getHour = time => new Date(Date.parse(time)).getHours();
 export const getMinute = time => new Date(Date.parse(time)).getMinutes();
-
-// // student submisison comments
-// {
-//   new Date(Date.parse(comment.created_at)).toLocaleString();
-// }
-
-// // submission details
-// // <div className="date">Submitted on {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}</div>

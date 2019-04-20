@@ -53,8 +53,6 @@ class SubmissionComments extends Component {
   };
 
   render() {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-
     return (
       <div className="submissionComment">
         <h2>Submission Comments:</h2>
