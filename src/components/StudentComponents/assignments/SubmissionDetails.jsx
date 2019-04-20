@@ -104,7 +104,7 @@ class SubmissionDetails extends Component {
           <h2 className="sectionTitle">
             {!this.state.editing ? "Your Submission" : "Edit Submission"}
           </h2>
-          <div className="deleteSubmissionButton">
+          <div className="deleteSubmissionButton" onClick={this.handleDelete}>
             <img className="deleteIcon" src={trash} alt="delete" />
           </div>
         </div>

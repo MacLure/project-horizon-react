@@ -88,7 +88,7 @@ class StudentAssignmentsContainer extends Component {
         showSubmission = (
           <NewSubmissionForm
             assignment={this.state.onFocusData}
-            student={this.state.student}
+            student={this.props.student}
             submissionSuccess={this.reload}
           />
         );
