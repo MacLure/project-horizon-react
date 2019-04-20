@@ -69,6 +69,12 @@ class StudentAssignment extends Component {
         onClick={e => {
           onAssignmentClick(data);
         }}
+        style={{
+          border: this.props.isActive
+            ? "1px solid  #e6e6e6"
+            : "1px solid transparent",
+          backgroundColor: this.props.isActive ? "#f4f4f4" : ""
+        }}
       >
         <div className="assignmentItemDetails">
           <div>{name}</div>

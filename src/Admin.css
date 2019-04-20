@@ -317,11 +317,11 @@
   height: 25px;
 }
 
-.hr {
+.dashboardHr {
   height: 3px;
   margin-bottom: 5px;
   border-radius: 1.5px;
-  background: linear-gradient(-90deg, #dd3d0f, #ffaa00);
+  background-color: rgb(175, 169, 169);
 }
 
 .cohortDetailsGrid {

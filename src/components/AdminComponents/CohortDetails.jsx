@@ -28,19 +28,12 @@ class CohortDetails extends Component {
       selectedEvent: null
     };
 
-    // this.handleShowNewStudentForm = this.handleShowNewStudentForm.bind(this);
     this.handleshowNewAdminForm = this.handleshowNewAdminForm.bind(this);
     this.handleshowNewEventForm = this.handleshowNewEventForm.bind(this);
-    // this.showEditCohortForm = this.showEditCohortForm.bind(this);
 
-    // this.handleshowNewAssignmentForm = this.handleshowNewAssignmentForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.reload = this.reload.bind(this);
   }
-
-  //  if(props.onFocusData != null){
-  //   const {start_date, end_date, name, course_type} = props.onFocusData;
-  //  }
 
   students = this.props.students;
   cStudents = "Loading...";
@@ -61,10 +54,6 @@ class CohortDetails extends Component {
   handleshowNewEventForm = () => {
     this.setState({ showNewEventForm: !this.state.showNewEventForm });
   };
-
-  // handleshowNewAssignmentForm = () =>{
-  //   this.setState({showNewAssignmentForm: !this.state.showNewAssignmentForm})
-  // }
 
   handleDelete = e => {
     e.preventDefault();
@@ -250,7 +239,7 @@ class CohortDetails extends Component {
             <img className="deleteIcon" src={trash} alt="delete" />
           </div>
         </div>
-        <div className="hr" />
+        <div className="dashboardHr" />
         <div className="cohortDetailsGrid">
           <div className="students">
             <h2 className="sectionTitle">Students</h2>

@@ -73,7 +73,7 @@ class StudentAssignmentsList extends Component {
             dueDate={assignment.due_date}
             data={assignment}
             onAssignmentClick={this.onAssignmentClick}
-            isActive={this.state.selectedCohort === index}
+            isActive={this.state.selectedAssignment === index}
             submission={
               this.props.submissions.filter(
                 submission => submission.assignment_id === assignment.id
