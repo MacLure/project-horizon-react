@@ -6,27 +6,6 @@ export const formattedDate = date =>
 export const getHour = time => new Date(Date.parse(time)).getHours();
 export const getMinute = time => new Date(Date.parse(time)).getMinutes();
 
-// //student assignme tdetails
-// <div className="date">
-//   Due: {new Date(Date.parse(assignment.due_date)).toLocaleString("en", options)}
-// </div>;
-
-// // student cohort details
-// const formattedStartDate = new Date(Date.parse(start_date)).toLocaleString(
-//   "en",
-//   options
-// );
-// const formattedEndDate = new Date(Date.parse(end_date)).toLocaleString(
-//   "en",
-//   options
-// );
-// const courseDays = Math.trunc(
-//   (Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24)
-// );
-// const daysLeft = Math.trunc(
-//   (Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24)
-// );
-
 // // student event
 // <div className="date">
 //   {new Date(Date.parse(this.props.data.date)).toLocaleString(
