@@ -86,7 +86,7 @@ class NewEventForm extends Component {
               />
             </div>
             <br />
-            <button className="eventSubmitButton" type="submit">
+            <button className="submitButton" type="submit">
               Submit
             </button>
           </form>

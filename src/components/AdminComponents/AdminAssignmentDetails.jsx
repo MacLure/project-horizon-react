@@ -103,7 +103,7 @@ class AdminAssignmentDetails extends Component {
             </div>
             <h2 className="sectionTitle">{this.state.assignment.name}</h2>
             <div
-              className="deleteEventButton"
+              className="deleteIconButton"
               onClick={e => {
                 this.handleDelete(e);
               }}

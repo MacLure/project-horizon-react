@@ -70,7 +70,7 @@ class AdminStudentDetails extends Component {
               {this.props.student.first_name} {this.props.student.last_name}
             </h2>
             <div
-              className="deleteEventButton"
+              className="deleteIconButton"
               onClick={e => {
                 this.handleDelete(e);
               }}

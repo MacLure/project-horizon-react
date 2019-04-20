@@ -11,7 +11,7 @@ class StudentNavBar extends Component {
         <img className="icon" src={Logo} alt="Horizon" />
 
         <ul className="navList">
-          <div className="adminNavbarDetails">
+          <div className="navbarUserName">
             {this.props.student
               ? `${this.props.student.first_name} ${
                   this.props.student.last_name

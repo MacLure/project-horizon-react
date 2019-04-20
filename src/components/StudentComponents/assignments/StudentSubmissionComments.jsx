@@ -22,7 +22,7 @@ class StudentSubmissionComments extends Component {
       <div>
         <h2 className="sectionTitle">Outcomes Comments</h2>
         {comments.map(comment => (
-          <div key={comment.id} className="submittionComment">
+          <div key={comment.id} className="submissionComment">
             <div>
               <div>
                 {

@@ -118,7 +118,7 @@ class AdminEventDetails extends Component {
               {this.state.event.event_type}: {this.state.event.name}
             </h2>
             <div
-              className="deleteEventButton"
+              className="deleteIconButton"
               onClick={e => {
                 this.handleDelete(e);
               }}
