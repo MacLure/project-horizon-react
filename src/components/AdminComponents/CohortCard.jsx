@@ -1,11 +1,10 @@
 import React from "react";
 import CohortProgressCircle from "./CohortProgressCircle";
 import AdminStyles from "./../../Admin.css";
+import { formattedDate } from "./../../utilities";
 
 const CohortCard = props => {
   const { start_date, end_date, name, course_type, id } = props.data;
-  const formattedStartDate = new Date(Date.parse(start_date));
-  const formattedEndDate = new Date(Date.parse(end_date));
   const options = { year: "numeric", month: "short", day: "numeric" };
 
   const courseDays = Math.trunc(
@@ -17,9 +16,9 @@ const CohortCard = props => {
 
   const daysLeftDisplay = () => {
     if (daysLeft > courseDays) {
-      return `Starts ${formattedStartDate.toLocaleString("en", options)}`;
+      return `Starts ${formattedDate(props.data.start_date)}`;
     } else if (daysLeft <= 0) {
-      return `Ended ${formattedEndDate.toLocaleString("en", options)}`;
+      return `Ended ${formattedDate(props.data.end_date)}`;
     } else if (daysLeft > 0) {
       return `${daysLeft} days left`;
     }
