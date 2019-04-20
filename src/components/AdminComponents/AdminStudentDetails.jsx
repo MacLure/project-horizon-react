@@ -54,11 +54,9 @@ class AdminStudentDetails extends Component {
   };
 
   render() {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-
     return (
       <div className="modal">
-        <div className="modalContainer">
+        <div className="studentModalContainer">
           <div className="studentsContainer">
             <div
               className="modalEscape"
@@ -79,7 +77,7 @@ class AdminStudentDetails extends Component {
             </div>
             <div
               style={{
-                height: "340px",
+                height: "550px",
                 overflow: "scroll"
               }}
             >
