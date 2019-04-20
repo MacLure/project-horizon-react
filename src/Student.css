@@ -100,8 +100,13 @@ body {
 }
 
 .eventItem:hover {
-  /* background-color: rgb(70, 75, 85); */
+  background-color: #e6e6e6;
   border-radius: 5px;
+}
+
+.eventItemDetails {
+  width: 100%;
+  grid-column-start: 1;
 }
 
 /* -----------------------------------------

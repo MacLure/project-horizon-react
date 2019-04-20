@@ -8,12 +8,12 @@ class StudentEvent extends Component {
   render() {
     return (
       <div
-        className="assignmentItem"
+        className="eventItem"
         onClick={e => {
           this.props.onEventClick(this.props.data);
         }}
       >
-        <div className="assignmentItemDetails">
+        <div className="eventItemDetails">
           <div>
             {this.props.data.event_type}: {this.props.data.name}
           </div>

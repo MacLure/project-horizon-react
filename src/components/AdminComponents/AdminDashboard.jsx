@@ -73,7 +73,8 @@ class AdminDashboard extends Component {
             submission_comments: response.submission_comments,
             company_notes: response.company_notes,
             contact_notes: response.contact_notes,
-            events: response.events
+            events: response.events,
+            onFocusData: response.cohorts[0]
           });
         });
     } else {
@@ -300,8 +301,7 @@ class AdminDashboard extends Component {
             admins: response.admins,
             students: response.students,
             assignments: response.assignments,
-            events: response.events,
-            onFocusData: response.cohorts[0]
+            events: response.events
           });
         });
     } else {
