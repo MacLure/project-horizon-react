@@ -100,7 +100,6 @@ class AdminDashboard extends Component {
   };
 
   onCohortClick = data => {
-    console.log("Cohort Data", data);
     this.setState({
       onFocusData: data,
       selectedCohort: this.state.cohorts.indexOf(data)

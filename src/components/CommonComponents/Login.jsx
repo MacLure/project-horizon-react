@@ -14,7 +14,7 @@ class Login extends Component {
       email: "",
       password: "",
       loader: false,
-      error: null
+      error: " "
     };
   }
 
@@ -38,7 +38,7 @@ class Login extends Component {
       }
       if (this.state.email !== "" && this.state.password !== "") {
         this.setState({ loader: true });
-        this.setState({ error: null });
+        this.setState({ error: " " });
         onAdminLogin(this.state.email, this.state.password)
           .then(e => e.json())
           .then(e => {
