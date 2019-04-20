@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import SubmissionComment from "./../CommonComponents/SubmissionComment";
-import StudentStyles from "./../../Student.css";
+import StudentStyles from "./../../../Student.css";
+import SubmissionComment from "./../../CommonComponents/SubmissionComment.jsx";
 import { connect } from "react-redux";
-import { deleteSubmission } from ".././../service";
-import { editSubmission } from ".././../service";
-import edit from "../../assets/Icons/edit.svg";
-import trash from "../../assets/Icons/trash.svg";
-import { formattedDate } from "./../../utilities";
+import { deleteSubmission } from "../../../service";
+import { editSubmission } from "../../../service";
+import trash from "../../../assets/Icons/trash.svg";
+import { formattedDate } from "./../../../utilities";
 
 class SubmissionDetails extends Component {
   constructor(props) {

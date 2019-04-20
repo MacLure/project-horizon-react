@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../Student.css";
+import StudentStyles from "./../../../Student.css";
 import StudentAssignmentsList from "./StudentAssignmentsList";
 import SubmissionDetails from "./SubmissionDetails";
-import SubmissionComments from "./../CommonComponents/SubmissionComment";
+import SubmissionComments from "../../CommonComponents/SubmissionComment";
 import NewSubmissionForm from "./NewSubmissionForm";
 import StudentAssignmentDetails from "./StudentAssignmentDetails";
 import StudentSubmissionComments from "./StudentSubmissionComments";
-import StudentEventsList from "./events/StudentEventsList";
+import StudentEventsList from "../events/StudentEventsList";
+import { getStudentDashboardData } from "../../../service";
+import { connect } from "react-redux";
 
 class StudentAssignmentsContainer extends Component {
   constructor(props) {
@@ -28,6 +30,27 @@ class StudentAssignmentsContainer extends Component {
       onFocusData: data
       // selectedAssignment:this.props.assignments.indexOf(data)
     });
+  };
+
+  reload = () => {
+    if (this.props.token != null) {
+      getStudentDashboardData(this.props.token)
+        .then(response => response.json())
+        .then(response => {
+          this.setState({
+            student: response.student,
+            cohort: response.cohort,
+            classmates: response.classmates,
+            assignments: response.assignments,
+            submissions: response.submissions,
+            submissionComments: response.submission_comments,
+            admins: response.admins,
+            events: response.events
+          });
+        });
+    } else {
+      this.props.history.push("/");
+    }
   };
 
   render() {
@@ -66,6 +89,7 @@ class StudentAssignmentsContainer extends Component {
           <NewSubmissionForm
             assignment={this.state.onFocusData}
             student={this.state.student}
+            submissionSuccess={this.reload}
           />
         );
       }
@@ -135,4 +159,24 @@ class StudentAssignmentsContainer extends Component {
   }
 }
 
-export default StudentAssignmentsContainer;
+const mapStatetoProps = state => {
+  return {
+    token: state.token,
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    currentUser: state.currentUser,
+    errors: state.errors
+  };
+};
+
+const mapDispatchtoProps = dispatch => {
+  return {
+    onTokenReceive: token =>
+      dispatch({ type: "SET_USER_TOKEN", payload: token })
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps
+)(StudentAssignmentsContainer);

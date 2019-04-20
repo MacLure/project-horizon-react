@@ -4,7 +4,7 @@ import StudentNavbar from "./StudentNavbar";
 import StudentStyles from "./../../Student.css";
 import { connect } from "react-redux";
 import { getStudentDashboardData } from ".././../service";
-import StudentAssignmentsContainer from "./StudentAssignmentsContainer";
+import StudentAssignmentsContainer from "./assignments/StudentAssignmentsContainer";
 import StudentEventsContainer from "./events/StudentEventsContainer";
 
 class StudentDashboard extends Component {

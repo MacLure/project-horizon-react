@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import StudentAssignment from "./StudentAssignment";
-import StudentStyles from "./../../Student.css";
+import StudentStyles from "./../../../Student.css";
 import SubmissionDetails from "./SubmissionDetails";
 import NewSubmissionForm from "./NewSubmissionForm";
-import StudentCohortDetails from "./StudentCohortDetails";
+import StudentCohortDetails from "./../StudentCohortDetails";
 
 class StudentAssignmentsList extends Component {
   constructor(props) {

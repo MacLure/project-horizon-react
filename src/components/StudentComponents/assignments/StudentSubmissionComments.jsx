@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import SubmissionComment from "../CommonComponents/SubmissionComment";
-import StudentStyles from "./../../Student.css";
+import StudentStyles from "./../../../Student.css";
 import { connect } from "react-redux";
-import { deleteSubmission } from "../../service";
-import { editSubmission } from "../../service";
-import { formattedDate } from "./../../utilities";
+import { deleteSubmission, editSubmission } from "../../../service";
+import { formattedDate } from "./../../../utilities";
 
 class StudentSubmissionComments extends Component {
   constructor(props) {

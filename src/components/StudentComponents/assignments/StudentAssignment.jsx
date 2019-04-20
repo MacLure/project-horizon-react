@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import checkmark from "./../../assets/Icons/tick.svg";
-import exclamation from "./../../assets/Icons/warning.svg";
-import { formattedDate } from "./../../utilities";
+import checkmark from "./../../../assets/Icons/tick.svg";
+import exclamation from "./../../../assets/Icons/warning.svg";
+import { formattedDate } from "./../../../utilities";
 
 class StudentAssignment extends Component {
   state = {};
