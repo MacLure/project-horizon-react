@@ -5,6 +5,10 @@ body {
   background-color: #f4f4f4 !important;
 }
 
+.studentDashboard {
+  padding-bottom: 150px;
+}
+
 .eventsGrid {
   grid-column-start: 1fr;
   grid-row-start: 1;

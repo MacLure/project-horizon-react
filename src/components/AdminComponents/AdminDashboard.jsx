@@ -73,8 +73,7 @@ class AdminDashboard extends Component {
             submission_comments: response.submission_comments,
             company_notes: response.company_notes,
             contact_notes: response.contact_notes,
-            events: response.events,
-            onFocusData: response.cohorts[0]
+            events: response.events
           });
         });
     } else {
@@ -349,7 +348,7 @@ class AdminDashboard extends Component {
       );
     }
     return (
-      <React.Fragment>
+      <div className="page-container">
         <AdminNavBar admin={this.state.admin} />
         <div className="adminGrid">
           <div className="cardContainer">
@@ -382,7 +381,7 @@ class AdminDashboard extends Component {
           </div>
         </div>
         <Footer />
-      </React.Fragment>
+      </div>
     );
   }
 }

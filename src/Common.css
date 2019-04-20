@@ -1,3 +1,8 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 /* -----------------------------------------
   Modals
 ----------------------------------------- */
@@ -127,6 +132,8 @@ nav {
   Footer
 ----------------------------------------- */
 footer {
+  position: absolute;
+
   left: 0;
   right: 0;
   bottom: 0;
@@ -137,7 +144,6 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
   line-height: 1.5em;
 }
 

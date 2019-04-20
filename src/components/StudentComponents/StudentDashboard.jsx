@@ -86,7 +86,7 @@ class StudentDashboard extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="page-container">
         <StudentNavbar
           student={this.state.student}
           studentFirstName={this.state.student.first_name}
@@ -98,30 +98,30 @@ class StudentDashboard extends Component {
           submissions={this.state.submissions}
           assignments={this.state.assignments}
         />
-
-        <div className="assignmentSection">
-          <StudentAssignmentsContainer
-            student={this.state.student}
-            assignments={this.state.assignments}
-            submissions={this.state.submissions}
-            submissionComments={this.state.submissionComments}
-            onFocusData={this.state.onFocusData}
-            student={this.state.student}
-            admins={this.state.admins}
-            events={this.state.events}
-            cohort={this.state.cohort}
-          />
+        <div className="studentDashboard">
+          <div className="assignmentSection">
+            <StudentAssignmentsContainer
+              student={this.state.student}
+              assignments={this.state.assignments}
+              submissions={this.state.submissions}
+              submissionComments={this.state.submissionComments}
+              onFocusData={this.state.onFocusData}
+              student={this.state.student}
+              admins={this.state.admins}
+              events={this.state.events}
+              cohort={this.state.cohort}
+            />
+          </div>
+          <div className="assignmentSection">
+            <StudentEventsContainer
+              onFocusData={this.state.onFocusData}
+              events={this.state.events}
+            />
+            {this.showEventDetails()}
+          </div>
         </div>
-        <div className="assignmentSection">
-          <StudentEventsContainer
-            onFocusData={this.state.onFocusData}
-            events={this.state.events}
-          />
-          {this.showEventDetails()}
-        </div>
-
         <Footer />
-      </React.Fragment>
+      </div>
     );
   }
 }
