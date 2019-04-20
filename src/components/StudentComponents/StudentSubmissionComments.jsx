@@ -4,6 +4,7 @@ import StudentStyles from "./../../Student.css";
 import { connect } from "react-redux";
 import { deleteSubmission } from "../../service";
 import { editSubmission } from "../../service";
+import { formattedDate } from "./../../utilities";
 
 class StudentSubmissionComments extends Component {
   constructor(props) {
@@ -18,8 +19,6 @@ class StudentSubmissionComments extends Component {
     const comments = this.props.comments.filter(
       comment => comment.submission_id === submission.id
     );
-
-    const options = { year: "numeric", month: "short", day: "numeric" };
 
     return (
       <div>
@@ -38,10 +37,7 @@ class StudentSubmissionComments extends Component {
                 }
               </div>
               <div className="inlineDate">
-                {new Date(Date.parse(comment.created_at)).toLocaleString(
-                  "en",
-                  options
-                )}
+                {formattedDate(comment.created_at)}
               </div>
             </div>
             <div className="submissionCommentBody">{comment.body}</div>

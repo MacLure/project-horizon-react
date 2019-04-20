@@ -6,12 +6,6 @@ export const formattedDate = date =>
 export const getHour = time => new Date(Date.parse(time)).getHours();
 export const getMinute = time => new Date(Date.parse(time)).getMinutes();
 
-// // student event details
-// const hour = new Date(Date.parse(this.props.event.time)).getHours();
-// const minute = new Date(Date.parse(this.props.event.time)).getMinutes();
-
-// // new Date(Date.parse(this.props.event.date)).toLocaleString('en', this.options)} @ {hour}:{minute}
-
 // // student submisison comments
 // {
 //   new Date(Date.parse(comment.created_at)).toLocaleString();
