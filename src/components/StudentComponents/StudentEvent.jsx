@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { formattedDate } from "./../../utilities";
 
 class StudentEvent extends Component {
-  state = {  }
-
-  options = {year: 'numeric', month: 'short', day: 'numeric' };
+  state = {};
 
   render() {
-
     return (
-      <div className="assignmentItem" onClick={e=>{this.props.onEventClick(this.props.data)}}>
+      <div
+        className="assignmentItem"
+        onClick={e => {
+          this.props.onEventClick(this.props.data);
+        }}
+      >
         <div className="assignmentItemDetails">
-          <div>{this.props.data.event_type}: {this.props.data.name}</div>
-          <div className="date">{new Date(Date.parse(this.props.data.date)).toLocaleString('en', this.options)}</div>
+          <div>
+            {this.props.data.event_type}: {this.props.data.name}
+          </div>
+          <div className="date">{formattedDate(this.props.data.date)}</div>
         </div>
       </div>
-     );
+    );
   }
 }
 
