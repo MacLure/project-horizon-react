@@ -54,6 +54,7 @@
 /* -----------------------------------------
   NavBar
 ----------------------------------------- */
+
 nav {
   width: 100%;
   height: 60px;
@@ -71,6 +72,7 @@ nav {
 
 .navItem {
   background-color: #868686;
+  height: 20px;
   font-size: 15px;
   list-style-type: none;
   color: white;
@@ -93,7 +95,6 @@ nav {
   height: 30px;
   padding-left: 20px;
   padding-top: 15px;
-  padding-bottom: 15px;
   background-color: inherit;
   float: left;
 }
@@ -460,7 +461,7 @@ textarea:focus {
 
   .navList {
     float: none;
-    justify-content: flex-start !important;
+    justify-content: flex-start;
   }
 
   nav > ul {
