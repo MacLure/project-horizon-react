@@ -4,6 +4,7 @@ import {
   deleteSumissionComment
 } from "./../../../service";
 import { connect } from "react-redux";
+import { formattedDate } from "./../../../utilities";
 
 class SubmissionComments extends Component {
   constructor(props) {
@@ -71,10 +72,7 @@ class SubmissionComments extends Component {
                 )[0].last_name
               }
             </p>
-            {new Date(Date.parse(comment.created_at)).toLocaleString(
-              "en",
-              options
-            )}
+            {formattedDate(comment.created_at)}
             <div>{comment.body}</div>
             {comment.admin_id === this.state.admin.id ? (
               <div
@@ -93,15 +91,22 @@ class SubmissionComments extends Component {
           </div>
         ))}
         <div class="newComment">
-          <form className="commentForm" method="post" onSubmit={this.handleSubmit}>
-            <textarea className="commentText"rows="4" cols="30"
+          <form
+            className="commentForm"
+            method="post"
+            onSubmit={this.handleSubmit}
+          >
+            <textarea
+              className="commentText"
+              rows="4"
+              cols="30"
               type="text"
               name="body"
               placeholder="new comment..."
               value={this.state.name}
               onChange={this.handleChange}
             />
-            <br/>
+            <br />
             <br />
             <button class="btn" type="submit">
               Submit
