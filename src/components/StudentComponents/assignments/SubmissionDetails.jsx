@@ -59,10 +59,10 @@ class SubmissionDetails extends Component {
         <div className="date">
           Submitted on {formattedDate(this.props.submission.created_at)}
         </div>
-        <div>
+        <div class="submissionBody">
           <a href={this.state.submission.url}>{this.props.submission.url}</a>
+          {this.props.submission.body}
         </div>
-        <div class="submissionBody">{this.props.submission.body}</div>
       </div>
     ) : (
       <form onSubmit={this.handleSubmit}>

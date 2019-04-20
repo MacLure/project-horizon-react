@@ -58,7 +58,9 @@ class StudentAssignmentsContainer extends Component {
       <div className="noAssignmentSelected">
         No assignment selected.
         {this.props.assignments.length > 0 ? (
-          <div>Please select an assignment from the list.</div>
+          <div className="selectInstructions">
+            Please select an assignment from the list.
+          </div>
         ) : null}
       </div>
     );

@@ -31,7 +31,9 @@ class StudentEventsContainer extends Component {
       <div className="noAssignmentSelected">
         No event selected.
         {this.props.events.length > 0 ? (
-          <div>Please select an event from the list.</div>
+          <div className="selectInstructions">
+            Please select an event from the list.
+          </div>
         ) : null}{" "}
       </div>
     );
