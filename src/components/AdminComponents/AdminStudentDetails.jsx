@@ -12,6 +12,7 @@ import SubmissionComments from "./StudentDetails/SubmissionComments";
 import NewComment from "./StudentDetails/NewComment";
 import checkmark from "./../../assets/Icons/tick.svg";
 import exclamation from "./../../assets/Icons/warning.svg";
+import { formattedDate } from "./../../utilities";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
@@ -109,17 +110,15 @@ class AdminStudentDetails extends Component {
                                 submission.assignment_id === assignment.id &&
                                 submission.student_id === this.props.student.id
                             ).length > 0
-                              ? `submitted: ${new Date(
-                                  Date.parse(
-                                    this.props.submissions.filter(
-                                      submission =>
-                                        submission.assignment_id ===
-                                          assignment.id &&
-                                        submission.student_id ===
-                                          this.props.student.id
-                                    )[0].created_at
-                                  )
-                                ).toLocaleString("en", options)}`
+                              ? `submitted: ${formattedDate(
+                                  this.props.submissions.filter(
+                                    submission =>
+                                      submission.assignment_id ===
+                                        assignment.id &&
+                                      submission.student_id ===
+                                        this.props.student.id
+                                  )[0].created_at
+                                )}`
                               : "not submitted"}
                           </div>
                         </div>
