@@ -5,10 +5,10 @@ class Submission extends Component {
 
   render() {
     return (
-      <div class="submission">
-        <h2>Submission:</h2>
-        <p className="paragraph">{this.props.submission.url}</p>
-        <p className="paragraph">{this.props.submission.body}</p>
+      <div className="assignment">
+        <h2 className="sectionTitle">Submission:</h2>
+        <div class="submissionBody">{this.props.submission.url}</div>
+        <div class="submissionBody">{this.props.submission.body}</div>
       </div>
     );
   }

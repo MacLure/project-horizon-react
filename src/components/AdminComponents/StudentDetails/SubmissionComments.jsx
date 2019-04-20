@@ -55,7 +55,7 @@ class SubmissionComments extends Component {
   render() {
     return (
       <div>
-        <h2>Submission Comments:</h2>
+        <h2 className="sectionTitle">Submission Comments:</h2>
 
         {this.state.comments.map(comment => (
           <div key={comment.id} className="submissionComment">

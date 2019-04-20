@@ -382,6 +382,11 @@
   color: gray;
 }
 
+.assignmentDetailDate {
+  color: gray;
+  margin: 10px;
+}
+
 .eventBody {
   margin: 10px 20px;
 }
