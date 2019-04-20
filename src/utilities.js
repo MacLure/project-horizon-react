@@ -6,18 +6,6 @@ export const formattedDate = date =>
 export const getHour = time => new Date(Date.parse(time)).getHours();
 export const getMinute = time => new Date(Date.parse(time)).getMinutes();
 
-// // student assignment
-
-// {
-//   new Date(Date.parse(this.props.submission.created_at)).toLocaleString(
-//     "en",
-//     this.options
-//   );
-// }
-// <div className="date">
-//   Due: {new Date(Date.parse(dueDate)).toLocaleString("en", this.options)}
-// </div>;
-
 // //student assignme tdetails
 // <div className="date">
 //   Due: {new Date(Date.parse(assignment.due_date)).toLocaleString("en", options)}
