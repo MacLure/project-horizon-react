@@ -232,12 +232,12 @@ li > a:hover {
 }
 
 .selectButton:active {
-  color: #fc6404;
+  /* color: #fc6404; */
 }
 
 .selectButton:hover {
   transition: background-color 0.4s, color 0.4s;
-  color: #fc6404;
+  /* color: #fc6404; */
   background-color: #fff;
 }
 
@@ -402,8 +402,13 @@ input {
 }
 
 input:focus {
-  border: 1px solid #fc6404;
+  /* border: 1px solid #fc6404; */
   transition: border 0.5s;
+}
+
+select {
+  background-color: #fff;
+  height: 24px;
 }
 
 textarea {
