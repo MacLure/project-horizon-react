@@ -292,12 +292,6 @@ class AdminDashboard extends Component {
     this.setState({ showStudentDetails: false });
   };
 
-  // displayLogOutButton = () => {
-  //   return (this.props.token != null) ?
-  //   <button style={{backgroundColor:'red'}} onClick = {e=>{this.destroyToken('')}}>------------------------------------------------------------------Log Out</button> :
-  //   ''
-  // }
-
   reload = () => {
     if (this.props.token != null) {
       getAdminDashboardData(this.props.token)

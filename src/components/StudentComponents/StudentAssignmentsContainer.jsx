@@ -6,7 +6,7 @@ import SubmissionComments from "./../CommonComponents/SubmissionComment";
 import NewSubmissionForm from "./NewSubmissionForm";
 import StudentAssignmentDetails from "./StudentAssignmentDetails";
 import StudentSubmissionComments from "./StudentSubmissionComments";
-import StudentEventsList from "./StudentEventsList";
+import StudentEventsList from "./events/StudentEventsList";
 
 class StudentAssignmentsContainer extends Component {
   constructor(props) {

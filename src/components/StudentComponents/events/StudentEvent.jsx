@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { formattedDate } from "./../../utilities";
+import { formattedDate } from "../../../utilities";
 
 class StudentEvent extends Component {
   state = {};

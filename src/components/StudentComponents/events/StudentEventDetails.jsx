@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../Student.css";
+import StudentStyles from "./../../../Student.css";
 import { connect } from "react-redux";
-import { formattedDate, getHour, getMinute } from "./../../utilities";
+import { formattedDate, getHour, getMinute } from "../../../utilities";
 
 class StudentEventDetails extends Component {
   constructor(props) {

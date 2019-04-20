@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../Student.css";
-import StudentAssignmentsList from "./StudentAssignmentsList";
-import SubmissionDetails from "./SubmissionDetails";
-import SubmissionComments from "./../CommonComponents/SubmissionComment";
-import NewSubmissionForm from "./NewSubmissionForm";
+import StudentStyles from "./../../../Student.css";
+import StudentAssignmentsList from "../StudentAssignmentsList";
+import SubmissionDetails from "../SubmissionDetails";
+import SubmissionComments from "../../CommonComponents/SubmissionComment";
+import NewSubmissionForm from "../NewSubmissionForm";
 import StudentEventDetails from "./StudentEventDetails";
-import StudentSubmissionComments from "./StudentSubmissionComments";
+import StudentSubmissionComments from "../StudentSubmissionComments";
 import StudentEventsList from "./StudentEventsList";
 
 class StudentEventsContainer extends Component {

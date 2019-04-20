@@ -4,7 +4,6 @@ import { editAssignment } from "../../service";
 import { connect } from "react-redux";
 import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
-import edit from "../../assets/Icons/edit.svg";
 import trash from "../../assets/Icons/trash.svg";
 import { formattedDate } from "./../../utilities";
 

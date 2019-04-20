@@ -4,10 +4,8 @@ import StudentNavbar from "./StudentNavbar";
 import StudentStyles from "./../../Student.css";
 import { connect } from "react-redux";
 import { getStudentDashboardData } from ".././../service";
-import StudentEventsList from "./StudentEventsList";
-import StudentCohortDetails from "./StudentCohortDetails";
 import StudentAssignmentsContainer from "./StudentAssignmentsContainer";
-import StudentEventsContainer from "./StudentEventsContainer";
+import StudentEventsContainer from "./events/StudentEventsContainer";
 
 class StudentDashboard extends Component {
   constructor(props) {
