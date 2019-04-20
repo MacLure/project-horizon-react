@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { createNewSubmission } from "./../../../service";
-
+g;
 class NewSubmissionForm extends Component {
   constructor(props) {
     super(props);
