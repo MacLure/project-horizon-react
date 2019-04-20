@@ -54,38 +54,31 @@ class SubmissionComments extends Component {
 
   render() {
     return (
-      <div className="submissionComment">
+      <div>
         <h2>Submission Comments:</h2>
+
         {this.state.comments.map(comment => (
-          <div key={comment.id}>
-            <p className="paragraph">
-              {
-                this.state.admins.filter(
-                  admin => admin.id === comment.admin_id
-                )[0].first_name
-              }{" "}
-              {
-                this.state.admins.filter(
-                  admin => admin.id === comment.admin_id
-                )[0].last_name
-              }
-            </p>
-            {formattedDate(comment.created_at)}
-            <div>{comment.body}</div>
-            {comment.admin_id === this.state.admin.id ? (
-              <div
-                style={{
-                  color: "white",
-                  display: "inline-block",
-                  backgroundColor: "black"
-                }}
-                onClick={e => {
-                  this.handleDelete(comment.id);
-                }}
-              >
-                DELETE
+          <div key={comment.id} className="submissionComment">
+            <div>
+              <div>
+                {
+                  this.state.admins.filter(
+                    admin => admin.id === comment.admin_id
+                  )[0].first_name
+                }{" "}
+                {
+                  this.state.admins.filter(
+                    admin => admin.id === comment.admin_id
+                  )[0].last_name
+                }
               </div>
-            ) : null}
+              <div className="inlineDate">
+                {" "}
+                {formattedDate(comment.created_at)}
+              </div>
+            </div>
+
+            <div className="submissionCommentBody">{comment.body}</div>
           </div>
         ))}
         <div class="newComment">
