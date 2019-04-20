@@ -44,7 +44,7 @@ class NewCohortForm extends Component {
           </div>
           <h2 className="formTitle">New Cohort</h2>
           <form onSubmit={this.handleSubmit}>
-            <div className="one">
+            <div>
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -54,7 +54,7 @@ class NewCohortForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="two">
+            <div>
               <label htmlFor="course_type">Course Type</label>
               <select
                 name="course_type"
@@ -70,7 +70,7 @@ class NewCohortForm extends Component {
                 <option value="dsi">Data Science</option>
               </select>
             </div>
-            <div className="three">
+            <div>
               <label htmlFor="start_date">Start Date</label>
               <input
                 type="date"
@@ -79,11 +79,8 @@ class NewCohortForm extends Component {
                 onChange={this.handleChange}
               />
               <br />
-              <button className="submitButton" type="submit">
-                Submit
-              </button>
             </div>
-            <div className="four">
+            <div>
               <label htmlFor="end_date" placeholder="yyyy-mm-dd">
                 End Date
               </label>
@@ -94,6 +91,9 @@ class NewCohortForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
+            <button className="submitButton" type="submit">
+              Submit
+            </button>
           </form>
         </div>
       </div>
