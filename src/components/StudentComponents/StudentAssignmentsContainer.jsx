@@ -32,7 +32,12 @@ class StudentAssignmentsContainer extends Component {
 
   render() {
     let showAssignmentDetails = (
-      <div className="noAssignmentSelected">No assignment selected</div>
+      <div className="noAssignmentSelected">
+        No assignment selected.
+        {this.props.assignments.length > 0 ? (
+          <div>Please select an assignment from the list.</div>
+        ) : null}
+      </div>
     );
     let showSubmission = null;
     let showSubmissionComments = null;
