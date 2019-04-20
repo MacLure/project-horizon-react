@@ -413,7 +413,8 @@ ul {
 
 .detailsListItem {
   background-color: inherit;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
+  border-radius: 5px;
   margin: 0 auto;
   text-align: left;
   cursor: pointer;
@@ -422,7 +423,7 @@ ul {
 
 .detailsListItem:hover {
   background-color: #e6e6e6;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
   border-radius: 5px;
 }
 

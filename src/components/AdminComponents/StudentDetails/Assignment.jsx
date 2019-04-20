@@ -14,7 +14,7 @@ class Assignment extends Component {
         <div className="assignmentDetailDate">
           due: {this.props.assignment.due_date}
         </div>
-        <div class="submissionBody">{this.props.assignment.body}</div>
+        <div className="submissionBody">{this.props.assignment.body}</div>
       </div>
     );
   }

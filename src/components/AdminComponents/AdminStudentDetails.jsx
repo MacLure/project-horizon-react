@@ -7,9 +7,8 @@ import trash from "../../assets/Icons/trash.svg";
 import Assignment from "./StudentDetails/Assignment";
 import Submission from "./StudentDetails/Submission";
 import SubmissionComments from "./StudentDetails/SubmissionComments";
-import checkmark from "./../../assets/Icons/tick.svg";
-import exclamation from "./../../assets/Icons/warning.svg";
 import { formattedDate } from "./../../utilities";
+import AssignmentListItem from "./StudentDetails/AssignmentListItem";
 
 class AdminStudentDetails extends Component {
   constructor(props) {
@@ -22,13 +21,15 @@ class AdminStudentDetails extends Component {
       submissions: this.props.submissions,
       comments: this.props.comments,
       selectedAssignment: null,
-      admin: this.props.admin
+      admin: this.props.admin,
+      onFocusData: null
     };
 
     this.toggleEdit = this.toggleEdit.bind(this);
     this.EditButtonClass = this.EditButtonClass.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.onAssignmentClick = this.onAssignmentClick.bind(this);
   }
 
   handleChange(e) {
@@ -49,8 +50,11 @@ class AdminStudentDetails extends Component {
       .then(this.props.escapeStudentDetailsModal);
   };
 
-  selectAssignment = assignment => {
-    this.setState({ selectedAssignment: assignment });
+  onAssignmentClick = data => {
+    this.setState({
+      selectedAssignment: this.props.assignments.indexOf(data),
+      onFocusData: data
+    });
   };
 
   render() {
@@ -82,89 +86,43 @@ class AdminStudentDetails extends Component {
               }}
             >
               <div className="studentAssignmentDetailsList">
-                <div>
-                  {this.state.assignments.map(assignment => (
-                    <div
-                      key={assignment.id}
-                      className="detailsListItem"
-                      onClick={e => {
-                        this.selectAssignment(assignment);
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "9fr 1fr"
-                        }}
-                      >
-                        <div>
-                          <div>{assignment.name}</div>
-                          <div className="eventAssignmentDates">
-                            {this.props.submissions.filter(
-                              submission =>
-                                submission.assignment_id === assignment.id &&
-                                submission.student_id === this.props.student.id
-                            ).length > 0
-                              ? `submitted: ${formattedDate(
-                                  this.props.submissions.filter(
-                                    submission =>
-                                      submission.assignment_id ===
-                                        assignment.id &&
-                                      submission.student_id ===
-                                        this.props.student.id
-                                  )[0].created_at
-                                )}`
-                              : "not submitted"}
-                          </div>
-                        </div>
-                        <div>
-                          <img
-                            style={{ height: "35px" }}
-                            src={
-                              this.props.submissions.filter(
-                                submission =>
-                                  submission.assignment_id === assignment.id &&
-                                  submission.student_id ===
-                                    this.props.student.id
-                              ).length > 0
-                                ? checkmark
-                                : exclamation
-                            }
-                            className="checkmarkContainer"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {this.state.assignments.map((assignment, index) => (
+                  <AssignmentListItem
+                    key={assignment.id}
+                    student={this.state.student}
+                    submissions={this.state.submissions}
+                    assignment={assignment}
+                    onAssignmentClick={this.onAssignmentClick}
+                    isActive={this.state.selectedAssignment === index}
+                  />
+                ))}
               </div>
               {this.state.selectedAssignment ? (
-                <Assignment assignment={this.state.selectedAssignment} />
+                <Assignment assignment={this.state.onFocusData} />
               ) : null}
-              {this.state.selectedAssignment &&
+              {this.state.onFocusData &&
               this.state.submissions.filter(
                 submission =>
-                  submission.assignment_id ===
-                    this.state.selectedAssignment.id &&
+                  submission.assignment_id === this.state.onFocusData.id &&
                   submission.student_id == this.state.student.id
               ).length > 0 ? (
                 <Submission
-                  assignment={this.state.selectedAssignment}
+                  student={this.state.student}
+                  assignment={this.state.onFocusData}
                   submission={
                     this.state.submissions.filter(
                       submission =>
                         submission.assignment_id ===
-                          this.state.selectedAssignment.id &&
+                          this.state.onFocusData.id &&
                         submission.student_id === this.state.student.id
                     )[0]
                   }
                 />
               ) : null}
-              {this.state.selectedAssignment &&
+              {this.state.onFocusData &&
               this.state.submissions.filter(
                 submission =>
-                  submission.assignment_id ===
-                    this.state.selectedAssignment.id &&
+                  submission.assignment_id === this.state.onFocusData.id &&
                   submission.student_id == this.state.student.id
               ).length > 0 ? (
                 <SubmissionComments
@@ -173,7 +131,7 @@ class AdminStudentDetails extends Component {
                     this.state.submissions.filter(
                       submission =>
                         submission.assignment_id ===
-                          this.state.selectedAssignment.id &&
+                          this.state.onFocusData.id &&
                         submission.student_id === this.state.student.id
                     )[0]
                   }

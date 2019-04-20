@@ -14,15 +14,12 @@ class StudentEventsContainer extends Component {
       submission_comments: this.props.submission_comments,
       onFocusData: null,
       events: this.props.events
-      // selectedAssignment: null,
     };
   }
 
   getOnFocusData = data => {
-    console.log("Assignment Data", data);
     this.setState({
       onFocusData: data
-      // selectedAssignment:this.props.assignments.indexOf(data)
     });
   };
 
