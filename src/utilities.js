@@ -3,31 +3,8 @@ const options = { year: "numeric", month: "short", day: "numeric" };
 export const formattedDate = date =>
   new Date(Date.parse(date)).toLocaleString("en", options);
 
-// // cohort card
-// const formattedStartDate = new Date(Date.parse(start_date));
-// const formattedEndDate = new Date(Date.parse(end_date));
-
-// const courseDays = Math.trunc(
-//   (Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24)
-// );
-// const daysLeft = Math.trunc(
-//   (Date.parse(end_date) - Date.now()) / (1000 * 60 * 60 * 24)
-// );
-
-// // cohort details
-// formattedStartDate = new Date(
-//   Date.parse(this.props.onFocusData.start_date)
-// ).toLocaleString("en", this.options);
-// formattedEndDate = new Date(
-//   Date.parse(this.props.onFocusData.end_date)
-// ).toLocaleString("en", this.options);
-
-// const formattedAssignmentDate = date =>
-//   new Date(Date.parse(date)).toLocaleString("en", this.options);
-// const formattedEventDate = date =>
-//   new Date(Date.parse(date)).toLocaleString("en", this.options);
-// const EventHour = event => new Date(Date.parse(event.time)).getHours();
-// const EventMinute = event => new Date(Date.parse(event.time)).getMinutes();
+export const getHour = time => new Date(Date.parse(time)).getHours();
+export const getMinute = time => new Date(Date.parse(time)).getMinutes();
 
 // // student assignment
 

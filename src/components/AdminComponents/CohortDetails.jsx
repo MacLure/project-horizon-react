@@ -9,6 +9,7 @@ import plus from "../../assets/Icons/plusSmall.svg";
 import { connect } from "react-redux";
 import { deleteCohort } from ".././../service";
 import AdminStyles from "./../../Admin.css";
+import { formattedDate, getHour, getMinute } from "./../../utilities";
 
 class CohortDetails extends Component {
   constructor(props) {
@@ -46,13 +47,8 @@ class CohortDetails extends Component {
   cEvents = "Loading...";
   cAssignments = "Loading...";
 
-  options = { year: "numeric", month: "short", day: "numeric" };
-  formattedStartDate = new Date(
-    Date.parse(this.props.onFocusData.start_date)
-  ).toLocaleString("en", this.options);
-  formattedEndDate = new Date(
-    Date.parse(this.props.onFocusData.end_date)
-  ).toLocaleString("en", this.options);
+  startDate = this.props.onFocusData.start_date;
+  endDate = this.props.onFocusData.end_date;
 
   handleShowNewStudentForm = () => {
     this.setState({ showNewStudentForm: !this.state.showNewStudentForm });
@@ -89,14 +85,6 @@ class CohortDetails extends Component {
   };
 
   render() {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    const formattedAssignmentDate = date =>
-      new Date(Date.parse(date)).toLocaleString("en", this.options);
-    const formattedEventDate = date =>
-      new Date(Date.parse(date)).toLocaleString("en", this.options);
-    const EventHour = event => new Date(Date.parse(event.time)).getHours();
-    const EventMinute = event => new Date(Date.parse(event.time)).getMinutes();
-
     const showNewStudentForm = () => {
       if (this.state.showNewStudentForm) {
         return <NewStudentForm cohortId={this.props.onFocusData.id} />;
@@ -194,8 +182,8 @@ class CohortDetails extends Component {
             {event.event_type}: {event.name}
           </div>
           <div className="eventAssignmentDates">
-            {formattedEventDate(event.date)} @ {EventHour(event)}:
-            {EventMinute(event)}
+            {formattedDate(event.date)} @ {getHour(event.time)}:
+            {getMinute(event.time)}
           </div>
         </li>
       ));
@@ -212,7 +200,7 @@ class CohortDetails extends Component {
         >
           <div>{assignment.name}</div>
           <div className="eventAssignmentDates">
-            {formattedAssignmentDate(assignment.due_date)}
+            {formattedDate(assignment.due_date)}
           </div>
         </li>
       ));
@@ -245,8 +233,13 @@ class CohortDetails extends Component {
               : null}
           </h2>
           <div className="dates">
-            {this.props.onFocusData != null ? this.formattedStartDate : null} -{" "}
-            {this.props.onFocusData != null ? this.formattedEndDate : null}
+            {this.props.onFocusData != null
+              ? formattedDate(this.startDate)
+              : null}{" "}
+            -{" "}
+            {this.props.onFocusData != null
+              ? formattedDate(this.endDate)
+              : null}
           </div>
           <div
             className="adminDeleteButton"
