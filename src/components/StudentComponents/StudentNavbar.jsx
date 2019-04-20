@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
-import StudentStyles from './../../Student.css';
-import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/img/text_orange.svg';
-
+import React, { Component } from "react";
+import StudentStyles from "./../../Student.css";
+import { NavLink } from "react-router-dom";
+import Logo from "../../assets/img/text_orange.svg";
 
 class StudentNavBar extends Component {
-  state = {  }
+  state = {};
   render() {
     return (
-        <nav className="menuBar">
-          <img className="icon" src={Logo} alt="Horizon" />
+      <nav className="menuBar">
+        <img className="icon" src={Logo} alt="Horizon" />
 
-          <ul className="navList">
-
-            <NavLink to="/login" activeClassName="active"><li className="navItem">Log out</li></NavLink>
-          </ul>
-        </nav>
-     );
+        <ul className="navList">
+          <div className="adminNavbarDetails">
+            {this.props.student
+              ? `${this.props.student.first_name} ${
+                  this.props.student.last_name
+                }`
+              : null}
+          </div>
+          <NavLink to="/login" activeClassName="active">
+            <li className="navItem">Log out</li>
+          </NavLink>
+        </ul>
+      </nav>
+    );
   }
 }
 
