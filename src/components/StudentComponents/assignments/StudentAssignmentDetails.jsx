@@ -16,7 +16,7 @@ class StudentAssignmentDetails extends Component {
       <div className="submissionContent">
         <h2 className="assignmentTitle">{assignment.name}</h2>
         <div className="date">Due: {formattedDate(assignment.due_date)}</div>
-        <div class="assignmentBody">{assignment.body}</div>
+        <div className="assignmentBody">{assignment.body}</div>
       </div>
     );
   }

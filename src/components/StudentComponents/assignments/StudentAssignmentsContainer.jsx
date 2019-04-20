@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import StudentStyles from "./../../../Student.css";
 import StudentAssignmentsList from "./StudentAssignmentsList";
 import SubmissionDetails from "./SubmissionDetails";
-import SubmissionComments from "../../CommonComponents/SubmissionComment";
 import NewSubmissionForm from "./NewSubmissionForm";
 import StudentAssignmentDetails from "./StudentAssignmentDetails";
 import StudentSubmissionComments from "./StudentSubmissionComments";
-import StudentEventsList from "../events/StudentEventsList";
 import { getStudentDashboardData } from "../../../service";
 import { connect } from "react-redux";
 
@@ -21,14 +19,23 @@ class StudentAssignmentsContainer extends Component {
       submission_comments: this.props.submission_comments,
       onFocusData: null,
       events: this.props.events
-      // selectedAssignment: null,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      student: this.props.student,
+      assignments: this.props.assignments,
+      submissions: this.props.submissions,
+      submission_comments: this.props.submission_comments,
+      onFocusData: null,
+      events: this.props.events
+    });
   }
 
   getOnFocusData = data => {
     this.setState({
       onFocusData: data
-      // selectedAssignment:this.props.assignments.indexOf(data)
     });
   };
 
@@ -38,14 +45,8 @@ class StudentAssignmentsContainer extends Component {
         .then(response => response.json())
         .then(response => {
           this.setState({
-            student: response.student,
-            cohort: response.cohort,
-            classmates: response.classmates,
-            assignments: response.assignments,
             submissions: response.submissions,
-            submissionComments: response.submission_comments,
-            admins: response.admins,
-            events: response.events
+            submissionComments: response.submission_comments
           });
         });
     } else {
@@ -84,6 +85,7 @@ class StudentAssignmentsContainer extends Component {
             assignment={this.state.onFocusData}
             submissionComments={this.state.submissionComments}
             deleteSuccess={this.reload}
+            submissionSuccess={this.reload}
           />
         );
       } else {
