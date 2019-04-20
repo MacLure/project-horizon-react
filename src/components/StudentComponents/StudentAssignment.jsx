@@ -1,62 +1,82 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import checkmark from './../../assets/Icons/tick.svg'
-import exclamation from './../../assets/Icons/warning.svg'
-
+import React, { Component } from "react";
+import styled from "styled-components";
+import checkmark from "./../../assets/Icons/tick.svg";
+import exclamation from "./../../assets/Icons/warning.svg";
+import { formattedDate } from "./../../utilities";
 
 class StudentAssignment extends Component {
-  state = {  }
+  state = {};
 
+  assignmentSubmitted = () => {
+    return this.props.submission;
+  };
+  assignmentOverDue = () => {
+    return (
+      !this.props.submission && Date.now() - Date.parse(this.propsdue_date) > 0
+    );
+  };
 
-
-  options = {year: 'numeric', month: 'short', day: 'numeric' };
-
-  assignmentSubmitted = () => {return (this.props.submission)}
-  assignmentOverDue = () => {return (!this.props.submission && (Date.now() - Date.parse(this.propsdue_date) > 0))}
-
-    submissionStatus = () => {
-      if (this.assignmentSubmitted()) {
-        return '#17B57E'
-      } else if (this.assignmentOverDue()) {
-        return '#FC3404'
-      }
+  submissionStatus = () => {
+    if (this.assignmentSubmitted()) {
+      return "#17B57E";
+    } else if (this.assignmentOverDue()) {
+      return "#FC3404";
     }
+  };
 
   render() {
-    const { name, body, dueDate, data, student, onAssignmentClick } = this.props
+    const {
+      name,
+      body,
+      dueDate,
+      data,
+      student,
+      onAssignmentClick
+    } = this.props;
 
     const submissionInfoToDisplay = () => {
       if (this.assignmentSubmitted()) {
         return (
           <div className="studentSubmissionStatus">
-            <div className="checkmarkContainer"><img className="checkmark" src={checkmark} alt="submitted" /></div>
+            <div className="checkmarkContainer">
+              <img className="checkmark" src={checkmark} alt="submitted" />
+            </div>
             <div className="submissionStatusText">
-              submitted:<br />
-              {new Date(Date.parse(this.props.submission.created_at)).toLocaleString('en', this.options)}
+              submitted:
+              <br />
+              {formattedDate(this.props.submission.created_at)}
             </div>
           </div>
-        )
+        );
       } else {
         return (
           <div className="studentSubmissionStatus">
-            <div className="checkmarkContainer"><img className="checkmark" src={exclamation} alt="Overdue" /></div>
+            <div className="checkmarkContainer">
+              <img className="checkmark" src={exclamation} alt="Overdue" />
+            </div>
             <div className="submissionStatusText">
-              overdue<br />
+              overdue
+              <br />
             </div>
           </div>
-        )
+        );
       }
-    }
+    };
 
     return (
-      <div className="assignmentItem" onClick={e=>{onAssignmentClick(data)}}>
+      <div
+        className="assignmentItem"
+        onClick={e => {
+          onAssignmentClick(data);
+        }}
+      >
         <div className="assignmentItemDetails">
           <div>{name}</div>
-          <div className="date">Due: {new Date(Date.parse(dueDate)).toLocaleString('en', this.options)}</div>
+          <div className="date">Due: {formattedDate(dueDate)}</div>
         </div>
-          {submissionInfoToDisplay()}
+        {submissionInfoToDisplay()}
       </div>
-     );
+    );
   }
 }
 
