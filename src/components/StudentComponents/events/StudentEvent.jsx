@@ -12,6 +12,12 @@ class StudentEvent extends Component {
         onClick={e => {
           this.props.onEventClick(this.props.data);
         }}
+        style={{
+          border: this.props.isActive
+            ? "1px solid  #e6e6e6"
+            : "1px solid transparent",
+          backgroundColor: this.props.isActive ? "#f4f4f4" : ""
+        }}
       >
         <div className="eventItemDetails">
           <div>

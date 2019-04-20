@@ -7,7 +7,7 @@ class StudentAssignmentsList extends Component {
     super(props);
 
     this.state = {
-      onFocusData: null,
+      selectedEvent: null,
       events: [],
       assignments: [],
       submissions: [],
@@ -21,7 +21,7 @@ class StudentAssignmentsList extends Component {
 
   onEventClick = data => {
     this.setState({
-      onFocusData: data
+      selectedEvent: this.props.events.indexOf(data)
     });
     this.props.getOnFocusData(data);
   };
@@ -41,6 +41,7 @@ class StudentAssignmentsList extends Component {
             key={event.id}
             data={event}
             onEventClick={this.onEventClick}
+            isActive={this.state.selectedEvent === index}
           />
         ))}
         <div style={{ height: "10px", backgroundColor: "white" }} />
