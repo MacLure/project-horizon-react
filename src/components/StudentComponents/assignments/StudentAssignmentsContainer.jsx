@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../../Student.css";
 import StudentAssignmentsList from "./StudentAssignmentsList";
 import SubmissionDetails from "./SubmissionDetails";
 import NewSubmissionForm from "./NewSubmissionForm";
@@ -17,8 +16,7 @@ class StudentAssignmentsContainer extends Component {
       assignments: this.props.assignments,
       submissions: this.props.submissions,
       submission_comments: this.props.submission_comments,
-      onFocusData: null,
-      events: this.props.events
+      onFocusData: null
     };
   }
 
@@ -85,7 +83,6 @@ class StudentAssignmentsContainer extends Component {
             assignment={this.state.onFocusData}
             submissionComments={this.state.submissionComments}
             deleteSuccess={this.reload}
-            submissionSuccess={this.reload}
           />
         );
       } else {

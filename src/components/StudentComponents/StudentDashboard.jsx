@@ -105,7 +105,6 @@ class StudentDashboard extends Component {
               assignments={this.state.assignments}
               submissions={this.state.submissions}
               submissionComments={this.state.submissionComments}
-              student={this.state.student}
               admins={this.state.admins}
               events={this.state.events}
               cohort={this.state.cohort}

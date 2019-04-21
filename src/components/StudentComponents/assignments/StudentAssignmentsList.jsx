@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import StudentAssignment from "./StudentAssignment";
-import StudentStyles from "./../../../Student.css";
-import SubmissionDetails from "./SubmissionDetails";
-import NewSubmissionForm from "./NewSubmissionForm";
 import StudentCohortDetails from "./../StudentCohortDetails";
 
 class StudentAssignmentsList extends Component {
@@ -42,13 +39,7 @@ class StudentAssignmentsList extends Component {
   // }
 
   render() {
-    const {
-      assignments,
-      submissions,
-      student,
-      getOnFocusData,
-      submissionComments
-    } = this.props;
+    const { assignments } = this.props;
 
     return (
       <div className="assignmentlist">

@@ -81,17 +81,14 @@ body {
   StudentEventList
 ----------------------------------------- */
 .StudentEventsContainer {
-  background-color: #2a2c33;
-  margin: 20px auto;
-  padding: 10px;
-  width: 1300px;
-  height: 250px;
-  border-radius: 5px;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  display: block;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  margin: 30px auto;
+  padding: 0 30px;
+  width: 90%;
+  height: 500px;
+  grid-gap: 50px;
+  background-color: #e6e6e6;
 }
 
 .eventItem {

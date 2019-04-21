@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import StudentEvent from "./StudentEvent";
-import StudentStyles from "./../../../Student.css";
 
-class StudentAssignmentsList extends Component {
+class StudentEventsList extends Component {
   constructor(props) {
     super(props);
 
@@ -50,4 +49,4 @@ class StudentAssignmentsList extends Component {
   }
 }
 
-export default StudentAssignmentsList;
+export default StudentEventsList;

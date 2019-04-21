@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../../Student.css";
 import { connect } from "react-redux";
-import { deleteSubmission, editSubmission } from "../../../service";
 import { formattedDate } from "./../../../utilities";
 
 class StudentSubmissionComments extends Component {
@@ -11,7 +9,6 @@ class StudentSubmissionComments extends Component {
   }
 
   render() {
-    const assignment = this.props.assignment;
     const submission = this.props.submission;
     const admins = this.props.admins;
     const comments = this.props.comments.filter(

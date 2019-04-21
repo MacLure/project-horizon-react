@@ -42,7 +42,6 @@ class Login extends Component {
         onAdminLogin(this.state.email, this.state.password)
           .then(e => e.json())
           .then(e => {
-            console.log(e);
             this.props.onTokenReceive(e.jwt);
             this.props.history.push("/admin");
           })
@@ -82,7 +81,6 @@ class Login extends Component {
       onStudentLogin("guest.student@horizon.com", "password")
         .then(e => e.json())
         .then(e => {
-          console.log(e);
           this.props.onTokenReceive(e.jwt);
           this.props.history.push("/student");
         })
@@ -96,7 +94,6 @@ class Login extends Component {
       onAdminLogin("guest.admin@horizon.com", "password")
         .then(e => e.json())
         .then(e => {
-          console.log(e);
           this.props.onTokenReceive(e.jwt);
           this.props.history.push("/admin");
         })
@@ -122,7 +119,7 @@ class Login extends Component {
           Log in as a guest {this.state.user}
         </button>
         <hr />
-        <p class="guestOrLogin">or log in as a registered user:</p>
+        <p className="guestOrLogin">or log in as a registered user:</p>
         <label className="loginLabel" htmlFor="email">
           Email
         </label>

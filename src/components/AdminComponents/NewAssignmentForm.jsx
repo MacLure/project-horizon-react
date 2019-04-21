@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createNewAssignment } from "./../../service";
-import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
 
 class NewAssignmentForm extends Component {

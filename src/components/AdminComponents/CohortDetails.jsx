@@ -8,7 +8,6 @@ import trash from "../../assets/Icons/trash.svg";
 import plus from "../../assets/Icons/plusSmall.svg";
 import { connect } from "react-redux";
 import { deleteCohort } from ".././../service";
-import AdminStyles from "./../../Admin.css";
 import { formattedDate, getHour, getMinute } from "./../../utilities";
 
 class CohortDetails extends Component {

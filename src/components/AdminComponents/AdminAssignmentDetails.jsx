@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { deleteAssignment } from "../../service";
 import { editAssignment } from "../../service";
 import { connect } from "react-redux";
-import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
 import trash from "../../assets/Icons/trash.svg";
 import { formattedDate } from "./../../utilities";

@@ -9,8 +9,8 @@ class Submission extends Component {
         <h2 className="sectionTitle">
           {this.props.student.first_name}'s Submission:
         </h2>
-        <div class="submissionBody">{this.props.submission.url}</div>
-        <div class="submissionBody">{this.props.submission.body}</div>
+        <div className="submissionBody">{this.props.submission.url}</div>
+        <div className="submissionBody">{this.props.submission.body}</div>
       </div>
     );
   }

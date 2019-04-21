@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { createNewSubmission } from "./../../../service";
-g;
+
 class NewSubmissionForm extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +47,7 @@ class NewSubmissionForm extends Component {
           </div>
           <div>
             <label htmlFor="body">Body</label>
-            <textArea
+            <textarea
               type="text_area"
               rows="10"
               cols="40"

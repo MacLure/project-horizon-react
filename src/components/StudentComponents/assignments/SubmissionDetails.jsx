@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../../Student.css";
 import SubmissionComment from "./../../CommonComponents/SubmissionComment.jsx";
 import { connect } from "react-redux";
 import { deleteSubmission } from "../../../service";
@@ -16,7 +15,6 @@ class SubmissionDetails extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -40,7 +38,7 @@ class SubmissionDetails extends Component {
     return (
       <React.Fragment>
         <div className="submission">
-          <h2 className="sectionTitle" />
+          <h2 className="sectionTitle">Your Submission</h2>
           <div className="deleteSubmissionButton" onClick={this.handleDelete}>
             <img className="deleteIcon" src={trash} alt="delete" />
           </div>
@@ -54,7 +52,6 @@ class SubmissionDetails extends Component {
             {this.props.submission.body}
           </div>
         </div>
-        ;
         {submissionComments.map(comment => (
           <SubmissionComment
             key={comment.id}

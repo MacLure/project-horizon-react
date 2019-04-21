@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createNewEvent } from "./../../service";
-import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
 
 class NewEventForm extends Component {

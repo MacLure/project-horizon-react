@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import checkmark from "./../../../assets/Icons/tick.svg";
 import exclamation from "./../../../assets/Icons/warning.svg";
 import { formattedDate } from "./../../../utilities";
@@ -25,14 +24,7 @@ class StudentAssignment extends Component {
   };
 
   render() {
-    const {
-      name,
-      body,
-      dueDate,
-      data,
-      student,
-      onAssignmentClick
-    } = this.props;
+    const { name, dueDate, data, onAssignmentClick } = this.props;
 
     const submissionInfoToDisplay = () => {
       if (this.assignmentSubmitted()) {

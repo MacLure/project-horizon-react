@@ -16,7 +16,6 @@ import EditCohortForm from "./EditCohortForm";
 import AdminStudentDetails from "./AdminStudentDetails";
 
 import plus from "./../../assets/Icons/plus.svg";
-import AdminStyles from "./../../Admin.css";
 
 class AdminDashboard extends Component {
   constructor(props) {
@@ -363,7 +362,7 @@ class AdminDashboard extends Component {
               className="newCohortButton"
               onClick={this.TriggerNewCohortForm}
             >
-              <img className="plus" src={plus} alt="new cohort" alt="new" />
+              <img className="plus" src={plus} alt="new cohort" />
             </div>
           </div>
           <div className="cohortDetailsContainer">

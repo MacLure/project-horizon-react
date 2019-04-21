@@ -56,6 +56,7 @@ class AssignmentListItem extends Component {
                   : exclamation
               }
               className="checkmarkContainer"
+              alt="submission status"
             />
           </div>
         </div>

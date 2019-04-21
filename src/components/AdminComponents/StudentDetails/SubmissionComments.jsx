@@ -81,7 +81,7 @@ class SubmissionComments extends Component {
             <div className="submissionCommentBody">{comment.body}</div>
           </div>
         ))}
-        <div class="newComment">
+        <div className="newComment">
           <form
             className="commentForm"
             method="post"
@@ -99,7 +99,7 @@ class SubmissionComments extends Component {
             />
             <br />
             <br />
-            <button class="btn" type="submit">
+            <button className="btn" type="submit">
               Submit
             </button>
           </form>

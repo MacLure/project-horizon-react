@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StudentStyles from "./../../../Student.css";
 import StudentEventDetails from "./StudentEventDetails";
 import StudentEventsList from "./StudentEventsList";
 
@@ -40,7 +39,7 @@ class StudentEventsContainer extends Component {
     }
 
     return (
-      <div className="assignmentContainer">
+      <div className="StudentEventsContainer">
         <StudentEventsList
           events={this.props.events}
           getOnFocusData={this.getOnFocusData}

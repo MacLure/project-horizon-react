@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AdminStyles from "./../../Admin.css";
 import X from "../../assets/Icons/x.svg";
 
 class NewAdminForm extends Component {

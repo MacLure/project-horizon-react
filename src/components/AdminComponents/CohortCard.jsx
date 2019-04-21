@@ -1,10 +1,9 @@
 import React from "react";
 import CohortProgressCircle from "./CohortProgressCircle";
-import AdminStyles from "./../../Admin.css";
 import { formattedDate } from "./../../utilities";
 
 const CohortCard = props => {
-  const { start_date, end_date, name, course_type, id } = props.data;
+  const { start_date, end_date, name, course_type } = props.data;
 
   const courseDays = Math.trunc(
     (Date.parse(end_date) - Date.parse(start_date)) / (1000 * 60 * 60 * 24)
