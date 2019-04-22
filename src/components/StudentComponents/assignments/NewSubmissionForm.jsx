@@ -48,6 +48,7 @@ class NewSubmissionForm extends Component {
           <div>
             <label htmlFor="body">Body</label>
             <textarea
+              style={{ backgroundColor: "white" }}
               type="text_area"
               rows="10"
               cols="40"
