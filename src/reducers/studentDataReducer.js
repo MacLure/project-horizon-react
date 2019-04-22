@@ -1,9 +1,13 @@
 const initialState = {
-  isAuthenticated: false,
-  isAuthenticating: false,
-  currentUser: {},
-  token: JSON.parse(localStorage.getItem("jwt")) || null,
-  errors: []
+  cohort: {},
+  student: {},
+  classmates: [],
+  assignments: [],
+  submissions: [],
+  events: [],
+  admins: [],
+  submission_comments: [],
+  showEventDetails: false
 };
 
 const reducer = (state = initialState, action) => {
