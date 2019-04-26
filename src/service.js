@@ -1,7 +1,7 @@
-// const localURL = "http://localhost:3000";
+const localURL = "http://localhost:3000";
 const serverURL = "https://project-horizon-rails.herokuapp.com";
 
-const rootURL = serverURL;
+const rootURL = localURL;
 
 // LOGIN
 
